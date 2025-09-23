@@ -3,7 +3,7 @@ from google import genai
 from PIL import Image
 
 # --- Gemini API ---
-client = genai.Client(api_key='YOUR_API_KEY')  # GEMINI_API_KEY đã đặt trong env
+client = genai.Client()
 
 image_root = "images"
 output_root = "output_txt"
