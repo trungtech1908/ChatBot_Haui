@@ -1,13 +1,14 @@
+import os
 import re
 import json
 
-def chunk_markdown(file_path, output_path="chunks.json"):
+def chunk_markdown(file_path, output_path):
     with open(file_path, "r", encoding="utf-8") as f:
         lines = [line.strip() for line in f if line.strip()]
 
     all_chunks = []
     current_level1 = None
-    pending_level1 = []  # lưu tạm nhiều dòng cấp 1 liên tiếp
+    pending_level1 = []
     current_level2 = None
     level2_intro = ""
     current_subchunks = []
@@ -27,7 +28,6 @@ def chunk_markdown(file_path, output_path="chunks.json"):
         current_subchunks = []
 
     def finalize_level1():
-        """Khi đã gom xong các cấp 1 liên tiếp, hợp chúng lại"""
         nonlocal pending_level1, current_level1
         if pending_level1:
             current_level1 = " ".join(pending_level1)
@@ -40,19 +40,18 @@ def chunk_markdown(file_path, output_path="chunks.json"):
     while i < len(lines):
         line = lines[i]
 
-        # --- Nếu là cấp 1 (in hoa toàn bộ) ---
+        # Cấp 1
         if re.fullmatch(rf"\*\*[{uppercase_vn}0-9\s,.\-]+\*\*", line):
             text = re.sub(r"\*\*(.*?)\*\*", r"\1", line).strip()
             pending_level1.append(text)
             i += 1
-            continue  # đợi xem dòng sau có phải tiếp tục cấp 1 không
+            continue
 
-        # --- Nếu dòng này KHÔNG phải cấp 1, mà có pending ---
         if pending_level1:
             flush_current()
             finalize_level1()
 
-        # --- Cấp 2: **Chữ đậm thường (chữ thường có dấu)**
+        # Cấp 2
         if re.fullmatch(rf"\*\*[{uppercase_vn}{lowercase_vn}0-9\s,.\-]+\*\*", line):
             text = re.sub(r"\*\*(.*?)\*\*", r"\1", line).strip()
             if not text.isupper():
@@ -62,21 +61,21 @@ def chunk_markdown(file_path, output_path="chunks.json"):
             i += 1
             continue
 
-        # --- Dòng mô tả ngay sau cấp 2 ---
+        # Dòng mô tả sau cấp 2
         if waiting_for_level2_intro:
             level2_intro = line
             waiting_for_level2_intro = False
             i += 1
             continue
 
-        # --- Các mục như 1., a), - ... ---
+        # Các mục liệt kê
         if re.match(r"^\d+\.", line) or re.match(r"^[a-zA-Z]\)", line) or re.match(r"^[-•]", line):
             prefix = " ".join(filter(None, [current_level1, current_level2, level2_intro]))
             current_subchunks.append(f"{prefix} {line}".strip())
             i += 1
             continue
 
-        # --- Bảng dữ liệu (cấp 3) ---
+        # Bảng dữ liệu
         if is_table_line(line):
             table_block = [line]
             j = i + 1
@@ -89,14 +88,13 @@ def chunk_markdown(file_path, output_path="chunks.json"):
             i = j
             continue
 
-        # --- Nội dung khác ---
+        # Nội dung khác
         if current_level2:
             prefix = " ".join(filter(None, [current_level1, current_level2, level2_intro]))
             current_subchunks.append(f"{prefix} {line}".strip())
 
         i += 1
 
-    # Cuối file mà vẫn còn cấp 1 đang pending
     if pending_level1:
         flush_current()
         finalize_level1()
@@ -106,8 +104,22 @@ def chunk_markdown(file_path, output_path="chunks.json"):
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(all_chunks, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ Đã chia {len(all_chunks)} chunk lớn, lưu vào '{output_path}'")
+    print(f"✅ {os.path.basename(file_path)} → {len(all_chunks)} chunks, lưu vào '{output_path}'")
 
 
-# Ví dụ chạy thử
-chunk_markdown("output_md_Gemini/ChinhSachSV.md", "chunks.json")
+# --- Xử lý toàn bộ thư mục chứa .md ---
+def process_folder(input_folder, output_folder="chunks_json"):
+    os.makedirs(output_folder, exist_ok=True)
+
+    for filename in os.listdir(input_folder):
+        if filename.endswith(".md"):
+            input_path = os.path.join(input_folder, filename)
+            output_name = os.path.splitext(filename)[0] + ".json"
+            output_path = os.path.join(output_folder, output_name)
+            chunk_markdown(input_path, output_path)
+
+    print("\n🎯 Hoàn tất xử lý toàn bộ file .md.")
+
+
+# Ví dụ chạy
+process_folder("output_md_Gemini")
