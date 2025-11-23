@@ -9,10 +9,9 @@ load_dotenv()
 
 COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 co = ClientV2(COHERE_API_KEY)
-
+model = BGEM3FlagModel('BAAI/bge-m3', use_fp16=True, devices='cpu')
 
 def node_retriever(state: AgentState) -> AgentState:
-    model = BGEM3FlagModel('BAAI/bge-m3', use_fp16=True, devices='cpu')
     embeddings = model.encode(
         [state['new_query']],
         return_dense=True,
