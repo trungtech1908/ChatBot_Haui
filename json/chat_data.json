@@ -154,5 +154,23 @@
     "message": "Điều kiện nhận học bổng là gì?HocBong.jsonĐiều kiện để nhận học bổng HaUI như sau:1. Sinh viên cần đáp ứng các điều kiện chung:   - Kết thúc mỗi học kỳ chính, sinh viên phải đạt đồng thời cả hai điều kiện:     a) Điểm trung bình học kỳ (TBC) ≥ 2.5 và rèn luyện loại tốt trở lên.     b) Tổng số tín chỉ xét học bổng ≥ 15 tín chỉ (trừ trường hợp Nhà trường bố trí không đủ 15 tín chỉ).2. Đối với học bổng HaUI bảo lưu:   - Sinh viên nhận khi quay trở lại học tập từ kết quả học tập và rèn luyện trong học kỳ chính trước.   - Nếu đáp ứng điều kiện duy trì tại khoản a, b trên, sinh viên sẽ tiếp tục được xét học bổng và kéo dài thời gian xét bằng thời gian bảo lưu.3. Đối với học bổng toàn khóa học và học bổng năm thứ nhất:   - Cấp 100% học phí các học phần học lần thứ nhất trong học kỳ chính và các học phần học tại học kỳ phụ song song hoặc ngay liền sau.   - Sinh viên nhận học bổng năm thứ nhất phải đạt một trong các tiêu chí: sinh viên đạt kết quả cao trong học tập và rèn luyện; sinh viên đạt giải cao trong kỳ thi Quốc gia, Quốc tế.4. Đối với học bổng khích lệ học tập:   - Xét cho sinh viên có định hướng học tiếp trình độ đào tạo Thạc sĩ.   5. Đối với học bổng tài trợ:   - Một sinh viên chỉ nhận một loại học bổng trong một năm học.   - Trường hợp đặc biệt, Hiệu trưởng quyết định khi một sinh viên nhận từ 02 học bổng do tiêu chí của nhà tài trợ.   - Đối với học bổng từ tổ chức/cá nhân tài trợ không kèm theo tiêu chí lựa chọn, căn cứ để lựa chọn sinh viên dựa trên kết quả học tập, rèn luyện và hoàn cảnh cá nhân.6. Học kỳ cuối:   - Sinh viên cần có tổng số tín chỉ xét học bổng ≥ 07 tín chỉ.Những điều kiện này đảm bảo sự công bằng và tính chất cạnh tranh trong việc nhận học bổng HaUI.",
     "timestamp": "08:57 27/11/2025",
     "sender": "bot"
+  },
+  {
+    "username": "SV001_tk",
+    "message": "hi bạn",
+    "timestamp": "09:05 27/11/2025",
+    "sender": "user"
+  },
+  {
+    "username": "SV001_tk",
+    "message": "điều kiện nhận học bổng là gì",
+    "timestamp": "09:05 27/11/2025",
+    "sender": "user"
+  },
+  {
+    "username": "SV001_tk",
+    "message": "Chào hỏiKhông xác địnhChào bạn! Tôi rất vui được trò chuyện với bạn. Bạn đang muốn biết thêm thông tin về chủ đề gì hôm nay?Chào bạn! Tôi rất vui được gặp bạn. Bạn đang muốn biết thêm thông tin về vấn đề gì hôm nay?",
+    "timestamp": "09:06 27/11/2025",
+    "sender": "bot"
   }
 ]

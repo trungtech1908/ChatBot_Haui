@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trợ lý ảo Sinh viên</title>
-    <script src="https://kit.fontawesome.com/60d1a3e6c3.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet">
+<!-- Chatbot Panel - có thể ẩn/hiện như các panel khác -->
+<div id="chatbox" class="content-panel hidden">
     <style>
-        * {
-            box-sizing: border-box;
-        }
-        
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
+        .chatbot-container {
+            height: calc(100vh - 200px);
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .animation-fade-in { 
@@ -80,275 +73,293 @@
             }
         }
     </style>
-</head>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-100">
 
-<div id="chatbox" class="w-full h-screen flex flex-col bg-white shadow-2xl">
-    <!-- Header -->
-    <div class="p-6 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white shadow-lg">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-                <div class="bg-white/20 p-3 rounded-full">
-                    <i class="fas fa-robot text-3xl"></i>
-                </div>
-                <div>
-                    <h1 class="text-2xl font-bold">Trợ lý ảo Sinh viên</h1>
-                    <p class="text-blue-100 text-sm mt-1">Xin chào, <span class="font-semibold">{{ username }}</span></p>
-                </div>
-            </div>
-            <button onclick="resetChat()" 
-                    class="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-200 hover:scale-110"
-                    title="Xóa lịch sử chat">
-                <i class="fas fa-trash-alt text-xl"></i>
-            </button>
-        </div>
-    </div>
-
-    <!-- Messages Area -->
-    <div id="chat-messages" class="flex-1 p-6 md:p-8 space-y-6 overflow-y-auto bg-gradient-to-b from-gray-50 to-white">
-        <div class="flex justify-start animation-fade-in">
-            <div class="message-bot bg-white p-6 rounded-3xl rounded-tl-md shadow-md border border-gray-200">
-                <div class="flex items-start space-x-3">
-                    <div class="bg-blue-100 p-2 rounded-full flex-shrink-0">
-                        <i class="fas fa-robot text-blue-600 text-lg"></i>
+    <div class="chatbot-container">
+        <!-- Header -->
+        <div class="p-4 md:p-6 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white shadow-lg">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3 md:space-x-4">
+                    <div class="bg-white/20 p-2 md:p-3 rounded-full">
+                        <i class="fas fa-robot text-xl md:text-3xl"></i>
                     </div>
-                    <div class="flex-1">
-                        <p class="text-gray-800 text-base leading-relaxed">
-                            Xin chào <span class="font-bold text-blue-600">{{ username }}</span>! 👋<br>
-                            Tôi là trợ lý ảo của bạn. Tôi có thể giúp bạn trả lời các câu hỏi về quy định, quy chế, học phí và các thông tin khác của trường. Hãy đặt câu hỏi cho tôi nhé!
-                        </p>
+                    <div>
+                        <h2 class="text-lg md:text-2xl font-bold">Trợ lý ảo Sinh viên</h2>
+                        <p class="text-blue-100 text-xs md:text-sm mt-1">Xin chào, <span class="font-semibold">{{ username }}</span></p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Input Area -->
-    <div class="p-4 md:p-6 bg-white border-t-2 border-gray-200 shadow-lg">
-        <div class="flex items-end space-x-4 max-w-7xl mx-auto">
-            <div class="flex-1 relative">
-                <textarea 
-                    id="message-input" 
-                    placeholder="Nhập câu hỏi của bạn..."
-                    rows="1"
-                    class="w-full px-6 py-4 pr-14 bg-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:bg-white text-base resize-none border-2 border-transparent focus:border-blue-400 transition-all duration-200"
-                    onkeydown="handleKeyDown(event)"
-                    oninput="autoResize(this)"
-                ></textarea>
-                <button 
-                    id="send-btn" 
-                    onclick="sendMessage()"
-                    class="absolute right-3 bottom-3 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
-                    title="Gửi tin nhắn (Enter)">
-                    <i class="fas fa-paper-plane text-sm"></i>
+                <button onclick="resetChat()" 
+                        class="bg-white/20 hover:bg-white/30 p-2 md:p-3 rounded-full transition-all duration-200 hover:scale-110"
+                        title="Xóa lịch sử chat">
+                    <i class="fas fa-trash-alt text-lg md:text-xl"></i>
                 </button>
             </div>
         </div>
-        <div class="text-center mt-3">
-            <p class="text-xs text-gray-500">
-                <i class="fas fa-info-circle mr-1"></i>
-                Nhấn <kbd class="px-2 py-1 bg-gray-200 rounded text-xs">Enter</kbd> để gửi, <kbd class="px-2 py-1 bg-gray-200 rounded text-xs">Shift + Enter</kbd> để xuống dòng
-            </p>
-        </div>
-    </div>
-</div>
 
-<script>
-    function autoResize(textarea) {
-        textarea.style.height = 'auto';
-        textarea.style.height = Math.min(textarea.scrollHeight, 150) + 'px';
-    }
-
-    function handleKeyDown(event) {
-        if (event.key === 'Enter' && !event.shiftKey) {
-            event.preventDefault();
-            sendMessage();
-        }
-    }
-
-    function scrollToBottom() {
-        const el = document.getElementById('chat-messages');
-        el.scrollTo({
-            top: el.scrollHeight,
-            behavior: 'smooth'
-        });
-    }
-
-    async function sendMessage() {
-        const input = document.getElementById('message-input');
-        const sendBtn = document.getElementById('send-btn');
-        const text = input.value.trim();
-        
-        if (!text) return;
-
-        // Disable input và button khi đang gửi
-        input.disabled = true;
-        sendBtn.disabled = true;
-
-        const time = new Date().toLocaleTimeString('vi-VN', {hour:'2-digit', minute:'2-digit'}) + " " + new Date().toLocaleDateString('vi-VN');
-
-        // Tạo ID duy nhất cho tin nhắn bot này
-        const messageId = 'msg-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
-        const botTextId = 'bot-text-' + messageId;
-        const typingId = 'typing-' + messageId;
-
-        // Reset textarea height
-        input.style.height = 'auto';
-        input.value = '';
-
-        // Tin nhắn người dùng
-        document.getElementById('chat-messages').insertAdjacentHTML('beforeend', `
-            <div class="flex justify-end animation-fade-in">
-                <div class="message-user bg-gradient-to-br from-blue-600 to-blue-700 text-white p-5 rounded-3xl rounded-tr-md shadow-lg">
-                    <div class="flex items-end space-x-3">
-                        <div class="flex-1">
-                            <p class="break-words text-base leading-relaxed whitespace-pre-wrap">${text.replace(/\n/g, '\n')}</p>
-                            <span class="text-xs text-blue-200 block mt-2">${time}</span>
-                        </div>
-                        <div class="bg-white/20 p-2 rounded-full flex-shrink-0">
-                            <i class="fas fa-user text-sm"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>`);
-
-        // Tin nhắn bot (streaming) - dùng ID duy nhất
-        document.getElementById('chat-messages').insertAdjacentHTML('beforeend', `
-            <div id="bot-message-${messageId}" class="flex justify-start animation-fade-in">
-                <div class="message-bot bg-white p-5 rounded-3xl rounded-tl-md shadow-md border border-gray-200">
+        <!-- Messages Area -->
+        <div id="chat-messages" class="flex-1 p-4 md:p-6 space-y-4 md:space-y-6 overflow-y-auto bg-gradient-to-b from-gray-50 to-white">
+            <div class="flex justify-start animation-fade-in">
+                <div class="message-bot bg-white p-4 md:p-6 rounded-3xl rounded-tl-md shadow-md border border-gray-200">
                     <div class="flex items-start space-x-3">
                         <div class="bg-blue-100 p-2 rounded-full flex-shrink-0">
                             <i class="fas fa-robot text-blue-600 text-lg"></i>
                         </div>
                         <div class="flex-1">
-                            <p id="${botTextId}" class="text-gray-800 whitespace-pre-wrap break-words text-base leading-relaxed"></p>
-                            <span id="${typingId}" class="typing-indicator text-gray-400 text-sm mt-2 inline-flex items-center">
-                                <i class="fas fa-circle-notch fa-spin mr-2"></i>đang trả lời...
-                            </span>
+                            <p class="text-gray-800 text-sm md:text-base leading-relaxed">
+                                Xin chào <span class="font-bold text-blue-600">{{ username }}</span>! 👋<br>
+                                Tôi là trợ lý ảo của bạn. Tôi có thể giúp bạn trả lời các câu hỏi về quy định, quy chế, học phí và các thông tin khác của trường. Hãy đặt câu hỏi cho tôi nhé!
+                            </p>
                         </div>
                     </div>
                 </div>
-            </div>`);
+            </div>
+        </div>
 
-        scrollToBottom();
+        <!-- Input Area -->
+        <div class="p-3 md:p-4 bg-white border-t-2 border-gray-200 shadow-lg">
+            <div class="flex items-end space-x-3 md:space-x-4">
+                <div class="flex-1 relative">
+                    <textarea 
+                        id="message-input" 
+                        placeholder="Nhập câu hỏi của bạn..."
+                        rows="1"
+                        class="w-full px-4 md:px-6 py-3 md:py-4 pr-12 md:pr-14 bg-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:bg-white text-sm md:text-base resize-none border-2 border-transparent focus:border-blue-400 transition-all duration-200"
+                        onkeydown="handleKeyDown(event)"
+                        oninput="autoResize(this)"
+                    ></textarea>
+                    <button 
+                        id="send-btn" 
+                        onclick="sendMessage()"
+                        class="absolute right-2 md:right-3 bottom-2 md:bottom-3 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                        title="Gửi tin nhắn (Enter)">
+                        <i class="fas fa-paper-plane text-xs md:text-sm"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="text-center mt-2 md:mt-3">
+                <p class="text-xs text-gray-500">
+                    <i class="fas fa-info-circle mr-1"></i>
+                    Nhấn <kbd class="px-1.5 md:px-2 py-0.5 md:py-1 bg-gray-200 rounded text-xs">Enter</kbd> để gửi, <kbd class="px-1.5 md:px-2 py-0.5 md:py-1 bg-gray-200 rounded text-xs">Shift + Enter</kbd> để xuống dòng
+                </p>
+            </div>
+        </div>
+    </div>
 
-        // Re-enable input
-        input.disabled = false;
-        sendBtn.disabled = false;
-        input.focus();
-
-        // Gửi tin nhắn lên server (lưu vào json)
-        try {
-            await fetch('/api/send_message', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: "{{ username }}", message: text })
-            });
-        } catch (error) {
-            console.error('Error sending message:', error);
+    <script>
+        function autoResize(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = Math.min(textarea.scrollHeight, 150) + 'px';
         }
 
-        // Bắt đầu stream - lấy element bằng ID duy nhất
-        const es = new EventSource(`/api/stream/{{ username }}`);
-        const botTextEl = document.getElementById(botTextId);
-        const typingEl = document.getElementById(typingId);
-        let isFirstChunk = true;
-
-        es.onmessage = function(event) {
-            if (event.data === "[DONE]") {
-                if (typingEl) typingEl.remove();
-                es.close();
-                scrollToBottom();
-                // Lưu câu trả lời vào chat_data.json
-                const answer = botTextEl ? (botTextEl.textContent || botTextEl.innerText) : '';
-                if (answer) {
-                    fetch('/api/save_bot_response', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ 
-                            username: "{{ username }}", 
-                            message: answer 
-                        })
-                    }).catch(err => console.error('Error saving bot response:', err));
-                }
-                return;
+        function handleKeyDown(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
             }
+        }
+
+        function scrollToBottom() {
+            const el = document.getElementById('chat-messages');
+            if (el) {
+                el.scrollTo({
+                    top: el.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('message-input');
+            const sendBtn = document.getElementById('send-btn');
+            if (!input || !sendBtn) return;
             
-            // Xóa "đang trả lời..." khi có chunk đầu tiên
-            if (isFirstChunk && typingEl) {
-                typingEl.style.display = 'none';
-                isFirstChunk = false;
-            }
-            
-            // Append text an toàn - dùng textContent để giữ newline (CSS whitespace-pre-wrap sẽ hiển thị)
-            const chunkText = event.data;
-            if (botTextEl) {
-                botTextEl.textContent += chunkText;
-            }
-            scrollToBottom();
-        };
+            const text = input.value.trim();
+            if (!text) return;
 
-        es.onerror = function(error) {
-            console.error('Stream error:', error);
-            if (typingEl) typingEl.remove();
-            if (botTextEl) {
-                botTextEl.textContent += '\n\n❌ Lỗi kết nối, vui lòng thử lại sau';
-                botTextEl.classList.add('text-red-600');
-            }
-            es.close();
-            scrollToBottom();
-        };
-    }
+            // Disable input và button khi đang gửi
+            input.disabled = true;
+            sendBtn.disabled = true;
 
-    async function resetChat() {
-        if (!confirm("Bạn có chắc chắn muốn xóa toàn bộ lịch sử chat?")) return;
+            const time = new Date().toLocaleTimeString('vi-VN', {hour:'2-digit', minute:'2-digit'}) + " " + new Date().toLocaleDateString('vi-VN');
 
-        try {
-            await fetch('/api/reset_chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: "{{ username }}" })
-            });
+            // Tạo ID duy nhất cho tin nhắn bot này
+            const messageId = 'msg-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+            const botTextId = 'bot-text-' + messageId;
+            const typingId = 'typing-' + messageId;
 
-            document.getElementById('chat-messages').innerHTML = `
-                <div class="flex justify-start animation-fade-in">
-                    <div class="message-bot bg-white p-6 rounded-3xl rounded-tl-md shadow-md border border-gray-200">
-                        <div class="flex items-start space-x-3">
-                            <div class="bg-blue-100 p-2 rounded-full flex-shrink-0">
-                                <i class="fas fa-robot text-blue-600 text-lg"></i>
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-gray-800 text-base leading-relaxed">
-                                    Xin chào <span class="font-bold text-blue-600">{{ username }}</span>! 👋<br>
-                                    Tôi là trợ lý ảo của bạn. Tôi có thể giúp bạn trả lời các câu hỏi về quy định, quy chế, học phí và các thông tin khác của trường. Hãy đặt câu hỏi cho tôi nhé!
-                                </p>
+            // Reset textarea height
+            input.style.height = 'auto';
+            input.value = '';
+
+            // Tin nhắn người dùng
+            const chatMessages = document.getElementById('chat-messages');
+            if (chatMessages) {
+                chatMessages.insertAdjacentHTML('beforeend', `
+                    <div class="flex justify-end animation-fade-in">
+                        <div class="message-user bg-gradient-to-br from-blue-600 to-blue-700 text-white p-4 md:p-5 rounded-3xl rounded-tr-md shadow-lg">
+                            <div class="flex items-end space-x-3">
+                                <div class="flex-1">
+                                    <p class="break-words text-sm md:text-base leading-relaxed whitespace-pre-wrap">${text.replace(/\n/g, '\n')}</p>
+                                    <span class="text-xs text-blue-200 block mt-2">${time}</span>
+                                </div>
+                                <div class="bg-white/20 p-2 rounded-full flex-shrink-0">
+                                    <i class="fas fa-user text-xs md:text-sm"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>`;
+                    </div>`);
+
+                // Tin nhắn bot (streaming) - dùng ID duy nhất
+                chatMessages.insertAdjacentHTML('beforeend', `
+                    <div id="bot-message-${messageId}" class="flex justify-start animation-fade-in">
+                        <div class="message-bot bg-white p-4 md:p-5 rounded-3xl rounded-tl-md shadow-md border border-gray-200">
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-blue-100 p-2 rounded-full flex-shrink-0">
+                                    <i class="fas fa-robot text-blue-600 text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p id="${botTextId}" class="text-gray-800 whitespace-pre-wrap break-words text-sm md:text-base leading-relaxed"></p>
+                                    <span id="${typingId}" class="typing-indicator text-gray-400 text-xs md:text-sm mt-2 inline-flex items-center">
+                                        <i class="fas fa-circle-notch fa-spin mr-2"></i>đang trả lời...
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`);
+            }
+
             scrollToBottom();
-        } catch (error) {
-            console.error('Error resetting chat:', error);
-            alert('Có lỗi xảy ra khi xóa lịch sử chat');
+
+            // Re-enable input
+            input.disabled = false;
+            sendBtn.disabled = false;
+            input.focus();
+
+            // Gửi tin nhắn lên server (lưu vào json)
+            try {
+                await fetch('/api/send_message', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: "{{ username }}", message: text })
+                });
+            } catch (error) {
+                console.error('Error sending message:', error);
+            }
+
+            // Bắt đầu stream - lấy element bằng ID duy nhất
+            const es = new EventSource(`/api/stream/{{ username }}`);
+            const botTextEl = document.getElementById(botTextId);
+            const typingEl = document.getElementById(typingId);
+            let isFirstChunk = true;
+
+            es.onmessage = function(event) {
+                if (event.data === "[DONE]") {
+                    if (typingEl) typingEl.remove();
+                    es.close();
+                    scrollToBottom();
+                    // Lưu câu trả lời vào chat_data.json
+                    const answer = botTextEl ? (botTextEl.textContent || botTextEl.innerText) : '';
+                    if (answer) {
+                        fetch('/api/save_bot_response', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ 
+                                username: "{{ username }}", 
+                                message: answer 
+                            })
+                        }).catch(err => console.error('Error saving bot response:', err));
+                    }
+                    return;
+                }
+                
+                // Xóa "đang trả lời..." khi có chunk đầu tiên
+                if (isFirstChunk && typingEl) {
+                    typingEl.style.display = 'none';
+                    isFirstChunk = false;
+                }
+                
+                // Append text an toàn - dùng textContent để giữ newline (CSS whitespace-pre-wrap sẽ hiển thị)
+                const chunkText = event.data;
+                if (botTextEl) {
+                    botTextEl.textContent += chunkText;
+                }
+                scrollToBottom();
+            };
+
+            es.onerror = function(error) {
+                console.error('Stream error:', error);
+                if (typingEl) typingEl.remove();
+                if (botTextEl) {
+                    botTextEl.textContent += '\n\n❌ Lỗi kết nối, vui lòng thử lại sau';
+                    botTextEl.classList.add('text-red-600');
+                }
+                es.close();
+                scrollToBottom();
+            };
         }
-    }
 
-    // Auto focus input khi load trang
-    window.onload = function() {
-        scrollToBottom();
-        document.getElementById('message-input').focus();
-    };
+        async function resetChat() {
+            if (!confirm("Bạn có chắc chắn muốn xóa toàn bộ lịch sử chat?")) return;
 
-    // Auto scroll khi có tin nhắn mới
-    const observer = new MutationObserver(function() {
-        scrollToBottom();
-    });
+            try {
+                await fetch('/api/reset_chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: "{{ username }}" })
+                });
 
-    observer.observe(document.getElementById('chat-messages'), {
-        childList: true,
-        subtree: true
-    });
-</script>
+                const chatMessages = document.getElementById('chat-messages');
+                if (chatMessages) {
+                    chatMessages.innerHTML = `
+                        <div class="flex justify-start animation-fade-in">
+                            <div class="message-bot bg-white p-4 md:p-6 rounded-3xl rounded-tl-md shadow-md border border-gray-200">
+                                <div class="flex items-start space-x-3">
+                                    <div class="bg-blue-100 p-2 rounded-full flex-shrink-0">
+                                        <i class="fas fa-robot text-blue-600 text-lg"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-gray-800 text-sm md:text-base leading-relaxed">
+                                            Xin chào <span class="font-bold text-blue-600">{{ username }}</span>! 👋<br>
+                                            Tôi là trợ lý ảo của bạn. Tôi có thể giúp bạn trả lời các câu hỏi về quy định, quy chế, học phí và các thông tin khác của trường. Hãy đặt câu hỏi cho tôi nhé!
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+                }
+                scrollToBottom();
+            } catch (error) {
+                console.error('Error resetting chat:', error);
+                alert('Có lỗi xảy ra khi xóa lịch sử chat');
+            }
+        }
 
-</body>
-</html>
+        // Auto scroll khi có tin nhắn mới (chỉ khi panel được hiển thị)
+        const observer = new MutationObserver(function() {
+            const chatbox = document.getElementById('chatbox');
+            if (chatbox && !chatbox.classList.contains('hidden')) {
+                scrollToBottom();
+            }
+        });
+
+        // Khởi tạo observer khi DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                const chatMessages = document.getElementById('chat-messages');
+                if (chatMessages) {
+                    observer.observe(chatMessages, {
+                        childList: true,
+                        subtree: true
+                    });
+                }
+            });
+        } else {
+            const chatMessages = document.getElementById('chat-messages');
+            if (chatMessages) {
+                observer.observe(chatMessages, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+        }
+    </script>
+</div>
