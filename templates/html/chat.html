@@ -1,105 +1,354 @@
-<div id="chatbox" class="content-panel hidden h-full flex flex-col bg-gray-50 rounded-xl shadow-lg overflow-hidden border border-gray-200" style="height: 80vh;">
-    <div class="p-4 bg-blue-600 text-white font-bold flex justify-between items-center shadow-md">
-        <div class="flex items-center">
-            <i class="fas fa-robot mr-2 text-2xl"></i>
-            <span>Trợ lý ảo Sinh viên</span>
-        </div>
-        <button onclick="resetChat()" class="text-white opacity-70 hover:opacity-100 hover:text-red-300 transition-colors" title="Xóa lịch sử chat">
-            <i class="fas fa-trash-alt"></i>
-        </button>
-    </div>
-    
-    <div id="chat-messages" class="flex-1 p-4 space-y-4 overflow-y-auto bg-gray-100">
-        <div class="flex justify-start">
-            <div class="bg-white p-3 rounded-lg rounded-tl-none shadow-sm text-sm max-w-[80%] border border-gray-200">
-                <p class="text-gray-800">Xin chào <span class="font-bold text-blue-600">{{ username }}</span>! Tôi có thể giúp gì cho bạn?</p>
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trợ lý ảo Sinh viên</title>
+    <script src="https://kit.fontawesome.com/60d1a3e6c3.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-        {% if chat_history %}
-            {% for msg in chat_history %}
-            <div class="flex justify-end">
-                <div class="bg-blue-600 text-white p-3 rounded-lg rounded-tr-none shadow-md text-sm max-w-[80%]">
-                    <p>{{ msg.message }}</p>
-                    <span class="text-xs text-blue-200 block mt-1 text-left">{{ msg.timestamp }}</span>
+        .animation-fade-in { 
+            animation: fadeIn 0.4s ease-in-out; 
+        }
+        
+        @keyframes fadeIn { 
+            from { 
+                opacity: 0; 
+                transform: translateY(15px); 
+            } 
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            } 
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .typing-indicator {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        #chat-messages {
+            scroll-behavior: smooth;
+        }
+
+        #chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        #chat-messages::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        #chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .message-user {
+            max-width: 75%;
+            margin-left: auto;
+        }
+
+        .message-bot {
+            max-width: 75%;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .message-user, .message-bot {
+                max-width: 85%;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100">
+
+<div id="chatbox" class="w-full h-screen flex flex-col bg-white shadow-2xl">
+    <!-- Header -->
+    <div class="p-6 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white shadow-lg">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="bg-white/20 p-3 rounded-full">
+                    <i class="fas fa-robot text-3xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold">Trợ lý ảo Sinh viên</h1>
+                    <p class="text-blue-100 text-sm mt-1">Xin chào, <span class="font-semibold">{{ username }}</span></p>
                 </div>
             </div>
-            {% endfor %}
-        {% endif %}
+            <button onclick="resetChat()" 
+                    class="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-200 hover:scale-110"
+                    title="Xóa lịch sử chat">
+                <i class="fas fa-trash-alt text-xl"></i>
+            </button>
+        </div>
     </div>
-    
-    <div class="p-4 bg-white border-t border-gray-200 flex items-center gap-2">
-        <input type="text" id="message-input" placeholder="Nhập tin nhắn..." class="flex-1 p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50" onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()" class="bg-blue-600 text-white w-12 h-12 rounded-full hover:bg-blue-700 flex items-center justify-center shadow-lg"><i class="fas fa-paper-plane"></i></button>
+
+    <!-- Messages Area -->
+    <div id="chat-messages" class="flex-1 p-6 md:p-8 space-y-6 overflow-y-auto bg-gradient-to-b from-gray-50 to-white">
+        <div class="flex justify-start animation-fade-in">
+            <div class="message-bot bg-white p-6 rounded-3xl rounded-tl-md shadow-md border border-gray-200">
+                <div class="flex items-start space-x-3">
+                    <div class="bg-blue-100 p-2 rounded-full flex-shrink-0">
+                        <i class="fas fa-robot text-blue-600 text-lg"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-gray-800 text-base leading-relaxed">
+                            Xin chào <span class="font-bold text-blue-600">{{ username }}</span>! 👋<br>
+                            Tôi là trợ lý ảo của bạn. Tôi có thể giúp bạn trả lời các câu hỏi về quy định, quy chế, học phí và các thông tin khác của trường. Hãy đặt câu hỏi cho tôi nhé!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-4 md:p-6 bg-white border-t-2 border-gray-200 shadow-lg">
+        <div class="flex items-end space-x-4 max-w-7xl mx-auto">
+            <div class="flex-1 relative">
+                <textarea 
+                    id="message-input" 
+                    placeholder="Nhập câu hỏi của bạn..."
+                    rows="1"
+                    class="w-full px-6 py-4 pr-14 bg-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:bg-white text-base resize-none border-2 border-transparent focus:border-blue-400 transition-all duration-200"
+                    onkeydown="handleKeyDown(event)"
+                    oninput="autoResize(this)"
+                ></textarea>
+                <button 
+                    id="send-btn" 
+                    onclick="sendMessage()"
+                    class="absolute right-3 bottom-3 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                    title="Gửi tin nhắn (Enter)">
+                    <i class="fas fa-paper-plane text-sm"></i>
+                </button>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <p class="text-xs text-gray-500">
+                <i class="fas fa-info-circle mr-1"></i>
+                Nhấn <kbd class="px-2 py-1 bg-gray-200 rounded text-xs">Enter</kbd> để gửi, <kbd class="px-2 py-1 bg-gray-200 rounded text-xs">Shift + Enter</kbd> để xuống dòng
+            </p>
+        </div>
     </div>
 </div>
 
 <script>
-    function scrollToBottom() {
-        const container = document.getElementById("chat-messages");
-        container.scrollTop = container.scrollHeight;
+    function autoResize(textarea) {
+        textarea.style.height = 'auto';
+        textarea.style.height = Math.min(textarea.scrollHeight, 150) + 'px';
     }
-    document.addEventListener("DOMContentLoaded", scrollToBottom);
 
-    function handleKeyPress(event) { if (event.key === "Enter") sendMessage(); }
+    function handleKeyDown(event) {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            sendMessage();
+        }
+    }
 
-    // HÀM GỬI TIN NHẮN
-    async function sendMessage() {
-        const input = document.getElementById("message-input");
-        const text = input.value.trim();
-        if (!text) return;
-
-        const container = document.getElementById("chat-messages");
-        const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + " " + new Date().toLocaleDateString();
-        
-        container.insertAdjacentHTML('beforeend', `
-            <div class="flex justify-end animation-fade-in">
-                <div class="bg-blue-600 text-white p-3 rounded-lg rounded-tr-none shadow-md text-sm max-w-[80%]">
-                    <p>${text}</p><span class="text-xs text-blue-200 block mt-1 text-left">${time}</span>
-                </div>
-            </div>`);
-        
-        input.value = "";
-        scrollToBottom();
-
-        await fetch("/api/send_message", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username: "{{ username }}", message: text })
+    function scrollToBottom() {
+        const el = document.getElementById('chat-messages');
+        el.scrollTo({
+            top: el.scrollHeight,
+            behavior: 'smooth'
         });
     }
 
-    // HÀM XÓA LỊCH SỬ CHAT (RESET)
+    async function sendMessage() {
+        const input = document.getElementById('message-input');
+        const sendBtn = document.getElementById('send-btn');
+        const text = input.value.trim();
+        
+        if (!text) return;
+
+        // Disable input và button khi đang gửi
+        input.disabled = true;
+        sendBtn.disabled = true;
+
+        const time = new Date().toLocaleTimeString('vi-VN', {hour:'2-digit', minute:'2-digit'}) + " " + new Date().toLocaleDateString('vi-VN');
+
+        // Tạo ID duy nhất cho tin nhắn bot này
+        const messageId = 'msg-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        const botTextId = 'bot-text-' + messageId;
+        const typingId = 'typing-' + messageId;
+
+        // Reset textarea height
+        input.style.height = 'auto';
+        input.value = '';
+
+        // Tin nhắn người dùng
+        document.getElementById('chat-messages').insertAdjacentHTML('beforeend', `
+            <div class="flex justify-end animation-fade-in">
+                <div class="message-user bg-gradient-to-br from-blue-600 to-blue-700 text-white p-5 rounded-3xl rounded-tr-md shadow-lg">
+                    <div class="flex items-end space-x-3">
+                        <div class="flex-1">
+                            <p class="break-words text-base leading-relaxed whitespace-pre-wrap">${text.replace(/\n/g, '\n')}</p>
+                            <span class="text-xs text-blue-200 block mt-2">${time}</span>
+                        </div>
+                        <div class="bg-white/20 p-2 rounded-full flex-shrink-0">
+                            <i class="fas fa-user text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>`);
+
+        // Tin nhắn bot (streaming) - dùng ID duy nhất
+        document.getElementById('chat-messages').insertAdjacentHTML('beforeend', `
+            <div id="bot-message-${messageId}" class="flex justify-start animation-fade-in">
+                <div class="message-bot bg-white p-5 rounded-3xl rounded-tl-md shadow-md border border-gray-200">
+                    <div class="flex items-start space-x-3">
+                        <div class="bg-blue-100 p-2 rounded-full flex-shrink-0">
+                            <i class="fas fa-robot text-blue-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p id="${botTextId}" class="text-gray-800 whitespace-pre-wrap break-words text-base leading-relaxed"></p>
+                            <span id="${typingId}" class="typing-indicator text-gray-400 text-sm mt-2 inline-flex items-center">
+                                <i class="fas fa-circle-notch fa-spin mr-2"></i>đang trả lời...
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>`);
+
+        scrollToBottom();
+
+        // Re-enable input
+        input.disabled = false;
+        sendBtn.disabled = false;
+        input.focus();
+
+        // Gửi tin nhắn lên server (lưu vào json)
+        try {
+            await fetch('/api/send_message', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: "{{ username }}", message: text })
+            });
+        } catch (error) {
+            console.error('Error sending message:', error);
+        }
+
+        // Bắt đầu stream - lấy element bằng ID duy nhất
+        const es = new EventSource(`/api/stream/{{ username }}`);
+        const botTextEl = document.getElementById(botTextId);
+        const typingEl = document.getElementById(typingId);
+        let isFirstChunk = true;
+
+        es.onmessage = function(event) {
+            if (event.data === "[DONE]") {
+                if (typingEl) typingEl.remove();
+                es.close();
+                scrollToBottom();
+                // Lưu câu trả lời vào chat_data.json
+                const answer = botTextEl ? (botTextEl.textContent || botTextEl.innerText) : '';
+                if (answer) {
+                    fetch('/api/save_bot_response', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            username: "{{ username }}", 
+                            message: answer 
+                        })
+                    }).catch(err => console.error('Error saving bot response:', err));
+                }
+                return;
+            }
+            
+            // Xóa "đang trả lời..." khi có chunk đầu tiên
+            if (isFirstChunk && typingEl) {
+                typingEl.style.display = 'none';
+                isFirstChunk = false;
+            }
+            
+            // Append text an toàn - dùng textContent để giữ newline (CSS whitespace-pre-wrap sẽ hiển thị)
+            const chunkText = event.data;
+            if (botTextEl) {
+                botTextEl.textContent += chunkText;
+            }
+            scrollToBottom();
+        };
+
+        es.onerror = function(error) {
+            console.error('Stream error:', error);
+            if (typingEl) typingEl.remove();
+            if (botTextEl) {
+                botTextEl.textContent += '\n\n❌ Lỗi kết nối, vui lòng thử lại sau';
+                botTextEl.classList.add('text-red-600');
+            }
+            es.close();
+            scrollToBottom();
+        };
+    }
+
     async function resetChat() {
-        if (!confirm("Bạn có chắc muốn xóa toàn bộ lịch sử chat của mình không?")) return;
+        if (!confirm("Bạn có chắc chắn muốn xóa toàn bộ lịch sử chat?")) return;
 
         try {
-            const username = "{{ username }}"; // Lấy username từ biến server truyền xuống
-            const response = await fetch("/api/reset_chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username: username })
+            await fetch('/api/reset_chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: "{{ username }}" })
             });
 
-            if (response.ok) {
-                // Xóa giao diện và hiển thị lại câu chào ban đầu
-                const container = document.getElementById("chat-messages");
-                container.innerHTML = `
-                    <div class="flex justify-start animation-fade-in">
-                        <div class="bg-white p-3 rounded-lg rounded-tl-none shadow-sm text-sm max-w-[80%] border border-gray-200">
-                            <p class="text-gray-800">Xin chào <span class="font-bold text-blue-600">${username}</span>! Tôi có thể giúp gì cho bạn?</p>
+            document.getElementById('chat-messages').innerHTML = `
+                <div class="flex justify-start animation-fade-in">
+                    <div class="message-bot bg-white p-6 rounded-3xl rounded-tl-md shadow-md border border-gray-200">
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-blue-100 p-2 rounded-full flex-shrink-0">
+                                <i class="fas fa-robot text-blue-600 text-lg"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-gray-800 text-base leading-relaxed">
+                                    Xin chào <span class="font-bold text-blue-600">{{ username }}</span>! 👋<br>
+                                    Tôi là trợ lý ảo của bạn. Tôi có thể giúp bạn trả lời các câu hỏi về quy định, quy chế, học phí và các thông tin khác của trường. Hãy đặt câu hỏi cho tôi nhé!
+                                </p>
+                            </div>
                         </div>
-                    </div>`;
-            } else {
-                alert("Có lỗi xảy ra khi xóa tin nhắn.");
-            }
+                    </div>
+                </div>`;
+            scrollToBottom();
         } catch (error) {
-            console.error("Lỗi:", error);
+            console.error('Error resetting chat:', error);
+            alert('Có lỗi xảy ra khi xóa lịch sử chat');
         }
     }
+
+    // Auto focus input khi load trang
+    window.onload = function() {
+        scrollToBottom();
+        document.getElementById('message-input').focus();
+    };
+
+    // Auto scroll khi có tin nhắn mới
+    const observer = new MutationObserver(function() {
+        scrollToBottom();
+    });
+
+    observer.observe(document.getElementById('chat-messages'), {
+        childList: true,
+        subtree: true
+    });
 </script>
 
-<style>
-    .animation-fade-in { animation: fadeIn 0.3s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-</style>
+</body>
+</html>

@@ -11,6 +11,7 @@ class AgentState(TypedDict, total=False):
     category: Optional[list[str]]
     retriever: Optional[list[str]]
     answer: Optional[str]
+    username: Optional[str]
 
 load_dotenv()
 QDRANT_API_KEY = os.getenv('QDRANT_API_KEY')

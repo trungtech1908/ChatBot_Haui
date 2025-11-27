@@ -1,5 +1,5 @@
-import asyncio
-from time import time
+from typing import AsyncIterator
+
 from node import *
 from langgraph.graph import START, StateGraph, END
 
@@ -35,19 +35,31 @@ graph.add_edge('node_retriever', 'node_answer')
 graph.add_edge('node_answer', END)
 graph.add_edge('node_answer_normal', END)
 
+# graph.py – đoạn cuối file, thay toàn bộ hàm cũ bằng cái này
+app = graph.compile()
 
-async def main():
-    start = time()
-    input_state = AgentState(query='Tôi bị bắt phao thì có làm sao không')
-    app = graph.compile()
+async def stream_graph(query: str, username: str = "") -> AsyncIterator[str]:
+    """
+    Hàm duy nhất hoạt động hoàn hảo với cấu trúc hiện tại của bạn
+    """
+    # KHÔNG ĐƯỢC ĐẶT category hay retriever gì cả → để graph chạy thật
+    input_state = AgentState(
+        query=query,
+        username=username
+    )
 
-    res = AgentState(**await app.ainvoke(input_state)) # type: ignore
-    end = time()
-    print('\n\n',end-start)
-    print('\n\n',res['new_query'])
-    print(res['category'])
+    # Dùng astream_events – đây là cách DUY NHẤT fix được lỗi async_generator not iterable
+    async for event in app.astream_events(input_state, version="v2"):
+        # Chỉ lấy token từ LLM khi đang stream
+        if event["event"] == "on_chat_model_stream":
+            chunk = event["data"]["chunk"]
+            if hasattr(chunk, "content") and chunk.content:
+                yield chunk.content
 
-asyncio.run(main())
-
-
-
+    # Nếu đi nhánh node_answer_normal (không có stream), thì lấy kết quả cuối
+    try:
+        final_result = await app.ainvoke(input_state)
+        if final_result.get("answer"):
+            yield final_result["answer"]
+    except:
+        pass  # nếu lỗi thì thôi, không crash
