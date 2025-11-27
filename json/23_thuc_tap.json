@@ -1,0 +1,12 @@
+[
+    {"maDN": "DN01", "maGV": "GV01", "maSV": "SV001", "viTriTT": "Lập trình viên"}, 
+    {"maDN": "DN02", "maGV": "GV03", "maSV": "SV002", "viTriTT": "Kỹ sư mạng"}, 
+    {"maDN": "DN03", "maGV": "GV02", "maSV": "SV003", "viTriTT": "Phân tích nghiệp vụ"}, 
+    {"maDN": "DN04", "maGV": "GV04", "maSV": "SV004", "viTriTT": "Phân tích tài chính"}, 
+    {"maDN": "DN05", "maGV": "GV05", "maSV": "SV005", "viTriTT": "Kỹ sư ô tô"}, 
+    {"maDN": "DN06", "maGV": "GV06", "maSV": "SV006", "viTriTT": "Phân tích dữ liệu"}, 
+    {"maDN": "DN07", "maGV": "GV07", "maSV": "SV007", "viTriTT": "Phát triển sản phẩm"}, 
+    {"maDN": "DN08", "maGV": "GV08", "maSV": "SV008", "viTriTT": "Tester"}, 
+    {"maDN": "DN09", "maGV": "GV09", "maSV": "SV009", "viTriTT": "Kỹ sư điện tử"}, 
+    {"maDN": "DN10", "maGV": "GV10", "maSV": "SV010", "viTriTT": "AI Engineer"}
+]

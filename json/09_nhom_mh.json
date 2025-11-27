@@ -1,0 +1,99 @@
+[
+  {"maNhom": "G_CTPL", "TenNhom": "Chính trị - Pháp luật", "loaiNhom": "Bắt buộc", "soTC_YC": 13},
+  {"maNhom": "G_GDTC", "TenNhom": "Giáo dục Thể chất", "loaiNhom": "Tự chọn", "soTC_YC": 4},
+  {"maNhom": "G_NN", "TenNhom": "Ngoại ngữ (Tự chọn)", "loaiNhom": "Tự chọn", "soTC_YC": 10},
+  {"maNhom": "K01_TTKL", "TenNhom": "Thực tập & Khóa luận", "loaiNhom": "Bắt buộc", "soTC_YC": 14},
+  {"maNhom": "K02_TTKL", "TenNhom": "Thực tập & Khóa luận", "loaiNhom": "Bắt buộc", "soTC_YC": 14},
+  {"maNhom": "K03_TTKL", "TenNhom": "Thực tập & Khóa luận", "loaiNhom": "Bắt buộc", "soTC_YC": 14},
+  {"maNhom": "K04_TTKL", "TenNhom": "Thực tập & Khóa luận", "loaiNhom": "Bắt buộc", "soTC_YC": 14},
+  {"maNhom": "K05_TTKL", "TenNhom": "Thực tập & Khóa luận", "loaiNhom": "Bắt buộc", "soTC_YC": 14},
+  {"maNhom": "K06_TTKL", "TenNhom": "Thực tập & Khóa luận", "loaiNhom": "Bắt buộc", "soTC_YC": 14},
+
+  {"maNhom": "K01_KHCB", "TenNhom": "Khoa học Cơ bản", "loaiNhom": "Bắt buộc", "soTC_YC": 15},
+  {"maNhom": "K02_KHCB", "TenNhom": "Khoa học Cơ bản", "loaiNhom": "Bắt buộc", "soTC_YC": 15},
+  {"maNhom": "K03_KHCB", "TenNhom": "Khoa học Cơ bản", "loaiNhom": "Bắt buộc", "soTC_YC": 15},
+  {"maNhom": "K04_KHCB", "TenNhom": "Khoa học Cơ bản", "loaiNhom": "Bắt buộc", "soTC_YC": 15},
+  {"maNhom": "K05_KHCB", "TenNhom": "Khoa học Cơ bản", "loaiNhom": "Bắt buộc", "soTC_YC": 15},
+  {"maNhom": "K06_KHCB", "TenNhom": "Khoa học Cơ bản", "loaiNhom": "Bắt buộc", "soTC_YC": 15},
+
+  {"maNhom": "CNTT22_CS", "TenNhom": "Cơ sở ngành CNTT", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "CNTT22_CN", "TenNhom": "Chuyên ngành CNTT", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "CNTT22_TC1", "TenNhom": "Tự chọn chuyên ngành CNTT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "CNTT22_TC2", "TenNhom": "Tự chọn chuyên ngành CNTT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "KTPM22_CS", "TenNhom": "Cơ sở ngành KTPM", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "KTPM22_CN", "TenNhom": "Chuyên ngành KTPM", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "KTPM22_TC1", "TenNhom": "Tự chọn chuyên ngành KTPM", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "KTPM22_TC2", "TenNhom": "Tự chọn chuyên ngành KTPM", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "KHMT22_CS", "TenNhom": "Cơ sở ngành KHMT", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "KHMT22_CN", "TenNhom": "Chuyên ngành KHMT", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "KHMT22_TC1", "TenNhom": "Tự chọn chuyên ngành KHMT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "KHMT22_TC2", "TenNhom": "Tự chọn chuyên ngành KHMT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "HTTT22_CS", "TenNhom": "Cơ sở ngành HTTT", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "HTTT22_CN", "TenNhom": "Chuyên ngành HTTT", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "HTTT22_TC1", "TenNhom": "Tự chọn chuyên ngành HTTT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "HTTT22_TC2", "TenNhom": "Tự chọn chuyên ngành HTTT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "ATTT22_CS", "TenNhom": "Cơ sở ngành ATTT", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "ATTT22_CN", "TenNhom": "Chuyên ngành ATTT", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "ATTT22_TC1", "TenNhom": "Tự chọn chuyên ngành ATTT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "ATTT22_TC2", "TenNhom": "Tự chọn chuyên ngành ATTT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "NNA22_CS", "TenNhom": "Cơ sở ngành NNA", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "NNA22_CN", "TenNhom": "Chuyên ngành NNA", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "NNA22_TC1", "TenNhom": "Tự chọn chuyên ngành NNA", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "NNA22_TC2", "TenNhom": "Tự chọn chuyên ngành NNA", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "NNT22_CS", "TenNhom": "Cơ sở ngành NNT", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "NNT22_CN", "TenNhom": "Chuyên ngành NNT", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "NNT22_TC1", "TenNhom": "Tự chọn chuyên ngành NNT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "NNT22_TC2", "TenNhom": "Tự chọn chuyên ngành NNT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "QTDL22_CS", "TenNhom": "Cơ sở ngành QTDL", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "QTDL22_CN", "TenNhom": "Chuyên ngành QTDL", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "QTDL22_TC1", "TenNhom": "Tự chọn chuyên ngành QTDL", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "QTDL22_TC2", "TenNhom": "Tự chọn chuyên ngành QTDL", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "QTKS22_CS", "TenNhom": "Cơ sở ngành QTKS", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "QTKS22_CN", "TenNhom": "Chuyên ngành QTKS", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "QTKS22_TC1", "TenNhom": "Tự chọn chuyên ngành QTKS", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "QTKS22_TC2", "TenNhom": "Tự chọn chuyên ngành QTKS", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "VNH22_CS", "TenNhom": "Cơ sở ngành VNH", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "VNH22_CN", "TenNhom": "Chuyên ngành VNH", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "VNH22_TC1", "TenNhom": "Tự chọn chuyên ngành VNH", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+   {"maNhom": "VNH22_TC2", "TenNhom": "Tự chọn chuyên ngành VNH", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "OTO22_CS", "TenNhom": "Cơ sở ngành OTO", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "OTO22_CN", "TenNhom": "Chuyên ngành OTO", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "OTO22_TC1", "TenNhom": "Tự chọn chuyên ngành OTO", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "OTO22_TC2", "TenNhom": "Tự chọn chuyên ngành OTO", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+ 
+  {"maNhom": "COKHI22_CS", "TenNhom": "Cơ sở ngành COKHI", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "COKHI22_CN", "TenNhom": "Chuyên ngành COKHI", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "COKHI22_TC1", "TenNhom": "Tự chọn chuyên ngành COKHI", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "COKHI22_TC2", "TenNhom": "Tự chọn chuyên ngành COKHI", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "CDT22_CS", "TenNhom": "Cơ sở ngành CDT", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "CDT22_CN", "TenNhom": "Chuyên ngành CDT", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "CDT22_TC1", "TenNhom": "Tự chọn chuyên ngành CDT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "CDT22_TC2", "TenNhom": "Tự chọn chuyên ngành CDT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "DIEN22_CS", "TenNhom": "Cơ sở ngành DIEN", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "DIEN22_CN", "TenNhom": "Chuyên ngành DIEN", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "DIEN22_TC1", "TenNhom": "Tự chọn chuyên ngành DIEN", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "DIEN22_TC2", "TenNhom": "Tự chọn chuyên ngành DIEN", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "DTVT22_CS", "TenNhom": "Cơ sở ngành DTVT", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "DTVT22_CN", "TenNhom": "Chuyên ngành DTVT", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "DTVT22_TC1", "TenNhom": "Tự chọn chuyên ngành DTVT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "DTVT22_TC2", "TenNhom": "Tự chọn chuyên ngành DTVT", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  
+  {"maNhom": "TDH22_CS", "TenNhom": "Cơ sở ngành TDH", "loaiNhom": "Bắt buộc", "soTC_YC": 12},
+  {"maNhom": "TDH22_CN", "TenNhom": "Chuyên ngành TDH", "loaiNhom": "Bắt buộc", "soTC_YC": 45},
+  {"maNhom": "TDH22_TC1", "TenNhom": "Tự chọn chuyên ngành TDH", "loaiNhom": "Tự chọn", "soTC_YC": 9},
+  {"maNhom": "TDH22_TC2", "TenNhom": "Tự chọn chuyên ngành TDH", "loaiNhom": "Tự chọn", "soTC_YC": 9}
+ 
+]

@@ -1,0 +1,12 @@
+[
+    {"soBD": 1001, "maSV": "SV001", "maLT": "LT001", "viTri": "A01", "dieuKienThi": true}, 
+    {"soBD": 1002, "maSV": "SV002", "maLT": "LT002", "viTri": "B02", "dieuKienThi": true}, 
+    {"soBD": 1003, "maSV": "SV003", "maLT": "LT003", "viTri": "C03", "dieuKienThi": true}, 
+    {"soBD": 1004, "maSV": "SV004", "maLT": "LT004", "viTri": "D04", "dieuKienThi": false}, 
+    {"soBD": 1005, "maSV": "SV005", "maLT": "LT005", "viTri": "E05", "dieuKienThi": true}, 
+    {"soBD": 1006, "maSV": "SV006", "maLT": "LT006", "viTri": "F06", "dieuKienThi": true}, 
+    {"soBD": 1007, "maSV": "SV007", "maLT": "LT007", "viTri": "G07", "dieuKienThi": false}, 
+    {"soBD": 1008, "maSV": "SV008", "maLT": "LT008", "viTri": "H08", "dieuKienThi": true}, 
+    {"soBD": 1009, "maSV": "SV009", "maLT": "LT009", "viTri": "I09", "dieuKienThi": true}, 
+    {"soBD": 1010, "maSV": "SV010", "maLT": "LT010", "viTri": "J10", "dieuKienThi": true}
+]

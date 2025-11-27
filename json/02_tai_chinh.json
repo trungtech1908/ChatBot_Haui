@@ -1,0 +1,12 @@
+[
+    {"maSV": "SV001", "soDu": 5000000, "no": 1000000, "duocGiam": 0.1}, 
+    {"maSV": "SV002", "soDu": 4000000, "no": 0, "duocGiam": 0.05}, 
+    {"maSV": "SV003", "soDu": 3000000, "no": 500000, "duocGiam": 0.0}, 
+    {"maSV": "SV004", "soDu": 2000000, "no": 0, "duocGiam": 0.1}, 
+    {"maSV": "SV005", "soDu": 1000000, "no": 2000000, "duocGiam": 0.0}, 
+    {"maSV": "SV006", "soDu": 500000, "no": 0, "duocGiam": 0.2}, 
+    {"maSV": "SV007", "soDu": 0, "no": 3000000, "duocGiam": 0.0}, 
+    {"maSV": "SV008", "soDu": 1500000, "no": 0, "duocGiam": 0.05}, 
+    {"maSV": "SV009", "soDu": 2500000, "no": 100000, "duocGiam": 0.0}, 
+    {"maSV": "SV010", "soDu": 3500000, "no": 0, "duocGiam": 0.1}
+]

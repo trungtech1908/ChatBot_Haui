@@ -1,0 +1,12 @@
+[
+    {"maLGD": "LSGD01", "maGD": "GD001", "ThoiGian": "2024-10-25T10:00:00", "TrangThai": true}, 
+    {"maLGD": "LSGD02", "maGD": "GD002", "ThoiGian": "2024-10-25T10:05:00", "TrangThai": true}, 
+    {"maLGD": "LSGD03", "maGD": "GD003", "ThoiGian": "2024-10-25T10:10:00", "TrangThai": true}, 
+    {"maLGD": "LSGD04", "maGD": "GD004", "ThoiGian": "2024-10-25T10:15:00", "TrangThai": true}, 
+    {"maLGD": "LSGD05", "maGD": "GD005", "ThoiGian": "2024-10-25T10:20:00", "TrangThai": true}, 
+    {"maLGD": "LSGD06", "maGD": "GD006", "ThoiGian": "2024-10-25T10:25:00", "TrangThai": true}, 
+    {"maLGD": "LSGD07", "maGD": "GD007", "ThoiGian": "2024-10-25T10:30:00", "TrangThai": true}, 
+    {"maLGD": "LSGD08", "maGD": "GD008", "ThoiGian": "2024-10-25T10:35:00", "TrangThai": true}, 
+    {"maLGD": "LSGD09", "maGD": "GD009", "ThoiGian": "2024-10-25T10:40:00", "TrangThai": true}, 
+    {"maLGD": "LSGD10", "maGD": "GD010", "ThoiGian": "2024-10-25T10:45:00", "TrangThai": true}
+]

@@ -1,0 +1,105 @@
+<div id="chatbox" class="content-panel hidden h-full flex flex-col bg-gray-50 rounded-xl shadow-lg overflow-hidden border border-gray-200" style="height: 80vh;">
+    <div class="p-4 bg-blue-600 text-white font-bold flex justify-between items-center shadow-md">
+        <div class="flex items-center">
+            <i class="fas fa-robot mr-2 text-2xl"></i>
+            <span>Trợ lý ảo Sinh viên</span>
+        </div>
+        <button onclick="resetChat()" class="text-white opacity-70 hover:opacity-100 hover:text-red-300 transition-colors" title="Xóa lịch sử chat">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </div>
+    
+    <div id="chat-messages" class="flex-1 p-4 space-y-4 overflow-y-auto bg-gray-100">
+        <div class="flex justify-start">
+            <div class="bg-white p-3 rounded-lg rounded-tl-none shadow-sm text-sm max-w-[80%] border border-gray-200">
+                <p class="text-gray-800">Xin chào <span class="font-bold text-blue-600">{{ username }}</span>! Tôi có thể giúp gì cho bạn?</p>
+            </div>
+        </div>
+
+        {% if chat_history %}
+            {% for msg in chat_history %}
+            <div class="flex justify-end">
+                <div class="bg-blue-600 text-white p-3 rounded-lg rounded-tr-none shadow-md text-sm max-w-[80%]">
+                    <p>{{ msg.message }}</p>
+                    <span class="text-xs text-blue-200 block mt-1 text-left">{{ msg.timestamp }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    
+    <div class="p-4 bg-white border-t border-gray-200 flex items-center gap-2">
+        <input type="text" id="message-input" placeholder="Nhập tin nhắn..." class="flex-1 p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50" onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()" class="bg-blue-600 text-white w-12 h-12 rounded-full hover:bg-blue-700 flex items-center justify-center shadow-lg"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<script>
+    function scrollToBottom() {
+        const container = document.getElementById("chat-messages");
+        container.scrollTop = container.scrollHeight;
+    }
+    document.addEventListener("DOMContentLoaded", scrollToBottom);
+
+    function handleKeyPress(event) { if (event.key === "Enter") sendMessage(); }
+
+    // HÀM GỬI TIN NHẮN
+    async function sendMessage() {
+        const input = document.getElementById("message-input");
+        const text = input.value.trim();
+        if (!text) return;
+
+        const container = document.getElementById("chat-messages");
+        const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + " " + new Date().toLocaleDateString();
+        
+        container.insertAdjacentHTML('beforeend', `
+            <div class="flex justify-end animation-fade-in">
+                <div class="bg-blue-600 text-white p-3 rounded-lg rounded-tr-none shadow-md text-sm max-w-[80%]">
+                    <p>${text}</p><span class="text-xs text-blue-200 block mt-1 text-left">${time}</span>
+                </div>
+            </div>`);
+        
+        input.value = "";
+        scrollToBottom();
+
+        await fetch("/api/send_message", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username: "{{ username }}", message: text })
+        });
+    }
+
+    // HÀM XÓA LỊCH SỬ CHAT (RESET)
+    async function resetChat() {
+        if (!confirm("Bạn có chắc muốn xóa toàn bộ lịch sử chat của mình không?")) return;
+
+        try {
+            const username = "{{ username }}"; // Lấy username từ biến server truyền xuống
+            const response = await fetch("/api/reset_chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username: username })
+            });
+
+            if (response.ok) {
+                // Xóa giao diện và hiển thị lại câu chào ban đầu
+                const container = document.getElementById("chat-messages");
+                container.innerHTML = `
+                    <div class="flex justify-start animation-fade-in">
+                        <div class="bg-white p-3 rounded-lg rounded-tl-none shadow-sm text-sm max-w-[80%] border border-gray-200">
+                            <p class="text-gray-800">Xin chào <span class="font-bold text-blue-600">${username}</span>! Tôi có thể giúp gì cho bạn?</p>
+                        </div>
+                    </div>`;
+            } else {
+                alert("Có lỗi xảy ra khi xóa tin nhắn.");
+            }
+        } catch (error) {
+            console.error("Lỗi:", error);
+        }
+    }
+</script>
+
+<style>
+    .animation-fade-in { animation: fadeIn 0.3s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+</style>

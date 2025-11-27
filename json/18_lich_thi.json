@@ -1,0 +1,12 @@
+[
+    {"maLT": "LT001", "soPhong": 101, "gioBD": "2024-12-15T08:00:00", "gioKT": "2024-12-15T10:00:00", "hinhThucThi": "Tự luận"}, 
+    {"maLT": "LT002", "soPhong": 202, "gioBD": "2024-12-16T14:00:00", "gioKT": "2024-12-16T16:00:00", "hinhThucThi": "Trắc nghiệm"}, 
+    {"maLT": "LT003", "soPhong": 303, "gioBD": "2024-12-17T09:00:00", "gioKT": "2024-12-17T11:00:00", "hinhThucThi": "Vấn đáp"}, 
+    {"maLT": "LT004", "soPhong": 404, "gioBD": "2024-12-18T13:00:00", "gioKT": "2024-12-18T15:00:00", "hinhThucThi": "Tự luận"}, 
+    {"maLT": "LT005", "soPhong": 505, "gioBD": "2024-12-19T08:30:00", "gioKT": "2024-12-19T10:30:00", "hinhThucThi": "Trắc nghiệm"}, 
+    {"maLT": "LT006", "soPhong": 102, "gioBD": "2024-12-20T14:30:00", "gioKT": "2024-12-20T16:30:00", "hinhThucThi": "Tự luận"}, 
+    {"maLT": "LT007", "soPhong": 203, "gioBD": "2024-12-21T09:30:00", "gioKT": "2024-12-21T11:30:00", "hinhThucThi": "Vấn đáp"}, 
+    {"maLT": "LT008", "soPhong": 304, "gioBD": "2024-12-22T13:30:00", "gioKT": "2024-12-22T15:30:00", "hinhThucThi": "Trắc nghiệm"}, 
+    {"maLT": "LT009", "soPhong": 405, "gioBD": "2024-12-23T08:00:00", "gioKT": "2024-12-23T10:00:00", "hinhThucThi": "Tự luận"}, 
+    {"maLT": "LT010", "soPhong": 501, "gioBD": "2024-12-24T14:00:00", "gioKT": "2024-12-24T16:00:00", "hinhThucThi": "Trắc nghiệm"}
+]

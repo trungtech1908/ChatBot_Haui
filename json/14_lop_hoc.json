@@ -1,0 +1,40 @@
+[
+  {"maLH": "LH001", "ngayBD": "2024-09-05", "ngayKT": "2024-12-20", "soPhong": 101, "soTuanHoc": 15, "SisoThucTe": 50, "SisoToiDa": 60, "maMH": "K01_01", "maGV": "GV01"},
+  {"maLH": "LH002", "ngayBD": "2024-09-05", "ngayKT": "2024-12-20", "soPhong": 102, "soTuanHoc": 15, "SisoThucTe": 45, "SisoToiDa": 60, "maMH": "K01_02", "maGV": "GV01"},
+  {"maLH": "LH003", "ngayBD": "2024-09-05", "ngayKT": "2024-12-20", "soPhong": 201, "soTuanHoc": 15, "SisoThucTe": 55, "SisoToiDa": 70, "maMH": "K02_01", "maGV": "GV03"},
+  {"maLH": "LH004", "ngayBD": "2025-01-05", "ngayKT": "2025-04-20", "soPhong": 202, "soTuanHoc": 15, "SisoThucTe": 40, "SisoToiDa": 50, "maMH": "K03_01", "maGV": "GV05"},
+  {"maLH": "LH005", "ngayBD": "2025-01-05", "ngayKT": "2025-04-20", "soPhong": 301, "soTuanHoc": 15, "SisoThucTe": 35, "SisoToiDa": 50, "maMH": "K04_01", "maGV": "GV06"},
+  
+  {"maLH": "LH006", "ngayBD": "2025-01-05", "ngayKT": "2025-04-20", "soPhong": 302, "soTuanHoc": 15, "SisoThucTe": 50, "SisoToiDa": 60, "maMH": "K01_05", "maGV": "GV07"},
+  {"maLH": "LH007", "ngayBD": "2025-05-05", "ngayKT": "2025-08-20", "soPhong": 401, "soTuanHoc": 15, "SisoThucTe": 48, "SisoToiDa": 60, "maMH": "K02_08", "maGV": "GV03"},
+  {"maLH": "LH008", "ngayBD": "2025-05-05", "ngayKT": "2025-08-20", "soPhong": 402, "soTuanHoc": 15, "SisoThucTe": 30, "SisoToiDa": 40, "maMH": "K08_01", "maGV": "GV09"},
+  {"maLH": "LH009", "ngayBD": "2025-09-05", "ngayKT": "2025-12-20", "soPhong": 501, "soTuanHoc": 15, "SisoThucTe": 25, "SisoToiDa": 35, "maMH": "K08_02", "maGV": "GV09"},
+  {"maLH": "LH010", "ngayBD": "2025-09-05", "ngayKT": "2025-12-20", "soPhong": 502, "soTuanHoc": 15, "SisoThucTe": 28, "SisoToiDa": 40, "maMH": "K09_01", "maGV": "GV10"},
+  
+  {"maLH": "LH011", "ngayBD": "2025-01-13", "ngayKT": "2025-05-13", "soPhong": 354, "soTuanHoc": 15, "SisoThucTe": 25, "SisoToiDa": 52, "maMH": "K01_05", "maGV": "GV01"},
+  {"maLH": "LH012", "ngayBD": "2025-01-06", "ngayKT": "2025-05-06", "soPhong": 418, "soTuanHoc": 15, "SisoThucTe": 22, "SisoToiDa": 42, "maMH": "K01_06", "maGV": "GV02"},
+  {"maLH": "LH013", "ngayBD": "2025-02-12", "ngayKT": "2025-06-12", "soPhong": 110, "soTuanHoc": 15, "SisoThucTe": 27, "SisoToiDa": 43, "maMH": "K03_05", "maGV": "GV05"},
+  {"maLH": "LH014", "ngayBD": "2025-02-23", "ngayKT": "2025-06-23", "soPhong": 344, "soTuanHoc": 15, "SisoThucTe": 39, "SisoToiDa": 56, "maMH": "K04_05", "maGV": "GV06"},
+  
+  {"maLH": "LH015", "ngayBD": "2025-02-10", "ngayKT": "2025-06-10", "soPhong": 408, "soTuanHoc": 15, "SisoThucTe": 38, "SisoToiDa": 50, "maMH": "K01_15", "maGV": "GV07"},
+  {"maLH": "LH016", "ngayBD": "2025-02-17", "ngayKT": "2025-06-17", "soPhong": 296, "soTuanHoc": 15, "SisoThucTe": 21, "SisoToiDa": 49, "maMH": "K02_05", "maGV": "GV04"},
+  
+  {"maLH": "LH017", "ngayBD": "2025-01-21", "ngayKT": "2025-05-21", "soPhong": 391, "soTuanHoc": 15, "SisoThucTe": 22, "SisoToiDa": 46, "maMH": "K01_10", "maGV": "GV01"},
+  {"maLH": "LH018", "ngayBD": "2025-02-27", "ngayKT": "2025-06-27", "soPhong": 361, "soTuanHoc": 15, "SisoThucTe": 31, "SisoToiDa": 48, "maMH": "K01_11", "maGV": "GV02"},
+  {"maLH": "LH019", "ngayBD": "2025-01-12", "ngayKT": "2025-05-12", "soPhong": 331, "soTuanHoc": 15, "SisoThucTe": 23, "SisoToiDa": 59, "maMH": "K02_05", "maGV": "GV03"},
+  
+  {"maLH": "LH020", "ngayBD": "2025-01-18", "ngayKT": "2025-05-18", "soPhong": 406, "soTuanHoc": 15, "SisoThucTe": 34, "SisoToiDa": 44, "maMH": "K09_02", "maGV": "GV10"},
+  
+  {"maLH": "LH021", "ngayBD": "2025-01-08", "ngayKT": "2025-05-08", "soPhong": 397, "soTuanHoc": 15, "SisoThucTe": 21, "SisoToiDa": 47, "maMH": "K08_02", "maGV": "GV09"},
+  {"maLH": "LH022", "ngayBD": "2025-02-10", "ngayKT": "2025-06-10", "soPhong": 196, "soTuanHoc": 15, "SisoThucTe": 31, "SisoToiDa": 58, "maMH": "K03_08", "maGV": "GV05"},
+  {"maLH": "LH023", "ngayBD": "2025-02-23", "ngayKT": "2025-06-23", "soPhong": 105, "soTuanHoc": 15, "SisoThucTe": 38, "SisoToiDa": 59, "maMH": "K04_08", "maGV": "GV06"},
+  
+  {"maLH": "LH024", "ngayBD": "2025-01-20", "ngayKT": "2025-05-20", "soPhong": 273, "soTuanHoc": 15, "SisoThucTe": 32, "SisoToiDa": 46, "maMH": "K01_09", "maGV": "GV01"},
+  {"maLH": "LH025", "ngayBD": "2025-01-12", "ngayKT": "2025-05-12", "soPhong": 155, "soTuanHoc": 15, "SisoThucTe": 28, "SisoToiDa": 45, "maMH": "K02_12", "maGV": "GV03"},
+  {"maLH": "LH026", "ngayBD": "2025-02-17", "ngayKT": "2025-06-17", "soPhong": 412, "soTuanHoc": 15, "SisoThucTe": 39, "SisoToiDa": 46, "maMH": "K08_02", "maGV": "GV09"},
+  
+  {"maLH": "LH027", "ngayBD": "2025-01-05", "ngayKT": "2025-05-05", "soPhong": 103, "soTuanHoc": 15, "SisoThucTe": 39, "SisoToiDa": 51, "maMH": "K09_02", "maGV": "GV10"},
+  {"maLH": "LH028", "ngayBD": "2025-02-23", "ngayKT": "2025-06-23", "soPhong": 111, "soTuanHoc": 15, "SisoThucTe": 31, "SisoToiDa": 42, "maMH": "K01_08", "maGV": "GV01"},
+  {"maLH": "LH029", "ngayBD": "2025-02-09", "ngayKT": "2025-06-09", "soPhong": 465, "soTuanHoc": 15, "SisoThucTe": 37, "SisoToiDa": 58, "maMH": "K02_08", "maGV": "GV03"},
+  {"maLH": "LH030", "ngayBD": "2025-02-27", "ngayKT": "2025-06-27", "soPhong": 149, "soTuanHoc": 15, "SisoThucTe": 23, "SisoToiDa": 50, "maMH": "K03_11", "maGV": "GV05"}
+]

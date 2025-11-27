@@ -1,0 +1,19 @@
+[
+    {"maDOW": "LH001-2", "tietHoc": "Tiet 1-3", "thu": 2, "tuanHoc": 1, "maLH": "LH001"},
+    {"maDOW": "LH002-3", "tietHoc": "Tiet 4-6", "thu": 3, "tuanHoc": 1, "maLH": "LH002"},
+    {"maDOW": "LH006-2", "tietHoc": "Tiet 7-9", "thu": 2, "tuanHoc": 2, "maLH": "LH006"},
+    {"maDOW": "LH008-4", "tietHoc": "Tiet 4-6", "thu": 4, "tuanHoc": 2, "maLH": "LH008"},
+    {"maDOW": "LH009-5", "tietHoc": "Tiet 7-9", "thu": 5, "tuanHoc": 2, "maLH": "LH009"},
+    {"maDOW": "LH010-6", "tietHoc": "Tiet 1-3", "thu": 6, "tuanHoc": 2, "maLH": "LH010"},
+    {"maDOW": "LH011-3", "tietHoc": "Tiet 7-9", "thu": 3, "tuanHoc": 5, "maLH": "LH011"},
+    {"maDOW": "LH012-7", "tietHoc": "Tiet 1-3", "thu": 7, "tuanHoc": 3, "maLH": "LH012"},
+    {"maDOW": "LH015-3", "tietHoc": "Tiet 7-9", "thu": 3, "tuanHoc": 12, "maLH": "LH015"},
+    {"maDOW": "LH017-3", "tietHoc": "Tiet 1-3", "thu": 3, "tuanHoc": 12, "maLH": "LH017"},
+    {"maDOW": "LH018-7", "tietHoc": "Tiet 7-9", "thu": 7, "tuanHoc": 1, "maLH": "LH018"},
+    {"maDOW": "LH020-6", "tietHoc": "Tiet 1-3", "thu": 6, "tuanHoc": 11, "maLH": "LH020"},
+    {"maDOW": "LH021-3", "tietHoc": "Tiet 7-9", "thu": 3, "tuanHoc": 10, "maLH": "LH021"},
+    {"maDOW": "LH024-3", "tietHoc": "Tiet 7-9", "thu": 3, "tuanHoc": 9, "maLH": "LH024"},
+    {"maDOW": "LH026-6", "tietHoc": "Tiet 1-3", "thu": 6, "tuanHoc": 1, "maLH": "LH026"},
+    {"maDOW": "LH027-4", "tietHoc": "Tiet 1-3", "thu": 4, "tuanHoc": 4, "maLH": "LH027"},
+    {"maDOW": "LH028-2", "tietHoc": "Tiet 1-3", "thu": 2, "tuanHoc": 2, "maLH": "LH028"}
+]

@@ -1,0 +1,12 @@
+[
+    {"maDN": "DN01", "tenDN": "FPT Software", "diaChi": "HN", "soDT": "0241234567", "email": "hr@fsoft.com", "chuyenNganh": "Phần mềm", "soLuongSV": 15}, 
+    {"maDN": "DN02", "tenDN": "Viettel", "diaChi": "HN", "soDT": "0241234568", "email": "hr@viettel.com", "chuyenNganh": "Viễn thông", "soLuongSV": 10}, 
+    {"maDN": "DN03", "tenDN": "CMC Global", "diaChi": "HCM", "soDT": "0281234569", "email": "hr@cmc.com", "chuyenNganh": "Phần mềm", "soLuongSV": 5}, 
+    {"maDN": "DN04", "tenDN": "VPBank", "diaChi": "HN", "soDT": "0241234570", "email": "hr@vpbank.com", "chuyenNganh": "Tài chính", "soLuongSV": 8}, 
+    {"maDN": "DN05", "tenDN": "VinFast", "diaChi": "HP", "soDT": "0225123457", "email": "hr@vinfast.com", "chuyenNganh": "Ô tô", "soLuongSV": 12}, 
+    {"maDN": "DN06", "tenDN": "Tiki", "diaChi": "HCM", "soDT": "0281234571", "email": "hr@tiki.vn", "chuyenNganh": "Thương mại điện tử", "soLuongSV": 7}, 
+    {"maDN": "DN07", "tenDN": "Shopee", "diaChi": "HN", "soDT": "0241234572", "email": "hr@shopee.vn", "chuyenNganh": "Thương mại điện tử", "soLuongSV": 10}, 
+    {"maDN": "DN08", "tenDN": "RikkeiSoft", "diaChi": "HN", "soDT": "0241234573", "email": "hr@rikkei.com", "chuyenNganh": "Phần mềm", "soLuongSV": 6}, 
+    {"maDN": "DN09", "tenDN": "Samsung", "diaChi": "BN", "soDT": "0222123457", "email": "hr@samsung.com", "chuyenNganh": "Điện tử", "soLuongSV": 15}, 
+    {"maDN": "DN10", "tenDN": "Google Vietnam", "diaChi": "HN", "soDT": "0241234574", "email": "hr@google.com", "chuyenNganh": "AI", "soLuongSV": 5}
+]

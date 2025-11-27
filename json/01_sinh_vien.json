@@ -1,0 +1,12 @@
+[
+    {"maSV": "SV001", "hoTen": "Nguyễn Văn A", "email": "a.nv@sv.edu", "NgaySinh": "2003-01-01", "soDT": "0911000001", "diaChi": "Hà Nội", "maCT": "CNTT_24"}, 
+    {"maSV": "SV002", "hoTen": "Trần Thị B", "email": "b.tt@sv.edu", "NgaySinh": "2003-02-01", "soDT": "0911000002", "diaChi": "TP.HCM", "maCT": "CNTT_24"}, 
+    {"maSV": "SV003", "hoTen": "Lê Đình C", "email": "c.ld@sv.edu", "NgaySinh": "2003-03-01", "soDT": "0911000003", "diaChi": "Đà Nẵng", "maCT": "CNTT_24"}, 
+    {"maSV": "SV004", "hoTen": "Phạm Văn D", "email": "d.pv@sv.edu", "NgaySinh": "2003-04-01", "soDT": "0911000004", "diaChi": "Hải Phòng", "maCT": "CNTT_24"}, 
+    {"maSV": "SV005", "hoTen": "Hoàng Thị E", "email": "e.ht@sv.edu", "NgaySinh": "2003-05-01", "soDT": "0911000005", "diaChi": "Cần Thơ", "maCT": "CNTT_24"}, 
+    {"maSV": "SV006", "hoTen": "Vũ Văn F", "email": "f.vv@sv.edu", "NgaySinh": "2003-06-01", "soDT": "0911000006", "diaChi": "Hà Nội", "maCT": "CNTT_24"}, 
+    {"maSV": "SV007", "hoTen": "Đỗ Thị G", "email": "g.dt@sv.edu", "NgaySinh": "2003-07-01", "soDT": "0911000007", "diaChi": "TP.HCM", "maCT": "CNTT_24"}, 
+    {"maSV": "SV008", "hoTen": "Ngô Văn H", "email": "h.nv@sv.edu", "NgaySinh": "2003-08-01", "soDT": "0911000008", "diaChi": "Đà Nẵng", "maCT": "CNTT_24"}, 
+    {"maSV": "SV009", "hoTen": "Bùi Thị I", "email": "i.bt@sv.edu", "NgaySinh": "2003-09-01", "soDT": "0911000009", "diaChi": "Hải Phòng", "maCT": "CNTT_24"}, 
+    {"maSV": "SV010", "hoTen": "Đặng Văn K", "email": "k.dv@sv.edu", "NgaySinh": "2003-10-01", "soDT": "0911000010", "diaChi": "Cần Thơ", "maCT": "CNTT_24"}
+]
