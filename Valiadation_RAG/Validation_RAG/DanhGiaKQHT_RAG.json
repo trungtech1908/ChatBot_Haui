@@ -1,0 +1,17 @@
+[
+  {
+    "Question": "Nếu tôi bị đình chỉ thi môn này thì tôi bị trừ bao nhiêu điểm hay là 0 điểm luôn ạ?",
+    "Category": [
+      "DanhGiaKQHT.json",
+      "QuyCheDaoTao.json"
+    ],
+    "Answer": "Theo quy định được nêu trong văn bản, sinh viên bị đình chỉ thi môn học sẽ bị trừ toàn bộ 100% tổng số điểm bài thi của môn đó. Cụ thể, Điều 34 quy định rằng:\n\n\"1. Sinh viên vi phạm quy chế thi bị lập biên bản xử lý kỷ luật như sau:\n- Sinh viên bị đình chỉ trong khi thi môn nào sẽ bị trừ 100% tổng số điểm bài thi của môn đó.\"\n\nVì vậy, việc sinh viên bị đình chỉ thi môn học có nghĩa là họ không được tham gia làm bài thi cho môn đó và kết quả cuối cùng mà họ nhận được từ môn học này sẽ là 0 (không) điểm. Điều này ảnh hưởng nghiêm trọng đến tổng điểm tích lũy của sinh viên và khả năng hoàn thành khóa học của họ.\n\nĐiều này cũng đồng nghĩa với việc, nếu môn học bị đình chỉ thi không phải là một môn bắt buộc hoặc một phần quan trọng trong chương trình, điều này có thể gây khó khăn cho sinh viên khi muốn tốt nghiệp đúng hạn. Trong trường hợp môn bị đình chỉ thi là một môn bắt buộc hay quan trọng đối với ngành học của họ, việc bị trừ 100% điểm bài thi có thể ảnh hưởng nghiêm trọng đến khả năng tiếp tục học tại trường và hoàn thành chương trình học theo kế hoạch đã định."
+  },
+  {
+    "Question": "Hôm thi tôi bị ốm phải đi viện, nộp đơn xin hoãn thi muộn nhất là bao lâu để được chấp nhận ạ?",
+    "Category": [
+      "DanhGiaKQHT.json"
+    ],
+    "Answer": "Theo quy định trong văn bản đã được cung cấp, sinh viên vắng mặt có lý do chính đáng (như ốm phải đi viện) sẽ được tham dự kỳ thi bổ sung trong vòng 02 kỳ chính tiếp theo. Do đó, nếu bạn bị ốm và cần hoãn thi, bạn nên nộp đơn xin hoãn thi không quá muộn 10 ngày làm việc kể từ ngày thi để được xét duyệt và xác nhận đủ điều kiện dự thi bổ sung.\n\nCụ thể:\n- Thời điểm phải nộp đơn: Trong 10 ngày làm việc kể từ ngày thi.\n- Lý do chính đáng như bị ốm đi viện cần được chứng minh bằng hồ sơ (kèm theo) và ký xác nhận của cố vấn học tập và lãnh đạo đơn vị đào tạo quản lý.\n- Nộp lên Trung tâm Khảo thí để được xác nhận đủ điều kiện hoãn đánh giá trên hệ thống.\n\nĐể đảm bảo quyền lợi, bạn nên nhanh chóng thực hiện các bước này ngay khi có thể sau ngày thi."
+  }
+]

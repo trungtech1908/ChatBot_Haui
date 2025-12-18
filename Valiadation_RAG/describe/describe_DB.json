@@ -1,0 +1,1370 @@
+{
+  "db": "CSDLDoAN",
+  "tables": [
+    {
+      "table": "sinhVien",
+      "desc": "Thông tin sinh viên. Là trung tâm hệ thống, liên kết với hầu hết các bảng khác.",
+      "pk": "maSV",
+      "fk": {
+        "maKhoa": "khoa.maKhoa"
+      },
+      "cols": [
+        {
+          "col": "maSV",
+          "type": "CHAR(10)",
+          "meaning": "Mã sinh viên (duy nhất)",
+          "ex": "20230001"
+        },
+        {
+          "col": "hoTen",
+          "type": "VARCHAR(50)",
+          "meaning": "Họ và tên",
+          "ex": "Nguyễn Văn An"
+        },
+        {
+          "col": "email",
+          "type": "CHAR(50)",
+          "meaning": "Email liên hệ",
+          "ex": "an@gmail.com"
+        },
+        {
+          "col": "NgaySinh",
+          "type": "DATE",
+          "meaning": "Ngày sinh",
+          "ex": "2004-08-19"
+        },
+        {
+          "col": "soDT",
+          "type": "CHAR(10)",
+          "meaning": "Số điện thoại",
+          "ex": "0901234567"
+        },
+        {
+          "col": "diaChi",
+          "type": "VARCHAR(50)",
+          "meaning": "Địa chỉ thường trú",
+          "ex": "123 Lê Lợi, Q.1, TP.HCM"
+        },
+        {
+          "col": "ngayTao",
+          "type": "DATETIME",
+          "meaning": "Thời điểm tạo bản ghi",
+          "ex": "2023-09-01 08:30:00"
+        },
+        {
+          "col": "ngayCapNhat",
+          "type": "DATETIME",
+          "meaning": "Thời điểm cập nhật",
+          "ex": "2025-06-15 14:20:00"
+        },
+        {
+          "col": "maKhoa",
+          "type": "CHAR(10)",
+          "meaning": "Mã khoa",
+          "ex": "CNTT"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [
+          "taiChinh",
+          "doiTuong",
+          "dieuKienTotNghiep",
+          "taiKhoan"
+        ],
+        "one-to-many": [
+          "ketQuaMonHoc",
+          "giaoDich",
+          "lichThiSV",
+          "sinhVienLopHoc",
+          "thucTap"
+        ],
+        "many-to-many": [
+          "lopHoc",
+          "doanhNghiep",
+          "giangVien"
+        ]
+      }
+    },
+    {
+      "table": "taiChinh",
+      "desc": "Thông tin tài chính sinh viên. ",
+      "pk": "maSV",
+      "fk": {
+        "maSV": "sinhVien.maSV"
+      },
+      "cols": [
+        {
+          "col": "maSV",
+          "type": "CHAR(10)",
+          "meaning": "Mã sinh viên",
+          "ex": "20230001"
+        },
+        {
+          "col": "soDu",
+          "type": "NUMERIC(12,0)",
+          "meaning": "Số dư tài khoản",
+          "ex": "5000000"
+        },
+        {
+          "col": "no",
+          "type": "NUMERIC(12,0)",
+          "meaning": "Số tiền nợ học phí",
+          "ex": "2000000"
+        },
+        {
+          "col": "duocGiam",
+          "type": "FLOAT",
+          "meaning": "Tỷ lệ giảm học phí",
+          "ex": "0.3"
+        },
+        {
+          "col": "hocBong",
+          "type": "NUMERIC(12,0)",
+          "meaning": "Số tiền học bổng",
+          "ex": "10000000"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [
+          "sinhVien"
+        ],
+        "one-to-many": [],
+        "many-to-many": []
+      }
+    },
+    {
+      "table": "doiTuong",
+      "desc": "Thông tin đối tượng chính sách.",
+      "pk": "maSV",
+      "fk": {
+        "maSV": "sinhVien.maSV"
+      },
+      "cols": [
+        {
+          "col": "maSV",
+          "type": "CHAR(10)",
+          "meaning": "Mã sinh viên",
+          "ex": "20230001"
+        },
+        {
+          "col": "ho_Ngheo",
+          "type": "BOOLEAN",
+          "meaning": "Hộ nghèo",
+          "ex": "true"
+        },
+        {
+          "col": "ho_Can_Ngheo",
+          "type": "BOOLEAN",
+          "meaning": "Hộ cận nghèo",
+          "ex": "false"
+        },
+        {
+          "col": "mo_Coi",
+          "type": "BOOLEAN",
+          "meaning": "Mồ côi",
+          "ex": "false"
+        },
+        {
+          "col": "khuyet_Tan",
+          "type": "BOOLEAN",
+          "meaning": "Khuyết tật",
+          "ex": "false"
+        },
+        {
+          "col": "dan_Toc",
+          "type": "VARCHAR(20)",
+          "meaning": "Dân tộc thiểu số",
+          "ex": "Kinh"
+        },
+        {
+          "col": "quoc_Tich",
+          "type": "VARCHAR(30)",
+          "meaning": "Quốc tịch",
+          "ex": "Việt Nam"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [
+          "sinhVien"
+        ],
+        "one-to-many": [],
+        "many-to-many": []
+      }
+    },
+    {
+      "table": "dieuKienTotNghiep",
+      "desc": "Điều kiện tốt nghiệp của sinh viên",
+      "pk": "maSV",
+      "fk": {
+        "maSV": "sinhVien.maSV"
+      },
+      "cols": [
+        {
+          "col": "maSV",
+          "type": "CHAR(10)",
+          "meaning": "Mã sinh viên",
+          "ex": "20230001"
+        },
+        {
+          "col": "tb_GPA",
+          "type": "NUMERIC(2,1)",
+          "meaning": "GPA tích lũy",
+          "ex": "7.5"
+        },
+        {
+          "col": "DKSoTC",
+          "type": "BOOLEAN",
+          "meaning": "Đủ tín chỉ",
+          "ex": "true"
+        },
+        {
+          "col": "DKTheChat",
+          "type": "BOOLEAN",
+          "meaning": "Đủ thể chất",
+          "ex": "true"
+        },
+        {
+          "col": "DKNgoaiNgu",
+          "type": "BOOLEAN",
+          "meaning": "Đủ ngoại ngữ",
+          "ex": "false"
+        },
+        {
+          "col": "DK_GDQP",
+          "type": "BOOLEAN",
+          "meaning": "Đủ GDQP-AN",
+          "ex": "true"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [
+          "sinhVien"
+        ],
+        "one-to-many": [],
+        "many-to-many": []
+      }
+    },
+    {
+      "table": "taiKhoan",
+      "desc": "Tài khoản đăng nhập hệ thống. ",
+      "pk": "tenTaiKhoan",
+      "fk": {
+        "maSV": "sinhVien.maSV"
+      },
+      "cols": [
+        {
+          "col": "tenTaiKhoan",
+          "type": "CHAR(50)",
+          "meaning": "Tên tài khoản",
+          "ex": "20230001"
+        },
+        {
+          "col": "matKhau",
+          "type": "VARCHAR(25)",
+          "meaning": "Mật khẩu (hashed)",
+          "ex": "hashed_pwd"
+        },
+        {
+          "col": "maSV",
+          "type": "CHAR(10)",
+          "meaning": "Mã sinh viên",
+          "ex": "20230001"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [
+          "sinhVien"
+        ],
+        "one-to-many": [],
+        "many-to-many": []
+      }
+    },
+    {
+      "table": "khoa",
+      "desc": "Thông tin các khoa.  Một khoa có nhiều sinh viên, giảng viên, chương trình đào tạo.",
+      "pk": "maKhoa",
+      "fk": {},
+      "cols": [
+        {
+          "col": "maKhoa",
+          "type": "CHAR(10)",
+          "meaning": "Mã khoa",
+          "ex": "CNTT"
+        },
+        {
+          "col": "tenKhoa",
+          "type": "VARCHAR(50)",
+          "meaning": "Tên khoa",
+          "ex": "Công nghệ Thông tin"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [
+          "ctdt",
+          "giangVien",
+          "sinhVien"
+        ],
+        "many-to-many": []
+      }
+    },
+    {
+      "table": "ctdt",
+      "desc": "Chương trình đào tạo. Một khoa có nhiều CTĐT, một CTĐT chứa nhiều môn học qua bảng ct_ctdt.",
+      "pk": "maCT",
+      "fk": {
+        "maKhoa": "khoa.maKhoa"
+      },
+      "cols": [
+        {
+          "col": "maCT",
+          "type": "CHAR(10)",
+          "meaning": "Mã CTĐT",
+          "ex": "CTDT2023"
+        },
+        {
+          "col": "soTC_YeuCau",
+          "type": "INTEGER",
+          "meaning": "TC yêu cầu tốt nghiệp",
+          "ex": "140"
+        },
+        {
+          "col": "soMon",
+          "type": "INTEGER",
+          "meaning": "Tổng số môn",
+          "ex": "45"
+        },
+        {
+          "col": "maKhoa",
+          "type": "CHAR(10)",
+          "meaning": "Mã khoa",
+          "ex": "CNTT"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [
+          "ct_ctdt"
+        ],
+        "many-to-many": [
+          "monHoc"
+        ]
+      }
+    },
+    {
+      "table": "ct_ctdt",
+      "desc": "Bảng trung gian liên kết CTĐT với môn học. Xác định môn nào thuộc CTĐT nào, bắt buộc hay tự chọn. Dùng để kiểm tra điều kiện tốt nghiệp, đăng ký học.",
+      "junction": {
+        "between": [
+          "ctdt",
+          "monHoc"
+        ]
+      },
+      "pk": [
+        "maCT",
+        "maMH"
+      ],
+      "fk": {
+        "maCT": "ctdt.maCT",
+        "maMH": "monHoc.maMH"
+      },
+      "cols": [
+        {
+          "col": "maCT",
+          "type": "CHAR(10)",
+          "meaning": "Mã CTĐT",
+          "ex": "CTDT2023"
+        },
+        {
+          "col": "maMH",
+          "type": "CHAR(10)",
+          "meaning": "Mã môn học",
+          "ex": "IT001"
+        },
+        {
+          "col": "batBuoc",
+          "type": "BOOLEAN",
+          "meaning": "Bắt buộc",
+          "ex": "true"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [],
+        "many-to-many": [
+          "ctdt",
+          "monHoc"
+        ]
+      }
+    },
+    {
+      "table": "monHoc",
+      "desc": "Thông tin môn học. Một môn có thể thuộc nhiều CTĐT, có nhiều lớp học, giảng viên phụ trách, sinh viên học.",
+      "pk": "maMH",
+      "fk": {
+        "maNhom": "nhomTC.maNhom"
+      },
+      "cols": [
+        {
+          "col": "maMH",
+          "type": "CHAR(10)",
+          "meaning": "Mã môn học",
+          "ex": "IT001"
+        },
+        {
+          "col": "tenMonHoc",
+          "type": "VARCHAR(50)",
+          "meaning": "Tên môn",
+          "ex": "Lập trình C"
+        },
+        {
+          "col": "soTC",
+          "type": "INTEGER",
+          "meaning": "Số tín chỉ",
+          "ex": "3"
+        },
+        {
+          "col": "heSoTC",
+          "type": "INTEGER",
+          "meaning": "Hệ số TC",
+          "ex": 1
+        },
+        {
+          "col": "moTa",
+          "type": "TEXT",
+          "meaning": "Mô tả",
+          "ex": "Giới thiệu C..."
+        },
+        {
+          "col": "trongSo_tx1",
+          "type": "FLOAT",
+          "meaning": "Trọng số TX1",
+          "ex": 0.1
+        },
+        {
+          "col": "trongSo_tx2",
+          "type": "FLOAT",
+          "meaning": "Trọng số TX2",
+          "ex": 0.1
+        },
+        {
+          "col": "trongSo_giuaKy",
+          "type": "FLOAT",
+          "meaning": "Trọng số giữa kỳ",
+          "ex": 0.3
+        },
+        {
+          "col": "trongSo_BaiThi",
+          "type": "FLOAT",
+          "meaning": "Trọng số thi cuối kỳ",
+          "ex": 0.5
+        },
+        {
+          "col": "giaTC",
+          "type": "NUMERIC(10,0)",
+          "meaning": "Giá/TC",
+          "ex": 450000
+        },
+        {
+          "col": "gia",
+          "type": "NUMERIC(10,0)",
+          "meaning": "Học phí môn",
+          "ex": 1350000
+        },
+        {
+          "col": "ngayPhatHanh",
+          "type": "DATE",
+          "meaning": "Ngày mở môn",
+          "ex": "2023-01-15"
+        },
+        {
+          "col": "maNhom",
+          "type": "CHAR(10)",
+          "meaning": "Mã nhóm tự chọn",
+          "ex": "NHOM01"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [
+          "lopHoc",
+          "ketQuaMonHoc",
+          "giaoDich",
+          "ct_ctdt",
+          "phuTrach",
+          "tienQuyetMonHoc"
+        ],
+        "many-to-many": [
+          "ctdt",
+          "giangVien",
+          "monHoc"
+        ]
+      }
+    },
+    {
+      "table": "nhomTC",
+      "desc": "Nhóm môn tự chọn. Một nhóm chứa nhiều môn, sinh viên phải chọn đủ số TC yêu cầu.",
+      "pk": "maNhom",
+      "fk": {},
+      "cols": [
+        {
+          "col": "maNhom",
+          "type": "CHAR(10)",
+          "meaning": "Mã nhóm",
+          "ex": "NHOM01"
+        },
+        {
+          "col": "TenNhom",
+          "type": "VARCHAR(50)",
+          "meaning": "Tên nhóm",
+          "ex": "Nhóm AI"
+        },
+        {
+          "col": "soLuongTC",
+          "type": "INTEGER",
+          "meaning": "Số TC yêu cầu",
+          "ex": 9
+        },
+        {
+          "col": "soMon",
+          "type": "INTEGER",
+          "meaning": "Số môn trong nhóm",
+          "ex": 4
+        },
+        {
+          "col": "nhomBatBuoc",
+          "type": "BOOLEAN",
+          "meaning": "Bắt buộc chọn",
+          "ex": false
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [
+          "monHoc"
+        ],
+        "many-to-many": []
+      }
+    },
+    {
+      "table": "tienQuyetMonHoc",
+      "desc": "Bảng trung gian xác định môn tiên quyết. Dùng để kiểm tra điều kiện đăng ký lớp học (monHoc - monHoc).",
+      "junction": {
+        "between": [
+          "monHoc",
+          "monHoc"
+        ]
+      },
+      "pk": [
+        "maMH",
+        "maTQ"
+      ],
+      "fk": {
+        "maMH": "monHoc.maMH",
+        "maTQ": "monHoc.maMH"
+      },
+      "cols": [
+        {
+          "col": "maMH",
+          "type": "CHAR(10)",
+          "meaning": "Môn cần tiên quyết",
+          "ex": "IT003"
+        },
+        {
+          "col": "maTQ",
+          "type": "CHAR(10)",
+          "meaning": "Môn tiên quyết",
+          "ex": "IT001"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [],
+        "many-to-many": [
+          "monHoc"
+        ]
+      }
+    },
+    {
+      "table": "giangVien",
+      "desc": "Thông tin giảng viên. Một giảng viên thuộc một khoa, phụ trách nhiều môn, nhiều lớp, hướng dẫn thực tập.",
+      "pk": "maGV",
+      "fk": {
+        "maKhoa": "khoa.maKhoa"
+      },
+      "cols": [
+        {
+          "col": "maGV",
+          "type": "CHAR(10)",
+          "meaning": "Mã giảng viên",
+          "ex": "GV001"
+        },
+        {
+          "col": "hoTen",
+          "type": "VARCHAR(50)",
+          "meaning": "Họ tên",
+          "ex": "Trần Thị B"
+        },
+        {
+          "col": "email",
+          "type": "CHAR(50)",
+          "meaning": "Email",
+          "ex": "btt@school.edu.vn"
+        },
+        {
+          "col": "NgaySinh",
+          "type": "DATE",
+          "meaning": "Ngày sinh",
+          "ex": "1980-05-20"
+        },
+        {
+          "col": "soDT",
+          "type": "CHAR(10)",
+          "meaning": "Số điện thoại",
+          "ex": "0912345678"
+        },
+        {
+          "col": "diaChi",
+          "type": "VARCHAR(50)",
+          "meaning": "Địa chỉ",
+          "ex": "456 Nguyễn Trãi, Q.5"
+        },
+        {
+          "col": "maKhoa",
+          "type": "CHAR(10)",
+          "meaning": "Mã khoa",
+          "ex": "CNTT"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [
+          "lopHoc",
+          "phuTrach",
+          "thucTap"
+        ],
+        "many-to-many": [
+          "monHoc",
+          "doanhNghiep",
+          "sinhVien"
+        ]
+      }
+    },
+    {
+      "table": "lopHoc",
+      "desc": "Lớp học phần cụ thể trong học kỳ. Một lớp thuộc một môn, do một giảng viên phụ trách, có nhiều sinh viên đăng ký.",
+      "pk": "maLH",
+      "fk": {
+        "maMH": "monHoc.maMH",
+        "maGV": "giangVien.maGV"
+      },
+      "cols": [
+        {
+          "col": "maLH",
+          "type": "CHAR(10)",
+          "meaning": "Mã lớp học",
+          "ex": "LH20231"
+        },
+        {
+          "col": "hocKy",
+          "type": "INTEGER",
+          "meaning": "Học kỳ",
+          "ex": 1
+        },
+        {
+          "col": "ngayBD",
+          "type": "DATE",
+          "meaning": "Ngày bắt đầu",
+          "ex": "2023-09-04"
+        },
+        {
+          "col": "ngayKT",
+          "type": "DATE",
+          "meaning": "Ngày kết thúc",
+          "ex": "2023-12-20"
+        },
+        {
+          "col": "soPhong",
+          "type": "INTEGER",
+          "meaning": "Số phòng",
+          "ex": 301
+        },
+        {
+          "col": "hanHuy",
+          "type": "DATE",
+          "meaning": "Hạn hủy",
+          "ex": "2023-09-15"
+        },
+        {
+          "col": "soTuanHoc",
+          "type": "INTEGER",
+          "meaning": "Số tuần học",
+          "ex": 15
+        },
+        {
+          "col": "SisoThucTe",
+          "type": "INTEGER",
+          "meaning": "Sĩ số thực tế",
+          "ex": 45
+        },
+        {
+          "col": "SisoToiDa",
+          "type": "INTEGER",
+          "meaning": "Sĩ số tối đa",
+          "ex": 60
+        },
+        {
+          "col": "maMH",
+          "type": "CHAR(10)",
+          "meaning": "Mã môn học",
+          "ex": "IT001"
+        },
+        {
+          "col": "maGV",
+          "type": "CHAR(10)",
+          "meaning": "Mã giảng viên",
+          "ex": "GV001"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [
+          "lichHoc",
+          "sinhVienLopHoc"
+        ],
+        "many-to-many": [
+          "sinhVien"
+        ]
+      }
+    },
+    {
+      "table": "ketQuaMonHoc",
+      "desc": "Kết quả học tập từng môn. Một sinh viên có nhiều kết quả, một môn có nhiều sinh viên học.",
+      "pk": "maKQ",
+      "fk": {
+        "maKQHY": "ketQuaHocKy.maKQHY",
+        "maMH": "monHoc.maMH",
+        "maSV": "sinhVien.maSV"
+      },
+      "cols": [
+        {
+          "col": "maKQ",
+          "type": "CHAR(10)",
+          "meaning": "Mã kết quả",
+          "ex": "KQ001"
+        },
+        {
+          "col": "tx1",
+          "type": "NUMERIC(2,1)",
+          "meaning": "TX1",
+          "ex": 8.5
+        },
+        {
+          "col": "tx2",
+          "type": "NUMERIC(2,1)",
+          "meaning": "TX2",
+          "ex": 9.0
+        },
+        {
+          "col": "giuaKy",
+          "type": "NUMERIC(2,1)",
+          "meaning": "Giữa kỳ",
+          "ex": 7.5
+        },
+        {
+          "col": "BaiThi",
+          "type": "NUMERIC(2,1)",
+          "meaning": "Thi cuối kỳ",
+          "ex": 8.0
+        },
+        {
+          "col": "diemGPA",
+          "type": "NUMERIC(2,1)",
+          "meaning": "Điểm hệ 4",
+          "ex": 3.2
+        },
+        {
+          "col": "diemChu",
+          "type": "CHAR(2)",
+          "meaning": "Điểm chữ",
+          "ex": "B+"
+        },
+        {
+          "col": "hocLai",
+          "type": "BOOLEAN",
+          "meaning": "Học lại",
+          "ex": false
+        },
+        {
+          "col": "maKQHY",
+          "type": "CHAR(10)",
+          "meaning": "Mã kết quả học kỳ",
+          "ex": "KQHY001"
+        },
+        {
+          "col": "maMH",
+          "type": "CHAR(10)",
+          "meaning": "Mã môn học",
+          "ex": "IT001"
+        },
+        {
+          "col": "maSV",
+          "type": "CHAR(10)",
+          "meaning": "Mã sinh viên",
+          "ex": "20230001"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [],
+        "many-to-many": [
+          "sinhVien",
+          "monHoc"
+        ]
+      }
+    },
+    {
+      "table": "ketQuaHocKy",
+      "desc": "Kết quả tổng hợp học kỳ. Một sinh viên có nhiều kết quả học kỳ.",
+      "pk": "maKQHY",
+      "fk": {},
+      "cols": [
+        {
+          "col": "maKQHY",
+          "type": "CHAR(10)",
+          "meaning": "Mã kết quả học kỳ",
+          "ex": "KQHY001"
+        },
+        {
+          "col": "hocKy",
+          "type": "INTEGER",
+          "meaning": "Học kỳ",
+          "ex": 1
+        },
+        {
+          "col": "TongTC",
+          "type": "INTEGER",
+          "meaning": "Tổng TC",
+          "ex": 18
+        },
+        {
+          "col": "diemTBC",
+          "type": "NUMERIC(2,1)",
+          "meaning": "Điểm TB học kỳ",
+          "ex": 7.8
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [
+          "ketQuaMonHoc"
+        ],
+        "many-to-many": []
+      }
+    },
+    {
+      "table": "lichHoc",
+      "desc": "Lịch học chi tiết theo tuần, tiết. Một lớp học có nhiều lịch học.",
+      "pk": "maDOW",
+      "fk": {
+        "maLH": "lopHoc.maLH"
+      },
+      "cols": [
+        {
+          "col": "maDOW",
+          "type": "CHAR(10)",
+          "meaning": "Mã lịch (day-of-week)",
+          "ex": "LH20231_T2"
+        },
+        {
+          "col": "tietHoc",
+          "type": "VARCHAR(20)",
+          "meaning": "Tiết học",
+          "ex": "1-3"
+        },
+        {
+          "col": "thu",
+          "type": "INTEGER",
+          "meaning": "Thứ",
+          "ex": 2
+        },
+        {
+          "col": "tuanHoc",
+          "type": "INTEGER",
+          "meaning": "Tuần học",
+          "ex": 1
+        },
+        {
+          "col": "maLH",
+          "type": "CHAR(10)",
+          "meaning": "Mã lớp học",
+          "ex": "LH20231"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [],
+        "many-to-many": []
+      }
+    },
+    {
+      "table": "lichThi",
+      "desc": "Lịch thi chung. Một lịch thi áp dụng cho nhiều sinh viên qua bảng lichThiSV.",
+      "pk": "maLT",
+      "fk": {},
+      "cols": [
+        {
+          "col": "maLT",
+          "type": "CHAR(10)",
+          "meaning": "Mã lịch thi",
+          "ex": "LT20231"
+        },
+        {
+          "col": "soPhong",
+          "type": "INTEGER",
+          "meaning": "Số phòng",
+          "ex": 501
+        },
+        {
+          "col": "gioBD",
+          "type": "DATETIME",
+          "meaning": "Giờ bắt đầu",
+          "ex": "2023-12-20 07:30:00"
+        },
+        {
+          "col": "gioKT",
+          "type": "DATETIME",
+          "meaning": "Giờ kết thúc",
+          "ex": "2023-12-20 09:30:00"
+        },
+        {
+          "col": "hinhThucThi",
+          "type": "VARCHAR(20)",
+          "meaning": "Hình thức thi",
+          "ex": "Trắc nghiệm"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [
+          "lichThiSV"
+        ],
+        "many-to-many": []
+      }
+    },
+    {
+      "table": "sinhVienLopHoc",
+      "desc": "Bảng trung gian ghi nhận sinh viên đăng ký lớp học. Lưu ngày đăng ký, trạng thái. Dùng để kiểm tra sĩ số, hủy lớp, điều kiện tiên quyết.",
+      "junction": {
+        "between": [
+          "sinhVien",
+          "lopHoc"
+        ]
+      },
+      "pk": [
+        "maSV",
+        "maLH"
+      ],
+      "fk": {
+        "maSV": "sinhVien.maSV",
+        "maLH": "lopHoc.maLH"
+      },
+      "cols": [
+        {
+          "col": "maSV",
+          "type": "CHAR(10)",
+          "meaning": "Mã sinh viên",
+          "ex": "20230001"
+        },
+        {
+          "col": "maLH",
+          "type": "CHAR(10)",
+          "meaning": "Mã lớp học",
+          "ex": "LH20231"
+        },
+        {
+          "col": "NgayDK",
+          "type": "DATE",
+          "meaning": "Ngày đăng ký",
+          "ex": "2023-08-25"
+        },
+        {
+          "col": "TrangThai_DK",
+          "type": "BOOLEAN",
+          "meaning": "Trạng thái ĐK",
+          "ex": true
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [],
+        "many-to-many": [
+          "sinhVien",
+          "lopHoc"
+        ]
+      }
+    },
+    {
+      "table": "lichThiSV",
+      "desc": "Chi tiết lịch thi của từng sinh viên (số báo danh, vị trí, điều kiện). One-to-one với lịch thi.",
+      "pk": "soBD",
+      "fk": {
+        "maSV": "sinhVien.maSV",
+        "maLT": "lichThi.maLT"
+      },
+      "cols": [
+        {
+          "col": "soBD",
+          "type": "INTEGER",
+          "meaning": "Số báo danh",
+          "ex": 1001
+        },
+        {
+          "col": "maSV",
+          "type": "CHAR(10)",
+          "meaning": "Mã sinh viên",
+          "ex": "20230001"
+        },
+        {
+          "col": "maLT",
+          "type": "CHAR(10)",
+          "meaning": "Mã lịch thi",
+          "ex": "LT20231"
+        },
+        {
+          "col": "viTri",
+          "type": "CHAR(5)",
+          "meaning": "Vị trí ngồi",
+          "ex": "A01"
+        },
+        {
+          "col": "dieuKienThi",
+          "type": "BOOLEAN",
+          "meaning": "Đủ điều kiện thi",
+          "ex": true
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [],
+        "many-to-many": []
+      }
+    },
+    {
+      "table": "phuTrach",
+      "desc": "Bảng trung gian gán giảng viên phụ trách môn học. Một giảng viên dạy nhiều môn, một môn có nhiều giảng viên.",
+      "junction": {
+        "between": [
+          "giangVien",
+          "monHoc"
+        ]
+      },
+      "pk": [
+        "maMH",
+        "maGV"
+      ],
+      "fk": {
+        "maMH": "monHoc.maMH",
+        "maGV": "giangVien.maGV"
+      },
+      "cols": [
+        {
+          "col": "maMH",
+          "type": "CHAR(10)",
+          "meaning": "Mã môn học",
+          "ex": "IT001"
+        },
+        {
+          "col": "maGV",
+          "type": "CHAR(10)",
+          "meaning": "Mã giảng viên",
+          "ex": "GV001"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [],
+        "many-to-many": [
+          "giangVien",
+          "monHoc"
+        ]
+      }
+    },
+    {
+      "table": "doanhNghiep",
+      "desc": "Thông tin doanh nghiệp tiếp nhận thực tập. Một doanh nghiệp có nhiều sinh viên, nhiều giảng viên hướng dẫn.",
+      "pk": "maDN",
+      "fk": {},
+      "cols": [
+        {
+          "col": "maDN",
+          "type": "CHAR(10)",
+          "meaning": "Mã doanh nghiệp",
+          "ex": "DN001"
+        },
+        {
+          "col": "tenDN",
+          "type": "VARCHAR(50)",
+          "meaning": "Tên doanh nghiệp",
+          "ex": "FPT"
+        },
+        {
+          "col": "diaChi",
+          "type": "VARCHAR(50)",
+          "meaning": "Địa chỉ",
+          "ex": "Quận 7, TP.HCM"
+        },
+        {
+          "col": "soDT",
+          "type": "CHAR(10)",
+          "meaning": "Số điện thoại",
+          "ex": "02873005588"
+        },
+        {
+          "col": "email",
+          "type": "CHAR(50)",
+          "meaning": "Email",
+          "ex": "hr@fpt.com.vn"
+        },
+        {
+          "col": "chuyenNganh",
+          "type": "VARCHAR(50)",
+          "meaning": "Chuyên ngành",
+          "ex": "Phát triển phần mềm"
+        },
+        {
+          "col": "soLuongSV",
+          "type": "INTEGER",
+          "meaning": "Số SV tiếp nhận",
+          "ex": 10
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [
+          "thucTap"
+        ],
+        "many-to-many": [
+          "sinhVien",
+          "giangVien"
+        ]
+      }
+    },
+    {
+      "table": "thucTap",
+      "desc": "Bảng trung gian 3 chiều quản lý thực tập: sinh viên nào, tại doanh nghiệp nào, do giảng viên nào hướng dẫn, vị trí gì. Dùng để theo dõi, đánh giá, báo cáo.",
+      "junction": {
+        "between": [
+          "doanhNghiep",
+          "giangVien",
+          "sinhVien"
+        ]
+      },
+      "pk": [
+        "maDN",
+        "maGV",
+        "maSV"
+      ],
+      "fk": {
+        "maDN": "doanhNghiep.maDN",
+        "maGV": "giangVien.maGV",
+        "maSV": "sinhVien.maSV"
+      },
+      "cols": [
+        {
+          "col": "maDN",
+          "type": "CHAR(10)",
+          "meaning": "Mã doanh nghiệp",
+          "ex": "DN001"
+        },
+        {
+          "col": "maGV",
+          "type": "CHAR(10)",
+          "meaning": "Mã giảng viên",
+          "ex": "GV001"
+        },
+        {
+          "col": "maSV",
+          "type": "CHAR(10)",
+          "meaning": "Mã sinh viên",
+          "ex": "20230001"
+        },
+        {
+          "col": "viTriTT",
+          "type": "VARCHAR(50)",
+          "meaning": "Vị trí thực tập",
+          "ex": "Backend Developer"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [],
+        "many-to-many": [
+          "doanhNghiep",
+          "giangVien",
+          "sinhVien"
+        ]
+      }
+    },
+    {
+      "table": "khoangThuKhac",
+      "desc": "Các khoản thu ngoài học phí (bảo hiểm, ký túc xá...). Một khoản có thể áp dụng cho nhiều sinh viên qua giaoDich.",
+      "pk": "maKT",
+      "fk": {},
+      "cols": [
+        {
+          "col": "maKT",
+          "type": "CHAR(10)",
+          "meaning": "Mã khoản thu",
+          "ex": "KT001"
+        },
+        {
+          "col": "tenKT",
+          "type": "VARCHAR(50)",
+          "meaning": "Tên khoản thu",
+          "ex": "Phí bảo hiểm y tế"
+        },
+        {
+          "col": "gia",
+          "type": "NUMERIC(10,0)",
+          "meaning": "Số tiền",
+          "ex": 300000
+        },
+        {
+          "col": "ngayBD",
+          "type": "DATE",
+          "meaning": "Ngày bắt đầu",
+          "ex": "2023-09-01"
+        },
+        {
+          "col": "han",
+          "type": "DATE",
+          "meaning": "Hạn thanh toán",
+          "ex": "2023-09-30"
+        },
+        {
+          "col": "giaChu",
+          "type": "TEXT",
+          "meaning": "Ghi chú",
+          "ex": "Bắt buộc cho sinh viên năm 1"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [
+          "giaoDich"
+        ],
+        "many-to-many": []
+      }
+    },
+    {
+      "table": "giaoDich",
+      "desc": "Giao dịch tài chính (nộp học phí, học bổng, khoản khác...). Một sinh viên có nhiều giao dịch.",
+      "pk": "maGD",
+      "fk": {
+        "maMH": "monHoc.maMH",
+        "maKT": "khoangThuKhac.maKT",
+        "maSV": "sinhVien.maSV"
+      },
+      "cols": [
+        {
+          "col": "maGD",
+          "type": "CHAR(10)",
+          "meaning": "Mã giao dịch",
+          "ex": "GD001"
+        },
+        {
+          "col": "tenGD",
+          "type": "VARCHAR(50)",
+          "meaning": "Tên giao dịch",
+          "ex": "Nộp học phí IT001"
+        },
+        {
+          "col": "ThanhTien",
+          "type": "NUMERIC(10,0)",
+          "meaning": "Số tiền",
+          "ex": 1350000
+        },
+        {
+          "col": "Cong_Tru",
+          "type": "BOOLEAN",
+          "meaning": "true: thu, false: hoàn",
+          "ex": true
+        },
+        {
+          "col": "GhiChu",
+          "type": "TEXT",
+          "meaning": "Ghi chú",
+          "ex": "Nộp qua ngân hàng"
+        },
+        {
+          "col": "maMH",
+          "type": "CHAR(10)",
+          "meaning": "Mã môn học (nếu có)",
+          "ex": "IT001"
+        },
+        {
+          "col": "maKT",
+          "type": "CHAR(10)",
+          "meaning": "Mã khoản thu khác",
+          "ex": "KT001"
+        },
+        {
+          "col": "maSV",
+          "type": "CHAR(10)",
+          "meaning": "Mã sinh viên",
+          "ex": "20230001"
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [
+          "lsgd"
+        ],
+        "many-to-many": [
+          "monHoc",
+          "khoangThuKhac"
+        ]
+      }
+    },
+    {
+      "table": "lsgd",
+      "desc": "Lịch sử trạng thái giao dịch (thành công, thất bại, hoàn tiền...). Một giao dịch có nhiều trạng thái.",
+      "pk": "maLGD",
+      "fk": {
+        "maGD": "giaoDich.maGD"
+      },
+      "cols": [
+        {
+          "col": "maLGD",
+          "type": "CHAR(10)",
+          "meaning": "Mã lịch sử",
+          "ex": "LGD001"
+        },
+        {
+          "col": "maGD",
+          "type": "CHAR(10)",
+          "meaning": "Mã giao dịch",
+          "ex": "GD001"
+        },
+        {
+          "col": "ThoiGian",
+          "type": "DATETIME",
+          "meaning": "Thời điểm",
+          "ex": "2023-09-05 10:30:00"
+        },
+        {
+          "col": "TrangThai",
+          "type": "BOOLEAN",
+          "meaning": "true: thành công",
+          "ex": true
+        }
+      ],
+      "relationships": {
+        "one-to-one": [],
+        "one-to-many": [],
+        "many-to-many": []
+      }
+    }
+  ]
+}

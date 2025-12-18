@@ -1,0 +1,296 @@
+[
+  {
+    "question": "Quỹ khuyến học mang tên Nguyễn Thanh Bình nhằm mục đích gì?",
+    "reference_answer": "Nhằm giáo dục cho các thế hệ học sinh, sinh viên Nhà trường truyền thống uống nước nhớ nguồn, từ đó nâng cao ý thức trách nhiệm, rèn luyện phẩm chất đạo đức, lối sống, phấn đấu vươn lên trong học tập. Và để tuyên truyền vận động các thành viên trong và ngoài trường cùng góp sức xây dựng.Cùng với đó là sự tôn vinh người có công lao đóng góp cho sự nghiệp xây dựng, phát triển và đóng góp nguồn tài chính ban đầu cho quỹ của Nhà trường.",
+    "rag_answer": "Mục đích của Quỹ Khuyến học và Học bổng mang tên Nguyễn Thanh Bình tại Trường Đại học Công nghiệp Hà Nội được xác định cụ thể qua các điểm sau:\n\n1. Giáo dục truyền thống nhân ái, tinh thần tương thân tương ái, sự cảm thông chia sẻ của con người Việt Nam.\n2. Thực hiện chủ trương xã hội hóa giáo dục của Đảng và Nhà nước, huy động các nguồn lực nhân lực để đóng góp cho phát triển giáo dục - đào tạo.\n3. Động viên, khuyến khích sinh viên có hoàn cảnh khó khăn vượt khó học tập và rèn luyện tốt.\n\nCụ thể hơn, Quỹ được sử dụng và cấp học bổng với mục đích:\n- Giáo dục truyền thống uống nước nhớ nguồn, nâng cao ý thức trách nhiệm và rèn luyện phẩm chất đạo đức, lối sống cho các thế hệ học sinh, sinh viên.\n- Duy trì và phát triển Quỹ ngày càng lớn mạnh.\n- Sử dụng Quỹ đúng mục đích, đối tượng.\n- Xây dựng truyền thống nhân ái trong toàn trường thông qua việc vận động thành viên ủng hộ quỹ.\n\nĐồng thời, Quỹ cũng tôn vinh người có công lao đóng góp cho sự nghiệp xây dựng và phát triển nhà trường, như ông Nguyễn Thanh Bình.",
+    "judge": {
+      "factual_alignment": 5,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "high",
+      "final_verdict": "pass",
+      "reason": "Cả hai câu trả lời đều đề cập đến mục đích giáo dục truyền thống, nâng cao ý thức, rèn luyện đạo đức và tôn vinh người có công. Diễn đạt có sự khác biệt nhưng ý nghĩa tương đồng, không có mâu thuẫn. Câu trả lời của RAG cung cấp thêm chi tiết nhưng không sai lệch."
+    }
+  },
+  {
+    "question": "Quỹ khuyến học được đặt theo tên của cá nhân nào?",
+    "reference_answer": "Quỹ khuyến học trân trọng mang tên **Nguyễn Thanh Bình**, nguyên Uỷ viên Bộ Chính trị, nguyên Thường trực Ban Bí thư Trung ương Đảng, nguyên Bí thư Thành uỷ Hà Nội, là cựu học sinh niên khóa 1936 - 1938 của Nhà trường.",
+    "rag_answer": "Quỹ khuyến học được đặt theo tên cá nhân ông Nguyễn Thanh Bình. Ông Nguyễn Thanh Bình là nguyên Uỷ viên Bộ Chính trị, nguyên Thường trực Ban Bí thư Trung ương Đảng và nguyên Bí thư Thành uỷ Hà Nội, đồng thời cũng là cựu học sinh của Trường Đại học Công nghiệp Hà Nội trong niên khóa 1936-1938.",
+    "judge": {
+      "factual_alignment": 5,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "high",
+      "final_verdict": "pass",
+      "reason": "The RAG answer accurately captures all the key facts from the reference, including the fund's name, Nguyễn Thanh Bình's positions, and his status as a former student, with no contradictions. The only difference is the specification of the school name in the RAG answer, which is not present in the reference but does not alter the factual correctness."
+    }
+  },
+  {
+    "question": "Một trong những mục đích của Quỹ là thực hiện chủ trương nào của Đảng và Nhà nước?",
+    "reference_answer": "Thực hiện các chủ trương của Đảng và Nhà nước về xã hội hóa giáo dục, huy động các nguồn nhân lực đóng góp cho phát triển giáo dục, đào tạo.",
+    "rag_answer": "Để trả lời chính xác câu hỏi này, tôi cần biết thông tin cụ thể về quỹ mà bạn đang đề cập. Mỗi quỹ có thể mục đích riêng, liên quan đến chủ trương khác nhau của Đảng và Nhà nước Việt Nam. \n\nTuy nhiên, nói chung, các quỹ thường được thành lập với mục đích thực hiện một hoặc nhiều chủ trương chính sách của Đảng và Nhà nước như:\n\n1. Phát triển kinh tế - xã hội\n2. Xây dựng nông thôn mới \n3. Hỗ trợ giáo dục, y tế\n4. Bảo vệ môi trường, ứng phó biến đổi khí hậu\n5. Đào tạo nghề, phát triển nhân lực\n6. Cải thiện điều kiện sống của người dân nghèo\n\nNếu bạn có thể cung cấp thêm thông tin về quỹ cụ thể, tôi sẽ có thể đưa ra câu trả lời chính xác hơn về mục đích thực hiện chủ trương nào của Đảng và Nhà nước.",
+    "judge": {
+      "factual_alignment": 1,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "The RAG response diverges from the reference by addressing a general query about funds and their purposes, while the reference specifically focuses on implementing party and state policies for socializing education and mobilizing human resources. This lack of direct alignment and inclusion of unrelated details results in a poor match."
+    }
+  },
+  {
+    "question": "Quỹ khuyến học Nguyễn Thanh Bình hướng tới giáo dục những giá trị đạo đức nào?",
+    "reference_answer": "Giáo dục truyền thống nhân ái, tinh thần tương thân, tương ái, sự cảm thông chia sẻ của con người Việt Nam.",
+    "rag_answer": "Giáo dục giá trị đạo đức và truyền thống nhân ái, tinh thần tương thân tương ái thông qua quỹ khuyến học Nguyễn Thanh Bình. Quỹ này nhằm mục đích:\n\n1. Giáo dục cho các thế hệ học sinh, sinh viên về truyền thống uống nước nhớ nguồn.\n2. Nâng cao ý thức trách nhiệm và rèn luyện phẩm chất đạo đức, lối sống.\n3. Động viên, khuyến khích sinh viên có hoàn cảnh khó khăn vượt khó học tập và rèn luyện tốt.\n4. Tôn vinh người có công lao đóng góp cho sự nghiệp xây dựng, phát triển và nguồn tài chính ban đầu cho quỹ của Nhà trường.\n\nNguyễn Thanh Bình, nguyên Uỷ viên Bộ Chính trị, nguyên Thường trực Ban Bí thư Trung ương Đảng, nguyên Bí thư Thành uỷ Hà Nội, là cựu học sinh niên khóa 1936 - 1938 của Trường Đại học Công nghiệp Hà Nội, đã được chọn để trân trọng mang tên cho quỹ này. Qua việc sử dụng và cấp học bổng từ quỹ này, Nhà trường mong muốn truyền tải những giá trị đạo đức quý báu ấy đến với các sinh viên hiện tại và tương lai của mình.",
+    "judge": {
+      "factual_alignment": 4,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "medium",
+      "final_verdict": "pass",
+      "reason": "Câu trả lời của RAG phản ánh đúng ý chính của câu trả lời mẫu về giáo dục truyền thống nhân ái và tinh thần tương thân tương ái, đồng thời bổ sung chi tiết cụ thể về quỹ Nguyễn Thanh Bình mà không làm sai lệch ý nghĩa. Tuy nhiên, có thêm thông tin không cần thiết so với câu trả lời mẫu."
+    }
+  },
+  {
+    "question": "Quỹ khuyến học Nguyễn Thanh Bình phải được sử dụng theo nguyên tắc nào?",
+    "reference_answer": "Quỹ khuyến học được sử dụng đúng mục đích, đúng đối tượng.",
+    "rag_answer": "Nguyên tắc sử dụng quỹ khuyến học Nguyễn Thanh Bình theo thông tin trong ngữ cảnh được cung cấp có thể tóm tắt như sau:\n\n1. Quỹ dùng để trao học bổng hàng năm (QHBNTB) được xác định dựa trên số lãi của quỹ học bổng Nguyễn Thanh Bình, áp dụng công thức:\n   \\[\n   Q_{HBK} = \\frac{Q_{HB NTB} - Q_{HBCS}}{S_{SVT}} . S_{SVK}\n   \\]\n   Trong đó:\n   - \\(Q_{HBNTB}\\): Số tiền của quỹ dùng để trao học bổng toàn trường trong năm học.\n   - \\(Q_{HBCS}\\): Số tiền của quỹ học bổng chung (nếu có).\n   - \\(S_{SVT}\\): Số lượng sinh viên toàn trường.\n   - \\(S_{SVK}\\): Số lượng sinh viên của khối.\n\n2. Trường hợp sinh viên cùng thuộc một đối tượng ưu tiên và số tiền không đủ cho toàn bộ nhóm ưu tiên, Nhà trường sẽ lựa chọn sinh viên có kết quả học tập từ cao xuống thấp cho đến khi hết quỹ được cấp.\n\n3. Đối với sinh viên thuộc nhiều đối tượng, sẽ chọn đối tượng có mức học bổng cao nhất để xét cấp.\n\n4. Nếu số tiền của khối Kỹ thuật/Xã hội sau khi đã cấp cho các đối tượng còn thừa, số dư này sẽ chuyển sang xét cấp cho sinh viên thuộc đối tượng của khối kia (nếu còn).\n\n5. Sau khi xét các đối tượng ưu tiên từ 2.1.1 đến 2.1.7, số dư lãi còn lại hàng năm sẽ được chia giữa hai khối: Kỹ thuật và Xã hội để xét cho các đối tượng thuộc mục 2.1.7.\n\nTóm lại, nguyên tắc sử dụng quỹ khuyến học là dựa vào số lãi sinh của quỹ, phân bổ theo thứ tự ưu tiên và kết quả học tập, đảm bảo hiệu quả sử dụng đồng vốn dành cho giáo dục và phát triển sinh viên.",
+    "judge": {
+      "factual_alignment": 5,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "high",
+      "final_verdict": "pass",
+      "reason": "The RAG response aligns with the reference by confirming the correct use of the scholarship fund for its intended purpose and target group, without contradiction, despite providing additional detailed information."
+    }
+  },
+  {
+    "question": "Học bổng Nguyễn Thanh Bình được xét cấp theo chu kỳ nào đối với Quy chế Công tác Sinh viên của Trường Đại học Công nghiệp Hà Nội?",
+    "reference_answer": "Quỹ học bổng Nguyễn Thanh Bình được xét cấp theo năm học.",
+    "rag_answer": "Theo quy định tại mục II MỤC ĐÍCH, YÊU CẦU 1. Quy định chung a) của Quy chế Công tác Sinh viên Trường Đại học Công nghiệp Hà Nội, chu kỳ xét cấp học bổng Nguyễn Thanh Bình là theo năm học.\n\nChi tiết như sau:\n\n- Học bổng được xét cấp theo chu kỳ năm học.\n- Kết quả xếp loại học tập và rèn luyện của sinh viên phải thực hiện theo Quy chế Đào tạo và Quy chế Công tác Sinh viên của Trường Đại học Công nghiệp Hà Nội.\n- Không xét kết quả học tập của năm cuối trong thời gian thiết kế khóa học theo quy định của Quy chế Đào tạo.\n\nVì vậy, chu kỳ xét cấp học bổng Nguyễn Thanh Bình là theo năm học, nghĩa là mỗi năm học sẽ có một lần xét cấp học bổng mới.",
+    "judge": {
+      "factual_alignment": 5,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "high",
+      "final_verdict": "pass",
+      "reason": "Câu trả lời của RAG xác nhận đúng rằng học bổng được xét cấp theo năm học, như trong câu trả lời mẫu, và bổ sung thêm thông tin chi tiết từ quy định liên quan mà không mâu thuẫn. Diễn đạt khác nhau nhưng ý chính giống nhau, do đó semantic equivalence cao."
+    }
+  },
+  {
+    "question": "Học bổng Nguyễn Thanh Bình áp dụng cho những sinh viên thuộc hình thức đào tạo nào?",
+    "reference_answer": "Chỉ xét cấp cho sinh viên đang học hệ chính quy dài hạn theo thời gian khóa học trong Quy chế Đào tạo của Nhà trường.",
+    "rag_answer": "Hình thức đào tạo của học bổng Nguyễn Thanh Bình dành cho sinh viên hệ chính quy dài hạn theo thời gian khóa học trong Quy chế Đào tạo của Trường Đại học Công nghiệp Hà Nội.\n\nCụ thể, theo quy định chung ở mục 1.a) của thông báo, Quỹ học bổng Nguyễn Thanh Bình chỉ xét cấp cho sinh viên đang học hệ chính quy dài hạn. Điều này nghĩa là học bổng được thiết kế dành riêng cho những sinh viên theo học theo hình thức chính quy và có thời gian khóa học kéo dài trong suốt quá trình đào tạo của trường.\n\nHọc bổng không áp dụng cho các hình thức đào tạo khác như chính quy ngắn hạn, liên thông, chuyển đổi tín chỉ hay các hình thức đào tạo trực tuyến hoặc học từ xa.",
+    "judge": {
+      "factual_alignment": 5,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "high",
+      "final_verdict": "pass",
+      "reason": "Câu trả lời của RAG khớp với tham chiếu về điều kiện xét cấp học bổng cho sinh viên hệ chính quy dài hạn, mặc dù có thêm giải thích chi tiết, nhưng không làm thay đổi ý chính."
+    }
+  },
+  {
+    "question": " Đối với các sinh viên năm cuối có xét kết quả học tập của sinh viên để cấp học bổng Nguyễn Thanh Bình không?",
+    "reference_answer": "Không xét kết quả học tập năm cuối của sinh viên theo thời gian thiết kế khóa học trong Quy chế Đào tạo của Nhà trường.",
+    "rag_answer": "Theo các điều khoản trong văn bản đề cập, công ty không xét kết quả học tập cho sinh viên năm cuối để cấp học bổng Nguyễn Thanh Bình. Cụ thể:\n\n1. Theo điểm c) trong mục 1 quy định chung: \"Không xét kết quả học tập năm cuối của sinh viên theo thời gian thiết kế khóa học trong Quy chế Đào tạo của Nhà trường.\"\n\n2. Điều này đồng nghĩa với việc mặc dù sinh viên năm cuối có thể đã hoàn thành chương trình và có kết quả học tập tốt, nhưng vẫn không được xem xét khi đánh giá để cấp học bổng Nguyễn Thanh Bình.\n\n3. Điều này áp dụng cho cả các đối tượng khác nhau của quỹ học bổng, bao gồm cả sinh viên đang theo học hệ chính quy dài hạn (điểm b) trong mục 1 quy định chung).\n\n4. Mức đánh giá và xét duyệt học bổng Nguyễn Thanh Bình chỉ dựa trên kết quả xếp loại học tập và rèn luyện của các năm học trước, không bao gồm năm cuối cùng.\n\nVì vậy, có thể kết luận công ty này không xem xét đến kết quả học tập cụ thể của sinh viên năm cuối trong quy trình cấp học bổng Nguyễn Thanh Bình.",
+    "judge": {
+      "factual_alignment": 4,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "high",
+      "final_verdict": "pass",
+      "reason": "The RAG answer accurately captures the core message of the reference answer regarding not considering final year academic results, and expands on it with additional details without contradiction. The semantic equivalence is high as the meaning aligns closely, despite differences in detail."
+    }
+  },
+  {
+    "question": "Học Bổng NTB không được xét với những sinh viên thuộc đối tượng nào?",
+    "reference_answer": "Sinh viên đã được nhận học bổng HaUI toàn khóa: không xét cấp học bổng Nguyễn Thanh Bình trong toàn khóa.- Sinh viên đã được nhận học bổng HaUI năm thứ nhất: không xét cấp học bổng Nguyễn Thanh Bình năm thứ nhất.- Sinh viên được miễn giảm học phí theo quy định của Nhà nước (trừ sinh viên khuyết tật).- Sinh viên đã nhận học bổng khuyến khích học tập của trường, học bổng tài trợ hoặc các chính sách hỗ trợ của Nhà nước có mức bằng hoặc cao hơn mức học bổng Nguyễn Thanh Bình trong năm học đó.",
+    "rag_answer": "Theo nội dung quy định trong văn bản, có một số đối tượng cụ thể bị loại khỏi việc xét cấp học bổng Nguyễn Thanh Bình (NTB). Cụ thể:\n\n1. Sinh viên đã được nhận học bổng HaUI toàn khóa: Không được xét cấp học bổng NTB trong toàn khóa.\n\n2. Đối tượng bị liệt kê trong mục 1.d) của quy định chung, nhưng văn bản không nêu rõ cụ thể đối tượng nào nên chúng ta chỉ biết rằng có tồn tại một nhóm sinh viên bị loại ra khỏi xét học bổng NTB mà thôi.\n\n3. Sinh viên thuộc các nhóm đối tượng khác như bệnh hiểm nghèo (2.1.1), dân tộc Kinh là hộ nghèo/cận nghèo, nhưng có điều kiện cụ thể về điểm số trong năm xét học bổng. Đây không phải là lý do loại bỏ hoàn toàn mà chỉ có yêu cầu khắt khe hơn.\n\n4. Sinh viên thuộc các đối tượng ưu tiên khác (2.1.6, 2.1.7) cũng có tiêu chuẩn điểm cao hơn so với nhóm đối tượng được đề cập ở trên.\n\nNgoài ra, văn bản không đề cập đến bất kỳ đối tượng cụ thể nào khác bị loại khỏi việc xét cấp học bổng NTB ngoại trừ những trường hợp đã nêu trên.\n\nTóm lại, sinh viên thuộc đối tượng đã được nhận học bổng HaUI toàn khóa là nhóm duy nhất được xác định rõ trong văn bản không được xét cấp học bổng NTB.",
+    "judge": {
+      "factual_alignment": 2,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "The RAG answer partially aligns with the reference by correctly noting that students with full HaUI scholarships are ineligible for the Nguyễn Thanh Bình scholarship, but it misses key details such as the specific condition for students who received HaUI scholarships in the first year not being considered for the first year of NTB, and it adds extra information about other groups (e.g., disease, ethnicity) that are not referenced or accurately interpreted from the original text. This leads to a low factual alignment and semantic equivalence."
+    }
+  },
+  {
+    "question": "Học Bổng NTB được xét với những sinh viên đang trong hoàn cảnh nào?",
+    "reference_answer": "Sinh viên mắc bệnh hiểm nghèo; Sinh viên bị khuyết tật; Sinh viên mồ côi bố hoặc mẹ, sinh viên không có bố hoặc mẹ; Sinh viên có bố hoặc mẹ mắc bệnh hiểm nghèo, sinh viên có bố hoặc mẹ không có khả năng lao động; Sinh viên là người dân tộc Kinh thuộc gia đình hộ nghèo hoặc cận nghèo của năm xét học bổng Nguyễn Thanh Bình ; Sinh viên có công trình nghiên cứu khoa học đạt giải nhất cấp trường trở lên trong năm xét học bổng; Sinh viên đạt kết quả học tập TBC trong năm học ≥ 3.6 với hình thức đào tạo tín chỉ; ≥ 9.0 với hình thức đào tạo niên chế và xếp loại rèn luyện Tốt trở lên.",
+    "rag_answer": "Theo thông tin từ văn bản, sinh viên được xét học bổng Nguyễn Thanh Bình có thể thuộc một trong những đối tượng sau:\n\n1. Sinh viên mắc bệnh hiểm nghèo (điều 2.1.1).\n\n2. Sinh viên là người dân tộc Kinh thuộc gia đình hộ nghèo hoặc cận nghèo của năm xét học bổng Nguyễn Thanh Bình (điều 2.1.5). Ví dụ: Xét cấp học bổng Nguyễn Thanh Bình năm học 2021-2022, sinh viên cần nộp giấy chứng nhận của năm 2022.\n\n3. Sinh viên thuộc các trường hợp đặc biệt khác do Ban quản lý hoạt động quỹ đề xuất và Hiệu trưởng quyết định (điều 2.1.1).\n\n4. Các đối tượng ưu tiên khác không được liệt kê rõ nhưng vẫn có thể xét khi số tiền của quỹ đủ điều kiện (điều 3.1, điểm cuối cùng).\n\nTrong đó, đối tượng chính là sinh viên mắc bệnh hiểm nghèo và sinh viên Kinh thuộc hộ nghèo/cận nghèo trong năm xét học bổng. Đồng thời, các trường hợp đặc biệt khác cũng có thể được xem xét nếu phù hợp với quy định của quỹ học bổng.",
+    "judge": {
+      "factual_alignment": 4,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "medium",
+      "final_verdict": "pass",
+      "reason": "Câu trả lời của RAG có sự tóm tắt và diễn đạt khác nhưng vẫn khớp với các đối tượng chính trong câu trả lời mẫu. Tuy nhiên, nó thiếu một số điều kiện cụ thể (ví dụ: sinh viên bị khuyết tật, mồ côi) và thêm các giải thích, ví dụ không có trong mẫu."
+    }
+  },
+  {
+    "question": "Sinh viên mắc bệnh hiểm nghèo và bị khuyết tật phải đạt tối thiểu bao nhiêu tín chỉ trong năm học để được xét học bổng?",
+    "reference_answer": "Sinh viên thuộc đối tượng mắc bệnh hiểm nghèo hoặc bị khuyết tật phải có tổng số tín chỉ trong năm học xét học bổng ≥ 25 tín chỉ, trừ trường hợp do kế hoạch của Nhà trường bố trí không đủ.",
+    "rag_answer": "Dựa vào thông tin cung cấp, không có điều khoản cụ thể đề cập đến việc miễn giảm yêu cầu số tín chỉ cho sinh viên mắc bệnh hiểm nghèo và bị khuyết tật. Điều này意译如下：\n\n根据提供的信息，没有具体的条款提到对于患有严重疾病和残疾的學生，在学年中需要修多少学分才能被考虑奖学金。因此，正常情况下，患有严重疾病和残疾的学生仍需满足一般要求。\n\n具体而言：\n- 在考核学期中至少获得15个学分（特殊情况除外），除非学校课程计划安排不足。\n- 每学期结束时，成绩平均分必须达到一定标准（对于学分制为2.5以上；对于学年制为7.0以上）。\n- 不能有任何一科成绩低于特定阈值（对于学分制为2.0以下；对于学年制为5.0以下）。\n\n没有关于因健康原因而减免学分要求的特别规定。因此，患有严重疾病和残疾的学生仍需满足上述一般标准来申请奖学金。如果有特殊情况或优惠政策，通常需要向学校相关部门提出申请并获得批准。",
+    "judge": {
+      "factual_alignment": 2,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "yes",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "The RAG response contradicts the reference by stating that students with serious illnesses or disabilities need to meet a general credit requirement of at least 15 credits, while the reference specifies a requirement of ≥25 credits for this category. Additionally, the RAG response includes extra details about score averages and grade thresholds not present in the reference."
+    }
+  },
+  {
+    "question": "Sinh viên thuộc các đối tượng có hoàn cảnh khó khăn còn lại phải đạt tối thiểu bao nhiêu tín chỉ trong năm học để được xét học bổng?",
+    "reference_answer": "Sinh viên thuộc các đối tượng có hoàn cảnh khó khăn còn lại phải có tổng số tín chỉ trong năm học xét học bổng ≥ 30 tín chỉ, trừ trường hợp do kế hoạch của Nhà trường bố trí không đủ.",
+    "rag_answer": "Dựa trên thông tinProvided trong văn bản, để được xét học bổng trong một năm học, sinh viên có hoàn cảnh khó khăn cần đạt các tiêu chí sau:\n\n1. Đối với hình thức đào tạo tín chỉ:\n   - Sinh viên cần có tổng số tín chỉ trong kỳ xét học bổng ≥ 15 tín chỉ (trừ trường hợp do kế hoạch của Nhà trường bố trí không đủ 15 tín chỉ).\n\n2. Đối với hình thức đào tạo niên chế:\n   - Sinh viên phải có tổng số tín chỉ xét học bổng ≥ 7 tín chỉ đối với học kỳ cuối theo thời gian thiết kế khóa học.\n\nTuy nhiên, câu hỏi đặt ra là \"tín chỉ tối thiểu sinh viên có hoàn cảnh khó khăn cần đạt để được xét học bổng là bao nhiêu trong một năm học?\" không đề cập rõ ràng đến hoàn cảnh khó khăn. Tuy nhiên, thông tin đã cung cấp cho thấy yêu cầu về tín chỉ đối với cả hai hình thức đào tạo (tín chỉ và niên chế) khi xét học bổng.\n\nTrong trường hợp chung (không tính hoàn cảnh khó khăn), số tín chỉ tối thiểu để được xét học bổng là 15 tín chỉ (trừ các trường hợp ngoại lệ). Đối với sinh viên có hoàn cảnh khó khăn, yêu cầu về số tín chỉ vẫn như vậy, nhưng cần đảm bảo rằng họ không vi phạm các điều kiện khác trong quy định.",
+    "judge": {
+      "factual_alignment": 1,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "The RAG response inaccurately reflects the minimum credit requirement for students in difficult circumstances. The reference specifies a minimum of 30 credits in the academic year, while the RAG response discusses general requirements of 15 or 7 credits without confirming the 30-credit standard for difficult circumstances, indicating missing and extra information rather than direct contradiction."
+    }
+  },
+  {
+    "question": "Sinh viên thuộc các đối tượng khó khăn được phép có điểm học phần thấp nhất là bao nhiêu?",
+    "reference_answer": "Sinh viên thuộc các đối tượng khó khăn không có học phần nào có điểm < 1.0 đối với đào tạo tín chỉ hoặc < 5.0 đối với đào tạo niên chế.",
+    "rag_answer": "根据提供的信息，文档中并没有提及关于“点数”（学分）的具体要求或最低标准。该文件主要描述了不同对象在学费减免和住宿政策上的规定，并未涉及学生学习成绩方面的具体条款。\n\n如果您指的是学生获得减免学费或享受其他优惠政策的条件是否与成绩有关，请注意以下几点：\n\n1. 免费对象：包括烈士、残疾生等，主要是指其可以全额免除学费，但没有提及成绩要求。\n2. 减免对象：比如少数民族、特定地区的学生可以减免一定比例的学费，但是也没有直接提到成绩分数或点数的具体要求。\n\n因此，根据当前提供的信息，无法得出具体的最低点数值。如果有更多关于学分或成绩的规定，请提供更多信息以便进一步解答。",
+    "judge": {
+      "factual_alignment": 1,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "yes",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "The RAG response does not align with the reference answer, as it denies the presence of specific score requirements in the document, while the reference states the requirement directly. This results in low factual alignment, missing the key details from the reference, and adding irrelevant information about fee exemptions."
+    }
+  },
+  {
+    "question": "Sinh viên có hoàn cảnh khó khăn cần đạt mức điểm trung bình và rèn luyện tối thiểu nào?",
+    "reference_answer": "Sinh viên thuộc đối tượng hoàn cảnh khó khăn phải đạt TBC năm học ≥ 2.0 đối với đào tạo tín chỉ hoặc ≥ 5.0 đối với đào tạo niên chế và xếp loại rèn luyện Khá trở lên.",
+    "rag_answer": "Theo thông tin trong văn bản, sinh viên có hoàn cảnh khó khăn cần đáp ứng một số điều kiện cụ thể như sau:\n\n1. Điểm trung bình chung học kỳ:\n   - Đối với hình thức đào tạo tín chỉ: ≥ 2.5 (điểm thang điểm 4)\n   - Đối với hình thức đào tạo niên chế: ≥ 7.0 (điểm thang điểm 10)\n\n2. Đánh giá rèn luyện:\n   - Sinh viên cần đạt loại rèn luyện Tốt trở lên\n   - Theo bảng phân loại, mức điểm rèn luyện từ 80 đến 89 điểm\n\n3. Ngoài ra, sinh viên còn có thể được ưu tiên, động viên và cộng điểm cho nỗ lực và tiến bộ tùy thuộc vào hoàn cảnh cụ thể.\n\nNhư vậy, để được nhận học bổng HaUI dành cho sinh viên có hoàn cảnh khó khăn, sinh viên cần đạt điểm trung bình chung từ 2.5 trở lên (tín chỉ) hoặc từ 7.0 trở lên (niên chế), đồng thời rèn luyện loại từ Tốt trở lên (từ 80 đến 89 điểm).",
+    "judge": {
+      "factual_alignment": 2,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "yes",
+      "semantic_equivalence": "medium",
+      "final_verdict": "fail",
+      "reason": "RAG's response contains inaccuracies compared to the reference, such as higher GPA requirements (2.5 vs 2.0 for credit-based training and 7.0 vs 5.0 for semester-based training) and stricter performance criteria (excellent vs good for training assessment), along with extra information about incentives and bonus points not mentioned in the reference."
+    }
+  },
+  {
+    "question": "Nguồn tiền dùng để trao học bổng Nguyễn Thanh Bình hằng năm được xác định từ đâu?",
+    "reference_answer": "Số tiền của quỹ dùng để trao học bổng Nguyễn Thanh Bình hằng năm được xác định trên số lãi của quỹ học bổng Nguyễn Thanh Bình.",
+    "rag_answer": "Quy trình xác định nguồn tài trợ cho học bổng Nguyễn Thanh Bình hàng năm bao gồm các bước sau:\n\n1. Xác định số tiền lãi của quỹ học bổng Nguyễn Thanh Bình:\n   - Số tiền này là kết quả từ việc đầu tư và quản lý quỹ học bổng.\n\n2. Tính toán số tiền còn lại sau khi trích ra cho các đối tượng ưu tiên:\n   - Theo công thức: \\( Q_{HBK} = \\frac{Q_{HB NTB} - Q_{HBCS}}{S_{SVT}} . S_{SVK} \\)\n     Trong đó:\n       - \\( Q_{HB NTB} \\): Số tiền của quỹ dùng để trao học bổng toàn trường trong năm học.\n       - \\( Q_{HBCS} \\): Số tiền của quỹ dùng để trao học bổng cho các đối tượng thuộc mục 2.1.1 đến 2.1.6.\n       - \\( S_{SVT} \\): Số lượng sinh viên toàn trường.\n       - \\( S_{SVK} \\): Số lượng sinh viên của khối Kỹ thuật hoặc Xã hội.\n\n3. Phân bổ số tiền còn lại cho hai khối (Kỹ thuật và Xã hội):\n   - Nếu có dư thừa sau khi phân bổ cho các đối tượng ưu tiên 2.1.1 đến 2.1.6, số tiền này sẽ được chia cho hai khối để xét cấp học bổng cho các đối tượng thuộc mục 2.1.7.\n\n4. Xác định mức độ ưu tiên:\n   - Các đối tượng sẽ được xét theo thứ tự ưu tiên như sau: 2.1.1, 2.1.2, 2.1.3, 2.1.4, 2.1.5, 2.1.6.\n\n5. Xem xét trường hợp số tiền không đủ:\n   - Nếu sinh viên cùng thuộc một đối tượng ưu tiên và số tiền của quỹ không đủ cho toàn bộ nhóm ưu tiên đó, Nhà trường sẽ lựa chọn sinh viên có kết quả học tập cao nhất để cấp học bổng.\n\n6. Phân chia số tiền giữa hai khối Kỹ thuật và Xã hội:\n   - Nếu còn dư sau khi cấp học bổng cho các đối tượng ưu tiên của một khối, số tiền này sẽ được chuyển sang xét cấp cho sinh viên thuộc đối tượng của khối kia (nếu còn).\n\n7. Xác định mức học bổng cao nhất:\n   - Trong trường hợp một sinh viên thuộc nhiều đối tượng, Nhà trường sẽ chọn đối tượng có mức học bổng cao nhất để xét cấp.\n\nQua quy trình này, nguồn tài trợ cho học bổng Nguyễn Thanh Bình hàng năm được xác định và phân bổ một cách công bằng dựa trên các tiêu chí đã đề ra.",
+    "judge": {
+      "factual_alignment": 1,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "Câu trả lời của RAG đã đi sâu vào các bước chi tiết và công thức không liên quan đến câu hỏi, trong khi câu trả lời mẫu chỉ tập trung vào nguồn gốc số tiền từ lãi quỹ."
+    }
+  },
+  {
+    "question": "Thứ tự ưu tiên xét cấp học bổng Nguyễn Thanh Bình được thực hiện theo nguyên tắc nào?",
+    "reference_answer": "Xét trước các đối tượng theo thứ tự ưu tiên mục 2.1.1, 2.1.2, 2.1.3, 2.1.4, 2.1.5, 2.1.6 của quy định này;- Trường hợp sinh viên thuộc nhiều đối tượng, sẽ lựa chọn đối tượng có mức học bổng cao nhất để xét cấp;- Trường hợp sinh viên cùng thuộc một đối tượng ưu tiên và số tiền của quỹ không đủ cho toàn bộ nhóm ưu tiên đó, Nhà trường sẽ lựa chọn sinh viên có kết quả học tập từ cao xuống thấp cho đến khi hết quỹ được cấp.",
+    "rag_answer": "Theo thông tin cung cấp, nguyên tắc xác định thứ tự ưu tiên xét cấp học bổng của sinh viên Nguyễn Thanh Bình được quy định cụ thể như sau:\n\n1. **Thứ tự ưu tiên rõ ràng**: Các đối tượng được ưu tiên xếp theo thứ tự 2.1.1 đến 2.1.7. Điều này có nghĩa là nhà trường sẽ đánh giá và cấp học bổng cho các sinh viên thuộc từng đối tượng này lần lượt từ 2.1.1 đến 2.1.7.\n\n2. **Lựa chọn đối tượng ưu tiên cao nhất khi một sinh viên thuộc nhiều đối tượng**: Nếu một sinh viên đồng thời thuộc nhiều đối tượng ưu tiên, nhà trường sẽ lựa chọn đối tượng có mức học bổng cao nhất để xét cấp. Điều này đảm bảo rằng học bổng được cấp cho đối tượng cần hỗ trợ cao nhất theo quy định.\n\n3. **Xét kết quả học tập từ cao xuống thấp**: Trong trường hợp số tiền của quỹ không đủ để cấp cho toàn bộ nhóm ưu tiên cùng một đối tượng, nhà trường sẽ lựa chọn sinh viên có kết quả học tập tốt hơn (từ cao xuống thấp) cho đến khi hết quỹ được cấp.\n\n4. **Không xét kết quả học tập năm cuối theo thời gian thiết kế khóa học**: Theo quy định chung, kết quả học tập của sinh viên trong năm cuối không được xem xét, trừ trường hợp có sự thay đổi đặc biệt.\n\n5. **Hạn chế đối tượng nhận học bổng HaUI**: Sinh viên đã nhận học bổng HaUI toàn khóa sẽ không còn đủ điều kiện để xét cấp học bổng Nguyễn Thanh Bình trong toàn khóa. Điều này giúp đảm bảo công bằng và hiệu quả sử dụng quỹ.\n\n6. **Chia số dư lãi cho hai khối**: Sau khi xét các đối tượng ưu tiên từ 2.1.1 đến 2.1.7, số dư lãi còn lại hàng năm sẽ được chia đều cho hai khối: Kỹ thuật và Xã hội để xét cho các đối tượng thuộc mục 2.1.7.\n\nTóm lại, nguyên tắc xác định thứ tự ưu tiên xét cấp học bổng Nguyễn Thanh Bình dựa trên việc đảm bảo hỗ trợ tối đa cho những đối tượng có nhu cầu cao nhất, đồng thời cân nhắc giữa kết quả học tập và phân bổ hợp lý giữa các khối khoa.",
+    "judge": {
+      "factual_alignment": 4,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "high",
+      "final_verdict": "pass",
+      "reason": "The RAG response accurately captures the core elements of the reference, such as the priority order, handling of multiple eligible categories, and fund insufficiency rules. However, it includes additional information not present in the reference, such as restrictions for HaUI scholarship recipients and surplus fund allocation, which may not be part of the original context. There are no contradictions, and the semantic equivalence is high due to similar wording and meaning."
+    }
+  },
+  {
+    "question": "Sau khi xét các đối tượng ưu tiên, số tiền quỹ còn lại được phân bổ như thế nào?",
+    "reference_answer": "Sau khi xét các đối tượng ưu tiên từ 2.1.1 đến 2.1.7, số dư lãi còn lại hàng năm được chia cho hai khối Kỹ thuật và Xã hội để xét cho các đối tượng thuộc mục 2.1.7.",
+    "rag_answer": "Phân bổ số tiền quỹ sau khi cân nhắc các đối tượng ưu tiên là một quá trình quản lý tài chính cần có sự cân nhắc kỹ lưỡng. Dưới đây là một hướng dẫn chung về cách thực hiện:\n\n1. **Xác định các đối tượng ưu tiên:**\n   - Đặt ra mục tiêu tổng thể cho quỹ.\n   - Xác định những đối tượng nào được ưu tiên nhất, ví dụ như giáo dục, y tế, bảo vệ môi trường hoặc giảm nghèo.\n\n2. **Cân nhắc nhu cầu và ưu tiên của từng đối tượng:**\n   - Phân tích nhu cầu thực tế của mỗi đối tượng ưu tiên.\n   - Đánh giá mức độ quan trọng của các mục tiêu trên.\n   \n3. **Xây dựng quy trình phân bổ:**\n   - Xác định phương pháp phân bổ (ví dụ: dựa trên nhu cầu, dựa trên số lượng người được hưởng lợi, hoặc kết hợp cả hai).\n   - Lựa chọn công cụ đánh giá nếu cần.\n\n4. **Phân tích chi tiết:**\n   - Tính toán lượng quỹ cần thiết cho từng đối tượng.\n   - Xem xét các yếu tố ngoại cảnh như kinh tế, chính trị, xã hội để điều chỉnh phân bổ.\n\n5. **Lập kế hoạch và thực hiện:**\n   - Lập kế hoạch cụ thể về cách sử dụng quỹ.\n   - Thực hiện việc phân bổ theo kế hoạch đã xác định.\n\n6. **Theo dõi và đánh giá:**\n   - Theo dõi hiệu quả của từng khoản đầu tư vào các đối tượng ưu tiên.\n   - Đánh giá thường xuyên để điều chỉnh nếu cần thiết.\n\n7. **Hiệp thương với các bên liên quan:**\n   - Liên kết với tổ chức phi chính phủ, cơ quan địa phương hoặc cộng đồng để tăng cường tác động.\n   - Xem xét việc hợp tác với các đối tác tư nhân để mở rộng nguồn lực.\n\nVí dụ đơn giản, nếu bạn có một quỹ 10.000 USD và cần phân bổ cho giáo dục và y tế:\n- Nếu giáo dục được ưu tiên hơn, bạn có thể chia ra là 60% cho giáo dục (6,000 USD) và 40% cho y tế (4,000 USD).\n- Hoặc nếu cả hai đều cần thiết, bạn có thể phân bổ đều: mỗi lĩnh vực nhận 5,000 USD.\n\nLưu ý rằng việc xác định ưu tiên cụ thể phụ thuộc vào tình hình cụ thể của từng tổ chức hoặc dự án.",
+    "judge": {
+      "factual_alignment": 1,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "The RAG response provides a general, step-by-step guide on fund allocation but does not align with the specific reference, which details dividing remaining profits after prioritization for certain groups. It misses key contextual details from the reference and includes unrelated general advice, resulting in low semantic equivalence and factual misalignment."
+    }
+  },
+  {
+    "question": "Công thức phân bổ quỹ học bổng cho từng khối được quy định như thế nào?",
+    "reference_answer": "Số tiền quỹ dùng để trao học bổng cho từng khối được tính theo công thức QHBK = (QHBNTB − QHBCS) / SSVT × SSVK.",
+    "rag_answer": "Phương pháp phân bổ quỹ học bổng cho các khối trong trường được xác định dựa trên một series các nguyên tắc và công thức cụ thể. Cụ thể hơn:\n\n1. **Xác định số tiền của quỹ học bổng toàn trường (QHB NTB):**\n   Số tiền này được xác định dựa trên số lãi thu được từ quỹ học bổng Nguyễn Thanh Bình hàng năm.\n\n2. **Tính toán số tiền dành cho các đối tượng ưu tiên (QHBCS):**\n   Số tiền QHBCS là tổng số tiền đã cấp cho các đối tượng thuộc mục 2.1.1 đến 2.1.6, bao gồm các sinh viên thuộc các nhóm ưu tiên khác nhau.\n\n3. **Tính toán số tiền còn lại (QHBK):**\n   Sau khi đã trích ra QHBCS từ số tiền của quỹ học bổng toàn trường (QHB NTB), số tiền còn lại sẽ được chia giữa hai khối: Kỹ thuật và Xã hội.\n   \n4. **Công thức tính toán cho mỗi khối:**\n   $$ Q_{HBK} = \\frac{Q_{HB NTB} - Q_{HBCS}}{S_{SVT}} . S_{SVK} $$\n   Trong đó:\n   - \\( Q_{HBK} \\): Số tiền của quỹ dùng để trao học bổng cho khối Kỹ thuật hoặc Xã hội.\n   - \\( Q_{HB NTB} \\): Số tiền của quỹ dùng để trao học bổng toàn trường trong năm học.\n   - \\( Q_{HBCS} \\): Số tiền của quỹ đã cấp cho các đối tượng thuộc mục 2.1.1 đến 2.1.6 (đối tượng ưu tiên khác).\n   - \\( S_{SVT} \\): Tổng số lượng sinh viên toàn trường.\n   - \\( S_{SVK} \\): Số lượng sinh viên thuộc khối Kỹ thuật hoặc Xã hội.\n\n5. **Phân bổ quỹ giữa hai khối:**\n   Sau khi tính toán được QHBK, số tiền này sẽ được chia cho mỗi khối (Kỹ thuật và Xã hội) theo tỷ lệ tương ứng với số sinh viên trong từng khối.\n   \n6. **Đối tượng ưu tiên cụ thể:**\n   Nếu còn thừa quỹ sau khi cấp cho các đối tượng thuộc mục 2.1.7, số tiền dư sẽ được chuyển sang xét cấp cho sinh viên thuộc đối tượng của khối kia (nếu còn).\n\n7. **Lựa chọn sinh viên:**\n   Trường hợp số tiền không đủ cho toàn bộ nhóm ưu tiên, Nhà trường sẽ lựa chọn sinh viên có kết quả học tập cao nhất để trao học bổng.\n\n8. **Sinh viên cùng thuộc nhiều đối tượng:**\n   Nếu sinh viên thuộc nhiều đối tượng ưu tiên, Nhà trường sẽ cấp học bổng với mức cao nhất mà họ đáp ứng được.\n\nNhư vậy, phương pháp phân bổ quỹ học bổng cho các khối dựa trên việc xác định số tiền còn lại sau khi trích ra QHBCS và chia đều giữa hai khối theo tỷ lệ sinh viên trong mỗi khối.",
+    "judge": {
+      "factual_alignment": 5,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "high",
+      "final_verdict": "pass",
+      "reason": "The RAG answer accurately reproduces the core formula and its intent from the reference, with no contradictions, despite providing additional contextual details that enhance understanding without altering the factual basis."
+    }
+  },
+  {
+    "question": "Sinh viên thuộc các đối tượng 2.1.2, 2.1.3, 2.1.4 được nhận học bổng với mức bao nhiêu?",
+    "reference_answer": "Sinh viên thuộc các đối tượng 2.1.2, 2.1.3, 2.1.4 nhận học bổng Nguyễn Thanh Bình với giá trị bằng 120% mức học bổng.",
+    "rag_answer": "Trong văn bản cung cấp không đề cập trực tiếp đến mức học bổng của các đối tượng 2.1.2, 2.1.3, 2.1.4 cụ thể là bao nhiêu. Tuy nhiên, thông qua việc phân tích nội dung, ta có thể rút ra một số điểm chính về học bổng:\n\n1. Đối với học bổng toàn khóa học và năm thứ nhất:\n   - Học phí các học phần học lần thứ nhất trong học kỳ chính.\n   - Các học phần học tại học kỳ phụ song song hoặc ngay liền sau.\n   - Không bao gồm học phí cho các học phần học lại, cải thiện điểm, cũng như các môn Kỹ năng sử dụng công nghệ thông tin, Ngoại ngữ và các môn học khác theo yêu cầu của chương trình đào tạo.\n\n2. Đối với học bổng 5 triệu đồng/suất:\n   - Đánh giá dựa trên kết quả xét tuyển.\n   - Không thuộc đối tượng tại khoản 1 và khoản 2 Điều 5.\n   - Phân bổ số lượng theo Đề án Tuyển sinh của Nhà trường.\n\n3. Đối với học bổng khuyến khích học tập (Điều 7):\n   - Xét cho sinh viên có kết quả cao trong học tập.\n   - Cụ thể, những sinh viên xếp loại rèn luyện và học tập xuất sắc sẽ nhận học bổng này.\n   \n4. Đối với học bổng để sinh viên định hướng học tiếp thạc sĩ (Điều 8):\n   - Xét cho 30% học phí các học phần đăng ký trước.\n   - Tổng số tín chỉ tối đa không quá 15.\n\nTừ những thông tin trên, chúng ta có thể thấy:\n- Học bổng toàn khóa học và năm thứ nhất không được nêu mức cụ thể trong văn bản, nhưng đã đề cập đến việc cấp 100% học phí các học phần.\n- Mức học bổng 5 triệu đồng/suất đã được xác định rõ ràng.\n- Các đối tượng khác như học bổng khuyến khích học tập và dành cho sinh viên thạc sĩ đều có mức cụ thể.\n\nDo đó, câu hỏi về mức học bổng dành cho sinh viên thuộc các đối tượng 2.1.2, 2.1.3, 2.1.4 không có thông tin trực tiếp trong văn bản cung cấp. Cần xem xét thêm các quy định khác hoặc liên hệ với Ban quản lý học bổng HaUI để biết chính xác mức học bổng áp dụng cho từng đối tượng cụ thể này.",
+    "judge": {
+      "factual_alignment": 1,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "The RAG response does not confirm the 120% scholarship amount for students in groups 2.1.2, 2.1.3, and 2.1.4, as specified in the reference. Instead, it states that this information is not directly available in the provided document and discusses unrelated scholarships, leading to a failure to provide the correct factual answer."
+    }
+  },
+  {
+    "question": "Số tiền của Quỹ học bổng Nguyễn Thanh Bình được sử dụng như thế nào?",
+    "reference_answer": "Số tiền của Quỹ được gửi vào Ngân hàng và định kỳ rút số tiền lãi để thực hiện việc cấp học bổng.",
+    "rag_answer": "Theo Quyết định số 279/QĐ-ĐHCN ngày 14/3/2023 của Trường Đại học Công nghiệp Hà Nội, cách sử dụng số tiền từ Quỹ học bổng Nguyễn Thanh Bình tại trường bao gồm các điểm chính sau:\n\n1. **Mục đích sử dụng:**\n   - Động viên, khuyến khích sinh viên có hoàn cảnh khó khăn vượt khó học tập và rèn luyện tốt.\n   - Thực hiện các chủ trương của Đảng và Nhà nước về xã hội hóa giáo dục, huy động các nguồn nhân lực đóng góp cho phát triển giáo dục, đào tạo.\n\n2. **Đối tượng sử dụng:**\n   - Sinh viên có hoàn cảnh gia đình khó khăn nhưng vẫn nỗ lực học tập tốt.\n   - Đảm bảo quỹ được sử dụng đúng mục đích và đối tượng đã được xác định.\n\n3. **Quy trình sử dụng:**\n   - Trưởng Ban hoạt động Quỹ khuyến học Nguyễn Thanh Bình chịu trách nhiệm tổ chức triển khai việc sử dụng quỹ.\n   - Các Phòng: Đào tạo, Tổ chức Hành chính, Tài chính Kế toán, Công tác Sinh viên, Trường các đơn vị có liên quan sẽ phối hợp thực hiện.\n   - Quy trình cấp học bổng cần tuân thủ theo quy định của Nhà trường và báo cáo cụ thể về việc sử dụng quỹ cho Ban giám hiệu.\n\n4. **Tài liệu tham khảo:**\n   - Căn cứ Quyết định 4811/QĐ-BCT ngày 29/5/2014 của Bộ trưởng Bộ Công Thương về việc quy định chức năng, nhiệm vụ, quyền hạn và cơ cấu tổ chức của Trường Đại học Công nghiệp Hà Nội.\n\nNhư vậy, số tiền từ Quỹ học bổng Nguyễn Thanh Bình được sử dụng chủ yếu để hỗ trợ sinh viên có hoàn cảnh khó khăn nhưng vẫn nỗ lực trong quá trình học tập. Việc sử dụng phải đảm bảo đúng mục đích và tuân theo quy định của nhà trường đã ban hành.",
+    "judge": {
+      "factual_alignment": 2,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "The RAG response does not include the key detail from the reference that the fund is deposited in the bank and interest is withdrawn periodically for scholarships. It provides additional details about the purpose, target, and process, which are not present in the reference, indicating missing and extra information but no contradiction."
+    }
+  },
+  {
+    "question": "Ban quản lý hoạt động Quỹ khuyến học Nguyễn Thanh Bình có trách nhiệm gì?",
+    "reference_answer": "Ban quản lý hoạt động Quỹ khuyến học xét duyệt danh sách sinh viên được cấp học bổng, đề xuất mức học bổng hằng năm và tổ chức phát học bổng cho sinh viên.",
+    "rag_answer": "Theo thông tin trong ngữ cảnh cung cấp, trách nhiệm của Ban quản lý hoạt động Quỹ khuyến học Nguyễn Thanh Bình bao gồm:\n\n1. Tổ chức phổ biến ý nghĩa và mục đích của Quỹ khuyến học đến toàn thể cán bộ, viên chức và sinh viên nhà trường.\n\n2. Thông báo rộng rãi cho mọi người biết về Quỹ học bổng để vận động ủng hộ.\n\n3. Thi hành các quyết định liên quan đến việc sử dụng và cấp học bổng khuyến học theo quy định của Trường Đại học Công nghiệp Hà Nội.\n\n4. Duy trì và phát triển Quỹ khuyến học ngày càng lớn mạnh, đảm bảo Quỹ được sử dụng đúng mục đích và đối tượng đã đề ra.\n\n5. Xây dựng và thực hiện các chính sách, chương trình nhằm động viên, khuyến khích sinh viên có hoàn cảnh khó khăn vượt khó học tập và rèn luyện tốt.\n\n6. Thực hiện các chủ trương của Đảng và Nhà nước về xã hội hóa giáo dục, huy động nguồn nhân lực đóng góp cho phát triển giáo dục, đào tạo.\n\n7. Tôn vinh người có công lao đóng góp cho sự nghiệp xây dựng, phát triển Quỹ và tài chính ban đầu cho Quỹ.\n\n8. Giáo dục các thế hệ học sinh, sinh viên truyền thống uống nước nhớ nguồn, rèn luyện phẩm chất đạo đức, lối sống tốt.\n\nTóm lại, Ban quản lý hoạt động Quỹ khuyến học Nguyễn Thanh Bình đóng vai trò quan trọng trong việc thực hiện các mục đích và yêu cầu của Quỹ, đồng thời góp phần thúc đẩy sự phát triển bền vững của Nhà trường.",
+    "judge": {
+      "factual_alignment": 3,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "medium",
+      "final_verdict": "pass",
+      "reason": "Câu trả lời của RAG cung cấp thêm các chi tiết trách nhiệm của Ban quản lý Quỹ khuyến học, bao gồm xét duyệt danh sách và phát học bổng, nhưng thiếu một số điểm chính trong câu mẫu và có thêm thông tin không cần thiết. Không có mâu thuẫn, nhưng không hoàn toàn khớp với câu trả lời mẫu."
+    }
+  }
+]

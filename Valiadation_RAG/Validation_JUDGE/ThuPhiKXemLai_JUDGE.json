@@ -1,0 +1,30 @@
+[
+  {
+    "question": "Khi đăng ký phúc khảo nhưng tôi không đến xem lại bài thi thì tôi có phải đóng phí không?",
+    "reference_answer": "Có, khi bạn không đến xem lại bài thi thì bạn phải mất phí là 50.000 VND. Còn nếu bạn đến xem lại bài thi thì sẽ không mất phí nhé.",
+    "rag_answer": "Theo thông báo từ Trường Đại học Công nghiệp Hà Nội, bạn sẽ phải đóng phí nếu đã đăng ký phục khảo nhưng không đến xem lại bài thi. Cụ thể như sau:\n\n1. **Quy định về thu phí**:\n   - Theo Quyết định số 721/QĐ-ĐHCN ngày 03/06/2024 của Hiệu trưởng Trường Đại học Công nghiệp Hà Nội, việc thu phí chỉ áp dụng đối với các sinh viên đăng ký nhưng không đến xem lại bài thi đúng theo lịch đã đăng ký.\n   - Mức phí là 50.000 VNĐ/sinh viên/lượt.\n\n2. **Quy trình thu phí**:\n   - Sau khi ca xem lại bài kết thúc, Trung tâm Khảo thí sẽ xác nhận các trường hợp sinh viên không đến xem lại bài thi như đã đăng ký.\n   - Hệ thống đại học điện tử sẽ tự động trừ tiền trong tài khoản cá nhân của sinh viên.\n\n3. **Chỉ áp dụng từ thời điểm**:\n   - Từ ngày 01/01/2025, tức là sau khi thông báo này có hiệu lực.\n\nVì vậy, nếu bạn đã đăng ký phục khảo nhưng không đến xem lại bài thi, theo quy định hiện hành, bạn sẽ phải đóng phí 50.000 VNĐ/sinh viên/lượt vào tài khoản cá nhân của mình trên hệ thống đại học điện tử.",
+    "judge": {
+      "factual_alignment": 5,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "high",
+      "final_verdict": "pass",
+      "reason": "Câu trả lời của RAG cung cấp thông tin chi tiết và chính xác hơn câu trả lời mẫu, chỉ có sự bổ sung thông tin thừa mà không sai lệch."
+    }
+  },
+  {
+    "question": "Tại sao phải thu phí khi tôi không đến xem lại bài thi?",
+    "reference_answer": "Vì từ tháng 6/2023 đến nay, có khoảng 60% sinh viên đăng ký phúc khảo nhưng không đến xem lại bài dẫn đến lãnh phí rất lớn về vật lực và nhân lực nên bạn cố gắng thu xếp thời gian để đến xem lại bài thi nhé.",
+    "rag_answer": "Lý do thu phí khi không đến xem xét lại bài thi của mình được quy định trong Thông báo này là nhằm mục đích tạo ra sự công bằng và hiệu quả trong quá trình tổ chức đánh giá kết quả học tập. Cụ thể:\n\n1. **Tối ưu hóa sử dụng nguồn lực**: Trong thời gian từ tháng 6/2023 đến nay, đã có khoảng 40% sinh viên đăng ký nhưng không đến xem xét lại bài thi. Điều này dẫn đến lãng phí lớn về vật lực và nhân lực như việc phải rút bài thi, scan bài thi, đẩy lên hệ thống, tổ chức xem lại bài... Thu phí giúp giảm bớt tình trạng này.\n\n2. **Đảm bảo công bằng**: Phí sẽ được thu từ những sinh viên đăng ký nhưng không đến, trong khi những sinh viên đã thực hiện đúng lịch đăng ký sẽ không bị thu phí. Điều này đảm bảo rằng nguồn lực và thời gian của nhà trường được sử dụng một cách hiệu quả.\n\n3. **Khuyến khích sự tuân thủ**: Quy định về việc thu phí tạo ra động lực cho sinh viên phải đến xem xét lại bài thi đúng lịch đã đăng ký, từ đó tăng cường kỷ luật học tập và trách nhiệm cá nhân của sinh viên.\n\n4. **Nâng cao hiệu quả quản lý**: Việc thu phí cũng giúp nhà trường nâng cao hiệu quả trong việc quản lý và tổ chức các hoạt động đánh giá kết quả học tập, tránh lãng phí thời gian và nguồn lực.\n\n5. **Tạo cơ sở tài chính cho hoạt động**: Số tiền thu được từ phí này có thể được sử dụng để hỗ trợ các hoạt động khác của nhà trường như cải thiện hệ thống công nghệ thông tin, nâng cấp phòng thi, hoặc đầu tư vào các hoạt động giảng dạy khác.\n\nQuyết định này đã căn cứ trên Quyết định số 721/QĐ-ĐHCN ngày 03/06/2024 của Hiệu trưởng Trường Đại học Công nghiệp Hà Nội và Hướng dẫn số 13/HD-ĐHCN ngày 15/6/2023, nhằm đảm bảo rằng quy định này được thực hiện một cách minh bạch và tuân thủ đúng quy trình.",
+    "judge": {
+      "factual_alignment": 3,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "medium",
+      "final_verdict": "pass",
+      "reason": "Câu trả lời của RAG giải thích lý do thu phí với các điểm chi tiết, phù hợp với câu trả lời mẫu nhưng có sự khác biệt về tỷ lệ sinh viên (60% vs 40%), không mâu thuẫn và có thêm thông tin, nên được đánh giá pass."
+    }
+  }
+]

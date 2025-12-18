@@ -1,0 +1,114 @@
+[
+  {
+    "question": "Sinh viên thuộc diện nào thì được miễn học phí 100%",
+    "reference_answer": "1. Người có công với cách mạng và thân nhân:\nMiễn 100% học phí đối với sinh viên là người có công với cách mạng hoặc là thân nhân (con đẻ, con nuôi, vợ/chồng) của người có công với cách mạng.\n\nNgười có công với cách mạng bao gồm:\n\nNgười hoạt động cách mạng trước ngày khởi nghĩa tháng Tám năm 1945.\n\nLiệt sĩ.\n\nAnh hùng Lực lượng vũ trang nhân dân.\n\nAnh hùng Lao động trong thời kỳ kháng chiến.\n\nThương binh (bao gồm cả thương binh loại B được công nhận trước 31/12/1993); người hưởng chính sách như thương binh.\n\nBệnh binh.\n\nNgười hoạt động kháng chiến bị nhiễm chất độc hóa học.\n\nNgười hoạt động cách mạng, kháng chiến, bảo vệ Tổ quốc, làm nghĩa vụ quốc tế bị địch bắt tù, đày.\n\nNgười hoạt động kháng chiến giải phóng dân tộc, bảo vệ Tổ quốc, làm nghĩa vụ quốc tế.\n\nNgười có công giúp đỡ cách mạng.\n\n2. Người khuyết tật:\nMiễn 100% học phí đối với sinh viên là người khuyết tật.\n\n3. Sinh viên dưới 22 tuổi thuộc diện mồ côi/hoàn cảnh đặc biệt:\nMiễn 100% học phí đối với sinh viên không quá 22 tuổi thuộc một trong các trường hợp sau:\n\nBị bỏ rơi chưa có người nhận làm con nuôi.\n\nMồ côi cả cha và mẹ.\n\nMồ côi cha hoặc mẹ, và người còn lại bị tuyên bố mất tích hoặc đang hưởng chế độ chăm sóc, nuôi dưỡng tại cơ sở bảo trợ xã hội, nhà xã hội.\n\nMồ côi cha hoặc mẹ, và người còn lại đang chấp hành án phạt tù hoặc đang chấp hành quyết định xử lý vi phạm hành chính tại trường giáo dưỡng, cơ sở giáo dục bắt buộc, cơ sở cai nghiện bắt buộc.\n\nCả cha và mẹ bị tuyên bố mất tích hoặc đang hưởng chế độ chăm sóc, nuôi dưỡng tại cơ sở bảo trợ xã hội, nhà xã hội.\n\nCả cha và mẹ đang chấp hành án phạt tù hoặc đang chấp hành quyết định xử lý vi phạm hành chính tại trường giáo dưỡng, cơ sở giáo dục bắt buộc, cơ sở cai nghiện bắt buộc.\n\nCha hoặc mẹ mất tích, và người còn lại hưởng chế độ chăm sóc tại cơ sở bảo trợ xã hội, nhà xã hội.\n\nCha hoặc mẹ bị tuyên bố mất tích, và người còn lại đang chấp hành án phạt tù hoặc quyết định xử lý vi phạm hành chính.\n\nCha hoặc mẹ đang hưởng chế độ chăm sóc tại cơ sở trợ giúp xã hội, và người còn lại đang chấp hành án phạt tù hoặc quyết định xử lý vi phạm hành chính.\n\n4. Dân tộc thiểu số thuộc hộ nghèo/cận nghèo:\nMiễn 100% học phí đối với sinh viên là người dân tộc thiểu số có cha hoặc mẹ hoặc cả cha và mẹ/ông bà (trường hợp sinh viên ở với ông bà) thuộc hộ nghèo hoặc hộ cận nghèo.\n\n5. Dân tộc thiểu số rất ít người:\nMiễn 100% học phí đối với sinh viên là người dân tộc thiểu số rất ít người sinh sống ở vùng có điều kiện kinh tế - xã hội khó khăn hoặc đặc biệt khó khăn.\n\nCác dân tộc thiểu số rất ít người bao gồm: Cống, Mảng, Pu Péo, Si La, Cờ Lao, Bố Y, La Ha, Ngái, Chứt, Ơ Đu, Brâu, Rơ Măm, Lô Lô, Lự, Pà Thẻn, La Hủ",
+    "rag_answer": "Theo quy định trong đoạn văn bạn cung cấp, sinh viên có thể thuộc một trong các đối tượng sau để được hưởng chính sách học phí miễn 100%:\n\n1. Sinh viên là người có công với cách mạng hoặc con đẻ, con nuôi của người có công với cách mạng.\n2. Thương binh (bao gồm thương binh loại B được công nhận trước ngày 31/12/1993) và người hưởng chính sách như thương binh.\n3. Người hoạt động kháng chiến giải phóng dân tộc, bảo vệ Tổ quốc, làm nghĩa vụ quốc tế.\n4. Liệt sỹ.\n5. Người hoạt động cách mạng, kháng chiến, bảo vệ Tổ quốc, làm nghĩa vụ quốc tế bị địch bắt tù, đày.\n6. Sinh viên thuộc vùng có điều kiện kinh tế - xã hội khó khăn và đặc biệt khó khăn (theo xác định trong Phụ lục 1 kèm theo quy định này).\n7. Người hoạt động kháng chiến bị nhiễm chất độc hóa học.\n8. Bệnh binh.\n\nĐối với tất cả các đối tượng trên, sinh viên được miễn 100% học phí theo mức trần tại Điều 3 Quy định này. Tuy nhiên, cần lưu ý rằng phần chênh lệch giữa học phí Nhà nước cấp và học phí thực tế của nhà trường thì sinh viên vẫn phải đóng bổ sung.",
+    "judge": {
+      "factual_alignment": 3,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "medium",
+      "final_verdict": "fail",
+      "reason": "Câu trả lời của RAG thiếu thông tin chi tiết về các đối tượng được miễn học phí như người khuyết tật, sinh viên dưới 22 tuổi mồ côi, và sinh viên dân tộc thiểu số. Đồng thời, RAG đã thêm thông tin không có trong tham chiếu về điều kiện kinh tế khó khăn và phần chênh lệch học phí."
+    }
+  },
+  {
+    "question": "Sinh viên thuộc diện nào nào thì được giảm học phí",
+    "reference_answer": "Sinh viên thuộc diện được giảm học phí sẽ được giảm học phí theo mức trần tại Điều 3 Quy định này. Phần chênh lệch giữa học phí Nhà nước cấp với học phí thực tế của Nhà trường thì sinh viên phải đóng bổ sung.\n\n1. Giảm 70% Học phí (Theo ngành học):\nÁp dụng đối với sinh viên học hệ Cao đẳng các ngành nghề sau:\n* Đối với khóa học tuyển sinh và tổ chức đào tạo trước ngày 30/07/2023: Ngành Cắt gọt kim loại.\n* Đối với khóa học tuyển sinh và tổ chức đào tạo sau ngày 30/07/2023: Các ngành Cắt gọt kim loại, Công nghệ ô tô, Công nghệ kỹ thuật cơ khí, Điện công nghiệp, Công nghệ chế tạo máy.\n\n2. Giảm 70% Học phí (Theo dân tộc và khu vực):\nÁp dụng đối với sinh viên là người dân tộc thiểu số (không phải là dân tộc thiểu số rất ít người theo Khoản 5 Điều 4 Quy định này) ở thôn/bản đặc biệt khó khăn, xã khu vực III vùng dân tộc và miền núi, xã đặc biệt khó khăn vùng bãi ngang ven biển hải đảo.\n\n3. Giảm 50% Học phí:\nÁp dụng đối với sinh viên là con cán bộ, công nhân, viên chức mà cha hoặc mẹ bị tai nạn lao động hoặc mắc bệnh nghề nghiệp được hưởng trợ cấp thường xuyên.",
+    "rag_answer": "Theo văn bản quy định, sinh viên thuộc các diện sau có quyền được giảm học phí tại Trường Đại học Công nghiệp Hà Nội:\n\n1. Sinh viên là người dân tộc thiểu số theo Quyết định 66/2013/QĐ-TTg ngày 11/11/2013 của Chính phủ.\n\n2. Sinh viên thuộc các ngành sau:\n   - Đối với khóa học tuyển sinh và tổ chức đào tạo sau ngày 30/7/2023: Các ngành Cắt gọt kim loại, Công nghệ ô tô, Công nghệ kỹ thuật cơ khí, Điện công nghiệp, Công nghệ chế tạo máy.\n   - Đối với khóa học tuyển sinh và tổ chức đào tạo trước ngày 30/7/2023: Ngành Cắt gọt kim loại.\n\n3. Sinh viên thuộc diện giảm 50% học phí do là con của cán bộ, công nhân viên chức mà cha hoặc mẹ bị tai nạn lao động hoặc mắc bệnh nghề nghiệp được hưởng trợ cấp thường xuyên (Theo Điều 5 quy định).\n\n4. Theo dự kiến trong tương lai có thể thêm các nhóm đối tượng khác nếu Chính phủ ban hành nghị định mới hoặc sửa đổi Nghị định số 81/2021/NĐ-CP và Nghị định số 97/2023/NĐ-CP, nhưng thông tin này chưa được đề cập cụ thể trong văn bản hiện tại.\n\nNhững quy định trên áp dụng cho sinh viên đang học các chương trình đào tạo chính quy trình độ đại học và cao đẳng tại Trường Đại học Công nghiệp Hà Nội.",
+    "judge": {
+      "factual_alignment": 4,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "medium",
+      "final_verdict": "fail",
+      "reason": "Câu trả lời của RAG thiếu thông tin chi tiết về các điều kiện cụ thể như khóa học trước/sau ngày 30/07/2023 và một số ngành học, đồng thời bổ sung thêm thông tin về dự kiến trong tương lai không có trong câu trả lời mẫu."
+    }
+  },
+  {
+    "question": "Là cử nhân đại học tôi cần đóng những khoản thu nào",
+    "reference_answer": "Các khoản thu gồm:\n\n1. Bảo hiểm y tế: 789.750đ/ 15 tháng hoặc 631.800đ/ 12 tháng.\n2. Bảo hiểm thân thể: 325.000đ/ 4 năm học.\n3. Bảo hộ lao động (đối với ngành kỹ thuật, công nghệ): 400.000đ/ 2 bộ/khóa học.\n4. Khám sức khỏe: 120.000đ.\n5. Quỹ khuyến học: 20.000đ/ khóa.",
+    "rag_answer": "Theo Quyết định số 1083 /QĐ-ĐHCN ngày 05 tháng 7 năm 2025 của Hiệu trưởng Trường Đại học Công nghiệp Hà Nội áp dụng cho năm học 2025-2026, cử nhân đại học (cử nhân) cần đóng các khoản phí như sau:\n\n1. Bảo hiểm y tế:\n   - Với mức đóng 789.750đ/ 15tháng hoặc 631.800đ/ 12 tháng\n\n2. Bảo hiểm thân thể: \n   - Mức đóng là 325.000đ/ 4 năm học (tương đương 81.250 đ/tháng)\n\n3. Bảo hộ lao động đối với ngành kỹ thuật, công nghệ:\n   - Mức thu là 400.000đ/2 bộ/khóa học\n\n4. Khám sức khỏe: \n   - Phí là 120.000 đ/lần (không có thông tin về thời gian khám cụ thể)\n\n5. Quỹ khuyến học:\n   - Mức đóng là 20.000 đ/khóa học\n\nTổng hợp lại, các khoản phí mà cử nhân đại học cần đóng bao gồm: Bảo hiểm y tế, Bảo hiểm thân thể, Bảo hộ lao động (nếu ngành có yêu cầu), Khám sức khỏe và Quỹ khuyến học.",
+    "judge": {
+      "factual_alignment": 5,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "high",
+      "final_verdict": "pass",
+      "reason": "The RAG response accurately reflects all the factual details from the reference answer, including the fees and their specifications, with no contradictions. While it adds extra context (e.g., source document and converted monthly rates), this does not alter the core facts, and the semantic equivalence is high due to the similarity in meaning despite additional details."
+    }
+  },
+  {
+    "question": "Là kỹ sư đại học tôi cần đóng những khoản thu nào",
+    "reference_answer": "Các khoản thu gồm:\n\n1. Bảo hiểm y tế: 642.330đ/ 12 tháng \n2. Bảo hiểm thân thể: 95.000đ/ 1 năm học.\n5. Quỹ khuyến học: 20.000đ/ khóa.",
+    "rag_answer": "Theo thông tin được cung cấp trong Quyết định số 1083 /QĐ-ĐHCN ngày 05 tháng 7 năm 2025 của Hiệu trưởng Trường Đại học Công nghiệp Hà Nội, bạn cần đóng các khoản thu chi như sau khi là kỹ sư (cử nhân) tại trường:\n\n1. Bảo hiểm y tế:\n   - 642.330đ/tháng (áp dụng cho 12 tháng)\n   \n2. Bảo hiểm thân thể: 95.000đ/năm học\n\n3. Bảo hộ lao động đối với ngành kỹ thuật, công nghệ: 400.000đ/2 bộ/khóa học\n\n4. Khám sức khỏe: 120.000đ (thuê cơ sở y tế kiểm tra sức khỏe cho sinh viên)\n\n5. Quỹ khuyến học: 20.000đ/khóa học\n\nTrong năm học 2025-2026, bạn sẽ đóng các khoản này theo quy định trên.\n\nLưu ý:\n- Các mức thu này áp dụng cho sinh viên ngành kỹ sư (cử nhân) tại Trường Đại học Công nghiệp Hà Nội.\n- Mức bảo hiểm y tế có thể thay đổi tùy thuộc vào thời điểm thực hiện việc khám và bảo hiểm, nên bạn cần kiểm tra lại với phòng tài chính trường nếu cần thiết.\n\nNếu bạn có thêm câu hỏi cụ thể hoặc cần thông tin chi tiết hơn về các khoản thu này, hãy liên hệ trực tiếp với cơ quan tài chính của trường để được tư vấn.",
+    "judge": {
+      "factual_alignment": 4,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "high",
+      "final_verdict": "pass",
+      "reason": "The RAG response accurately includes all the fees from the reference with correct amounts and time periods, and adds contextual details such as specific references and notes without introducing any contradictions. The semantic equivalence is high due to the matching core information, despite minor wording differences and additional details."
+    }
+  },
+  {
+    "question": "Là sinh viên cao đẳng tôi cần đóng những khoản thu nào",
+    "reference_answer": "Các khoản thu gồm:\n\n1. Bảo hiểm y tế: 789.750đ/ 15 tháng hoặc 631.800đ/ 12 tháng.\n2. Bảo hiểm thân thể: 255.000đ/ 3 năm học.\n3. Bảo hộ lao động (đối với ngành kỹ thuật, công nghệ): 400.000đ/ 2 bộ/khóa học.\n4. Khám sức khỏe: 120.000đ.\n5. Quỹ khuyến học: 20.000đ/ khóa.",
+    "rag_answer": "Bạn cần đóng các khoản phí sau nếu là sinh viên Trường Đại học Công nghiệp Hà Nội năm học 2025-2026:\n\n1. Bảo hiểm y tế:\n   - Sinh viên Cử nhân: 789.750đ/15 tháng hoặc 631.800đ/12 tháng\n   - Sinh viên Kỹ sư: 642.330đ/12 tháng\n   - Sinh viên Cao đẳng: 789.750đ/15 tháng hoặc 631.800đ/12 tháng\n\n2. Bảo hiểm thân thể:\n   - Sinh viên Cử nhân: 325.000đ/4 năm học\n   - Sinh viên Kỹ sư: 95.000đ/1 năm học\n   - Sinh viên Cao đẳng: 255.000đ/3 năm học\n\n3. Bảo hộ lao động (áp dụng cho ngành kỹ thuật, công nghệ):\n   - 400.000đ/2 bộ/khóa học\n\n4. Khám sức khỏe:\n   - 120.000đ/sinh viên\n\n5. Quỹ khuyến học:\n   - 20.000đ/khóa học\n\nLưu ý: Đối với sinh viên có đối tượng chính sách (cháy thương binh, bệnh binh hạng 1/4) sẽ được miễn phí bảo hiểm thân thể hoặc giảm 50% tùy theo điều kiện cụ thể.\n\nKèm theo các khoản trên, bạn cũng cần lưu ý về thời gian hiệu lực của bảo hiểm y tế cho các đối tượng khác nhau.",
+    "judge": {
+      "factual_alignment": 2,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "yes",
+      "semantic_equivalence": "medium",
+      "final_verdict": "fail",
+      "reason": "Câu trả lời của RAG có sai sót nghiêm trọng trong khoản bảo hiểm thân thể (ví dụ, sinh viên Cử nhân được nêu là 325.000đ/4 năm, trong khi câu mẫu là 255.000đ/3 năm), gây mâu thuẫn và thiếu chính xác. Ngoài ra, RAG bổ sung thêm thông tin không có trong câu mẫu như chi tiết sinh viên và đối tượng chính sách, cũng như thời gian hiệu lực bảo hiểm y tế, làm cho câu trả lời có nhiều điểm không khớp và sai lệch."
+    }
+  },
+  {
+    "question": "Là sinh viên liên thông tôi cần đóng những khoản thu nào",
+    "reference_answer": "3. Bảo hộ lao động (đối với ngành kỹ thuật, công nghệ): 400.000đ/ 2 bộ/khóa học.\n5. Quỹ khuyến học: 20.000đ/ khóa.",
+    "rag_answer": "Theo quy định của Trường Đại học Công nghiệp Hà Nội áp dụng cho năm học 2025-2026, nếu bạn là sinh viên liên thông (tức là thuộc nhóm \"Liên thông\" trong bảng danh mục), bạn sẽ phải đóng các loại phí sau:\n\n1. Bảo hiểm y tế:\n   - Hạn mức 15 tháng: Hiệu lực từ 01/10/2025 đến 31/12/2026 (789.750đ/tháng)\n   - Hạn mức 12 tháng: Hiệu lực từ 01/01/2026 đến 31/12/2026 (631.800đ/tháng)\n   - Hạn mức 12 tháng: Hiệu力已结束，以下是继续的部分：\n\n   - 历时从2025年8月1日至2026年7月31日（631,800越南盾/月）\n\n2. 身体保险：\n   - 每年：95,000越南盾\n   - 四年制课程：325,000越南盾\n   - 五年制课程：400,000越南盾\n\n3. 劳动保护费（仅针对技术、工艺专业）：\n   每学期2套：400,000越南盾\n\n4. 健康检查费：\n   120,000越南盾/次\n\n5. 鼓励基金费：\n   每学期20,000越南盾\n\n请注意，具体费用可能会根据实际政策有所调整。建议你参照学校的具体通知或直接咨询校方以获取最新和最准确的信息。",
+    "judge": {
+      "factual_alignment": 3,
+      "missing_information": "no",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "medium",
+      "final_verdict": "pass",
+      "reason": "Câu trả lời của RAG có một số điểm khớp với câu trả lời mẫu (ví dụ: phí bảo hộ lao động và quỹ khuyến học), nhưng thêm nhiều thông tin chi tiết và loại phí khác không có trong mẫu, làm tăng sự đầy đủ nhưng không ảnh hưởng đến sự kiện cơ bản. Không có mâu thuẫn, và ngữ nghĩa tương đương ở mức độ trung bình do sự khác biệt trong phạm vi thông tin."
+    }
+  },
+  {
+    "question": "Là sinh viên nước ngoài tôi cần đóng những khoản thu nào",
+    "reference_answer": "2. Bảo hiểm thân thể: 95.000đ/ 1 năm học hoặc 325.000đ/ 4 năm học hoặc 400.000đ/ 5 năm học.\n3. Bảo hộ lao động (đối với ngành kỹ thuật, công nghệ): 400.000đ/ 2 bộ/khóa học.",
+    "rag_answer": "Theo Quyết định số 1083 /QĐ-ĐHCN ngày 05 tháng 7 năm 2025 của Hiệu trưởng Trường Đại học Công nghiệp Hà Nội, sinh viên nước ngoài cần đóng các loại phí sau:\n\n1. Bảo hiểm y tế:\n   - Thời gian đóng phí bảo hiểm y tế là 15 tháng: Hiệu lực từ 01/10/2025 đến 31/12/2026\n   - Thời gian đóng phí bảo hiểm y tế là 12 tháng: Hiệu lực từ 01/01/2026 đến 31/12/2026\n   - Thời gian đóng phí bảo hiểm y tế là 12 tháng: Hiệu lực từ 01/08/2025 đến 31/07/2026\n\n   Giá cả cho các thời gian này lần lượt là:\n   - 789.750đ/ 15tháng\n   - 631.800đ/ 12 tháng\n\n2. Bảo hiểm thân thể: 325.000đ/ 4 năm học\n\n3. Bảo hộ lao động (chỉ áp dụng cho ngành kỹ thuật, công nghệ):\n   - 400.000đ/2 bộ/khóa học\n\n4. Khám sức khỏe: 120.000 đ\n   Đây là phí để thuê cơ sở y tế kiểm tra sức khỏe cho sinh viên.\n\n5. Quỹ khuyến học: 20.000 đ/ khóa\n\nLưu ý rằng:\n- Đối với bảo hiểm thân thể, mức phí có thể thay đổi tùy theo số năm học.\n- Đối với bảo hiểm y tế, có các mức phí khác nhau dựa trên thời gian đóng phí.\n\nĐể sinh viên nước ngoài được miễn hoặc giảm 50% phí bảo hiểm đối với các đối tượng chính sách như con liệt sỹ, thương binh, bệnh binh hạng 1/4, cần cung cấp giấy tờ liên quan theo quy định tại Quyết định 09/2011/QĐ-TTg.",
+    "judge": {
+      "factual_alignment": 3,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "The RAG response partially aligns with the reference on the 4-year rate for bảo hiểm thân thể and the details for bảo hộ lao động, but it misses the 1-year and 5-year rates for bảo hiểm thân thể. Additionally, it includes extra information about other fees (e.g., bảo hiểm y tế, khám sức khỏe) and payment details, which are not present in the reference, and the semantic equivalence is low due to the broader scope of the RAG response compared to the focused reference."
+    }
+  },
+  {
+    "question": "Sinh viên thuộc diện nào được hưởng chính sách nội trú",
+    "reference_answer": "Sinh viên học hệ Cao đẳng thuộc một trong các đối tượng sau:\n\n1. Là người dân tộc thiểu số có cha hoặc mẹ hoặc cả cha và mẹ/ông bà (trường hợp sinh viên ở với ông bà) thuộc hộ nghèo hoặc hộ cận nghèo theo quy định của Thủ tướng Chính phủ.\n\n2. Là người dân tộc thiểu số bị khuyết tật.\n\n3. Tốt nghiệp trường phổ thông dân tộc nội trú.\n\n4. Là người dân tộc Kinh có cha hoặc mẹ hoặc cả cha và mẹ/ông bà (trường hợp sinh viên ở với ông bà) thuộc hộ nghèo hoặc hộ cận nghèo theo quy định của Nhà nước có hộ khẩu thường trú tại vùng có điều kiện kinh tế - xã hội đặc biệt khó khăn, vùng dân tộc thiểu số, biên giới, hải đảo.\n\n5. Là người dân tộc Kinh bị khuyết tật có hộ khẩu thường trú tại vùng có điều kiện kinh tế - xã hội đặc biệt khó khăn, vùng dân tộc thiểu số, biên giới, hải đảo.",
+    "rag_answer": "Theo quy định của Trường Đại học Công nghiệp Hà Nội, sinh viên được hưởng chính sách nhà ở nội trú khi thuộc một trong các đối tượng sau:\n\n1. Sinh viên thuộc nhóm dân tộc Kinh có cha hoặc mẹ hoặc cả cha và mẹ (hoặc ông bà trong trường hợp sinh viên sống với ông bà) thuộc hộ nghèo hoặc hộ cận nghèo theo quy định của Nhà nước, có hộ khẩu thường trú tại vùng có điều kiện kinh tế - xã hội đặc biệt khó khăn, vùng dân tộc thiểu số, biên giới, hải đảo.\n\n2. Sinh viên thuộc nhóm dân tộc Kinh bị khuyết tật, có hộ khẩu thường trú tại các vùng được liệt kê ở điểm 1 trên.\n\nĐối với sinh viên thuộc hai đối tượng này, họ cần phải làm đơn đề nghị cấp chính sách nội trú trong vòng 45 ngày kể từ ngày nhập học và cung cấp đầy đủ hồ sơ yêu cầu như sau:\n\n- Bản sao chứng thực giấy khai sinh hoặc trích lục giấy khai sinh.\n- Giấy chứng nhận hộ nghèo, hộ cận nghèo (nếu thuộc đối tượng được hưởng khoản 1 và khoản 4 Điều 15 Quy định này).\n- Giấy xác nhận thông tin về cư trú (mẫu CT07) của cơ quan công an.\n- Giấy chứng nhận có hộ khẩu thường trú tại vùng có điều kiện kinh tế xã hội đặc biệt khó khăn, vùng dân tộc thiểu số, biên giới, hải đảo.\n\nQua đây, chúng ta thấy rằng sinh viên được hưởng chính sách nhà ở nội trú khi thuộc đối tượng dân tộc Kinh và thỏa mãn một trong hai tiêu chí về hoàn cảnh gia đình hoặc khu vực cư trú.",
+    "judge": {
+      "factual_alignment": 4,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "medium",
+      "final_verdict": "pass",
+      "reason": "Câu trả lời của RAG có độ chính xác sự kiện cao (4/5) vì nó bao gồm các yếu tố tương tự như đối tượng dân tộc Kinh, hộ nghèo, và hộ khẩu tại vùng khó khăn, nhưng thiếu một số đối tượng so với câu trả lời mẫu (ví dụ: không đề cập người dân tộc thiểu số nói chung). Ngoài ra, RAG thêm thông tin về thủ tục và hồ sơ, trong khi câu trả lời mẫu chỉ tập trung vào các đối tượng. Không có mâu thuẫn, và sự tương đương ngữ nghĩa ở mức độ vừa phải."
+    }
+  }
+]

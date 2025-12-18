@@ -1,0 +1,131 @@
+[
+  {
+    "Question": "Nếu gia đình tôi thuộc diện hộ nghèo, tôi có được nhận học bổng nào không?",
+    "Category": [
+      "ChinhSachSV.pdf",
+      "HocBongNTB.pdf",
+      "HocBong.pdf"
+    ]
+  },
+  {
+    "Question": "Học phí một tín chỉ bao nhiêu tiền?",
+    "Category": [
+      "MucThu.pdf"
+    ]
+  },
+  {
+    "Question": "Tôi bị kỷ luật vì đi học muộn, có bị đuổi học không?",
+    "Category": [
+      "KhenThuongKyLuat.pdf"
+    ]
+  },
+  {
+    "Question": "Em chuyển từ trường cao đẳng khác sang, tín chỉ cũ có được công nhận không?",
+    "Category": [
+      "CongNhanMonHocTamThoi.pdf"
+    ]
+  },
+  {
+    "Question": "Điểm rèn luyện tính thế nào để được học bổng?",
+    "Category": [
+      "DRL.pdf",
+      "HocBong.pdf"
+    ]
+  },
+  {
+    "Question": "Em có được giảm học phí vì bố là bộ đội không?",
+    "Category": [
+      "ChinhSachSV.pdf"
+    ]
+  },
+  {
+    "Question": "Học phí học lại môn là bao nhiêu?",
+    "Category": [
+      "TinhHocPhi.pdf",
+      "MucThu.pdf"
+    ]
+  },
+  {
+    "Question": "Em đăng ký xem lại bài thi nhưng quên không đến, có bị phạt tiền không?",
+    "Category": [
+      "ThuPhiKhongXemLai.pdf"
+    ]
+  },
+  {
+    "Question": "Làm sao để được học bổng Nguyễn Thanh Bình?",
+    "Category": [
+      "HocBongNTB.pdf"
+    ]
+  },
+  {
+    "Question": "Em muốn tham gia cuộc thi robocon, có được tính tín chỉ không?",
+    "Category": [
+      "CongNhanMonHocTamThoi.pdf"
+    ]
+  },
+  {
+    "Question": "Học bổng KKHT cần điểm trung bình bao nhiêu?",
+    "Category": [
+      "HocBong.pdf"
+    ]
+  },
+  {
+    "Question": "Em bị ốm không thi được, có được bảo lưu kết quả không?",
+    "Category": [
+      "DanhGiaKQHT.pdf",
+      "QuyCheDaoTao.pdf"
+    ]
+  },
+  {
+    "Question": "Phí ký túc xá tính thế nào?",
+    "Category": [
+      "ChinhSachSV.pdf",
+      "KhoanThu.pdf"
+    ]
+  },
+  {
+    "Question": "Em vi phạm nội quy ký túc xá, có bị trừ điểm rèn luyện không?",
+    "Category": [
+      "KhenThuongKyLuat.pdf",
+      "DRL.pdf"
+    ]
+  },
+  {
+    "Question": "Học phí ngành kỹ thuật cao hơn ngành xã hội không?",
+    "Category": [
+      "MucThu.pdf"
+    ]
+  },
+  {
+    "Question": "Em học song ngành, học phí tính thế nào?",
+    "Category": [
+      "TinhHocPhi.pdf",
+      "MucThu.pdf"
+    ]
+  },
+  {
+    "Question": "Quy định mặc đồng phục trong trường là gì?",
+    "Category": [
+      "QuyCheCTSV.pdf"
+    ]
+  },
+  {
+    "Question": "Em có được làm thêm trong trường không?",
+    "Category": [
+      "QuyCheCTSV.pdf"
+    ]
+  },
+  {
+    "Question": "Thời gian học tối đa của một sinh viên là bao lâu?",
+    "Category": [
+      "QuyCheDaoTao.pdf"
+    ]
+  },
+  {
+    "Question": "Em không đóng học phí đúng hạn, có bị cấm thi không?",
+    "Category": [
+      "KhoanThu.pdf",
+      "DanhGiaKQHT.pdf"
+    ]
+  }
+]

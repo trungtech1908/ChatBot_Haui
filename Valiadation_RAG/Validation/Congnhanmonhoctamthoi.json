@@ -1,0 +1,107 @@
+[
+  {
+  "Question": "Quy định về công nhận kết quả học tập và chuyển đổi tín chỉ được áp dụng cho những đối tượng nào trong nhà trường?",
+  "Answer": "Quy định này áp dụng đối với sinh viên trình độ đại học, các đơn vị, cá nhân có liên quan đến công tác xét, công nhận kết quả học tập và chuyển đổi tín chỉ trong Nhà trường.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Việc công nhận kết quả học tập và chuyển đổi tín chỉ căn cứ vào nhu cầu của đối tượng nào trong nhà trường?",
+  "Answer": "Căn cứ vào nhu cầu được công nhận kết quả học tập và chuyển đổi tín chỉ đã tích lũy của sinh viên.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Dựa trên các văn bản hợp tác đào tạo đối với nhà trường thì có vai trò gì trong việc công nhận tín chỉ?",
+  "Answer": "Căn cứ vào các văn bản hợp tác đào tạo, trao đổi sinh viên của Nhà trường với các cơ sở đào tạo khác trong nước và quốc tế.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+   {
+  "Question": "Hôi đồng công nhận và chuyển đổi tín chỉ được thực hiện theo những cấp độ nào?",
+  "Answer": "Công nhận, chuyển đổi theo từng học phần; theo từng nhóm học phần; theo cả chương trình đào tạo.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": " Đối với các học phần của chương trình đào tạo,yêu cầu về khối lượng học tập khi xét công nhận tín chỉ được quy định như thế nào?",
+  "Answer": "Khối lượng học tập của học phần hoặc nhóm học phần trong chương trình đào tạo hoặc chương trình đào tạo sinh viên đã tích lũy phải bằng hoặc lớn hơn so với khối lượng học tập của học phần hoặc của nhóm học phần trong chương trình đào tạo theo học của Nhà trường",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Sinh viên cần đạt mức điểm tối thiểu bao nhiêu để đủ điều kiện được công nhận kết quả học tập?",
+  "Answer": "Có kết quả học tập đạt từ điểm C trở lên theo thang điểm chữ, hoặc từ điểm 2 trở lên theo thang điểm 4, hoặc từ 5,5 điểm trở lên theo thang điểm 10.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Đối với sinh viên trong trường chứng chỉ ngoại ngữ đến mức nào thì được xem xét miễn học phần ngoại ngữ?",
+  "Answer": "Sinh viên có chứng chỉ ngoại ngữ từ bậc 3 trở lên theo khung năng lực ngoại ngữ 6 bậc của Việt Nam còn thời hạn hiệu lực nhưng không quá 02 năm tính theo ngày cấp ghi trên chứng chỉ hoặc các văn bằng, chứng chỉ tương đương khác (Phụ lục 01) được xem xét miễn các học phần Ngoại ngữ trong chương trình đào tạo.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Những sinh viên ở mức trình độ như thế nào thì được xét miễn các học phần Kỹ năng sử dụng công nghệ thông tin ",
+  "Answer": "sinh viên tốt nghiệp trình độ cao đẳng trở lên các ngành thuộc lĩnh vực Máy tính và Công nghệ thông tin hoặc sinh viên có chứng chỉ tin học quốc tế hoặc sinh viên đã đạt chuẩn đầu ra Kỹ năng sử dụng công nghệ thông tin theo quy định.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Những sinh viên có đóng góp như thế nào với nhà trường thì được xem xét công nhận kết quả học tập và chuyển đổi tín chỉ?",
+  "Answer": "Sinh viên tham gia hoạt động nghiên cứu khoa học, tham gia các cuộc thi do Nhà trường tổ chức hoặc được Nhà trường cử tham gia đạt từ giải Ba trở lên được xem xét công nhận kết quả học tập và chuyển đổi tín chỉ nhưng không quá một học phần cho một hoạt động.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Những học phần nào không được công nhận và chuyển đổi tín chỉ?",
+  "Answer": "Không công nhận kết quả học tập và chuyển đổi tín chỉ đối với các học phần thuộc nhóm Đồ án/khóa luận tốt nghiệp và các học phần thay thế Đồ án/khóa luận tốt nghiệp.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Khối lượng tín chỉ tối đa được công nhận không vượt quá bao nhiêu phần trăm khối lượng học tập của chương trình đào tạo?",
+  "Answer": "Không vượt quá 50% khối lượng học tập của chương trình đào tạo.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Đối với một tín chỉ thì cách quy đổi ra khối lượng như thế nào?",
+  "Answer": "01 tín chỉ bằng 15 tiết lý thuyết; bằng 30 tiết thực hành, thí nghiệm, thảo luận; bằng 60 giờ thực tập tại các cơ sở; bằng 45 giờ làm tiểu luận, bài tập lớn hoặc đồ án; một tiết trên lớp có thời lượng 50 phút.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+   {
+  "Question": "Đối với một đơn vị học trình thì cách quy đổi ra khối lượng như thế nào?",
+  "Answer": "01 đơn vị học trình bằng 15 tiết học trên lớp; bằng 30 tiết thực hành, thí nghiệm, thảo luận; bằng 60 giờ thực tập tại các cơ sở; bằng 45 giờ làm tiểu luận, bài tập lớn hoặc đồ án; 01 tiết trên lớp có thời lượng 45 phút. ",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Thang điểm chữ B+ tương ứng với bao nhiêu điểm theo thang điểm 4 đối với việc quy đổi kết quả học tập?",
+  "Answer": "Thang điểm chữ B+ tương ứng với 3,5 điểm theo thang điểm 4.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Hội đồng xét công nhận và chuyển đổi tín chỉ gồm những vị trí nào?",
+  "Answer": " Chủ tịch: Hiệu trưởng hoặc Phó Hiệu trưởng nhà trường.- Uỷ viên thường trực: Trưởng hoặc Phó trưởng Phòng Đào tạo.  - Các uỷ viên gồm: Trưởng hoặc Phó Trưởng đơn vị có liên quan. - Thư ký hội đồng: Viên chức Phòng Đào tạo.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+{
+  "Question": "Hội đồng được thành lập bao gồm những nhiệm vụ gì?",
+  "Answer": " Hội đồng căn cứ vào quy định, có trách nhiệm xem xét và đề xuất với Hiệu trưởng nhà trường công nhận kết quả học tập và chuyển đổi tín chỉ.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Đối với quy trình xét công nhận kết quả và chuyển đổi tín chỉ sinh viên phải nộp hồ sơ trước thời điểm nào?",
+  "Answer": "Trước thời điểm đăng ký học phần của học kỳ chính 04 tuần, sinh viên nộp hồ sơ đề nghị công nhận kết quả học tập, công nhận tín chỉ, miễn học các học phần trong chương trình đào tạo.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Phòng Đào tạo có trách nhiệm gì trong công tác công nhận và chuyển đổi tín chỉ?",
+  "Answer": "Phòng Đào tạo có trách nhiệm đề xuất các thành viên Hội đồng; chủ trì, phối hợp với các đơn vị liên quan xác thực các loại chứng chỉ dùng trong việc công nhận kết quả học tập và chuyển đổi tín; lập và trình Hiệu trưởng nhà trường ký quyết định công nhận kết quả học tập và chuyển đổi tín chỉ, lưu trữ hồ sơ công nhận kết quả học tập và chuyển đổi tín chỉ theo quy định hiện hành.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Các đơn vị đào tạo tham gia vào quy trình công nhận tín chỉ với vai trò gì?",
+  "Answer": "Các đơn vị đào tạo có trách nhiệm tiếp nhận, xem xét và đề xuất danh sách sinh viên được công nhận kết quả học tập và chuyển đổi tín chỉ, phối hợp xác thực chứng chỉ nghề nghiệp.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Những đơn vị nào phối hợp xác thực chứng chỉ ngoại ngữ, tin học và giáo dục quốc phòng?",
+  "Answer": "Trường Ngoại ngữ - Du lịch, Trung tâm Công nghệ thông tin, Trung tâm Giáo dục quốc phòng và an ninh, Trung tâm giáo dục thể chất và thể thao có trách nhiệm phối hợp với Phòng Đào tạo để xác thực chứng chỉ.",
+  "Category": "CongNhanMonHocTamThoi"
+},
+  {
+  "Question": "Sinh viên có bằng tốt nghiệp đại học được xét miễn học phần ngoại ngữ trong trường hợp nào?",
+  "Answer": "Sinh viên có bằng tốt nghiệp Đại học được xét miễn các học phần ngôn ngữ thứ 2 trong chương trình thuộc nhóm ngành ngoại ngữ, sư phạm ngoại ngữ), Bậc 5 (đối với bằng tốt nghiệp nhóm ngành ngoại ngữ, sư phạm ngoại ngữ) và tương đương Bậc 3 (đối với bằng tốt nghiệp không thuộc nhóm ngành ngoại ngữ) khung năng lực ngoại ngữ 6 bậc dùng cho Việt Nam.",
+  "Category": "CongNhanMonHocTamThoi"
+}
+]

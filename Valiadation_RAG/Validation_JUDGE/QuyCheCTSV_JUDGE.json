@@ -1,0 +1,30 @@
+[
+  {
+    "question": "Tôi chuyển chỗ trọ mới thì có cần báo với trường không hay chỉ cần báo công an phường thôi?",
+    "reference_answer": "Có nhé, bạn phải điều chỉnh thông tin địa chỉ tạm trú trên hệ thống đại học điện tử chậm nhất 05 ngày làm việc kể từ khi thay đổi.",
+    "rag_answer": "Theo chính sách nội trú được mô tả trong văn bản, bạn không cần báo cho trường về việc chuyển chỗ trọ mới. Hồ sơ và thủ tục mà sinh viên cần thực hiện chủ yếu xoay quanh việc làm đơn đề nghị cấp chính sách nội trú và cung cấp các giấy tờ tùy thân như giấy khai sinh hoặc trích lục giấy khai sinh.\n\nTuy nhiên, nếu bạn có kế hoạch chuyển chỗ trọ mới, điều này có thể ảnh hưởng đến quyền lợi của bạn đối với chính sách nội trú. Bạn nên liên hệ với Phòng Công tác Sinh viên để được tư vấn cụ thể về trường hợp của mình và xem xét các bước cần thiết, nếu có.\n\nNhớ rằng thời hạn nộp hồ sơ là trong vòng 45 ngày kể từ ngày nhập học. Vì vậy, hãy đảm bảo bạn thực hiện tất cả các thủ tục này đúng hạn để không ảnh hưởng đến quyền lợi của mình.",
+    "judge": {
+      "factual_alignment": 1,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "yes",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "The RAG response diverges significantly from the reference by not addressing the key action of adjusting the temporary address on the university system within 5 days. Instead, it introduces unrelated advice about internal residence policies and a 45-day deadline, leading to missing critical information and potential contradiction with the reference's guidance."
+    }
+  },
+  {
+    "question": "Bảo hiểm y tế là bắt buộc hay tự nguyện, tôi thấy năm nào cũng phải đóng?",
+    "reference_answer": "Theo quy chế, việc tham gia bảo hiểm y tế là nhiệm vụ bắt buộc của sinh viên theo quy định của pháp luật.",
+    "rag_answer": "Bảo hiểm y tế ở Việt Nam có cả hình thức bắt buộc và tự nguyện, tùy theo loại bảo hiểm:\n\n1. Bảo hiểm y tế bắt buộc:\n- Áp dụng cho người lao động đang làm việc tại các doanh nghiệp.\n- Được thực hiện thông qua Quỹ BHYT của nhà nước.\n- Người tham gia đóng góp một phần tiền vào quỹ từ thu nhập hàng tháng.\n\n2. Bảo hiểm y tế tự nguyện (BHYT cá nhân):\n- Áp dụng cho người dân và lao động tự do không thuộc diện bắt buộc tham gia BHYT.\n- Do các tổ chức bảo hiểm tư nhân cung cấp dịch vụ.\n- Người tham gia tự ý thức đóng phí để được hưởng các quyền lợi.\n\nVì sao cần phải đóng năm nào:\n\n1. Chấp nhận rủi ro: Khi tham gia, bạn đồng ý rằng sẽ chịu một khoản chi trả cố định hàng tháng/vàn/năm để có thể được bù đắp trong trường hợp bị ốm hoặc gặp tai nạn.\n\n2. Bảo vệ sức khỏe cá nhân và gia đình: BHYT giúp giảm bớt gánh nặng tài chính khi phải khám chữa bệnh, đặc biệt là đối với những người mắc các bệnh nặng.\n\n3. Phấn đấu cho quyền lợi công bằng: Tham gia BHYT góp phần tạo nên một xã hội chia sẻ, đảm bảo rằng ai cũng có cơ hội tiếp cận dịch vụ y tế chất lượng.\n\n4. Tuân thủ quy định pháp luật: Theo Luật Bảo hiểm y tế Việt Nam, người lao động bắt buộc phải tham gia BHYT để được hưởng các quyền lợi từ nhà nước và doanh nghiệp.\n\n5. Tính thanh khoản của quỹ bảo hiểm: Số tiền đóng góp hàng năm giúp đảm bảo nguồn lực cho hệ thống BHYT hoạt động hiệu quả.\n\nVì vậy, việc đóng góp theo quy định là điều cần thiết để duy trì hệ thống y tế công ích và bảo vệ sức khỏe cho chính bản thân và cộng đồng.",
+    "judge": {
+      "factual_alignment": 2,
+      "missing_information": "yes",
+      "extra_information": "yes",
+      "contradiction": "no",
+      "semantic_equivalence": "low",
+      "final_verdict": "fail",
+      "reason": "The RAG answer provides extra details on health insurance types and reasons for contribution, which are not in the reference answer. It also misses specific information about student obligations mentioned in the reference, resulting in low semantic equivalence and factual alignment."
+    }
+  }
+]
