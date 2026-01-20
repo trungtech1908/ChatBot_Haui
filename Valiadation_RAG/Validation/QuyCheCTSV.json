@@ -1,9 +1,260 @@
 [
-    {"Question": "Tôi chuyển chỗ trọ mới thì có cần báo với trường không hay chỉ cần báo công an phường thôi?",
+    {"Question": "Em chuyển chỗ trọ mới thì có cần báo với trường không hay chỉ cần báo công an phường thôi?",
     "Category": "QuyCheCTSV",
     "Answer": "Có nhé, bạn phải điều chỉnh thông tin địa chỉ tạm trú trên hệ thống đại học điện tử chậm nhất 05 ngày làm việc kể từ khi thay đổi."},
-    {"Question": "Bảo hiểm y tế là bắt buộc hay tự nguyện, tôi thấy năm nào cũng phải đóng?",
+    {"Question": "Bảo hiểm y tế là bắt buộc hay tự nguyện, em thấy năm nào cũng phải đóng?",
     "Category": "QuyCheCTSV",
-    "Answer": "Theo quy chế, việc tham gia bảo hiểm y tế là nhiệm vụ bắt buộc của sinh viên theo quy định của pháp luật."}
+    "Answer": "Theo quy chế, việc tham gia bảo hiểm y tế là nhiệm vụ bắt buộc của sinh viên theo quy định của pháp luật."},
+    {
+    "Question": "Em muốn học vượt để ra trường sớm thì có được không ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, sinh viên trình độ Đại học được quyền học vượt, học rút ngắn thời gian thực hiện chương trình đào tạo."
+  },
+  {
+    "Question": "Em có được học cùng lúc hai chương trình đào tạo không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, sinh viên được quyền học cùng lúc hai chương trình theo Quy chế đào tạo."
+  },
+  {
+    "Question": "Sinh viên có được tham gia vào Hội đồng trường không ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, sinh viên được quyền cử người đại diện tham gia hội đồng trường theo quy định."
+  },
+  {
+    "Question": "Em muốn đóng góp ý kiến xây dựng nhà trường thì làm thế nào?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Bạn có quyền đóng góp ý kiến trực tiếp hoặc thông qua đại diện hợp pháp để kiến nghị các giải pháp xây dựng và phát triển trường."
+  },
+  {
+    "Question": "Điều kiện để được xét vào ở ký túc xá là gì ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Sinh viên được xét tiếp nhận vào ký túc xá theo quy định của nhà trường."
+  },
+  {
+    "Question": "Khám sức khỏe đầu năm có bắt buộc không hay em tự khám ở ngoài cũng được?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Việc thực hiện đầy đủ việc khám sức khỏe theo quy định của trường là nhiệm vụ bắt buộc của sinh viên."
+  },
+  {
+    "Question": "Tuần sinh hoạt công dân đầu khóa em bận không tham gia thì có sao không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Sinh viên có nhiệm vụ phải tham gia đầy đủ tuần sinh hoạt công dân - sinh viên do trường tổ chức."
+  },
+  {
+    "Question": "Em đổi số điện thoại thì có cần báo lại với trường không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, bạn phải cập nhật kịp thời khi thay đổi thông tin cá nhân trên hệ thống của trường."
+  },
+  {
+    "Question": "Em ở trọ ngoài thì có cần khai báo gì với trường không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Sinh viên ngoại trú phải thực hiện đăng ký tạm trú với địa phương và điều chỉnh thông tin địa chỉ tạm trú trên hệ thống đại học điện tử chậm nhất 05 ngày làm việc kể từ khi thay đổi."
+  },
+  {
+    "Question": "Bảo hiểm y tế có bắt buộc phải mua không ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, tham gia bảo hiểm y tế là nghĩa vụ bắt buộc theo quy định của pháp luật."
+  },
+  {
+    "Question": "Nếu em phát hiện bạn trong lớp gian lận thi cử thì em nên làm gì?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Bạn có nhiệm vụ tham gia phòng chống tiêu cực và kịp thời báo cáo với khoa, phòng chức năng hoặc Hiệu trưởng khi phát hiện hành vi gian lận."
+  },
+  {
+    "Question": "Em có được phép đăng tải các thông tin sai sự thật về trường lên mạng không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Không, sinh viên không được làm các hành vi xâm phạm lợi ích của Nhà trường, cũng như các hành vi xuyên tạc, chống phá."
+  },
+  {
+    "Question": "Một năm nhà trường tổ chức đối thoại với sinh viên mấy lần?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Nhà trường tổ chức đối thoại định kỳ với sinh viên 04 lần/năm học."
+  },
+  {
+    "Question": "Em bị mất thẻ sinh viên thì liên hệ ai để làm lại?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Bạn liên hệ Phòng Công tác Sinh viên để được giải quyết thủ tục làm lại thẻ sinh viên."
+  },
+  {
+    "Question": "Nhà trường có hỗ trợ sinh viên tìm kiếm việc làm không ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, nhà trường tổ chức thực hiện các nội dung liên quan đến công tác tư vấn hướng nghiệp, hỗ trợ khởi nghiệp và việc làm cho sinh viên."
+  },
+  {
+    "Question": "Em muốn xin học bổng khuyến khích học tập thì ai là người xét duyệt?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Phòng Công tác Sinh viên là đơn vị chủ trì tổ chức xét học bổng khuyến khích học tập cho sinh viên."
+  },
+  {
+    "Question": "Em muốn vay vốn ngân hàng để đóng học phí thì trường có hỗ trợ không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, nhà trường sẽ hướng dẫn sinh viên tham gia tín dụng đào tạo và xác nhận các giấy tờ cần thiết theo quy định."
+  },
+  {
+    "Question": "Thầy cố vấn học tập sẽ giúp em những việc gì?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Cố vấn học tập thực hiện nhiệm vụ chủ nhiệm lớp và tư vấn, trợ giúp cho sinh viên trong quá trình học tập và rèn luyện."
+  },
+  {
+    "Question": "Ban cán sự lớp gồm những ai và do ai bầu ra?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Ban cán sự lớp gồm lớp trưởng và các lớp phó do tập thể sinh viên trong lớp bầu và được Hiệu trưởng công nhận."
+  },
+  {
+    "Question": "Làm lớp trưởng vất vả thế này thì em được hưởng quyền lợi gì?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Ban cán sự lớp được ưu tiên cộng điểm rèn luyện và hưởng các chế độ khác theo quy định của trường."
+  },
+  {
+    "Question": "Em học tốt muốn ra trường sớm hơn dự kiến thì nhà trường có cho phép không ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, sinh viên trình độ Đại học được quyền học vượt, học rút ngắn thời gian thực hiện chương trình đào tạo."
+  },
+  {
+    "Question": "Đang học mà gia đình em có việc gấp cần nghỉ một thời gian thì có được bảo lưu kết quả không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Được, sinh viên có quyền nghỉ học tạm thời và bảo lưu kết quả theo Quy chế đào tạo."
+  },
+  {
+    "Question": "Kết quả rèn luyện của em sẽ được đánh giá vào lúc nào, cuối kỳ hay cuối năm ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Sinh viên sẽ được đánh giá, xếp loại kết quả rèn luyện vào cuối mỗi học kỳ, năm học và khóa học."
+  },
+  {
+    "Question": "Tập thể lớp em hoạt động phong trào rất tốt thì có được trường khen thưởng gì không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, nhà trường có chế độ khen thưởng đối với tập thể lớp đạt thành tích cao trong các cuộc thi hoặc thành tích xuất sắc trong năm học."
+  },
+  {
+    "Question": "Em muốn tham gia các câu lạc bộ sở thích của trường thì có được quyền lợi gì không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Sinh viên được quyền tham gia các hoạt động trong tổ chức đoàn thể, câu lạc bộ và được tạo điều kiện để rèn luyện, phát huy năng lực."
+  },
+  {
+    "Question": "Thư viện trường có mở cửa tự do cho sinh viên vào học không hay phải xin phép?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Sinh viên có quyền được sử dụng cơ sở vật chất, thư viện, các trang thiết bị và phương tiện của nhà trường phục vụ học tập."
+  },
+  {
+    "Question": "Lỡ nóng tính cãi nhau tay đôi với nhân viên bảo vệ hay thầy cô thì em có bị phạt không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, vì nhiệm vụ của sinh viên là phải tôn trọng nhà giáo, cán bộ quản lý, viên chức và nhân viên của trường."
+  },
+  {
+    "Question": "Em đi xe máy ngoài đường lỡ vi phạm luật giao thông thì nhà trường có quan tâm không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, sinh viên có nhiệm vụ tham gia công tác bảo đảm an ninh trật tự, an toàn giao thông và tuân thủ pháp luật."
+  },
+  {
+    "Question": "Nếu em thấy bạn cùng lớp có hành vi tiêu cực, gian lận thì em có trách nhiệm phải báo cáo không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Sinh viên có nhiệm vụ tham gia phòng chống tiêu cực và kịp thời báo cáo với khoa, phòng chức năng hoặc Hiệu trưởng khi phát hiện hành vi gian lận."
+  },
+  {
+    "Question": "Ngoài khám sức khỏe đầu khóa, trong quá trình học em có được khám lại lần nào nữa không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, nhà trường tổ chức khám sức khỏe đầu vào và khám định kỳ cho sinh viên trong quá trình học."
+  },
+  {
+    "Question": "Sắp ra trường em muốn tìm nơi thực tập hoặc việc làm thì trường có hỗ trợ giới thiệu không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, Phòng Công tác Sinh viên phối hợp với Trung tâm Hợp tác doanh nghiệp để tổ chức các hoạt động tư vấn việc làm và hỗ trợ sinh viên."
+  },
+  {
+    "Question": "Em là tân sinh viên thì đơn vị nào sẽ chịu trách nhiệm làm thẻ sinh viên cho em ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Phòng Công tác Sinh viên là đơn vị chủ trì tổ chức và thực hiện việc cấp thẻ sinh viên cho bạn."
+  },
+  {
+    "Question": "Lễ khai giảng và lễ tốt nghiệp hoành tráng của trường là do ai tổ chức thế ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Phòng Công tác Sinh viên chủ trì, phối hợp xây dựng kế hoạch và tổ chức Lễ khai giảng, tốt nghiệp chung cho toàn trường."
+  },
+  {
+    "Question": "Em có được phổ biến rõ ràng các nội quy của trường không hay phải tự đi tìm hiểu?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Sinh viên có quyền được phổ biến nội quy, quy chế, quy định của Nhà trường và các chế độ chính sách liên quan ngay từ đầu khóa học."
+  },
+  {
+    "Question": "Em thắc mắc về tiền nong hay chế độ chính sách thì lên phòng nào để được giải quyết ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Bạn có thể liên hệ Phòng Công tác Sinh viên, đây là đơn vị đầu mối giải quyết các chế độ chính sách cho sinh viên."
+  },
+  {
+    "Question": "Em muốn nhận học bổng khuyến khích học tập thì đơn vị nào sẽ xét duyệt ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Phòng Công tác Sinh viên là đơn vị chủ trì tổ chức xét học bổng khuyến khích học tập cho sinh viên."
+  },
+  {
+    "Question": "Nếu chẳng may em bị kỷ luật thì ai là người ra quyết định hình thức phạt?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Nội dung và hình thức kỷ luật sinh viên do Hiệu trưởng quy định."
+  },
+  {
+    "Question": "Em thấy nhà xe chật quá, muốn góp ý với trường thì làm thế nào?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Bạn có quyền góp ý kiến trực tiếp hoặc thông qua đại diện hợp pháp để kiến nghị các giải pháp xây dựng và phát triển trường."
+  },
+  {
+    "Question": "Trường mình có quy định khắt khe về lối sống hay văn hóa ứng xử không ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, nhà trường giáo dục sinh viên lối sống lành mạnh, văn minh, phù hợp bản sắc văn hóa dân tộc và biết phê phán cái xấu trong hành vi ứng xử."
+  },
+  {
+    "Question": "Em muốn liên lạc với các anh chị cựu sinh viên khóa trước để học hỏi thì trường có đầu mối nào không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Phòng Công tác Sinh viên là đầu mối liên hệ và tổ chức công tác cựu sinh viên, bạn có thể liên hệ phòng để biết thêm thông tin."
+  },
+  {
+    "Question": "Mấy cái khảo sát online của trường gửi em thấy phiền quá, không làm có sao không ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Không được bỏ qua đâu nhé, sinh viên có nhiệm vụ tham gia các hoạt động khảo sát và khai báo thông tin theo yêu cầu của trường."
+  },
+  {
+    "Question": "Lớp em có bạn nhặt được của rơi trả người mất, em có nên báo cáo lên trường để bạn được thưởng không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Rất nên, sinh viên có nhiệm vụ phát hiện và báo cáo những tấm gương người tốt, việc tốt, các nghĩa cử cao đẹp."
+  },
+  {
+    "Question": "Em cần xin bảng điểm với giấy xác nhận sinh viên thì trường có cấp cho không hay phải đợi ra trường?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, sinh viên có quyền được cấp chứng chỉ, giấy xác nhận, bảng điểm theo quy định trong quá trình học."
+  },
+  {
+    "Question": "Chuyện em chơi bời bên ngoài phạm vi trường học thì nhà trường có quyền can thiệp không ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, sinh viên có nhiệm vụ tham gia phòng chống tệ nạn xã hội không chỉ trong trường học mà cả ở gia đình và cộng đồng."
+  },
+  {
+    "Question": "Tự nhiên trường lại dạy về cái đẹp (thẩm mỹ) làm gì thế ạ, em thấy hơi lạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Giáo dục thẩm mỹ giúp sinh viên biết trân trọng cái đẹp, có thái độ phê phán cái xấu và hình thành lối sống văn minh."
+  },
+  {
+    "Question": "Lớp trưởng lớp em cả kỳ chẳng thấy báo cáo gì với cô chủ nhiệm, thế có đúng luật không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Sai quy định nhé, Ban cán sự lớp có nhiệm vụ báo cáo đầy đủ tình hình học tập, rèn luyện của lớp theo học kỳ, năm học với Cố vấn học tập."
+  },
+  {
+    "Question": "Nếu em vi phạm kỷ luật thì ai là người quy định hình thức phạt em ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Nội dung và hình thức kỷ luật đối với sinh viên sẽ do Hiệu trưởng quy định."
+  },
+  {
+    "Question": "Quy chế này chỉ áp dụng cho sinh viên đại học thôi hay cả cao đẳng nữa ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Quy chế này áp dụng cho cả sinh viên đang học các chương trình đào tạo trình độ đại học và cao đẳng của trường."
+  },
+  {
+    "Question": "Phòng máy với thư viện của trường xịn xò thế kia em có được dùng miễn phí không?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Sinh viên có quyền được sử dụng cơ sở vật chất, thư viện, các trang thiết bị và phương tiện của trường để phục vụ học tập."
+  },
+  {
+    "Question": "Tham gia đội văn nghệ xung kích của trường thì có được tính là hoạt động chính thống không ạ?",
+    "Category": "QuyCheCTSV",
+    "Answer": "Có, sinh viên có quyền được tham gia các hoạt động văn hóa, văn nghệ, thể thao lành mạnh phù hợp với mục tiêu đào tạo."
+  }
+
 ]
 

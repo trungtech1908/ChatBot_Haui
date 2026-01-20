@@ -1,0 +1,38 @@
+[
+    {"Question": "Khi đăng ký phúc khảo nhưng em không đến xem lại bài thi thì em có phải đóng phí không?",
+     "Category": "ThuPhiKhongXemLai",
+     "Answer": "Có, khi bạn không đến xem lại bài thi thì bạn phải mất phí là 50.000 VND. Còn nếu bạn đến xem lại bài thi thì sẽ không mất phí nhé."}, 
+    {"Question": "Tại sao phải thu phí khi em không đến xem lại bài thi?",
+     "Category": "ThuPhiKhongXemLai",
+     "Answer": "Vì từ tháng 6/2023 đến nay, có khoảng 60% sinh viên đăng ký phúc khảo nhưng không đến xem lại bài dẫn đến lãnh phí rất lớn về vật lực và nhân lực nên bạn cố gắng thu xếp thời gian để đến xem lại bài thi nhé."},
+     {
+        "Question": "Khi nào thì nhà trường bắt đầu chính thức thu phí nếu đăng ký xem bài mà không đến ạ?",
+        "Category": "ThuPhiKhongXemLai",
+        "Answer": "Thời gian áp dụng quy định này bắt đầu từ ngày 01/01/2025."
+    },
+    {
+        "Question": "Tiền phạt này em phải đi đóng trực tiếp hay trường thu thế nào ạ?",
+        "Category": "ThuPhiKhongXemLai",
+        "Answer": "Tiền sẽ được thu thông qua tài khoản cá nhân của bạn trên hệ thống đại học điện tử (hệ thống tự động trừ tiền)."
+    },
+    {
+        "Question": "Nếu em đến xem bài đúng lịch đã đăng ký thì có bị mất phí không?",
+        "Category": "ThuPhiKhongXemLai",
+        "Answer": "Không. Nhà trường không thu phí các sinh viên đến xem lại bài đúng theo lịch đã đăng ký."
+    },
+    {
+        "Question": "Làm sao hệ thống biết được là em không đến để mà trừ tiền?",
+        "Category": "ThuPhiKhongXemLai",
+        "Answer": "Sau ca xem lại bài, Trung tâm Khảo thí sẽ xác nhận các trường hợp không đến xem như đã đăng ký, sau đó hệ thống mới trừ tiền."
+    },
+    {
+        "Question": "Việc em đăng ký mà không đến gây lãng phí cụ thể những công đoạn nào ạ?",
+        "Category": "ThuPhiKhongXemLai",
+        "Answer": "Việc này gây lãng phí công sức rút bài thi, scan bài, đẩy lên hệ thống và bố trí cán bộ trực tổ chức xem lại bài."
+    },
+    {
+        "Question": "Quy định này áp dụng cho bài thi giữa kỳ hay thi cuối kỳ vậy ạ?",
+        "Category": "ThuPhiKhongXemLai",
+        "Answer": "Thông báo ghi rõ là áp dụng cho việc xem lại bài thi kết thúc học phần."
+    }
+]

@@ -1,11 +1,260 @@
 [
     {
-    "Question": "Nếu tôi bị đình chỉ thi môn này thì tôi bị trừ bao nhiêu điểm hay là 0 điểm luôn ạ?",
+    "Question": "Nếu em bị đình chỉ thi môn này thì em bị trừ bao nhiêu điểm hay là 0 điểm luôn ạ?",
     "Category": "DanhGiaKQHT",
     "Answer": "Nếu bị đình chỉ thi, bạn sẽ bị trừ 100% tổng số điểm bài thi của môn đó, tức là nhận điểm 0. Vì vậy, bạn nên tuân thủ quy định thi cử để tránh tình huống này nhé."},
     {
-    "Question": "Hôm thi tôi bị ốm phải đi viện, nộp đơn xin hoãn thi muộn nhất là bao lâu để được chấp nhận ạ?",
+    "Question": "Hôm thi em bị ốm phải đi viện, nộp đơn xin hoãn thi muộn nhất là bao lâu để được chấp nhận ạ?",
     "Category": "DanhGiaKQHT",
-    "Answer": "Trong vòng 10 ngày làm việc kể từ ngày thi, bạn phải nộp đơn kèm hồ sơ minh chứng lên Trung tâm Khảo thí để được xác nhận đủ điều kiện hoãn đánh giá nhé."
+    "Answer": "Trong vòng 10 ngày làm việc kể từ ngày thi, bạn phải nộp đơn kèm hồ sơ minh chứng lên Trung tâm Khảo thí để được xác nhận đủ điều kiện hoãn đánh giá nhé."},
+    {
+    "Question": "Thầy cô chấm xong thì bao lâu phải công bố điểm bộ phận lên hệ thống cho bọn em biết ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Chậm nhất 07 ngày (trừ ngày lễ, tết) kể từ khi kiểm tra xong, giảng viên phải công bố kết quả và nhập lên hệ thống."
+  },
+  {
+    "Question": "Đi thi mà em lỡ đến muộn thì có được vào phòng thi nữa không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Nếu bạn đến muộn quá 15 phút sau khi ca thi bắt đầu thì sẽ không được vào phòng thi."
+  },
+  {
+    "Question": "Hôm đi thi em quên mang thẻ sinh viên thì có được thi không hay bị đuổi về ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Nếu không có thẻ sinh viên, cán bộ coi thi sẽ kiểm tra giấy tờ tùy thân có ảnh khác (CCCD, hộ chiếu). Nếu không có giấy tờ, bạn sẽ bị chụp ảnh lại để xác thực danh tính sau."
+  },
+  {
+    "Question": "Em làm bài thi tự luận xong sớm, muốn ra về trước thì phải đợi bao lâu mới được ra?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Đối với thi tự luận, bạn chỉ được ra khỏi phòng thi sớm nhất sau 2/3 thời gian làm bài, và phải nộp lại cả bài làm lẫn đề thi."
+  },
+  {
+    "Question": "Thi trắc nghiệm em làm xong rồi có được nộp bài về luôn không ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Không nhé, đối với bài thi trắc nghiệm, thí sinh không được ra khỏi phòng thi trước khi hết giờ làm bài."
+  },
+  {
+    "Question": "Vào phòng thi em có được mang máy tính cầm tay vào không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Được phép mang máy tính cầm tay nhưng phải là loại không có chức năng soạn thảo văn bản và không có thẻ nhớ."
+  },
+  {
+    "Question": "Lỡ bị thầy cô bắt tài liệu và lập biên bản đình chỉ thi thì em bị trừ bao nhiêu điểm ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Nếu bị đình chỉ thi, bạn sẽ bị trừ 100% điểm của bài thi môn đó (tức là 0 điểm)."
+  },
+  {
+    "Question": "Em bị nhắc nhở, khiển trách 1 lần trong giờ thi thì bị trừ bao nhiêu % điểm bài thi?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Sinh viên bị khiển trách sẽ bị trừ 25% tổng số điểm bài thi của môn đó."
+  },
+  {
+    "Question": "Bài thi tự luận mà em lỡ dùng 2 màu mực khác nhau thì có sao không ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Bài thi dùng hai màu mực trở lên sẽ bị chấm điểm 0 (không)."
+  },
+  {
+    "Question": "Nếu em nhờ người khác đi thi hộ thì bị phạt nặng thế nào ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Thi hộ hoặc nhờ thi hộ sẽ bị đình chỉ học tập 01 năm (lần 1) và buộc thôi học (lần 2)."
+  },
+  {
+    "Question": "Hôm thi em bị ốm phải nhập viện, thủ tục xin hoãn thi như thế nào ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Bạn phải nộp đơn xin hoãn trên hệ thống và báo cho cố vấn học tập trước giờ thi. Trong vòng 10 ngày sau đó, phải nộp đơn kèm minh chứng bệnh án có xác nhận của khoa lên Trung tâm Khảo thí."
+  },
+  {
+    "Question": "Em được hoãn thi sang kỳ phụ rồi nhưng kỳ phụ em lại bận không thi được nữa thì sao?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Nếu bạn không tham dự hoặc không thể thực hiện bài thi bổ sung trong 02 học kỳ chính phụ tiếp theo thì sẽ bị tính điểm 0."
+  },
+  {
+    "Question": "Em thấy điểm thi tự luận thấp quá, muốn xin xem lại bài thi thì hạn chót là bao lâu?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Bạn có quyền nộp đơn đăng ký xem lại bài thi tự luận trong thời hạn 03 ngày kể từ ngày công bố điểm."
+  },
+  {
+    "Question": "Muốn phúc khảo bài thi (chấm lại) thì nộp đơn trong vòng mấy ngày ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Thời hạn nộp đơn xin phúc khảo bài thi là 05 ngày kể từ khi công bố điểm."
+  },
+  {
+    "Question": "Bài thi tự luận của em là do 1 người chấm hay 2 người chấm thế ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Bài thi tự luận được chấm qua 2 vòng độc lập bởi 2 cán bộ chấm thi khác nhau."
+  },
+  {
+    "Question": "Thi vấn đáp mà 2 thầy cô hỏi thi cho điểm lệch nhau quá nhiều thì tính điểm thế nào?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Nếu lệch quá 2 điểm và không thống nhất được, thầy cô có thể hỏi thêm câu hỏi phụ. Nếu vẫn không thống nhất được thì giảng viên phụ trách học phần sẽ quyết định."
+  },
+  {
+    "Question": "Em làm bài thấy sai nhiều quá, muốn hủy bài luôn để nhận điểm 0 thì làm thế nào?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Với tự luận: gạch chéo toàn bộ bài. Với trắc nghiệm giấy: tô ô hủy kết quả. Với trắc nghiệm máy: thoát tài khoản trước khi nộp. Sau đó phải ký xác nhận hủy bài vào biên bản."
+  },
+  {
+    "Question": "Đồ án môn học em chưa làm xong, thầy hướng dẫn có quyền cấm em thi không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Có, nếu không hoàn thành công việc được giao, giảng viên hướng dẫn có quyền đề nghị đình chỉ thực hiện và bạn sẽ nhận điểm 0."
+  },
+  {
+    "Question": "Thời gian làm bài thi tự luận thông thường là bao nhiêu phút vậy ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Thời gian thi tự luận quy định từ 60 đến 150 phút."
+  },
+  {
+    "Question": "Trong lúc làm bài thi em có được viết hay vẽ linh tinh vào giấy thi không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Không, nếu viết, vẽ những nội dung không liên quan đến bài thi vào tờ giấy làm bài, bạn có thể bị đình chỉ thi."
+  },
+  {
+    "Question": "Đầu kỳ học thầy cô có phải thông báo cho bọn em biết là sẽ kiểm tra những bài nào và hình thức ra sao không ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Có, giảng viên phải thông báo công khai nội dung, thời điểm, hình thức đánh giá bộ phận ngay tại buổi học đầu tiên của lớp học phần."
+  },
+  {
+    "Question": "Thầy giáo nhập nhầm điểm quá trình của em thì thầy có tự sửa lại trên hệ thống được không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Không, sau khi đã gửi lên hệ thống, giảng viên không thể tự thay đổi kết quả mà phải làm đề nghị điều chỉnh (Phụ lục 01) có xác nhận của trưởng đơn vị gửi về Trung tâm Khảo thí."
+  },
+  {
+    "Question": "Bao giờ thì nhà trường mới có lịch thi chính thức để em còn biết đường ôn tập ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Kế hoạch thi sẽ được thông báo trước thời điểm thi ít nhất 07 ngày (trừ ngày lễ, tết)."
+  },
+  {
+    "Question": "Trước hôm thi bao lâu thì em mới biết mình ngồi phòng nào, số báo danh bao nhiêu?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Lịch thi chi tiết (ca thi, phòng thi, số báo danh) được thông báo trước ít nhất 03 ngày đối với thi lần 1 và 02 ngày đối với thi lần 2."
+  },
+  {
+    "Question": "Vào phòng thi em có được chọn chỗ ngồi gần bạn bè cho tự tin không ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Không, vị trí của sinh viên trong phòng thi được hệ thống sắp xếp ngẫu nhiên và ghi rõ trong danh sách dự thi."
+  },
+  {
+    "Question": "Điện thoại em tắt nguồn rồi đút túi quần mang vào phòng thi có được không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Không, sinh viên không được phép mang phương tiện thu phát, lưu trữ thông tin vào phòng thi, kể cả khi đã tắt nguồn."
+  },
+  {
+    "Question": "Em muốn dùng bút mực đỏ để viết các tiêu đề trong bài thi cho nổi bật thì có phạm quy không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Có, sinh viên chỉ được viết bằng một màu mực và tuyệt đối không được dùng mực màu đỏ trong bài thi."
+  },
+  {
+    "Question": "Trong giờ thi em lỡ quay sang trao đổi bài với bạn một chút thì bị xử lý thế nào?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Hành vi trao đổi bài với sinh viên khác sẽ bị lập biên bản xử lý kỷ luật ở mức Cảnh cáo (trừ 50% điểm)."
+  },
+  {
+    "Question": "Nếu em lỡ nhìn bài bạn bị nhắc nhở (khiển trách) rồi, mà lát sau em lại tái phạm thì sao ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Nếu đã bị khiển trách một lần mà vẫn tiếp tục vi phạm trong giờ thi đó, bạn sẽ bị nâng mức kỷ luật lên Cảnh cáo hoặc Đình chỉ thi tùy mức độ."
+  },
+  {
+    "Question": "Em lỡ cầm đề thi ra ngoài phòng thi trong lúc đang giờ làm bài thì có bị sao không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Hành vi đưa đề thi ra ngoài phòng thi sẽ bị đình chỉ thi ngay lập tức (nhận điểm 0)."
+  },
+  {
+    "Question": "Có trường hợp nào mà bài thi bị chấm 0 điểm dù không bị bắt quả tang quay cóp không ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Có, những bài thi được xác định có đánh dấu bài, hai bài tự luận giống hệt nhau, hoặc bài thi có chữ viết của hai người trở lên sẽ bị chấm điểm 0."
+  },
+  {
+    "Question": "Em thi thực hành hoặc vấn đáp mà thấy điểm thấp quá thì có xin phúc khảo được không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Không, nhà trường không tổ chức phúc khảo cho các môn thi chấm điểm trực tiếp như vấn đáp, thực hành."
+  },
+  {
+    "Question": "Điểm sau khi phúc khảo có phải là điểm chốt cuối cùng không hay em được chọn điểm cao hơn?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Điểm phúc khảo là kết quả chính thức và cuối cùng của thí sinh."
+  },
+  {
+    "Question": "Thi vấn đáp thì em có bao nhiêu thời gian để chuẩn bị trước khi lên trả lời thầy cô?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Thời gian thực hiện phần chuẩn bị cho thi vấn đáp quy định không quá 45 phút."
+  },
+  {
+    "Question": "Mỗi sinh viên lên trả lời vấn đáp được phép nói trong bao lâu ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Thời gian trả lời của mỗi thí sinh trong thi vấn đáp không quá 15 phút."
+  },
+  {
+    "Question": "Thi xong em nộp bài rồi đi về luôn hay phải ký tá gì không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Khi nộp bài, bạn bắt buộc phải ký tên vào danh sách dự thi và tự ghi đúng số tờ giấy thi, mã đề thi đã nộp."
+  },
+  {
+    "Question": "Nếu bài thi của em bị thất lạc do lỗi của nhà trường thì giải quyết thế nào ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Trường sẽ tổ chức kỳ thi bổ sung cho sinh viên, và kết quả thi bổ sung này có giá trị như thi lần đầu."
+  },
+  {
+    "Question": "Em bức xúc với giám thị nên lỡ lời đe dọa thầy cô thì bị phạt nặng không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Hành vi đe dọa cán bộ có trách nhiệm trong kỳ thi sẽ bị đình chỉ thi (trừ 100% điểm)."
+  },
+  {
+    "Question": "Bài thi kết hợp (vừa trắc nghiệm vừa tự luận) thì làm trong bao lâu ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Tổng thời gian cho các phần thi kết hợp quy định không quá 150 phút."
+  },
+  {
+    "Question": "Sinh viên bị đình chỉ thi thì có được ngồi lại trong phòng thi đến hết giờ không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Không, sinh viên bị đình chỉ thi phải nộp bài thi, đề thi, giấy nháp và ra khỏi phòng thi ngay sau khi có quyết định."
+  },
+  {
+    "Question": "Đề thi trắc nghiệm thường có tối thiểu bao nhiêu câu hỏi thế ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Theo quy định, đề thi trắc nghiệm phải có tối thiểu 40 câu hỏi."
+  },
+  {
+    "Question": "Thi trắc nghiệm trên giấy thì trong phòng có bao nhiêu mã đề, có dễ chép bài bạn không ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Mỗi ca thi trắc nghiệm trên giấy sẽ có từ 2 đến 6 mã đề, nên không dễ chép bài đâu nhé."
+  },
+  {
+    "Question": "Em lỡ uống chút rượu bia rồi vào thi cho bình tĩnh thì có bị cấm không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Có, sinh viên tuyệt đối không được mang đồ uống có cồn vào phòng thi."
+  },
+  {
+    "Question": "Thi vấn đáp mà 2 thầy chấm lệch nhau 1 điểm thì điểm của em tính thế nào, có làm tròn không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Nếu chênh lệch không quá 2 điểm, điểm cuối cùng là trung bình cộng của 2 điểm chấm và được làm tròn đến phần nguyên."
+  },
+  {
+    "Question": "Nếu cả phòng em chép bài nhau giống hệt mà giám thị dễ tính bỏ qua thì có thoát không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Không chắc đâu, nếu cán bộ chấm thi phát hiện nhiều bài giống nhau sẽ báo cáo để xử lý kỷ luật cả cán bộ coi thi đấy."
+  },
+  {
+    "Question": "Thầy cô ra đề xong có được để đề hớ hênh không hay phải niêm phong ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Đề thi phải được đóng gói, niêm phong và ký giáp lai lên phong bì ở 3 vị trí khác nhau để bảo mật."
+  },
+  {
+    "Question": "Bài thi của em sau khi chấm xong thì vứt đi luôn hay được lưu trữ ở đâu?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Bài thi, phiếu chấm và các biên bản sẽ được lưu trữ tại Trung tâm Khảo thí theo quy định."
+  },
+  {
+    "Question": "Em thi hoãn (thi bổ sung) thì điểm đó tính là điểm thi lần 1 hay lần 2 ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Kết quả thi tại kỳ thi bổ sung (nếu có lý do chính đáng) vẫn được tính là điểm thi lần đầu (lần 1)."
+  },
+  {
+    "Question": "Em thắc mắc về điểm thi thực hành thì có được làm đơn phúc khảo sau đó không?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Không, với các môn chấm điểm trực tiếp (thực hành, vấn đáp), nếu thắc mắc bạn phải trao đổi trực tiếp với cán bộ chấm thi ngay lúc công bố điểm."
+  },
+  {
+    "Question": "Bài thi trắc nghiệm thì thời gian làm bài quy định là bao nhiêu phút ạ?",
+    "Category": "DanhGiaKQHT",
+    "Answer": "Thời gian làm bài thi trắc nghiệm được quy định từ 45 đến 90 phút tùy môn."
   }
 ]

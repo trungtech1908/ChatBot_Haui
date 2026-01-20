@@ -1,8 +1,258 @@
 [
-    {"Question": "Mỗi kỳ tôi phải đăng ký tối thiểu bao nhiêu tín chỉ để không bị coi là vi phạm quy chế?",
+    {"Question": "Mỗi kỳ em phải đăng ký tối thiểu bao nhiêu tín chỉ để không bị coi là vi phạm quy chế?",
     "Category": "QuyCheDaoTao",
     "Answer": "Khối lượng học tập tối thiểu bạn phải đăng ký cho mỗi học kỳ chính là 10 tín chỉ (Trừ kỳ học mà bạn chỉ còn các môn học có tổng số tín chỉ dưới 10)"},
     {"Question": "Bị cảnh báo học tập liên tiếp mấy lần thì sẽ bị trường cho thôi học luôn ạ?",
     "Category": "QuyCheDaoTao",
-    "Answer": "Nếu bạn bị cảnh báo kết quả học tập lần thứ 2 liên tiếp thì sẽ bị buộc thôi học"}
+    "Answer": "Nếu bạn bị cảnh báo kết quả học tập lần thứ 2 liên tiếp thì sẽ bị buộc thôi học"},
+    {
+        "Question": "Em là sinh viên khóa mới em nghe nói thời gian học tối đa bị rút ngắn lại, cụ thể là được học trong mấy năm ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Theo quy định mới, sinh viên tuyển sinh và đào tạo từ ngày 3/5/2021 trở đi có thời gian tối đa để hoàn thành khóa học không vượt quá 06 năm tính từ ngày nhập học."
+    },
+    {
+        "Question": "Dạ kỳ này em bận việc gia đình nên muốn đăng ký ít môn thôi, tối thiểu em phải đăng ký bao nhiêu tín chỉ để không bị vi phạm quy chế ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Khối lượng học tập tối thiểu bạn phải đăng ký cho mỗi học kỳ chính là 10 tín chỉ (trừ khi bạn đang ở học kỳ cuối hoặc còn nợ ít hơn 10 tín chỉ)."
+    },
+    {
+        "Question": "Em lỡ đăng ký môn rồi nhưng học thấy khó quá, em muốn rút môn thì có hạn chót không hay rút lúc nào cũng được?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Bạn chỉ được phép rút bớt học phần từ tuần thứ 3 đến hết tuần thứ 8 của học kỳ chính (hoặc từ tuần 2 đến hết tuần 4 của học kỳ phụ). Lưu ý là rút môn vẫn phải đóng học phí."
+    },
+    {
+        "Question": "Em nghỉ học bao nhiêu buổi thì bị cấm thi ạ? Môn của em là môn lý thuyết.",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Đối với học phần lý thuyết, nếu bạn vắng mặt trên lớp quá 30% số giờ học, bạn sẽ không được tham dự đánh giá kết thúc học phần và phải nhận điểm F."
+    },
+    {
+        "Question": "Kỳ 1 năm nhất em chưa quen cách học nên điểm trung bình học kỳ (GPA) thấp lắm, dưới mức nào thì em bị cảnh báo học vụ ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Đối với học kỳ đầu của khóa học, nếu điểm trung bình học kỳ của bạn dưới 0.80 thì sẽ bị cảnh báo học tập."
+    },
+    {
+        "Question": "Em bị cảnh báo học tập 2 kỳ liên tiếp rồi thì có bị đuổi học luôn không ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Có, nếu bạn bị cảnh báo kết quả học tập lần thứ 2 liên tiếp, bạn sẽ thuộc diện bị buộc thôi học."
+    },
+    {
+        "Question": "Hôm thi kết thúc môn vừa rồi em bị ốm phải nằm viện, có giấy xác nhận của bệnh viện thì em có được thi lại không?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Được. Trong vòng 10 ngày làm việc kể từ ngày thi, bạn cần làm đơn kèm hồ sơ minh chứng gửi Trưởng khoa để được tham dự kỳ thi bổ sung."
+    },
+    {
+        "Question": "Em thấy điểm thi trên mạng thấp hơn bài em làm, em muốn phúc khảo thì phải nộp đơn trong bao lâu?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Sinh viên được phúc tra, khiếu nại kết quả học tập trong vòng 05 ngày làm việc kể từ ngày công bố kết quả."
+    },
+    {
+        "Question": "Em muốn học song bằng (học thêm ngành Ngôn ngữ Anh) thì bao giờ em đăng ký được và cần điều kiện gì ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Bạn được đăng ký học chương trình thứ hai sớm nhất khi đã được xếp trình độ năm thứ hai, với điều kiện học lực xếp loại Khá trở lên (hoặc Trung bình nếu đáp ứng đủ điểm trúng tuyển của ngành thứ hai)."
+    },
+    {
+        "Question": "Môn Tiếng Anh em được điểm tổng kết 5.2, quy ra điểm chữ là D+ hay D vậy ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Điểm từ 4.7 đến 5.4 tương ứng với điểm chữ D+."
+    },
+    {
+        "Question": "Điểm D+ quy đổi sang thang điểm 4 (để tính CPA) là được mấy chấm ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Điểm chữ D+ được quy đổi thành 1.5 theo thang điểm 4."
+    },
+    {
+        "Question": "Em tính điểm trung bình tích lũy được 3.65 rồi, vậy khi ra trường em có chắc chắn được bằng Xuất sắc không hay còn điều kiện gì khác?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Chưa chắc chắn. Nếu bạn từng bị kỷ luật từ mức cảnh cáo trở lên, hoặc khối lượng tín chỉ học lại vượt quá 5% tổng số tín chỉ toàn khóa, hạng tốt nghiệp sẽ bị giảm từ Xuất sắc xuống Giỏi."
+    },
+    {
+        "Question": "Em đang làm đồ án tốt nghiệp nhưng chưa có chứng chỉ Giáo dục quốc phòng thì có được xét tốt nghiệp không ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Không. Để được xét công nhận tốt nghiệp, bạn bắt buộc phải hoàn thành các môn học Giáo dục quốc phòng - an ninh và có chứng chỉ."
+    },
+    {
+        "Question": "Nếu em nhờ bạn thi hộ môn Tiếng Anh thì hình thức xử lý kỷ luật nặng nhất là gì?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Sinh viên nhờ người thi hộ sẽ bị đình chỉ học tập 01 năm (nếu vi phạm lần 1) hoặc bị buộc thôi học (nếu vi phạm lần 2)."
+    },
+    {
+        "Question": "Em muốn xin nghỉ bảo lưu một thời gian để đi nghĩa vụ quân sự thì có được không?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Được. Trường hợp sinh viên được điều động vào lực lượng vũ trang thuộc diện được nghỉ học tạm thời và bảo lưu kết quả."
+    },
+    {
+        "Question": "Sau khi hết thời gian bảo lưu, em muốn quay lại học thì phải báo trước bao lâu?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Bạn phải làm đơn gửi về Khoa trước thời điểm bắt đầu đăng ký khối lượng học tập của học kỳ ít nhất 02 tuần."
+    },
+    {
+        "Question": "Em muốn chuyển sang ngành Công nghệ thông tin học thì cần điều kiện gì ạ? Em đang học năm nhất.",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Bạn phải học xong 02 học kỳ chính đầu tiên, thỏa mãn điểm trúng tuyển của ngành muốn chuyển đến và ngành đó còn chỉ tiêu. Lưu ý chỉ được chuyển duy nhất 1 lần trong khóa học."
+    },
+    {
+        "Question": "Thi xong môn rồi mà mãi chưa thấy điểm, quy định là bao lâu giảng viên phải công bố điểm ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Giảng viên phải công bố và nhập kết quả học tập lên hệ thống chậm nhất là 07 ngày làm việc sau khi thực hiện bài kiểm tra, đánh giá."
+    },
+    {
+        "Question": "Môn Thực hành em đi học đầy đủ nhưng bài kiểm tra cuối kỳ em bị điểm 0 thì có bị trượt môn không?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Có. Nếu điểm thi kết thúc học phần bằng 0 thì bị coi là điểm liệt và điểm tổng kết học phần đó cũng sẽ là 0 (điểm F)."
+    },
+    {
+        "Question": "Nếu em xin thôi học luôn (không phải bảo lưu) thì trường có cấp giấy tờ gì xác nhận mấy môn em đã học không?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Có. Sau khi có quyết định thôi học và hoàn thành các nghĩa vụ, nhà trường sẽ cấp giấy chứng nhận về các học phần bạn đã tích lũy."
+    },
+    {
+        "Question": "Mỗi kỳ có mấy đợt đăng ký tín chỉ vậy ạ? Em sợ bỏ lỡ đợt đầu.",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Trong mỗi học kỳ sẽ có 2 đợt đăng ký: Đợt đăng ký chính (trước khi bắt đầu kỳ học 3-4 tuần) và Đợt đăng ký bổ sung (trước khi bắt đầu kỳ học 1-2 tuần)."
+    },
+    {
+        "Question": "Nếu em lỡ tay đăng ký quá nhiều môn (vượt trần 27 tín chỉ) trong đợt chính thì hệ thống xử lý sao ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Nếu bạn đăng ký vượt quá khối lượng quy định mà không tự điều chỉnh trước khi kết thúc đợt đăng ký chính, hệ thống sẽ tự động rút ngẫu nhiên các học phần để đưa về mức cho phép."
+    },
+    {
+        "Question": "Môn đại cương như Triết hay Toán thì cần tối thiểu bao nhiêu bạn đăng ký thì lớp mới được mở ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Đối với các học phần giáo dục đại cương, lớp học phần cần tối thiểu 60 sinh viên đăng ký để được tổ chức."
+    },
+    {
+        "Question": "Lớp học phần Ngoại ngữ hoặc thực hành thì cần ít nhất bao nhiêu sinh viên mới mở lớp?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Đối với học phần ngoại ngữ, thực hành hoặc thí nghiệm, số lượng tối thiểu để mở lớp là 20 sinh viên."
+    },
+    {
+        "Question": "Việc lấy ý kiến phản hồi về môn học (đánh giá giảng viên) thường diễn ra vào lúc nào ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Nhà trường tổ chức lấy ý kiến phản hồi của sinh viên sau khi đánh giá kết thúc học phần."
+    },
+    {
+        "Question": "Điểm kiểm tra thường xuyên và điểm thi giữa kỳ được làm tròn như thế nào ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Điểm kiểm tra thường xuyên và điểm thi giữa học phần được làm tròn đến 0.5 điểm."
+    },
+    {
+        "Question": "Thời gian làm bài thi giữa học phần thường kéo dài bao lâu ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Thời gian làm bài thi giữa học phần quy định từ 45 đến 90 phút."
+    },
+    {
+        "Question": "Môn học bao nhiêu tín chỉ thì bắt buộc phải có bài thi giữa kỳ (midterm) ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Những học phần có từ 4 tín chỉ trở lên bắt buộc phải có tối thiểu 1 điểm thi giữa học phần."
+    },
+    {
+        "Question": "Đối với các môn Đồ án hoặc Thực tập thì điểm đánh giá cuối kỳ chiếm bao nhiêu phần trăm?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Đối với các học phần dự án, đồ án, thực tập, kiến tập, điểm đánh giá kết thúc học phần có trọng số không dưới 70%."
+    },
+    {
+        "Question": "Bảo vệ đồ án tốt nghiệp có được làm online không và cần điều kiện gì?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Được phép bảo vệ trực tuyến nếu có sự đồng thuận của hội đồng và người học, hội đồng có ít nhất 3 thành viên, và buổi bảo vệ phải được ghi âm, ghi hình đầy đủ."
+    },
+    {
+        "Question": "Em tham gia thi Robocon hoặc Olympic cấp trường đạt giải thì có được miễn học môn nào không?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Sinh viên đạt giải Ba cấp Trường trở lên trong các cuộc thi như Robocon, Olympic... có thể được đề xuất miễn học và công nhận điểm tương đương (tối đa 10 điểm) cho học phần liên quan."
+    },
+    {
+        "Question": "Điểm I là điểm gì và bao lâu thì phải trả nợ xong?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Điểm I là điểm chưa hoàn thiện do được hoãn thi. Sinh viên phải trả xong các nội dung còn nợ trong 02 học kỳ chính tiếp theo, nếu không sẽ bị điểm 0."
+    },
+    {
+        "Question": "Em thấy trong bảng điểm có điểm R, đó là điểm gì vậy ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Điểm R là điểm áp dụng cho những học phần được miễn học và công nhận tín chỉ (thường do chuyển trường hoặc liên thông)."
+    },
+    {
+        "Question": "Nếu em học cải thiện mà điểm lần 2 thấp hơn lần 1 thì hệ thống lấy điểm nào?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Hệ thống sẽ lấy điểm cao nhất trong các lần học để tính điểm trung bình học kỳ và tích lũy. Bạn yên tâm nhé."
+    },
+    {
+        "Question": "Sang năm 2 rồi thì CPA dưới bao nhiêu là bị cảnh báo học vụ ạ? Em nhớ năm nhất là 1.20.",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Đối với sinh viên trình độ năm thứ hai, nếu điểm trung bình tích lũy (CPA) dưới 1.40 thì sẽ bị cảnh báo kết quả học tập."
+    },
+    {
+        "Question": "Em không đăng ký môn học nào trong 2 kỳ liên tiếp thì có bị đuổi học không?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Có. Sinh viên không đăng ký khối lượng học tập trong 02 học kỳ chính liên tiếp sẽ bị buộc thôi học."
+    },
+    {
+        "Question": "Nếu em chuyển từ trường khác về thì được công nhận tối đa bao nhiêu tín chỉ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Khối lượng tín chỉ được công nhận, chuyển đổi tối đa không vượt quá 50% khối lượng học tập tối thiểu của chương trình đào tạo tại trường."
+    },
+    {
+        "Question": "Trước khi xét tốt nghiệp bao lâu thì em cần kiểm tra thông tin cá nhân trên hệ thống?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Trước mỗi đợt xét tốt nghiệp 01 tháng, nhà trường sẽ thông báo để sinh viên kiểm tra thông tin cá nhân và kết quả học tập."
+    },
+    {
+        "Question": "Sau khi đủ điều kiện tốt nghiệp thì khoảng bao lâu em nhận được bằng?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Hiệu trưởng sẽ ký quyết định công nhận và cấp bằng tốt nghiệp trong thời hạn 03 tháng tính từ thời điểm sinh viên đáp ứng đầy đủ điều kiện và hoàn thành nghĩa vụ."
+    },
+    {
+        "Question": "Nếu em bị buộc thôi học do hết thời gian tối đa nhưng chưa có chứng chỉ GDQP thì được quay lại trả nợ trong bao lâu?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Với sinh viên khóa mới, bạn có thời hạn 03 năm tính từ khi bị buộc thôi học để hoàn thiện các chứng chỉ còn thiếu (GDQP, GDTC...) và đề nghị xét tốt nghiệp."
+    },
+    {
+        "Question": "Thời gian học của hệ đại học chính quy thường diễn ra trong khung giờ nào ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Thời gian tổ chức giảng dạy cho hệ chính quy là từ 07 giờ đến 21 giờ các ngày trong tuần từ thứ Hai đến thứ Bảy."
+    },
+    {
+        "Question": "Môn học của em có 3 tín chỉ thì có bắt buộc phải thi giữa kỳ không hay chỉ cần kiểm tra thường xuyên thôi?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Theo quy chế, học phần từ 4 tín chỉ trở lên mới bắt buộc có điểm thi giữa học phần. Học phần từ 3 tín chỉ trở xuống yêu cầu có ít nhất 2 điểm kiểm tra thường xuyên."
+    },
+    {
+        "Question": "Môn Đồ án môn học hoặc Bài tập lớn thì tính điểm tổng kết như thế nào, có chia phần trăm không ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Đối với học phần Đồ án/Dự án hoặc Bài tập lớn, điểm đánh giá kết thúc học phần được sử dụng làm điểm học phần (không chia theo phần trăm thành phần như môn lý thuyết)."
+    },
+    {
+        "Question": "Em được 6.0 tổng kết môn thì quy sang điểm chữ là C hay C+ vậy ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Điểm từ 5.5 đến 6.1 tương ứng với điểm chữ C."
+    },
+    {
+        "Question": "Khi nào thì em chính thức được coi là sinh viên năm cuối (để được làm đồ án tốt nghiệp)?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Bạn đạt trình độ năm cuối khóa khi số tín chỉ tích lũy được lớn hơn 3/4 tổng số tín chỉ của chương trình đào tạo."
+    },
+    {
+        "Question": "Em đang học song bằng mà kỳ vừa rồi ngành chính em học kém quá bị cảnh báo học vụ thì có được học tiếp ngành 2 không?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Không. Nếu điểm ngành 1 thuộc diện cảnh báo kết quả học tập, bạn phải dừng học chương trình thứ 2 ở học kỳ tiếp theo và bị loại khỏi danh sách học song bằng."
+    },
+    {
+        "Question": "Em xét tốt nghiệp xong rồi nhưng chưa đến đợt nhận bằng, giờ em muốn đi xin việc thì trường có cấp giấy gì không?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Trong thời gian chờ cấp bằng, Phòng Đào tạo sẽ cấp Giấy chứng nhận tốt nghiệp tạm thời cho sinh viên đã được công nhận tốt nghiệp."
+    },
+    {
+        "Question": "Nếu trường phát hiện sinh viên dùng bằng cấp 3 giả để xét tuyển vào trường thì xử lý sao ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Sinh viên sử dụng văn bằng, chứng chỉ giả làm điều kiện trúng tuyển sẽ bị buộc thôi học. Nếu đã tốt nghiệp thì bằng đại học sẽ bị thu hồi và hủy bỏ."
+    },
+    {
+        "Question": "Những đợt học tập trung (như học quân sự hoặc học kỳ phụ ngắn hạn), một ngày được học tối đa mấy tiếng lý thuyết ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Trong trường hợp xếp lịch học tập trung, số giờ giảng lý thuyết không được vượt quá 4 giờ/ngày (và 15 giờ/tuần)."
+    },
+    {
+        "Question": "Điểm tổng kết học phần trong thang 10 tính ra số lẻ như 7.25 thì có được làm tròn không ạ?",
+        "Category": "QuyCheDaoTao",
+        "Answer": "Điểm học phần được làm tròn đến một chữ số thập phân. Ví dụ 7.25 sẽ được làm tròn thành 7.3."
+    }
 ]

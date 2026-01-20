@@ -10,33 +10,228 @@
     "Answer": "Sinh viên thuộc diện được giảm học phí sẽ được giảm học phí theo mức trần tại Điều 3 Quy định này. Phần chênh lệch giữa học phí Nhà nước cấp với học phí thực tế của Nhà trường thì sinh viên phải đóng bổ sung.\n\n1. Giảm 70% Học phí (Theo ngành học):\nÁp dụng đối với sinh viên học hệ Cao đẳng các ngành nghề sau:\n* Đối với khóa học tuyển sinh và tổ chức đào tạo trước ngày 30/07/2023: Ngành Cắt gọt kim loại.\n* Đối với khóa học tuyển sinh và tổ chức đào tạo sau ngày 30/07/2023: Các ngành Cắt gọt kim loại, Công nghệ ô tô, Công nghệ kỹ thuật cơ khí, Điện công nghiệp, Công nghệ chế tạo máy.\n\n2. Giảm 70% Học phí (Theo dân tộc và khu vực):\nÁp dụng đối với sinh viên là người dân tộc thiểu số (không phải là dân tộc thiểu số rất ít người theo Khoản 5 Điều 4 Quy định này) ở thôn/bản đặc biệt khó khăn, xã khu vực III vùng dân tộc và miền núi, xã đặc biệt khó khăn vùng bãi ngang ven biển hải đảo.\n\n3. Giảm 50% Học phí:\nÁp dụng đối với sinh viên là con cán bộ, công nhân, viên chức mà cha hoặc mẹ bị tai nạn lao động hoặc mắc bệnh nghề nghiệp được hưởng trợ cấp thường xuyên."
   },
   {
+    "Question": "Sinh viên thuộc diện nào được hưởng chính sách nội trú",
+    "Category": "ChinhSachSV",
+    "Answer": "Sinh viên học hệ Cao đẳng thuộc một trong các đối tượng sau:\n\n1. Là người dân tộc thiểu số có cha hoặc mẹ hoặc cả cha và mẹ/ông bà (trường hợp sinh viên ở với ông bà) thuộc hộ nghèo hoặc hộ cận nghèo theo quy định của Thủ tướng Chính phủ.\n\n2. Là người dân tộc thiểu số bị khuyết tật.\n\n3. Tốt nghiệp trường phổ thông dân tộc nội trú.\n\n4. Là người dân tộc Kinh có cha hoặc mẹ hoặc cả cha và mẹ/ông bà (trường hợp sinh viên ở với ông bà) thuộc hộ nghèo hoặc hộ cận nghèo theo quy định của Nhà nước có hộ khẩu thường trú tại vùng có điều kiện kinh tế - xã hội đặc biệt khó khăn, vùng dân tộc thiểu số, biên giới, hải đảo.\n\n5. Là người dân tộc Kinh bị khuyết tật có hộ khẩu thường trú tại vùng có điều kiện kinh tế - xã hội đặc biệt khó khăn, vùng dân tộc thiểu số, biên giới, hải đảo."
+  },
+  {
+  "Question": "Hồ sơ đề nghị miễn, giảm học phí sinh viên cần chuẩn bị bao gồm những giấy tờ gì?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 6, sinh viên gửi đơn đề nghị (Phụ lục 2) và bản sao chứng thực giấy tờ chứng minh về Phòng CTSV, bao gồm:\n\n1. Đối với người có công hoặc thân nhân: Giấy xác nhận của cơ quan quản lý đối tượng người có công.\n\n2. Đối với người khuyết tật: Giấy xác nhận khuyết tật (cấp xã) hoặc Quyết định trợ cấp xã hội (cấp huyện).\n\n3. Đối với đối tượng bảo trợ xã hội (mồ côi, bỏ rơi...): Quyết định về việc trợ cấp xã hội của Chủ tịch UBND cấp huyện.\n\n4. Đối với dân tộc thiểu số nghèo/cận nghèo: Giấy khai sinh và giấy xác nhận hộ nghèo/cận nghèo do UBND cấp xã cấp.\n\n5. Đối với dân tộc thiểu số rất ít người hoặc ở vùng đặc biệt khó khăn: Giấy khai sinh, xác nhận cư trú (mẫu CT07) và giấy chứng nhận vùng có điều kiện KT-XH đặc biệt khó khăn.\n\n6. Đối với con của người bị tai nạn lao động/bệnh nghề nghiệp: Quyết định hưởng chế độ do tổ chức Bảo hiểm xã hội cấp cho cha hoặc mẹ.\n\n7. Đối với các ngành nghề đặc thù (ngành Cắt gọt kim loại, Công nghệ ô tô...): Căn cứ vào chuyên ngành học thực tế của sinh viên để thực hiện miễn giảm."
+},
+{
+  "Question": "Thời hạn và quy định nộp hồ sơ miễn, giảm học phí như thế nào?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 7, quy định về thời gian hoàn thành hồ sơ như sau:\n\n1. Thời hạn nộp: Trong vòng 45 ngày kể từ ngày nhập học, sinh viên phải nộp đầy đủ giấy tờ chứng minh thuộc đối tượng được miễn, giảm học phí.\n\n2. Số lượng hồ sơ: Thông thường sinh viên chỉ nộp 01 bộ hồ sơ cho cả khóa học. Tuy nhiên, có các trường hợp ngoại lệ sau:\n   - Sinh viên thuộc hộ nghèo/cận nghèo: Phải nộp bổ sung giấy chứng nhận hộ nghèo/cận nghèo mới hàng năm (từ ngày 01/01 đến 28/02).\n   - Sinh viên ở vùng khó khăn/đặc biệt khó khăn: Phải nộp lại Giấy xác nhận cư trú khi Nhà nước có sự thay đổi hoặc thay thế văn bản quy định về danh mục các vùng này."
+},
+{
+  "Question": "Quy định về thời gian hưởng và các trường hợp không được hưởng miễn, giảm học phí như thế nào?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 8, quy định cụ thể như sau:\n\n1. Các trường hợp không được hưởng:\n- Thời gian nghỉ học tạm thời, bị kỷ luật ngừng học, buộc thôi học.\n- Học lưu ban, học lại, học bổ sung (trừ trường hợp bất khả kháng được xem xét tối đa 1 lần).\n- Sinh viên đã hưởng chính sách này ở một cơ sở đào tạo khác cùng cấp học.\n- Sinh viên học cùng lúc 2 chương trình (chỉ được hưởng 1).\n- Sinh viên đang hưởng lương và sinh hoạt phí khi đi học.\n\n2. Trường hợp đặc biệt:\n- Truy lĩnh: Sinh viên chưa nhận tiền đúng hạn sẽ được truy lĩnh vào kỳ sau.\n- Chuyển hệ (Đại học xuống Cao đẳng): Tổng thời gian hưởng không được vượt quá thời gian thiết kế của khóa học hệ Cao đẳng.\n\n3. Thời gian kết thúc:\n- Hộ nghèo/cận nghèo: Kết thúc vào ngày 31/12 của năm được công nhận.\n- Vùng khó khăn: Kết thúc khi văn bản quy định về vùng đó hết hiệu lực."
+},
+{
+  "Question": "Phương thức chi trả và nghĩa vụ đóng học phí đối với sinh viên được miễn, giảm học phí như thế nào?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 9, phương thức thực hiện như sau:\n\n1. Nghĩa vụ đóng phí: Sinh viên thuộc diện miễn, giảm học phí (MGHP) chỉ cần đóng phần học phí chênh lệch giữa mức học phí thực tế của Nhà trường và mức tiền MGHP mà Nhà nước cấp.\n\n2. Hình thức chi trả: Nhà trường sẽ chi trả tiền MGHP cho sinh viên sau khi nhận được nguồn ngân sách cấp từ Nhà nước.\n\n3. Thời gian chi trả: Việc chi trả chính sách MGHP được Nhà trường thực hiện định kỳ hàng năm vào tháng 5 và tháng 12."
+},
+{
+  "Question": "Đối tượng sinh viên nào được hưởng chính sách hỗ trợ chi phí học tập?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 10, đối tượng được hưởng hỗ trợ chi phí học tập là sinh viên đang theo học hệ chính quy, đáp ứng đồng thời hai điều kiện sau:\n1. Là người dân tộc thiểu số.\n2. Có cha, mẹ, hoặc cả cha và mẹ (hoặc ông bà trong trường hợp sinh viên ở cùng ông bà) thuộc diện hộ nghèo hoặc hộ cận nghèo theo quy định hiện hành của Nhà nước."
+},
+{
+  "Question": "Mức hỗ trợ và thời gian cấp kinh phí hỗ trợ chi phí học tập cho sinh viên được quy định như thế nào?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 11, mức và thời gian hỗ trợ chi phí học tập được quy định cụ thể như sau:\n\n1. Mức hỗ trợ: Sinh viên thuộc đối tượng thụ hưởng sẽ được nhận mức hỗ trợ hàng tháng bằng 60% mức lương cơ sở do Nhà nước quy định.\n\n2. Thời gian hỗ trợ: Kinh phí hỗ trợ chi phí học tập được cấp định kỳ theo thời gian học thực tế, tối đa là 10 tháng trong một năm học."
+},
+{
+  "Question": "Hồ sơ và thời gian nộp đề nghị hỗ trợ chi phí học tập được quy định như thế nào?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 12, quy định về hồ sơ và thời gian nộp như sau:\n\n1. Thành phần hồ sơ: Đơn đề nghị (Phụ lục 3), bản sao chứng thực Giấy khai sinh và Giấy chứng nhận hộ nghèo/cận nghèo.\n\n2. Thời hạn nộp lần đầu: Trong vòng 45 ngày kể từ ngày nhập học.\n\n3. Cập nhật hàng năm: Sinh viên phải nộp bổ sung Giấy chứng nhận hộ nghèo/cận nghèo mới từ ngày 01/01 đến 28/02 hàng năm.\n\n4. Lưu ý về thời gian hưởng: Sinh viên được hưởng chính sách tính từ ngày Nhà trường nhận đủ hồ sơ hợp lệ. Nhà trường không giải quyết truy lĩnh cho khoảng thời gian trước khi sinh viên nộp hồ sơ."
+},
+{
+  "Question": "Trong trường hợp nào sinh viên bị ngừng cấp kinh phí hỗ trợ chi phí học tập?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 13, quy định về việc ngừng cấp kinh phí hỗ trợ chi phí học tập như sau:\n\n1. Ngừng cấp vĩnh viễn: Áp dụng đối với sinh viên bỏ học hoặc bị kỷ luật buộc thôi học (tính từ ngày quyết định kỷ luật có hiệu lực).\n\n2. Ngừng cấp tạm thời: Áp dụng đối với sinh viên bị đình chỉ học tập có thời hạn (không được nhận trong suốt thời gian bị đình chỉ).\n\n3. Trường hợp vẫn được hưởng: Sinh viên ngừng học do các lý do khách quan như ốm đau, tai nạn, hoặc học lại, lưu ban có sự xác nhận của Nhà trường thì vẫn được tiếp tục nhận hỗ trợ chi phí học tập."
+},
+{
+  "Question": "Kinh phí hỗ trợ chi phí học tập được chi trả cho sinh viên vào thời gian nào?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 14, phương thức thực hiện hỗ trợ chi phí học tập (HTCPHT) như sau:\n\n1. Điều kiện chi trả: Kinh phí sẽ được chi trả cho sinh viên sau khi Nhà trường nhận được nguồn ngân sách cấp từ Nhà nước.\n\n2. Thời gian chi trả: Tương tự như chính sách miễn giảm học phí, kinh phí hỗ trợ chi phí học tập được cấp định kỳ vào tháng 5 và tháng 12 hàng năm."
+},
+{
+  "Question": "Mức học bổng chính sách nội trú và các khoản hỗ trợ đi lại, đồ dùng cá nhân được quy định như thế nào?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 16, các mức hỗ trợ cụ thể như sau:\n\n1. Học bổng chính sách (hàng tháng):\n- Mức 100% lương cơ sở: Dành cho đối tượng Khoản 1, 2 Điều 15.\n- Mức 80% lương cơ sở: Dành cho đối tượng Khoản 3, 5 Điều 15.\n- Mức 60% lương cơ sở: Dành cho đối tượng Khoản 4 Điều 15.\n(Thời gian cấp: 12 tháng/năm).\n\n2. Các khoản hỗ trợ bằng tiền mặt:\n- Đồ dùng cá nhân: 1.000.000đ/khóa học (cấp 1 lần).\n- Tết Nguyên đán: 150.000đ (nếu ở lại trường).\n- Tiền tàu xe đi lại (1 lần/năm):\n  + 300.000đ/năm cho sinh viên vùng đặc biệt khó khăn.\n  + 200.000đ/năm cho các đối tượng còn lại."
+},
+{
+  "Question": "Hồ sơ và thủ tục để được hưởng chính sách nội trú bao gồm những gì?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 17, hồ sơ bao gồm đơn đề nghị (Phụ lục 4), bản sao giấy khai sinh và các giấy tờ minh chứng tùy đối tượng:\n\n1. Đối với sinh viên nghèo/cận nghèo: Giấy chứng nhận hộ nghèo/cận nghèo do UBND cấp xã cấp.\n2. Đối với sinh viên khuyết tật: Giấy xác nhận khuyết tật hoặc Quyết định trợ cấp xã hội.\n3. Đối với học sinh dân tộc nội trú: Bằng tốt nghiệp hoặc chứng nhận tốt nghiệp tạm thời trường PTDT nội trú.\n4. Đối với sinh viên vùng khó khăn/biên giới/hải đảo: Xác nhận cư trú (mẫu CT07) kèm giấy chứng nhận hộ nghèo/cận nghèo hoặc xác nhận khuyết tật tương ứng.\n5. Hỗ trợ Tết: Giấy xác nhận ở lại trường (Phụ lục 5).\n\nLưu ý: Sinh viên phải nộp bổ sung xác nhận hộ nghèo hàng năm (01/01 - 28/02). Chính sách tính từ ngày nộp đủ hồ sơ, không truy lĩnh."
+},
+{
+  "Question": "Những trường hợp nào sinh viên bị dừng cấp chính sách nội trú theo quy định?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 18, chính sách nội trú sẽ bị dừng cấp trong các trường hợp sau:\n\n1. Thay đổi đối tượng: Sinh viên không còn thuộc diện ưu tiên theo quy định hoặc giấy tờ xác nhận hết hiệu lực.\n\n2. Nghỉ học hoặc thôi học: Do kỷ luật buộc thôi học, tự ý bỏ học hoặc nghỉ học vì lý do sức khỏe/cá nhân (tính từ ngày quyết định có hiệu lực).\n\n3. Đình chỉ học tập: Dừng hưởng trong thời gian bị đình chỉ (trừ lý do khách quan được trường xác nhận như ốm đau, tai nạn).\n\n4. Vi phạm pháp luật: Tạm dừng khi bị tạm giam, tạm giữ. Nếu bị kết luận có tội sẽ dừng cấp vĩnh viễn; nếu vô tội và tiếp tục học sẽ được khôi phục quyền lợi.\n\n5. Lưu ý: Sinh viên đã nghỉ học thuộc các diện trên sẽ không được hưởng chính sách nội trú nếu sau này theo học các chương trình cao đẳng khác."
+},
+{
+  "Question": "Phương thức và thời gian chi trả kinh phí chính sách nội trú cho sinh viên như thế nào?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 19, phương thức thực hiện chính sách nội trú được quy định như sau:\n\n1. Điều kiện chi trả: Nhà trường sẽ tiến hành chi trả kinh phí chính sách nội trú cho sinh viên ngay sau khi nhận được nguồn ngân sách cấp từ Nhà nước.\n\n2. Thời gian chi trả: Kinh phí này được cấp định kỳ cho sinh viên vào tháng 5 và tháng 12 hàng năm."
+},
+{
+  "Question": "Những dân tộc thiểu số rất ít người nào được hưởng chính sách hỗ trợ học tập theo Chương V?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 20, chính sách hỗ trợ học tập này áp dụng cho sinh viên đang học hệ Đại học chính quy hoặc Cao đẳng là người dân tộc thiểu số rất ít người, bao gồm 16 dân tộc sau:\n\n* Cống, Mảng, Pu Péo, Si La.\n* Cờ Lao, Bố Y, La Ha, Ngái.\n* Chứt, Ơ Đu, Brâu, Rơ Măm.\n* Lô Lô, Lự, Pà Thẻn, La Hủ."
+},
+{
+    "Question": "Mức hỗ trợ và thời gian cấp kinh phí hỗ trợ học tập cho sinh viên dân tộc thiểu số rất ít người được quy định như thế nào?",
+    "Category": "ChinhSachSV",
+    "Answer": "Theo Điều 21, mức và thời gian hỗ trợ cụ thể như sau:\n1. Mức hỗ trợ: Bằng 100% mức lương cơ sở.\n2. Thời gian cấp: Cấp 12 tháng/năm đối với sinh viên có thời gian học thực tế từ 9 tháng/năm trở lên. Trường hợp học không đủ 9 tháng/năm thì hưởng theo thời gian học thực tế."
+  },
+  {
+    "Question": "Hồ sơ và thủ tục đăng ký chính sách hỗ trợ học tập cho sinh viên dân tộc rất ít người gồm những gì?",
+    "Category": "ChinhSachSV",
+    "Answer": "Theo Điều 22, hồ sơ bao gồm:\n1. Đơn đề nghị cấp chính sách hỗ trợ học tập (theo Phụ lục 6).\n2. Bản sao chứng thực giấy khai sinh hoặc trích lục khai sinh.\n* Lưu ý: Hồ sơ nộp về Phòng Công tác Sinh viên trong vòng 45 ngày kể từ ngày nhập học. Chính sách tính từ ngày nộp đủ hồ sơ, không giải quyết truy lĩnh thời gian trước đó."
+  },
+  {
+    "Question": "Nguyên tắc hưởng và các trường hợp ngừng cấp hỗ trợ học tập đối với sinh viên dân tộc rất ít người?",
+    "Category": "ChinhSachSV",
+    "Answer": "Theo Điều 23, quy định như sau:\n1. Nguyên tắc: Nếu thuộc nhiều đối tượng hỗ trợ cùng tính chất, chỉ được hưởng một chính sách mức cao nhất. Cụ thể:\n- Sinh viên Đại học đã hưởng chính sách này thì không hưởng hỗ trợ chi phí học tập tại Chương 3.\n- Sinh viên Cao đẳng đã hưởng chính sách này thì không hưởng chính sách nội trú tại Chương 4.\n2. Ngừng cấp: Dừng hưởng khi sinh viên ngừng học hoặc bị buộc thôi học (tính từ ngày quyết định có hiệu lực). Sinh viên học nhiều khoa cũng chỉ được hưởng hỗ trợ một lần."
+  },
+  {
+    "Question": "Phương thức và thời gian chi trả chính sách hỗ trợ học tập cho sinh viên dân tộc rất ít người?",
+    "Category": "ChinhSachSV",
+    "Answer": "Theo Điều 24, phương thức thực hiện như sau:\n1. Điều kiện chi trả: Kinh phí được chi trả sau khi Nhà trường nhận được nguồn ngân sách từ Nhà nước cấp.\n2. Thời gian chi trả: Nhà trường tiến hành cấp phát định kỳ vào tháng 5 và tháng 12 hàng năm."
+  },
+{
+    "Question": "Đối tượng nào được áp dụng chính sách hỗ trợ HAUl?",
+    "Category": "ChinhSachSV",
+    "Answer": "Theo Điều 25, đối tượng áp dụng chính sách hỗ trợ HAUl là sinh viên có hoàn cảnh đặc biệt khó khăn đang học tập tại Nhà trường."
+  },
+  {
+    "Question": "Mức hỗ trợ của chính sách HAUl dành cho sinh viên khó khăn là bao nhiêu?",
+    "Category": "ChinhSachSV",
+    "Answer": "Theo Điều 26, mức hỗ trợ được quy định như sau:\n- Căn cứ vào hồ sơ và hoàn cảnh thực tế của từng sinh viên, Thường trực sẽ đề xuất phương án cụ thể.\n- Mức hỗ trợ tối đa bằng với số tiền học phí mà sinh viên phải đóng tại học kỳ mà sinh viên có đơn đề nghị."
+  },
+  {
+    "Question": "Hồ sơ đề nghị hỗ trợ chính sách HAUl bao gồm những gì?",
+    "Category": "ChinhSachSV",
+    "Answer": "Theo Điều 27, hồ sơ và quy trình xét hỗ trợ bao gồm:\n- Đơn đề nghị của sinh viên.\n- Ý kiến của đơn vị đào tạo.\n- Các hồ sơ minh chứng về hoàn cảnh khó khăn (Thường trực sẽ hướng dẫn cụ thể sinh viên cung cấp các giấy tờ minh chứng này)."
+  },
+{
+  "Question": "Theo Điều 28, Phòng Công tác sinh viên có trách nhiệm gì trong việc tổ chức thực hiện chính sách sinh viên?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 28, Phòng Công tác Sinh viên có trách nhiệm thực hiện các nội dung sau:\n\n- Cung cấp số liệu cho phòng TCKT báo cáo, lập dự toán ngân sách theo yêu cầu của cơ quan quản lý và Nhà trường.\n- Triển khai truyền thông quy định chính sách theo nhiều kênh thông tin đến sinh viên.\n- Đầu mối tiếp nhận hồ sơ đề nghị xét cấp chính sách.\n- Được Hiệu trưởng ủy quyền thẩm định hồ sơ đề nghị xét cấp chính sách.\n- Đề xuất phương án thực hiện các trường hợp đề xuất.\n- Tiếp nhận và trả lời thắc mắc khiếu nại.\n- Xét chính sách và tổng hợp danh sách sinh viên được hưởng chính sách trình Hiệu trưởng phê duyệt.\n- Cung cấp danh sách sinh viên nhận chính sách cho phòng TCKT, các đơn vị đào tạo và sinh viên.\n- Phối hợp với các đơn vị liên quan thực hiện thủ tục cấp chính sách cho sinh viên."
+},
+{
+  "Question": "Trách nhiệm của Phòng Tài chính Kế toán trong việc thực hiện chính sách sinh viên được quy định như thế nào tại Điều 28?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 28, Phòng Tài chính Kế toán có trách nhiệm thực hiện các nội dung sau:\n\n- Chủ trì lập báo cáo, lập dự toán ngân sách, kế hoạch theo yêu cầu của cơ quan quản lý và yêu cầu của Nhà trường.\n- Thực hiện việc chi trả chính sách cho người học.\n- Theo dõi, hạch toán ngân sách đảm bảo theo quy định hiện hành."
+},
+{
+  "Question": "Các đơn vị đào tạo có trách nhiệm gì trong việc thực hiện chính sách sinh viên theo Điều 28?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo Điều 28, các đơn vị đào tạo có trách nhiệm thực hiện các nội dung sau:\n\n- Phối hợp triển khai thông tin đến sinh viên quy định về chính sách.\n- Phối hợp kiểm tra đôn đốc sinh viên nộp hồ sơ chính sách.\n- Theo dõi, kịp thời nắm bắt sinh viên có hoàn cảnh đặc biệt khó khăn.\n- Lập danh sách theo dõi sinh viên được hưởng chính sách."
+},
+{
+  "Question": "Có những phòng ban, đơn vị nào có vai trò trong việc tổ chức thực hiện chính sách sinh viên theo Điều 28?",
+  "Category": "ChinhSachSV",
+  "Answer": "Theo quy định tại Điều 28, các đơn vị có vai trò và trách nhiệm trong việc thực hiện chính sách sinh viên bao gồm:\n\n1. Phòng Công tác Sinh viên: Đơn vị đầu mối tiếp nhận, thẩm định hồ sơ, xét duyệt danh sách và truyền thông.\n2. Phòng Tài chính Kế toán: Đơn vị chủ trì lập dự toán, báo cáo ngân sách và thực hiện chi trả trực tiếp cho sinh viên.\n3. Các đơn vị đào tạo: Đơn vị phối hợp thông tin, đôn đốc sinh viên nộp hồ sơ, theo dõi danh sách và nắm bắt các trường hợp khó khăn đặc biệt."
+},
+  {
     "Question": "Là cử nhân đại học tôi cần đóng những khoản thu nào",
-    "Category": "HocPhi",
+    "Category": "KhoanThu",
     "Answer": "Các khoản thu gồm:\n\n1. Bảo hiểm y tế: 789.750đ/ 15 tháng hoặc 631.800đ/ 12 tháng.\n2. Bảo hiểm thân thể: 325.000đ/ 4 năm học.\n3. Bảo hộ lao động (đối với ngành kỹ thuật, công nghệ): 400.000đ/ 2 bộ/khóa học.\n4. Khám sức khỏe: 120.000đ.\n5. Quỹ khuyến học: 20.000đ/ khóa."
   },
   {
     "Question": "Là kỹ sư đại học tôi cần đóng những khoản thu nào",
-    "Category": "HocPhi",
+    "Category": "KhoanThu",
     "Answer": "Các khoản thu gồm:\n\n1. Bảo hiểm y tế: 642.330đ/ 12 tháng \n2. Bảo hiểm thân thể: 95.000đ/ 1 năm học.\n5. Quỹ khuyến học: 20.000đ/ khóa."
   },
   {
     "Question": "Là sinh viên cao đẳng tôi cần đóng những khoản thu nào",
-    "Category": "HocPhi",
+    "Category": "KhoanThu",
     "Answer": "Các khoản thu gồm:\n\n1. Bảo hiểm y tế: 789.750đ/ 15 tháng hoặc 631.800đ/ 12 tháng.\n2. Bảo hiểm thân thể: 255.000đ/ 3 năm học.\n3. Bảo hộ lao động (đối với ngành kỹ thuật, công nghệ): 400.000đ/ 2 bộ/khóa học.\n4. Khám sức khỏe: 120.000đ.\n5. Quỹ khuyến học: 20.000đ/ khóa."
   },
   {
     "Question": "Là sinh viên liên thông tôi cần đóng những khoản thu nào",
-    "Category": "HocPhi",
+    "Category": "KhoanThu",
     "Answer": "3. Bảo hộ lao động (đối với ngành kỹ thuật, công nghệ): 400.000đ/ 2 bộ/khóa học.\n5. Quỹ khuyến học: 20.000đ/ khóa."
   },
   {
     "Question": "Là sinh viên nước ngoài tôi cần đóng những khoản thu nào",
-    "Category": "HocPhi",
+    "Category": "KhoanThu",
     "Answer": "2. Bảo hiểm thân thể: 95.000đ/ 1 năm học hoặc 325.000đ/ 4 năm học hoặc 400.000đ/ 5 năm học.\n3. Bảo hộ lao động (đối với ngành kỹ thuật, công nghệ): 400.000đ/ 2 bộ/khóa học."
   },
   {
-    "Question": "Sinh viên thuộc diện nào được hưởng chính sách nội trú",
-    "Category": "ChinhSachSV",
-    "Answer": "Sinh viên học hệ Cao đẳng thuộc một trong các đối tượng sau:\n\n1. Là người dân tộc thiểu số có cha hoặc mẹ hoặc cả cha và mẹ/ông bà (trường hợp sinh viên ở với ông bà) thuộc hộ nghèo hoặc hộ cận nghèo theo quy định của Thủ tướng Chính phủ.\n\n2. Là người dân tộc thiểu số bị khuyết tật.\n\n3. Tốt nghiệp trường phổ thông dân tộc nội trú.\n\n4. Là người dân tộc Kinh có cha hoặc mẹ hoặc cả cha và mẹ/ông bà (trường hợp sinh viên ở với ông bà) thuộc hộ nghèo hoặc hộ cận nghèo theo quy định của Nhà nước có hộ khẩu thường trú tại vùng có điều kiện kinh tế - xã hội đặc biệt khó khăn, vùng dân tộc thiểu số, biên giới, hải đảo.\n\n5. Là người dân tộc Kinh bị khuyết tật có hộ khẩu thường trú tại vùng có điều kiện kinh tế - xã hội đặc biệt khó khăn, vùng dân tộc thiểu số, biên giới, hải đảo."
+    "Question": "Hiệu lực cụ thể của từng loại bảo hiểm",
+    "Category": "KhoanThu",
+    "Answer": "Hiệu lực cụ thể của các loại bảo hiểm được quy định như sau:\n\n- Loại 15 tháng: Hiệu lực từ 01/10/2025 đến 31/12/2026.\n- Loại 12 tháng (đợt 1): Hiệu lực từ 01/01/2026 đến 31/12/2026.\n- Loại 12 tháng (đợt 2): Hiệu lực từ 01/08/2025 đến 31/07/2026."
+  },
+  {
+  "Question": "Những đối tượng nào được miễn, giảm phí bảo hiểm thân thể?",
+  "Category": "KhoanThu",
+  "Answer": "Chính sách miễn, giảm phí bảo hiểm thân thể được áp dụng cho các đối tượng sau:\n\n- Miễn 100% phí bảo hiểm: Áp dụng đối với sinh viên là con liệt sỹ, con thương binh và con bệnh binh hạng 1/4.\n- Giảm 50% phí bảo hiểm: Áp dụng đối với các đối tượng chính sách thực hiện theo tiêu chuẩn quy định tại Quyết định 09/2011/QĐ-TTg."
+ },
+ {
+  "Question": "Đồ bảo hộ được cung cấp bao gồm những gì",
+  "Category": "KhoanThu",
+  "Answer": "May 02 bộ quần áo bảo hộ và 01 mũ bảo hộ cho sinh viên"
+ },
+ {
+    "Question": "Mức thu học phí đối với nghiên cứu sinh hệ Tiến sĩ tại HaUI năm học 2025-2026 là bao nhiêu?",
+    "Category": "MucThuHP",
+    "Answer": "Theo quy định tại Phụ lục ban hành kèm Quyết định 778/QĐ-ĐHCN, mức thu học phí đối với hệ Tiến sĩ là 35.000.000 đồng/năm học."
+  },
+  {
+    "Question": "Học phí hệ Thạc sĩ năm học 2025-2026 được tính như thế nào?",
+    "Category": "MucThuHP",
+    "Answer": "Mức thu học phí đối với học viên hệ Thạc sĩ là 900.000 đồng cho mỗi tín chỉ học phí."
+  },
+  {
+    "Question": "Học phí của sinh viên Đại học chính quy khóa K20 (Cử nhân) và K3 (Kỹ sư) học chương trình đào tạo bằng tiếng Anh là bao nhiêu?",
+    "Category": "MucThuHP",
+    "Answer": "Mức thu học phí đối với Cử nhân K20 và Kỹ sư K3 theo chương trình đào tạo bằng tiếng Anh là 1.000.000 đồng/tín chỉ học phí. Tuy nhiên, các học phần Giáo dục thể chất và Quốc phòng an ninh sẽ áp dụng theo mức của chương trình đại trà là 700.000 đồng/tín chỉ[cite: 441, 442]."
+  },
+  {
+    "Question": "Mức thu học phí hệ đại trà cho sinh viên Cử nhân K20 và Kỹ sư K3 là bao nhiêu?",
+    "Category": "MucThuHP",
+    "Answer": "Đối với sinh viên Cử nhân K20 và Kỹ sư K3 học chương trình đào tạo đại trà, mức thu học phí là 700.000 đồng/tín chỉ học phí."
+  },
+  {
+    "Question": "Sinh viên khóa Cử nhân K19 và Kỹ sư K2 phải đóng bao nhiêu tiền cho mỗi tín chỉ?",
+    "Category": "MucThuHP",
+    "Answer": "Mức thu học phí đối với sinh viên Cử nhân K19 và Kỹ sư K2 là 550.000 đồng/tín chỉ học phí."
+  },
+  {
+    "Question": "Mức học phí áp dụng cho sinh viên từ khóa Cử nhân K18 trở về trước và Kỹ sư K1 là bao nhiêu?",
+    "Category": "MucThuHP",
+    "Answer": "Đối với các khóa Cử nhân K18 trở về trước và Kỹ sư K1, mức thu học phí là 495.000 đồng cho mỗi tín chỉ học phí."
+  },
+  {
+    "Question": "Học phí hệ Đại học đào tạo từ xa và Cao đẳng chính quy tại HaUI được quy định như thế nào?",
+    "Category": "MucThuHP",
+    "Answer": "Mức thu học phí được quy định cụ thể như sau:\n- Hệ Đại học đào tạo từ xa: 495.000 đồng/tín chỉ học phí.\n- Hệ Cao đẳng chính quy: 370.000 đồng/tín chỉ học phí."
+  },
+  {
+    "Question": "Mức thu đối với hệ Đại học vừa làm vừa học và liên thông lên Đại học vừa làm vừa học là bao nhiêu?",
+    "Category": "MucThuHP",
+    "Answer": "Đối với các hệ đào tạo này, mức thu học phí được tính là 2.400.000 đồng/tháng."
+  },
+  {
+    "Question": "Mức phí cho người nước ngoài học tiếng Việt tại HaUI trong 01 năm là bao nhiêu?",
+    "Category": "MucThuHP",
+    "Answer": "Mức thu đối với khóa học tiếng Việt tại HaUI (thời gian 01 năm) là 16.000.000 đồng cho toàn bộ khóa học."
+  },
+  {
+    "Question": "Sinh viên quốc tế học toàn thời gian tại HaUI đóng học phí theo mức nào?",
+    "Category": "MucThuHP",
+    "Answer": "Sinh viên, học viên và nghiên cứu sinh quốc tế học toàn thời gian tại HaUI sẽ đóng mức thu tương ứng với chương trình đào tạo và cùng năm tuyển sinh quy định tại các mục từ 1 đến 4 của Phụ lục mức thu học phí."
+  },
+  {
+    "Question": "Mức thu học phí cho sinh viên tham gia chương trình trao đổi tại HaUI được xác định dựa trên căn cứ nào?",
+    "Category": "MucThuHP",
+    "Answer": "Mức thu học phí đối với sinh viên quốc tế đến học trao đổi hoặc sinh viên HaUI học tại cơ sở đối tác được thực hiện theo Văn bản thỏa thuận giữa HaUI và cơ sở giáo dục của đối tác đó."
   }
-]
+]  
