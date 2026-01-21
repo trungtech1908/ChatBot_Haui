@@ -5,6 +5,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_ollama import ChatOllama
 from qdrant_client import QdrantClient
 
+from Valiadation_RAG.node.config import llm_gemini
+
+
 class AgentState(TypedDict, total=False):
     query: str
     new_query: Optional[str]
@@ -19,5 +22,6 @@ QDRANT_URL = os.getenv('QDRANT_URL')
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 
 client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY)
-llm_gemini = ChatGoogleGenerativeAI(model='gemini-2.5-flash', google_api_key=GOOGLE_API_KEY)
+# llm_gemini = ChatGoogleGenerativeAI(model='gemini-2.5-flash', google_api_key=GOOGLE_API_KEY)
+llm_gemini = ChatOllama(model='qwen2.5:7b', reasoning=False)
 llm = ChatOllama(model='qwen2.5:7b', reasoning=False)

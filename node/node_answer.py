@@ -6,12 +6,11 @@ prompt = ChatPromptTemplate.from_messages([
     ("human", "Ngữ cảnh:\n{retriever}\n\nCâu hỏi: {user_query}")
 ])
 
-async def node_answer(state: AgentState):
+
+def node_answer(state: AgentState) -> AgentState:
     chain = prompt | llm
-    async for chunk in chain.astream({
+    state['answer'] = chain.invoke({
         "retriever": "\n".join(state.get("retriever", [])) or "Không có thông tin.",
         "user_query": state["new_query"]
-    }):
-        if chunk.content:
-            # CHỈ YIELD partial_answer → web nhận được ngay
-            yield {"partial_answer": chunk.content}
+    }).content
+    return state
