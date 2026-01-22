@@ -1,125 +1,262 @@
-import os
 import re
-import json
-
-def chunk_markdown(file_path, output_path):
-    with open(file_path, "r", encoding="utf-8") as f:
-        lines = [line.strip() for line in f if line.strip()]
-
-    all_chunks = []
-    current_level1 = None
-    pending_level1 = []
-    current_level2 = None
-    level2_intro = ""
-    current_subchunks = []
-
-    uppercase_vn = "A-ZÀ-Ỹ"
-    lowercase_vn = "a-zà-ỹ"
-
-    waiting_for_level2_intro = False
-
-    def flush_current():
-        nonlocal current_level1, current_subchunks
-        if current_level1 and current_subchunks:
-            all_chunks.append({
-                "level1": current_level1,
-                "subchunks": current_subchunks
-            })
-        current_subchunks = []
-
-    def finalize_level1():
-        nonlocal pending_level1, current_level1
-        if pending_level1:
-            current_level1 = " ".join(pending_level1)
-            pending_level1 = []
-
-    def is_table_line(line):
-        return line.startswith("|") and line.endswith("|")
-
-    i = 0
-    while i < len(lines):
-        line = lines[i]
-
-        # Cấp 1
-        if re.fullmatch(rf"\*\*[{uppercase_vn}0-9\s,.\-]+\*\*", line):
-            text = re.sub(r"\*\*(.*?)\*\*", r"\1", line).strip()
-            pending_level1.append(text)
-            i += 1
-            continue
-
-        if pending_level1:
-            flush_current()
-            finalize_level1()
-
-        # Cấp 2
-        if re.fullmatch(rf"\*\*[{uppercase_vn}{lowercase_vn}0-9\s,.\-]+\*\*", line):
-            text = re.sub(r"\*\*(.*?)\*\*", r"\1", line).strip()
-            if not text.isupper():
-                current_level2 = text
-                level2_intro = ""
-                waiting_for_level2_intro = True
-            i += 1
-            continue
-
-        # Dòng mô tả sau cấp 2
-        if waiting_for_level2_intro:
-            level2_intro = line
-            waiting_for_level2_intro = False
-            i += 1
-            continue
-
-        # Các mục liệt kê
-        if re.match(r"^\d+\.", line) or re.match(r"^[a-zA-Z]\)", line) or re.match(r"^[-•]", line):
-            prefix = " ".join(filter(None, [current_level1, current_level2, level2_intro]))
-            current_subchunks.append(f"{prefix} {line}".strip())
-            i += 1
-            continue
-
-        # Bảng dữ liệu
-        if is_table_line(line):
-            table_block = [line]
-            j = i + 1
-            while j < len(lines) and is_table_line(lines[j]):
-                table_block.append(lines[j])
-                j += 1
-            table_text = "\n".join(table_block)
-            prefix = " ".join(filter(None, [current_level1, current_level2, level2_intro]))
-            current_subchunks.append(f"{prefix}\n{table_text}")
-            i = j
-            continue
-
-        # Nội dung khác
-        if current_level2:
-            prefix = " ".join(filter(None, [current_level1, current_level2, level2_intro]))
-            current_subchunks.append(f"{prefix} {line}".strip())
-
-        i += 1
-
-    if pending_level1:
-        flush_current()
-        finalize_level1()
-
-    flush_current()
-
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(all_chunks, f, ensure_ascii=False, indent=2)
-
-    print(f"✅ {os.path.basename(file_path)} → {len(all_chunks)} chunks, lưu vào '{output_path}'")
+from typing import List, Tuple, Optional
+from dataclasses import dataclass, field
 
 
-# --- Xử lý toàn bộ thư mục chứa .md ---
-def process_folder(input_folder, output_folder="chunks_json"):
-    os.makedirs(output_folder, exist_ok=True)
-
-    for filename in os.listdir(input_folder):
-        if filename.endswith(".md"):
-            input_path = os.path.join(input_folder, filename)
-            output_name = os.path.splitext(filename)[0] + ".json"
-            output_path = os.path.join(output_folder, output_name)
-            chunk_markdown(input_path, output_path)
-
-    print("\n🎯 Hoàn tất xử lý toàn bộ file .md.")
+@dataclass
+class Section:
+    number: str
+    level: int           # 1 = IN HOA, 2 = in đậm thường
+    title: str
+    content: List[str] = field(default_factory=list)
+    children: List['Section'] = field(default_factory=list)
 
 
-# Ví dụ chạy
-process_folder("output_md_Gemini")
+class MarkdownChunker:
+    def __init__(self, max_items_per_chunk: int = 3):
+        self.max_items = max_items_per_chunk
+        self.flat_sections = []
+        self.root_sections = []
+
+    def is_uppercase_heading(self, line: str) -> bool:
+        clean = re.sub(r'\*\*(.+?)\*\*', r'\1', line).strip()
+        if not clean:
+            return False
+        letters = re.findall(r'[a-zA-ZÀ-ỹ]', clean)
+        if not letters:
+            return False
+        uppercase_count = sum(1 for c in letters if c.isupper() or ord(c) > 127)
+        return uppercase_count / len(letters) >= 0.8
+
+    def is_bold_lowercase_heading(self, line: str) -> bool:
+        if not re.match(r'\*\*(.+?)\*\*', line):
+            return False
+        match = re.search(r'\*\*(.+?)\*\*', line)
+        if not match:
+            return False
+        text = match.group(1).strip()
+        letters = re.findall(r'[a-zA-ZÀ-ỹ]', text)
+        if not letters:
+            return False
+        lowercase_count = sum(
+            1 for c in letters if c.islower() or (ord(c) > 127 and c.lower() == c)
+        )
+        return lowercase_count / len(letters) >= 0.5
+
+    def parse_markdown(self, filepath: str):
+        with open(filepath, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+
+        current_section = None
+        current_content = []
+        level1_counter = 0
+        level2_counter = 0
+        bold_merge_count = 0   # <<< CHỈ THÊM BIẾN NÀY
+
+        for line in lines:
+            line = line.rstrip()
+
+            if not line.strip():
+                if current_section:
+                    current_content.append(line)
+                continue
+
+            # ===== LEVEL 1 =====
+            if self.is_uppercase_heading(line):
+                title = re.sub(r'\*\*(.+?)\*\*', r'\1', line).strip()
+
+                if current_section and current_section.level == 1:
+                    current_section.title += " – " + title
+                    continue
+
+                if current_section:
+                    current_section.content = current_content
+                    self.flat_sections.append(current_section)
+
+                level1_counter += 1
+                level2_counter = 0
+                bold_merge_count = 0   # RESET
+
+                current_section = Section(
+                    number=str(level1_counter),
+                    level=1,
+                    title=title,
+                    content=[]
+                )
+                current_content = []
+                continue
+
+            # ===== LEVEL 2 =====
+            if self.is_bold_lowercase_heading(line):
+                title = re.sub(r'\*\*(.+?)\*\*', r'\1', line).strip()
+
+                # >>> GỘP TỐI ĐA 3 LẦN <<<
+                if current_section and current_section.level == 2 and bold_merge_count < 3:
+                    current_section.title += " – " + title
+                    bold_merge_count += 1
+                    continue
+
+                if current_section:
+                    current_section.content = current_content
+                    self.flat_sections.append(current_section)
+
+                level2_counter += 1
+                bold_merge_count = 1   # bắt đầu chuỗi mới
+
+                current_section = Section(
+                    number=f"{level1_counter}.{level2_counter}",
+                    level=2,
+                    title=title,
+                    content=[]
+                )
+                current_content = []
+                continue
+
+            # ===== CONTENT =====
+            bold_merge_count = 0
+            if current_section:
+                current_content.append(line)
+
+        if current_section:
+            current_section.content = current_content
+            self.flat_sections.append(current_section)
+
+        self._build_hierarchy()
+
+    def _build_hierarchy(self):
+        stack = []
+        for sec in self.flat_sections:
+            while stack and stack[-1].level >= sec.level:
+                stack.pop()
+            if stack:
+                stack[-1].children.append(sec)
+            else:
+                self.root_sections.append(sec)
+            stack.append(sec)
+
+    def _find_section(self, section_num: str) -> Optional[Section]:
+        for sec in self.flat_sections:
+            if sec.number == section_num:
+                return sec
+        return None
+
+    def _get_level1_subsections(self, parent: Section) -> List[Section]:
+        return parent.children
+
+    def _render_section_full(self, sec: Section) -> str:
+        if sec.level == 1:
+            result = f"**{sec.title.upper()}**\n"
+        else:
+            result = f"**{sec.title}**\n"
+
+        for line in sec.content:
+            result += line + "\n"
+
+        for child in sec.children:
+            result += self._render_section_full(child)
+
+        return result
+
+    # ===== CHUNK LOGIC GIỮ NGUYÊN =====
+
+    def find_leaf_items(self, content: List[str]) -> List[Tuple[int, int, str]]:
+        items = []
+        i = 0
+        while i < len(content):
+            line = content[i].strip()
+            if not line:
+                i += 1
+                continue
+
+            if re.match(r'^\d+\.\s+', line):
+                start = i
+                i += 1
+                while i < len(content):
+                    next_line = content[i].strip()
+                    if (re.match(r'^\d+\.\s+', next_line)
+                        or re.match(r'^[a-z]\)\s+', next_line)
+                        or self.is_uppercase_heading(next_line)
+                        or self.is_bold_lowercase_heading(next_line)):
+                        break
+                    i += 1
+                items.append((start, i - 1, 'numbered'))
+
+            elif re.match(r'^[a-z]\)\s+', line):
+                start = i
+                i += 1
+                while i < len(content):
+                    next_line = content[i].strip()
+                    if (re.match(r'^\d+\.\s+', next_line)
+                        or re.match(r'^[a-z]\)\s+', next_line)
+                        or self.is_uppercase_heading(next_line)
+                        or self.is_bold_lowercase_heading(next_line)):
+                        break
+                    i += 1
+                items.append((start, i - 1, 'lettered'))
+            else:
+                i += 1
+        return items
+
+    def chunk_section(self, section_num: str) -> List[str]:
+        root = self._find_section(section_num)
+        if not root:
+            return []
+
+        subsections = self._get_level1_subsections(root)
+        if not subsections:
+            return [self._render_section_full(root)]
+
+        for sub in subsections:
+            items = self.find_leaf_items(sub.content)
+            if len(items) > self.max_items:
+                return self._chunk_by_leaf_items(root, subsections, sub, items)
+
+        return self._chunk_by_subsections(root, subsections)
+
+    def _chunk_by_subsections(self, root, subsections):
+        chunks = []
+        n = (len(subsections) + self.max_items - 1) // self.max_items
+        for i in range(n):
+            result = f"**{root.title.upper()}**\n"
+            for line in root.content:
+                result += line + "\n"
+            for sub in subsections[i*self.max_items:(i+1)*self.max_items]:
+                result += self._render_section_full(sub)
+            chunks.append(result)
+        return chunks
+
+    def _chunk_by_leaf_items(self, root, all_subsections, target, leaf_items):
+        chunks = []
+        n = (len(leaf_items) + self.max_items - 1) // self.max_items
+        for i in range(n):
+            result = f"**{root.title.upper()}**\n"
+            for line in root.content:
+                result += line + "\n"
+            start = i * self.max_items
+            end = min(start + self.max_items, len(leaf_items))
+            for sub in all_subsections:
+                result += f"**{sub.title}**\n"
+                if sub.number == target.number:
+                    s = leaf_items[start:end][0][0]
+                    e = leaf_items[start:end][-1][1]
+                    for j in range(s, e + 1):
+                        result += sub.content[j] + "\n"
+                else:
+                    for line in sub.content:
+                        result += line + "\n"
+            chunks.append(result)
+        return chunks
+
+    def chunk_all_documents(self, input_file: str, output_file: str):
+        self.parse_markdown(input_file)
+        with open(output_file, 'w', encoding='utf-8') as f:
+            for root in self.root_sections:
+                for i, chunk in enumerate(self.chunk_section(root.number), 1):
+                    f.write(f"===== CHUNK {i} =====\n")
+                    f.write(chunk + "\n")
+
+
+if __name__ == "__main__":
+    chunker = MarkdownChunker(max_items_per_chunk=3)
+    chunker.chunk_all_documents("ChinhSachSV.md", "output.txt")
+    print("✓ Đã chunk xong, kết quả ở output.txt")
