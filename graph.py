@@ -41,7 +41,7 @@ app = graph.compile()
 
 input_state = AgentState(
     query='Tôi có nhận được học bổng không',
-    username='Trung'
+    username='SV001'
 )
 output = app.invoke(input_state)
 

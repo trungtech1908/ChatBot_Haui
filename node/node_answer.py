@@ -2,7 +2,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from .config import AgentState, llm
 
 prompt = ChatPromptTemplate.from_messages([
-    ("system", "Bạn là trợ lý AI. Trả lời bằng tiếng Việt, chi tiết, đầy đủ, không tóm tắt."),
+    ("system", "Bạn là trợ lý AI. Bạn sẽ dựa vào ngữ cảnh được cho và câu hỏi người dùng, Trả lời bằng tiếng Việt, chi tiết, đầy đủ, không tóm tắt. "
+               "Nếu ngữ cảnh có dữ liệu bảng hay markdown, hãy đơn trả lời dưới dạng liệt kê hoặc mô tả, không sử dụng bảng hay markdown. Trả lời một cách đầy đủ, chi tiết nếu nội dung trong bảng hay mark down có liên quan tới câu hỏi"),
     ("human", "Ngữ cảnh:\n{retriever}\n\nCâu hỏi: {user_query}")
 ])
 
