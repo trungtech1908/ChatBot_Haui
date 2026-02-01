@@ -21,7 +21,7 @@ def node_retriever(state: AgentState) -> AgentState:
     query_vec = embeddings['dense_vecs'][0].tolist()
 
     filter_points = client.query_points(
-        collection_name='RAG_ChatBot_HAUI_v1',
+        collection_name='RAG_ChatBot_HAUI',
         query=query_vec,
         query_filter=Filter(
             must=[
