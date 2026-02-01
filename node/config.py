@@ -6,8 +6,6 @@ from langchain_ollama import ChatOllama
 from langchain_groq import ChatGroq
 from qdrant_client import QdrantClient
 
-from Valiadation_RAG.node.config import llm_gemini
-
 
 class AgentState(TypedDict, total=False):
     query: str
