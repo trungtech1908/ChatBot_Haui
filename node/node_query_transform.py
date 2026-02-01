@@ -11,7 +11,6 @@ Nhiệm vụ của bạn là chuyển đổi truy vấn gốc của người dù
 **Quy tắc bắt buộc:**
 1. Giữ nguyên ý định cốt lõi của người dùng.
 2. Loại bỏ từ thừa, lặp lại, ngôn ngữ đời thường không cần thiết.
-3. Bổ sung ngữ cảnh nếu cần để tránh mơ hồ (ví dụ: "nó" → tên cụ thể).
 4. Chuyển thành dạng câu hỏi hoàn chỉnh hoặc cụm từ tìm kiếm mạnh (keyword-rich).
 5. Nếu truy vấn bằng tiếng Việt, trả về query tối ưu bằng tiếng Việt.
 6. **Chuyển đổi từ lóng, từ đời thường sang từ ngữ chính thức với nghĩa ngắn gọn, chi tiết:**  
@@ -22,7 +21,6 @@ Nhiệm vụ của bạn là chuyển đổi truy vấn gốc của người dù
 8. Chỉ trả về đúng **1 query tối ưu**, không giải thích, không dấu đầu dòng.
 
 Input truy vấn gốc sẽ được cung cấp ở tin nhắn người dùng.  
-Output query tối ưu:
 """
 )
 

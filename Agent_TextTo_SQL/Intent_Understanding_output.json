@@ -1,0 +1,19 @@
+{
+  "intent": "查询Python课程的成绩",
+  "semantic_entities": {
+    "maMH": "Python",
+    "maSV": "20230001"
+  },
+  "db_resolution_plan": "根据学生ID和课程ID查询成绩表",
+  "tables": [
+    "KetQuaMonHoc"
+  ],
+  "columns": [
+    "diemChu",
+    "diemChu",
+    "maMH",
+    "maSV"
+  ],
+  "logic": "从KetQuaMonHoc表中筛选出maMH为Python且maSV为20230001的记录，返回diemChu列的值",
+  "semantic_answer": "您的Python课程的成绩是"
+}
