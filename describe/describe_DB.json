@@ -1,7 +1,7 @@
 {
   "tables": [
     {
-      "table_name": "SinhVien",
+      "table_name": "sinhVien",
       "description": "Thông tin sinh viên",
       "primary_key": [
         "maSV"
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "table_name": "TaiChinh",
+      "table_name": "taiChinh",
       "description": "Thông tin tài chính sinh viên",
       "primary_key": [
         "maSV"
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "table_name": "DoiTuong",
+      "table_name": "doiTuong",
       "description": "Thông tin đối tượng chính sách",
       "primary_key": [
         "maSV"
@@ -154,7 +154,7 @@
       ]
     },
     {
-      "table_name": "DieuKienTotNghiep",
+      "table_name": "dieuKienTotNghiep",
       "description": "Điều kiện tốt nghiệp",
       "primary_key": [
         "maSV"
@@ -199,7 +199,7 @@
       ]
     },
     {
-      "table_name": "TaiKhoan",
+      "table_name": "taiKhoan",
       "description": "Tài khoản đăng nhập",
       "primary_key": [
         "tenTaiKhoan"
@@ -226,7 +226,7 @@
       ]
     },
     {
-      "table_name": "Khoa",
+      "table_name": "khoa",
       "description": "Thông tin khoa",
       "primary_key": [
         "maKhoa"
@@ -247,7 +247,7 @@
       ]
     },
     {
-      "table_name": "CT_DT",
+      "table_name": "ctdt",
       "description": "Chương trình đào tạo",
       "primary_key": [
         "maCT"
@@ -292,7 +292,7 @@
       ]
     },
     {
-      "table_name": "MonHoc",
+      "table_name": "monHoc",
       "description": "Thông tin môn học",
       "primary_key": [
         "maMH"
@@ -373,7 +373,7 @@
       ]
     },
     {
-      "table_name": "NhomMH",
+      "table_name": "nhomMH",
       "description": "Nhóm môn học",
       "primary_key": [
         "maNhom"
@@ -406,15 +406,11 @@
       ]
     },
     {
-      "table_name": "CT_CTDT",
+      "table_name": "ct_ctdt",
       "description": "Chi tiết CTĐT - nhóm môn",
       "primary_key": [
         "maCT",
         "maNhom"
-      ],
-      "junction_between": [
-        "CT_DT",
-        "NhomMH"
       ],
       "columns": [
         {
@@ -432,15 +428,11 @@
       ]
     },
     {
-      "table_name": "CT_NMH",
+      "table_name": "ct_nmh",
       "description": "Chi tiết nhóm - môn học",
       "primary_key": [
         "maNhom",
         "maMH"
-      ],
-      "junction_between": [
-        "NhomMH",
-        "MonHoc"
       ],
       "columns": [
         {
@@ -464,15 +456,11 @@
       ]
     },
     {
-      "table_name": "TQMH",
+      "table_name": "tienQuyetMonHoc",
       "description": "Môn tiên quyết",
       "primary_key": [
         "maMH",
         "maTQ"
-      ],
-      "junction_between": [
-        "MonHoc",
-        "MonHoc"
       ],
       "columns": [
         {
@@ -490,7 +478,7 @@
       ]
     },
     {
-      "table_name": "GiangVien",
+      "table_name": "giangVien",
       "description": "Thông tin giảng viên",
       "primary_key": [
         "maGV"
@@ -541,7 +529,7 @@
       ]
     },
     {
-      "table_name": "LopHoc",
+      "table_name": "lopHoc",
       "description": "Lớp học phần",
       "primary_key": [
         "maLH"
@@ -610,15 +598,11 @@
       ]
     },
     {
-      "table_name": "SinhVienLopHoc",
+      "table_name": "sinhVienLopHoc",
       "description": "Đăng ký lớp học phần",
       "primary_key": [
         "maSV",
         "maLH"
-      ],
-      "junction_between": [
-        "SinhVien",
-        "LopHoc"
       ],
       "columns": [
         {
@@ -648,7 +632,7 @@
       ]
     },
     {
-      "table_name": "KetQuaMonHoc",
+      "table_name": "ketQuaMonHoc",
       "description": "Kết quả môn học",
       "primary_key": [
         "maKQ"
@@ -723,15 +707,11 @@
       ]
     },
     {
-      "table_name": "PhuTrach",
+      "table_name": "phuTrach",
       "description": "Giảng viên phụ trách môn",
       "primary_key": [
         "maMH",
         "maGV"
-      ],
-      "junction_between": [
-        "MonHoc",
-        "GiangVien"
       ],
       "columns": [
         {
@@ -749,7 +729,7 @@
       ]
     },
     {
-      "table_name": "GiaoDich",
+      "table_name": "giaoDich",
       "description": "Giao dịch tài chính",
       "primary_key": [
         "maGD"
@@ -802,107 +782,107 @@
   ],
   "relationships": [
     {
-      "from_table": "SinhVien",
+      "from_table": "sinhVien",
       "from_column": "maSV",
-      "to_table": "TaiChinh",
+      "to_table": "taiChinh",
       "to_column": "maSV",
       "type": "one-to-one"
     },
     {
-      "from_table": "SinhVien",
+      "from_table": "sinhVien",
       "from_column": "maSV",
-      "to_table": "DoiTuong",
+      "to_table": "doiTuong",
       "to_column": "maSV",
       "type": "one-to-one"
     },
     {
-      "from_table": "SinhVien",
+      "from_table": "sinhVien",
       "from_column": "maSV",
-      "to_table": "DieuKienTotNghiep",
+      "to_table": "dieuKienTotNghiep",
       "to_column": "maSV",
       "type": "one-to-one"
     },
     {
-      "from_table": "SinhVien",
+      "from_table": "sinhVien",
       "from_column": "maSV",
-      "to_table": "TaiKhoan",
+      "to_table": "taiKhoan",
       "to_column": "maSV",
       "type": "one-to-one"
     },
     {
-      "from_table": "SinhVien",
+      "from_table": "sinhVien",
       "from_column": "maSV",
-      "to_table": "SinhVienLopHoc",
+      "to_table": "sinhVienLopHoc",
       "to_column": "maSV",
       "type": "one-to-many"
     },
     {
-      "from_table": "SinhVien",
+      "from_table": "sinhVien",
       "from_column": "maSV",
-      "to_table": "KetQuaMonHoc",
+      "to_table": "ketQuaMonHoc",
       "to_column": "maSV",
       "type": "one-to-many"
     },
     {
-      "from_table": "SinhVien",
+      "from_table": "sinhVien",
       "from_column": "maSV",
-      "to_table": "GiaoDich",
+      "to_table": "giaoDich",
       "to_column": "maSV",
       "type": "one-to-many"
     },
     {
-      "from_table": "SinhVien",
+      "from_table": "sinhVien",
       "from_column": "maCT",
-      "to_table": "CT_DT",
+      "to_table": "ctdt",
       "to_column": "maCT",
       "type": "many-to-one"
     },
     {
-      "from_table": "CT_DT",
+      "from_table": "ctdt",
       "from_column": "maKhoa",
-      "to_table": "Khoa",
+      "to_table": "khoa",
       "to_column": "maKhoa",
       "type": "many-to-one"
     },
     {
-      "from_table": "MonHoc",
+      "from_table": "monHoc",
       "from_column": "maKhoa",
-      "to_table": "Khoa",
+      "to_table": "khoa",
       "to_column": "maKhoa",
       "type": "many-to-one"
     },
     {
-      "from_table": "LopHoc",
+      "from_table": "lopHoc",
       "from_column": "maMH",
-      "to_table": "MonHoc",
+      "to_table": "monHoc",
       "to_column": "maMH",
       "type": "many-to-one"
     },
     {
-      "from_table": "LopHoc",
+      "from_table": "lopHoc",
       "from_column": "maGV",
-      "to_table": "GiangVien",
+      "to_table": "giangVien",
       "to_column": "maGV",
       "type": "many-to-one"
     },
     {
-      "from_table": "SinhVienLopHoc",
+      "from_table": "sinhVienLopHoc",
       "from_column": "maLH",
-      "to_table": "LopHoc",
+      "to_table": "lopHoc",
       "to_column": "maLH",
       "type": "many-to-one"
     },
     {
-      "from_table": "KetQuaMonHoc",
+      "from_table": "ketQuaMonHoc",
       "from_column": "maMH",
-      "to_table": "MonHoc",
+      "to_table": "monHoc",
       "to_column": "maMH",
       "type": "many-to-one"
     },
     {
-      "from_table": "GiaoDich",
+      "from_table": "giaoDich",
       "from_column": "maSV",
-      "to_table": "SinhVien",
+      "to_table": "sinhVien",
       "to_column": "maSV",
       "type": "many-to-one"
     }
