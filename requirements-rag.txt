@@ -1,0 +1,3 @@
+# Optional heavy deps for RAG retrieval embeddings.
+# Installs torch/transformers stack via FlagEmbedding.
+FlagEmbedding

@@ -1,0 +1,15 @@
+langgraph
+langchain
+langchain-core
+langchain-groq
+langchain-google-genai
+langchain-ollama
+langsmith
+qdrant-client
+cohere
+python-dotenv
+pydantic
+zep-cloud
+mysql-connector-python
+sqlalchemy
+pymysql
