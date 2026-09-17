@@ -2,6 +2,7 @@
 from pathlib import Path
 from typing import Literal
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy import URL
 
@@ -39,6 +40,12 @@ class Settings(BaseSettings):
     # --- Đường dẫn, tương đối với thư mục backend/ ---
     seed_dir: Path = Path("assets/seed")
     documents_dir: Path = Path("assets/documents")
+
+    @field_validator("google_api_key", "groq_api_key", "qdrant_url", "qdrant_api_key", "cohere_api_key", mode="before")
+    @classmethod
+    def empty_as_none(cls, value):
+        # Biến để trống trong .env coi như không đặt
+        return value or None
 
     def db_server_url(self, database: str | None = None) -> str:
         # URL.create tự escape ký tự đặc biệt trong mật khẩu

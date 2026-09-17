@@ -19,6 +19,7 @@ backend/
   scripts/
     ingest.py               OCR → chia chunk → Qdrant (chạy tay, xem docs/ingest.md)
     ingest_colab.py         Bản độc lập của ingest.py để copy chạy trên Google Colab
+    migrate_qdrant_source.py  Đổi source cũ trên Qdrant (HocBong.json → HocBong)
     evaluate.py             Đánh giá RAG (chạy tay, xem docs/evaluate.md)
     init_db.py              Tạo database, migrate, nạp dữ liệu mẫu (chạy tay, xem docs/database.md)
   src/chatbot_haui/

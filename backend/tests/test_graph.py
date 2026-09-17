@@ -14,14 +14,19 @@ def graph_module(monkeypatch):
 
     responses = iter([
         AIMessage(content="học bổng khuyến khích học tập"),  # query_transform
-        AIMessage(content="HocBong.json"),                     # classify
+        AIMessage(content="HocBong.json, QuyCheDaoTao"),       # classify (LLM lỡ thêm đuôi .json)
         AIMessage(content="Bạn cần GPA từ 3.2"),               # answer
     ])
     fake_llm = GenericFakeChatModel(messages=responses)
     monkeypatch.setattr(llm, "get_llm", lambda: fake_llm)
 
     fake_retrieve = types.ModuleType("chatbot_haui.ai.nodes.retrieve")
-    fake_retrieve.retrieve = lambda state: {"retriever": ["Điều 5: GPA >= 3.2"]}
+    def retrieve(state):
+        # Tên tài liệu đã được chuẩn hóa về đúng source trên Qdrant
+        assert state["category"] == ["HocBong", "QuyCheDaoTao"]
+        return {"retriever": ["Điều 5: GPA >= 3.2"]}
+
+    fake_retrieve.retrieve = retrieve
     monkeypatch.setitem(sys.modules, "chatbot_haui.ai.nodes.retrieve", fake_retrieve)
     for name in ["chatbot_haui.ai.nodes", "chatbot_haui.ai.nodes.query_transform", "chatbot_haui.ai.nodes.classify",
                  "chatbot_haui.ai.nodes.answer"]:
@@ -43,4 +48,4 @@ def test_route():
 
     assert route({"category": [UNKNOWN]}) == "answer_general"
     assert route({"category": []}) == "answer_general"
-    assert route({"category": ["HocBong.json"]}) == "retrieve"
+    assert route({"category": ["HocBong"]}) == "retrieve"

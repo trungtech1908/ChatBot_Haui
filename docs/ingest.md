@@ -18,7 +18,7 @@ Mỗi chunk lưu trên Qdrant có payload:
 
 | Trường     | Giá trị                                      |
 |------------|----------------------------------------------|
-| `source`   | `<tên file PDF>.json`, ví dụ `HocBong.json`  |
+| `source`   | Tên file PDF không đuôi, ví dụ `HocBong`     |
 | `raw_text` | Nội dung chunk                               |
 
 ## Yêu cầu
@@ -109,6 +109,18 @@ Luật chia chunk ở hai file `ingest.py` và `ingest_colab.py` đang giống h
 3. Chạy lại `uv run python scripts/ingest.py`. Script nạp lại **toàn bộ** PDF, không nạp riêng file mới.
 
 Không cần build lại Docker: backend đọc thẳng từ Qdrant. Nếu có sửa `document_descriptions.json` thì build lại backend: `docker compose up -d --build backend`.
+
+## Đổi source từ bản cũ (`HocBong.json` → `HocBong`)
+
+Dữ liệu nạp bằng phiên bản cũ lưu `source` có đuôi `.json`, backend mới sẽ không tìm thấy. Không cần OCR lại, chỉ cần đổi payload trên Qdrant (vài giây):
+
+```bash
+cd backend
+uv run python scripts/migrate_qdrant_source.py --dry-run   # xem trước sẽ đổi những gì
+uv run python scripts/migrate_qdrant_source.py             # đổi thật
+```
+
+Script dùng `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION` trong `.env` (đổi collection khác bằng `--collection <tên>`). Chạy lại nhiều lần vẫn an toàn: điểm đã đổi thì bỏ qua.
 
 ## Lỗi thường gặp
 

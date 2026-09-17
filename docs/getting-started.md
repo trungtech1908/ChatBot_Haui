@@ -113,7 +113,7 @@ Chi tiết và các tùy chọn (`--reset`, `--no-seed`): [database.md](database
 
 Chatbot tìm câu trả lời trong các PDF ở `backend/assets/documents/`, nên các PDF này phải được OCR, chia chunk và đẩy lên Qdrant trước.
 
-**Bỏ qua bước này** nếu collection `QDRANT_COLLECTION` trên Qdrant Cloud đã có dữ liệu (ví dụ dùng chung cluster với người đã nạp). Kiểm tra trong trang quản lý Qdrant Cloud: collection có khoảng 170 điểm là đã nạp.
+**Bỏ qua bước này** nếu collection `QDRANT_COLLECTION` trên Qdrant Cloud đã có dữ liệu (ví dụ dùng chung cluster với người đã nạp). Kiểm tra trong trang quản lý Qdrant Cloud: collection có khoảng 170 điểm là đã nạp. Nếu dữ liệu được nạp bằng phiên bản cũ (source dạng `HocBong.json`), chạy `uv run python scripts/migrate_qdrant_source.py` trong `backend/`, xem [ingest.md](ingest.md#đổi-source-từ-bản-cũ-hocbongjson--hocbong).
 
 Chọn một trong hai cách:
 

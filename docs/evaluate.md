@@ -81,7 +81,7 @@ Mỗi phần tử trong file kết quả:
 ```json
 {
   "question": "...",
-  "category": ["QuyCheDaoTao.json"],
+  "category": ["QuyCheDaoTao"],
   "reference_answer": "...",
   "rag_answer": "...",
   "judge": {

@@ -18,4 +18,5 @@ def classify(state: AgentState) -> dict:
         "examples": prompts.FEW_SHOT_EXAMPLES,
         "user_query": state["query"],
     })
-    return {"category": category}
+    # Tên tài liệu trùng source trong Qdrant; bỏ đuôi .json nếu LLM vẫn thêm vào
+    return {"category": [name.strip().removesuffix(".json") for name in category if name.strip()]}

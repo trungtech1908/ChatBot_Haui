@@ -488,8 +488,8 @@ def main():
         print(f"Xử lý {pdf.name}")
         chunks = MarkdownChunker(max_items_per_chunk=MAX_ITEMS_PER_CHUNK).chunk(ocr.pdf_to_markdown(pdf))
         texts += chunks
-        # source = "<tên PDF>.json" để khớp với kết quả phân loại của chatbot_haui/ai/nodes/classify.py
-        sources += [f"{pdf.stem}.json"] * len(chunks)
+        # source = tên PDF (không đuôi), khớp tên tài liệu trả về từ bước phân loại
+        sources += [pdf.stem] * len(chunks)
         print(f"  {len(chunks)} chunk")
 
     upsert(texts, sources)
