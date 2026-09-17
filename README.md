@@ -5,6 +5,8 @@ Hệ thống quản lý sinh viên HaUI tích hợp chatbot RAG tra cứu quy ch
 - **Backend:** FastAPI, SQLAlchemy + Alembic (MySQL), JWT, LangGraph RAG (Gemini/Groq, Qdrant Cloud, Cohere rerank)
 - **Frontend:** React, TypeScript, Vite, Tailwind CSS, TanStack Query
 
+**Lần đầu chạy dự án?** Làm theo [docs/getting-started.md](docs/getting-started.md) (từ cài công cụ, lấy API key tới đăng nhập và hỏi chatbot).
+
 ## Cấu trúc
 
 ```
@@ -37,7 +39,7 @@ frontend/
     lib/                    api client, format
     types/                  Kiểu dữ liệu API
   nginx.conf                Phục vụ SPA, chuyển /api sang backend
-docs/                       Hướng dẫn khởi tạo database, nạp tài liệu, đánh giá RAG
+docs/                       Hướng dẫn chạy từ đầu, khởi tạo database, nạp tài liệu, đánh giá RAG
 docker-compose.yml          mysql + backend + frontend
 ```
 
@@ -93,8 +95,9 @@ cd frontend && npm run lint && npm run build
 
 Đổi cấu trúc bảng: xem [docs/database.md](docs/database.md#khi-đổi-cấu-trúc-bảng).
 
-## Script chạy ngoài Docker
+## Tài liệu hướng dẫn
 
+- Chạy dự án từ đầu: [docs/getting-started.md](docs/getting-started.md)
 - Khởi tạo database: [docs/database.md](docs/database.md)
 - Nạp tài liệu lên Qdrant (trên máy hoặc Google Colab): [docs/ingest.md](docs/ingest.md)
 - Đánh giá chất lượng RAG: [docs/evaluate.md](docs/evaluate.md)
