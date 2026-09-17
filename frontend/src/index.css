@@ -1,81 +1,95 @@
 @import "tailwindcss";
-@import "@fontsource/be-vietnam-pro/400.css";
-@import "@fontsource/be-vietnam-pro/500.css";
-@import "@fontsource/be-vietnam-pro/600.css";
-@import "@fontsource/be-vietnam-pro/700.css";
+@import "@fontsource-variable/inter";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Màu theo nhận diện HaUI: xanh navy chủ đạo, đỏ nhấn dùng rất hạn chế */
 :root {
-  --bg: #f3f2ee;
+  --bg: #f4f4f5;
   --surface: #ffffff;
-  --surface-2: #f5f4f0;
-  --fg: #1c2230;
-  --muted: #626a78;
-  --line: #dcd9d0;
-  --brand: #0e3a6b;
-  --brand-hover: #0a2d55;
-  --brand-soft: #e8eef6;
-  --accent: #b42a1f;
+  --surface-2: #fafafa;
+  --hover: #f4f4f5;
+  --fg: #09090b;
+  --muted: #71717a;
+  --line: #e4e4e7;
+  --brand: #2563eb;
+  --brand-hover: #1d4ed8;
+  --brand-soft: #eff6ff;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --warning: #d97706;
   color-scheme: light;
 }
 
 .dark {
-  --bg: #101317;
-  --surface: #161a20;
-  --surface-2: #1c2129;
-  --fg: #e3e5e8;
-  --muted: #9aa1ab;
-  --line: #2b313a;
-  --brand: #8db4e2;
-  --brand-hover: #a9c7ea;
-  --brand-soft: #1b2636;
-  --accent: #e0675d;
+  --bg: #09090b;
+  --surface: #131316;
+  --surface-2: #0d0d10;
+  --hover: #1c1c21;
+  --fg: #fafafa;
+  --muted: #a1a1aa;
+  --line: #27272a;
+  --brand: #3b82f6;
+  --brand-hover: #60a5fa;
+  --brand-soft: rgb(59 130 246 / 0.12);
+  --danger: #f87171;
+  --success: #4ade80;
+  --warning: #fbbf24;
   color-scheme: dark;
 }
 
 @theme inline {
-  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-hover: var(--hover);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-brand: var(--brand);
   --color-brand-hover: var(--brand-hover);
   --color-brand-soft: var(--brand-soft);
-  --color-accent: var(--accent);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
 }
 
 @layer base {
   *, ::after, ::before, ::backdrop { border-color: var(--line); }
 
   body {
-    @apply bg-bg font-sans text-[15px] text-fg antialiased;
+    @apply bg-bg font-sans text-sm text-fg antialiased;
+    font-feature-settings: "cv11", "ss01", "ss03";
   }
 
+  h1, h2, h3 { letter-spacing: -0.015em; }
+
   ::selection { background: var(--brand-soft); }
+
+  :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+}
+
+@utility card {
+  @apply rounded-xl border border-line bg-surface shadow-[0_1px_2px_rgb(0_0_0/0.04)];
 }
 
 @utility input {
-  @apply w-full rounded border border-line bg-surface px-3 py-2 text-sm text-fg outline-none placeholder:text-muted focus:border-brand;
+  @apply h-9 w-full rounded-lg border border-line bg-surface px-3 text-sm text-fg shadow-[0_1px_2px_rgb(0_0_0/0.03)] transition outline-none placeholder:text-muted focus:border-brand focus:ring-3 focus:ring-brand/15;
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center gap-1.5 rounded px-3.5 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-50;
+  @apply inline-flex h-9 items-center justify-center gap-2 rounded-lg px-3.5 text-sm font-medium whitespace-nowrap transition disabled:pointer-events-none disabled:opacity-50;
 }
 
 @utility btn-primary {
-  @apply btn bg-brand text-white hover:bg-brand-hover dark:text-bg;
+  @apply btn bg-fg text-bg hover:opacity-90;
 }
 
-@utility btn-outline {
-  @apply btn border border-line bg-surface text-fg hover:bg-surface-2;
+@utility btn-secondary {
+  @apply btn border border-line bg-surface text-fg shadow-[0_1px_2px_rgb(0_0_0/0.04)] hover:bg-hover;
 }
 
-@utility link {
-  @apply text-brand underline-offset-2 hover:underline;
+@utility btn-ghost {
+  @apply btn text-muted hover:bg-hover hover:text-fg;
 }

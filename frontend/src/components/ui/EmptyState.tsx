@@ -1,3 +1,7 @@
 export function EmptyState({ message }: { message: string }) {
-  return <p className="rounded-md border border-dashed border-line bg-surface px-4 py-8 text-center text-sm text-muted">{message}</p>
+  return (
+    <div className="card flex min-h-40 items-center justify-center px-6 py-10 text-center text-muted">
+      {message}
+    </div>
+  )
 }

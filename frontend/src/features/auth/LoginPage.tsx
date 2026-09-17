@@ -1,3 +1,4 @@
+import { Eye, EyeOff, Loader2 } from 'lucide-react'
 import { useState, type FormEvent } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router'
 
@@ -31,50 +32,47 @@ export function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-dvh flex-col">
-      <header className="flex h-14 items-center gap-3 bg-[#0e3a6b] px-4 text-white md:px-6 dark:bg-[#0b213b]">
-        <img src="/logo.png" alt="" className="h-9 w-9 rounded-sm bg-white object-contain p-0.5" />
-        <div className="flex-1 leading-tight">
-          <p className="text-[11px] tracking-wide text-white/70 uppercase">Trường Đại học Công nghiệp Hà Nội</p>
-          <p className="text-sm font-semibold">Cổng thông tin sinh viên</p>
+    <div className="relative flex min-h-dvh flex-col items-center justify-center bg-surface-2 px-4">
+      <ThemeToggle className="btn-ghost absolute top-4 right-4 h-8 w-8 px-0" />
+
+      <div className="w-full max-w-[360px]">
+        <div className="mb-8 flex flex-col items-center text-center">
+          <img src="/logo.png" alt="HaUI" className="mb-4 h-11 w-11 rounded-xl bg-white object-contain p-1 shadow-sm ring-1 ring-line" />
+          <h1 className="text-xl font-semibold">Đăng nhập cổng sinh viên</h1>
+          <p className="mt-1 text-muted">Trường Đại học Công nghiệp Hà Nội</p>
         </div>
-        <ThemeToggle className="rounded p-2 hover:bg-white/10" />
-      </header>
 
-      <main className="flex flex-1 items-start justify-center px-4 pt-16 pb-10">
-        <div className="w-full max-w-sm">
-          <form onSubmit={handleSubmit} className="rounded-md border border-line bg-surface">
-            <div className="border-b border-line px-5 py-3">
-              <h1 className="font-semibold">Đăng nhập</h1>
-              <p className="text-sm text-muted">Dùng tài khoản sinh viên do nhà trường cấp.</p>
-            </div>
+        <form onSubmit={handleSubmit} className="card space-y-4 p-6">
+          <label className="block space-y-1.5">
+            <span className="text-[13px] font-medium">Tên đăng nhập</span>
+            <input name="username" required autoComplete="username" autoFocus placeholder="SV001_tk" className="input" />
+          </label>
 
-            <div className="space-y-4 px-5 py-4">
-              {error && <p className="border-l-2 border-accent pl-2 text-sm text-accent">{error}</p>}
-
-              <label className="block">
-                <span className="mb-1 block text-sm">Tên đăng nhập</span>
-                <input name="username" required autoComplete="username" autoFocus className="input" />
-              </label>
-
-              <label className="block">
-                <span className="mb-1 flex items-center justify-between text-sm">
-                  Mật khẩu
-                  <button type="button" onClick={() => setShowPassword((v) => !v)} className="text-xs link">
-                    {showPassword ? 'Ẩn' : 'Hiện'}
-                  </button>
-                </span>
-                <input name="password" type={showPassword ? 'text' : 'password'} required autoComplete="current-password" className="input" />
-              </label>
-
-              <button type="submit" disabled={submitting} className="btn-primary w-full">
-                {submitting ? 'Đang đăng nhập…' : 'Đăng nhập'}
+          <label className="block space-y-1.5">
+            <span className="text-[13px] font-medium">Mật khẩu</span>
+            <div className="relative">
+              <input name="password" type={showPassword ? 'text' : 'password'} required autoComplete="current-password" className="input pr-9" />
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                className="absolute top-1/2 right-1 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-md text-muted hover:text-fg"
+                aria-label={showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'}
+              >
+                {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
               </button>
             </div>
-          </form>
-          <p className="mt-4 text-center text-xs text-muted">Quên mật khẩu? Liên hệ phòng Đào tạo để được cấp lại.</p>
-        </div>
-      </main>
+          </label>
+
+          {error && <p className="text-[13px] text-danger">{error}</p>}
+
+          <button type="submit" disabled={submitting} className="btn-primary w-full">
+            {submitting && <Loader2 size={15} className="animate-spin" />}
+            Đăng nhập
+          </button>
+        </form>
+
+        <p className="mt-6 text-center text-xs text-muted">Quên mật khẩu? Liên hệ phòng Đào tạo để được cấp lại.</p>
+      </div>
     </div>
   )
 }

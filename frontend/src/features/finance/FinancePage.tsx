@@ -12,8 +12,8 @@ import type { Finance } from '@/types/student'
 
 const FILTERS = [
   { key: 'all', label: 'Tất cả' },
-  { key: 'income', label: 'Khoản thu' },
-  { key: 'expense', label: 'Khoản chi' },
+  { key: 'income', label: 'Thu' },
+  { key: 'expense', label: 'Chi' },
 ] as const
 
 type Filter = (typeof FILTERS)[number]['key']
@@ -24,26 +24,27 @@ function FinanceView({ finance }: { finance: Finance }) {
 
   return (
     <>
-      <PageHeader section="Tài chính" title="Học phí & giao dịch" />
+      <PageHeader title="Học phí" description="Số dư, công nợ và lịch sử giao dịch" />
       <Figures
-        className="mb-5"
+        className="mb-4 lg:grid-cols-3"
         items={[
           { label: 'Số dư tài khoản', value: formatMoney(finance.balance) },
-          { label: 'Công nợ phải nộp', value: formatMoney(finance.debt), alert: finance.debt > 0, note: finance.debt > 0 ? 'Nộp trước hạn để không bị khóa đăng ký học phần' : 'Không có công nợ' },
-          { label: 'Học bổng đã nhận', value: formatMoney(finance.scholarship) },
+          { label: 'Công nợ', value: formatMoney(finance.debt), alert: finance.debt > 0, note: finance.debt > 0 ? 'Cần nộp trước hạn' : 'Không có công nợ' },
+          { label: 'Học bổng', value: formatMoney(finance.scholarship) },
         ]}
       />
 
       <Section
         title="Lịch sử giao dịch"
+        description={`${rows.length} giao dịch`}
         flush
         aside={
-          <div className="flex gap-3 text-sm">
+          <div className="flex rounded-lg bg-hover p-0.5">
             {FILTERS.map(({ key, label }) => (
               <button
                 key={key}
                 onClick={() => setFilter(key)}
-                className={cn(filter === key ? 'font-medium text-brand underline underline-offset-4' : 'text-muted hover:text-fg')}
+                className={cn('h-7 rounded-md px-3 text-[13px] font-medium transition', filter === key ? 'bg-surface text-fg shadow-sm' : 'text-muted hover:text-fg')}
               >
                 {label}
               </button>
@@ -55,19 +56,20 @@ function FinanceView({ finance }: { finance: Finance }) {
           <Table>
             <THead>
               <tr>
-                <TH className="w-24">Mã GD</TH>
                 <TH>Nội dung</TH>
-                <TH>Ghi chú</TH>
+                <TH>Mã giao dịch</TH>
                 <TH className="text-right">Số tiền</TH>
               </tr>
             </THead>
             <TBody>
               {rows.map((t) => (
                 <TR key={t.code}>
-                  <TD className="font-mono text-xs">{t.code}</TD>
-                  <TD>{t.name}</TD>
-                  <TD className="text-muted">{t.note}</TD>
-                  <TD className={cn('text-right whitespace-nowrap tabular-nums', t.isIncome ? 'text-emerald-700 dark:text-emerald-400' : '')}>
+                  <TD className="py-2.5">
+                    <p className="font-medium">{t.name}</p>
+                    <p className="text-[13px] text-muted">{t.note}</p>
+                  </TD>
+                  <TD className="font-mono text-xs text-muted">{t.code}</TD>
+                  <TD className={cn('text-right font-medium whitespace-nowrap tabular-nums', t.isIncome && 'text-success')}>
                     {t.isIncome ? '+' : '−'}
                     {formatMoney(t.amount)}
                   </TD>
@@ -76,7 +78,7 @@ function FinanceView({ finance }: { finance: Finance }) {
             </TBody>
           </Table>
         ) : (
-          <p className="px-4 py-3 text-sm text-muted">Không có giao dịch.</p>
+          <p className="px-5 py-8 text-center text-muted">Không có giao dịch.</p>
         )}
       </Section>
     </>

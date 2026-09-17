@@ -1,98 +1,105 @@
 import { useSchedule } from '@/api/students'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { QueryState } from '@/components/ui/QueryState'
-import { weekdayLabel } from '@/lib/format'
+import { Section } from '@/components/ui/Section'
+import { Table, TBody, TD, TH, THead, TR } from '@/components/ui/Table'
+import { cn } from '@/lib/cn'
+import { formatPeriods, weekdayLabel } from '@/lib/format'
 import type { ScheduleItem } from '@/types/student'
 
 const WEEKDAYS = [2, 3, 4, 5, 6, 7, 8]
-// Ca học theo tiết: 1-3, 4-6, 7-9, 10-12, 13-15
-const SLOTS = [1, 4, 7, 10, 13].map((start) => ({ start, label: `Tiết ${start}–${start + 2}` }))
+const SHORT_DAY: Record<number, string> = { 2: 'T2', 3: 'T3', 4: 'T4', 5: 'T5', 6: 'T6', 7: 'T7', 8: 'CN' }
+// Mỗi ca 3 tiết
+const SLOTS = [1, 4, 7, 10, 13]
+const COLORS = [
+  'border-blue-500 bg-blue-500/10',
+  'border-violet-500 bg-violet-500/10',
+  'border-emerald-500 bg-emerald-500/10',
+  'border-amber-500 bg-amber-500/10',
+  'border-rose-500 bg-rose-500/10',
+  'border-cyan-500 bg-cyan-500/10',
+]
 
 const startPeriod = (item: ScheduleItem) => Number(item.periods?.match(/\d+/)?.[0] ?? 0)
 const slotOf = (item: ScheduleItem) => Math.floor((startPeriod(item) - 1) / 3)
 const dayOf = (item: ScheduleItem) => (item.weekday === 1 ? 8 : item.weekday)
+// Cùng một lớp luôn cùng màu
+const colorOf = (code: string) => COLORS[[...code].reduce((sum, ch) => sum + ch.charCodeAt(0), 0) % COLORS.length]
 
-function Timetable({ items }: { items: ScheduleItem[] }) {
-  // Chỉ hiện các ca có lớp, tối thiểu 3 ca đầu cho bảng không bị cụt
-  const lastSlot = Math.max(2, ...items.map(slotOf))
-  const slots = SLOTS.slice(0, lastSlot + 1)
+function WeekGrid({ items }: { items: ScheduleItem[] }) {
+  const slotCount = Math.max(3, ...items.map((i) => slotOf(i) + 1))
 
   return (
-    <div className="overflow-x-auto rounded-md border border-line bg-surface">
-      <table className="w-full min-w-[760px] table-fixed border-collapse text-sm">
-        <thead className="bg-surface-2 text-xs text-muted">
-          <tr>
-            <th className="w-20 border-r border-b border-line px-2 py-2 text-left font-medium">Ca</th>
-            {WEEKDAYS.map((day) => (
-              <th key={day} className="border-b border-l border-line px-2 py-2 text-left font-medium first:border-l-0">
-                {weekdayLabel(day)}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {slots.map((slot, slotIndex) => (
-            <tr key={slot.start} className="border-b border-line last:border-b-0">
-              <th className="border-r border-line bg-surface-2 px-2 py-2 text-left align-top text-xs font-medium text-muted">{slot.label}</th>
-              {WEEKDAYS.map((day) => {
-                const classes = items.filter((i) => dayOf(i) === day && slotOf(i) === slotIndex)
-                return (
-                  <td key={day} className="h-20 border-l border-line p-1 align-top first:border-l-0">
-                    {classes.map((item, i) => (
-                      <div key={i} className="mb-1 border-l-2 border-brand bg-brand-soft px-1.5 py-1 last:mb-0">
-                        <p className="text-xs leading-snug font-medium">{item.courseName}</p>
-                        <p className="text-[11px] text-muted">
-                          P.{item.room} · {item.classCode}
-                        </p>
-                      </div>
-                    ))}
-                  </td>
-                )
-              })}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="card overflow-x-auto">
+      <div className="grid min-w-[760px] grid-cols-[72px_repeat(7,minmax(0,1fr))]">
+        <div className="border-b border-line" />
+        {WEEKDAYS.map((day) => (
+          <div key={day} className="border-b border-l border-line px-3 py-2.5 text-[13px] font-medium">
+            <span className="hidden xl:inline">{weekdayLabel(day)}</span>
+            <span className="xl:hidden">{SHORT_DAY[day]}</span>
+          </div>
+        ))}
+
+        {SLOTS.slice(0, slotCount).map((start, slot) => (
+          <div key={start} className="contents">
+            <div className={cn('px-3 py-2 text-xs text-muted tabular-nums', slot > 0 && 'border-t border-line')}>
+              Tiết {start}–{start + 2}
+            </div>
+            {WEEKDAYS.map((day) => {
+              const classes = items.filter((i) => dayOf(i) === day && slotOf(i) === slot)
+              return (
+                <div key={day} className={cn('min-h-24 space-y-1 border-l border-line p-1.5', slot > 0 && 'border-t')}>
+                  {classes.map((item, i) => (
+                    <div key={i} className={cn('rounded-md border-l-2 px-2 py-1.5', colorOf(item.classCode))}>
+                      <p className="text-xs leading-snug font-medium">{item.courseName}</p>
+                      <p className="mt-0.5 text-[11px] text-muted">Phòng {item.room}</p>
+                    </div>
+                  ))}
+                </div>
+              )
+            })}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
 
 export function SchedulePage() {
   return (
-    <>
-      <PageHeader section="Học tập" title="Thời khóa biểu" />
-      <QueryState query={useSchedule()} empty="Chưa có lịch học hoặc chưa đăng ký lớp nào.">
-        {(items) => (
-          <>
-            <Timetable items={items} />
-            <p className="mt-2 text-xs text-muted">Giảng viên và chi tiết lớp: xem bảng bên dưới.</p>
-            <div className="mt-3 overflow-x-auto rounded-md border border-line bg-surface">
-              <table className="w-full text-sm">
-                <thead className="border-b border-line bg-surface-2 text-left text-xs text-muted">
+    <QueryState query={useSchedule()} empty="Chưa có lịch học hoặc chưa đăng ký lớp nào.">
+      {(items) => (
+        <>
+          <PageHeader title="Thời khóa biểu" description={`${new Set(items.map((i) => i.classCode)).size} lớp học phần trong tuần`} />
+          <div className="space-y-4">
+            <WeekGrid items={items} />
+            <Section title="Danh sách lớp" flush>
+              <Table>
+                <THead>
                   <tr>
-                    <th className="px-3 py-2 font-medium">Lớp</th>
-                    <th className="px-3 py-2 font-medium">Học phần</th>
-                    <th className="px-3 py-2 font-medium">Lịch</th>
-                    <th className="px-3 py-2 font-medium">Phòng</th>
-                    <th className="px-3 py-2 font-medium">Giảng viên</th>
+                    <TH>Học phần</TH>
+                    <TH>Lớp</TH>
+                    <TH>Lịch học</TH>
+                    <TH>Phòng</TH>
+                    <TH>Giảng viên</TH>
                   </tr>
-                </thead>
-                <tbody className="divide-y divide-line">
+                </THead>
+                <TBody>
                   {[...items].sort((a, b) => (dayOf(a) ?? 0) - (dayOf(b) ?? 0) || startPeriod(a) - startPeriod(b)).map((item, i) => (
-                    <tr key={i} className="hover:bg-surface-2">
-                      <td className="px-3 py-2 font-mono text-xs whitespace-nowrap">{item.classCode}</td>
-                      <td className="px-3 py-2">{item.courseName}</td>
-                      <td className="px-3 py-2 whitespace-nowrap">{weekdayLabel(item.weekday)}, {item.periods?.replace(/^Tiet/i, 'tiết')}</td>
-                      <td className="px-3 py-2">{item.room}</td>
-                      <td className="px-3 py-2 whitespace-nowrap">{item.lecturer}</td>
-                    </tr>
+                    <TR key={i}>
+                      <TD className="font-medium">{item.courseName}</TD>
+                      <TD className="font-mono text-xs text-muted">{item.classCode}</TD>
+                      <TD className="whitespace-nowrap">{weekdayLabel(item.weekday)}, {formatPeriods(item.periods).toLowerCase()}</TD>
+                      <TD className="tabular-nums">{item.room}</TD>
+                      <TD className="whitespace-nowrap">{item.lecturer}</TD>
+                    </TR>
                   ))}
-                </tbody>
-              </table>
-            </div>
-          </>
-        )}
-      </QueryState>
-    </>
+                </TBody>
+              </Table>
+            </Section>
+          </div>
+        </>
+      )}
+    </QueryState>
   )
 }

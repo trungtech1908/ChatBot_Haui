@@ -9,17 +9,17 @@ export interface Figure {
   alert?: boolean
 }
 
-/** Hàng số liệu chính, ngăn bằng đường kẻ dọc. */
+/** Các ô số liệu chính. */
 export function Figures({ items, className }: { items: Figure[]; className?: string }) {
   return (
-    <dl className={cn('grid grid-cols-2 rounded-md border border-line bg-surface sm:flex sm:divide-x sm:divide-line', className)}>
-      {items.map(({ label, value, note, alert }, i) => (
-        <div key={label} className={cn('min-w-0 flex-1 px-4 py-3', i >= 2 && 'border-t border-line sm:border-t-0', i % 2 === 1 && 'border-l border-line sm:border-l-0')}>
-          <dt className="text-xs text-muted">{label}</dt>
-          <dd className={cn('mt-0.5 truncate text-xl font-semibold tabular-nums', alert && 'text-accent')}>{value}</dd>
-          {note && <dd className="truncate text-xs text-muted">{note}</dd>}
+    <div className={cn('grid grid-cols-2 gap-3', items.length >= 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3', className)}>
+      {items.map(({ label, value, note, alert }) => (
+        <div key={label} className="card min-w-0 px-4 py-3.5">
+          <p className="truncate text-[13px] text-muted">{label}</p>
+          <p className={cn('mt-1 truncate text-2xl font-semibold tracking-tight tabular-nums', alert && 'text-danger')}>{value}</p>
+          {note && <p className="mt-0.5 truncate text-xs text-muted">{note}</p>}
         </div>
       ))}
-    </dl>
+    </div>
   )
 }

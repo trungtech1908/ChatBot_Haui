@@ -11,11 +11,11 @@ export function Table({ className, ...props }: ComponentProps<'table'>) {
 }
 
 export const THead = ({ className, ...props }: ComponentProps<'thead'>) => (
-  <thead className={cn('border-b border-line bg-surface-2 text-left text-xs text-muted', className)} {...props} />
+  <thead className={cn('border-b border-line text-left text-xs text-muted', className)} {...props} />
 )
 
 export const TH = ({ className, ...props }: ComponentProps<'th'>) => (
-  <th className={cn('px-3 py-2 font-medium whitespace-nowrap', className)} {...props} />
+  <th className={cn('h-10 px-4 font-medium whitespace-nowrap first:pl-5 last:pr-5', className)} {...props} />
 )
 
 export const TBody = ({ className, ...props }: ComponentProps<'tbody'>) => (
@@ -23,7 +23,9 @@ export const TBody = ({ className, ...props }: ComponentProps<'tbody'>) => (
 )
 
 export const TR = ({ className, ...props }: ComponentProps<'tr'>) => (
-  <tr className={cn('hover:bg-surface-2', className)} {...props} />
+  <tr className={cn('transition-colors hover:bg-hover/60', className)} {...props} />
 )
 
-export const TD = ({ className, ...props }: ComponentProps<'td'>) => <td className={cn('px-3 py-2 align-top', className)} {...props} />
+export const TD = ({ className, ...props }: ComponentProps<'td'>) => (
+  <td className={cn('h-11 px-4 first:pl-5 last:pr-5', className)} {...props} />
+)
