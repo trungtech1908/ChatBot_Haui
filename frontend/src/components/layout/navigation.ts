@@ -1,13 +1,6 @@
-import type { LucideIcon } from 'lucide-react'
-import {
-  BookOpen, Briefcase, CalendarClock, CalendarDays, GraduationCap, LayoutDashboard, LineChart, Sparkles, UserRound,
-  Wallet,
-} from 'lucide-react'
-
 export interface NavItem {
   to: string
   label: string
-  icon: LucideIcon
 }
 
 export interface NavSection {
@@ -17,32 +10,29 @@ export interface NavSection {
 
 export const navigation: NavSection[] = [
   {
-    title: 'Tổng quan',
+    title: 'Chung',
     items: [
-      { to: '/', label: 'Trang chủ', icon: LayoutDashboard },
-      { to: '/profile', label: 'Hồ sơ sinh viên', icon: UserRound },
+      { to: '/', label: 'Tổng quan' },
+      { to: '/profile', label: 'Hồ sơ sinh viên' },
     ],
   },
   {
     title: 'Học tập',
     items: [
-      { to: '/curriculum', label: 'Chương trình đào tạo', icon: BookOpen },
-      { to: '/schedule', label: 'Lịch học', icon: CalendarDays },
-      { to: '/exams', label: 'Lịch thi', icon: CalendarClock },
-      { to: '/grades', label: 'Kết quả học tập', icon: LineChart },
-      { to: '/academic-summary', label: 'Tổng kết & tốt nghiệp', icon: GraduationCap },
+      { to: '/curriculum', label: 'Chương trình đào tạo' },
+      { to: '/schedule', label: 'Thời khóa biểu' },
+      { to: '/exams', label: 'Lịch thi' },
+      { to: '/grades', label: 'Kết quả học tập' },
+      { to: '/academic-summary', label: 'Tổng kết & tốt nghiệp' },
+      { to: '/internship', label: 'Thực tập' },
     ],
   },
   {
-    title: 'Khác',
-    items: [
-      { to: '/internship', label: 'Thực tập', icon: Briefcase },
-      { to: '/finance', label: 'Tài chính', icon: Wallet },
-    ],
+    title: 'Tài chính',
+    items: [{ to: '/finance', label: 'Học phí & giao dịch' }],
+  },
+  {
+    title: 'Hỗ trợ',
+    items: [{ to: '/chat', label: 'Hỏi đáp quy chế' }],
   },
 ]
-
-export const assistantItem: NavItem = { to: '/chat', label: 'Trợ lý AI', icon: Sparkles }
-
-export const findNavItem = (pathname: string) =>
-  [...navigation.flatMap((s) => s.items), assistantItem].find((item) => item.to === pathname)

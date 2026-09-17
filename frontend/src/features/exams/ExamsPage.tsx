@@ -1,52 +1,49 @@
-import { CalendarX, Clock, MapPin, PenLine, Ticket } from 'lucide-react'
-
 import { useExams } from '@/api/students'
 import { Badge } from '@/components/ui/Badge'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { QueryState } from '@/components/ui/QueryState'
-import { cn } from '@/lib/cn'
-import type { ExamItem } from '@/types/student'
+import { Table, TBody, TD, TH, THead, TR } from '@/components/ui/Table'
+import { formatDate } from '@/lib/format'
 
-function ExamCard({ exam }: { exam: ExamItem }) {
-  const start = exam.startTime ? new Date(exam.startTime) : null
-  const done = start ? start < new Date() : false
-
-  return (
-    <div className={cn('flex gap-4 rounded-2xl border border-line bg-surface p-4 shadow-sm transition hover:shadow-md', done && 'opacity-70')}>
-      <div className="flex w-16 shrink-0 flex-col items-center justify-center rounded-xl bg-primary-soft py-2 text-primary">
-        <span className="text-[11px] font-semibold uppercase">{start ? `Th ${start.getMonth() + 1}` : '--'}</span>
-        <span className="text-2xl leading-none font-bold">{start?.getDate() ?? '--'}</span>
-        <span className="text-[11px]">{start?.getFullYear()}</span>
-      </div>
-      <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-center gap-2">
-          <p className="font-semibold">Ca thi {exam.examCode}</p>
-          {done ? <Badge>Đã thi</Badge> : <Badge tone="blue">Sắp thi</Badge>}
-          {!exam.eligible && <Badge tone="red">Không đủ điều kiện</Badge>}
-        </div>
-        <div className="mt-2 grid gap-x-4 gap-y-1 text-sm text-muted sm:grid-cols-2">
-          <p className="flex items-center gap-1.5"><Clock size={14} /> {start ? start.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) : '---'}</p>
-          <p className="flex items-center gap-1.5"><MapPin size={14} /> Phòng {exam.room} · Ghế {exam.seat}</p>
-          <p className="flex items-center gap-1.5"><PenLine size={14} /> {exam.format}</p>
-          <p className="flex items-center gap-1.5"><Ticket size={14} /> SBD {exam.candidateNumber}</p>
-        </div>
-      </div>
-    </div>
-  )
-}
+const time = (value: string | null) => (value ? new Date(value).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) : '—')
 
 export function ExamsPage() {
   return (
     <>
-      <PageHeader title="Lịch thi" description="Các ca thi của bạn, sắp xếp theo thời gian" />
-      <QueryState query={useExams()} empty="Chưa có lịch thi." emptyIcon={CalendarX}>
+      <PageHeader section="Học tập" title="Lịch thi" />
+      <QueryState query={useExams()} empty="Chưa có lịch thi.">
         {(exams) => (
-          <div className="grid gap-4 lg:grid-cols-2">
-            {[...exams]
-              .sort((a, b) => (a.startTime ?? '').localeCompare(b.startTime ?? ''))
-              .map((exam) => (
-                <ExamCard key={exam.candidateNumber} exam={exam} />
-              ))}
+          <div className="rounded-md border border-line bg-surface">
+            <Table>
+              <THead>
+                <tr>
+                  <TH>Ngày thi</TH>
+                  <TH>Giờ</TH>
+                  <TH>Mã ca</TH>
+                  <TH>Phòng</TH>
+                  <TH>Vị trí</TH>
+                  <TH>SBD</TH>
+                  <TH>Hình thức</TH>
+                  <TH>Điều kiện dự thi</TH>
+                </tr>
+              </THead>
+              <TBody>
+                {[...exams]
+                  .sort((a, b) => (a.startTime ?? '').localeCompare(b.startTime ?? ''))
+                  .map((exam) => (
+                    <TR key={exam.candidateNumber}>
+                      <TD className="whitespace-nowrap">{formatDate(exam.startTime)}</TD>
+                      <TD className="tabular-nums">{time(exam.startTime)}</TD>
+                      <TD className="font-mono text-xs">{exam.examCode}</TD>
+                      <TD>{exam.room}</TD>
+                      <TD>{exam.seat}</TD>
+                      <TD className="tabular-nums">{exam.candidateNumber}</TD>
+                      <TD>{exam.format}</TD>
+                      <TD>{exam.eligible ? <Badge tone="green">Đủ điều kiện</Badge> : <Badge tone="red">Không đủ điều kiện</Badge>}</TD>
+                    </TR>
+                  ))}
+              </TBody>
+            </Table>
           </div>
         )}
       </QueryState>

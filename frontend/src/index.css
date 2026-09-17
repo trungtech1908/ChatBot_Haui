@@ -1,85 +1,81 @@
 @import "tailwindcss";
-@import "@fontsource-variable/inter";
+@import "@fontsource/be-vietnam-pro/400.css";
+@import "@fontsource/be-vietnam-pro/500.css";
+@import "@fontsource/be-vietnam-pro/600.css";
+@import "@fontsource/be-vietnam-pro/700.css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Token màu theo ngữ nghĩa, đổi theo theme sáng/tối */
+/* Màu theo nhận diện HaUI: xanh navy chủ đạo, đỏ nhấn dùng rất hạn chế */
 :root {
-  --bg: #f5f7fb;
+  --bg: #f3f2ee;
   --surface: #ffffff;
-  --surface-2: #f1f4f9;
-  --fg: #0f172a;
-  --muted: #64748b;
-  --line: #e4e8f0;
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --primary-soft: #eaf1ff;
+  --surface-2: #f5f4f0;
+  --fg: #1c2230;
+  --muted: #626a78;
+  --line: #dcd9d0;
+  --brand: #0e3a6b;
+  --brand-hover: #0a2d55;
+  --brand-soft: #e8eef6;
+  --accent: #b42a1f;
   color-scheme: light;
 }
 
 .dark {
-  --bg: #0a0e17;
-  --surface: #111725;
-  --surface-2: #182033;
-  --fg: #e6eaf2;
-  --muted: #8b95a8;
-  --line: #222b3d;
-  --primary: #5b8cff;
-  --primary-hover: #7aa2ff;
-  --primary-soft: rgb(91 140 255 / 0.14);
+  --bg: #101317;
+  --surface: #161a20;
+  --surface-2: #1c2129;
+  --fg: #e3e5e8;
+  --muted: #9aa1ab;
+  --line: #2b313a;
+  --brand: #8db4e2;
+  --brand-hover: #a9c7ea;
+  --brand-soft: #1b2636;
+  --accent: #e0675d;
   color-scheme: dark;
 }
 
 @theme inline {
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
   --color-line: var(--line);
-  --color-primary: var(--primary);
-  --color-primary-hover: var(--primary-hover);
-  --color-primary-soft: var(--primary-soft);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--accent);
 }
 
 @layer base {
   *, ::after, ::before, ::backdrop { border-color: var(--line); }
 
   body {
-    @apply bg-bg font-sans text-fg antialiased;
+    @apply bg-bg font-sans text-[15px] text-fg antialiased;
   }
 
-  ::selection { background: var(--primary-soft); }
-
-  ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; border: 2px solid var(--bg); }
-  ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+  ::selection { background: var(--brand-soft); }
 }
 
 @utility input {
-  @apply w-full rounded-xl border border-line bg-surface px-3.5 py-2.5 text-sm text-fg outline-none transition placeholder:text-muted focus:border-primary focus:ring-4 focus:ring-primary-soft;
+  @apply w-full rounded border border-line bg-surface px-3 py-2 text-sm text-fg outline-none placeholder:text-muted focus:border-brand;
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50;
+  @apply inline-flex items-center justify-center gap-1.5 rounded px-3.5 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-50;
 }
 
 @utility btn-primary {
-  @apply btn bg-primary text-white shadow-sm shadow-primary/30 hover:bg-primary-hover;
+  @apply btn bg-brand text-white hover:bg-brand-hover dark:text-bg;
 }
 
-@utility btn-ghost {
-  @apply btn text-muted hover:bg-surface-2 hover:text-fg;
+@utility btn-outline {
+  @apply btn border border-line bg-surface text-fg hover:bg-surface-2;
 }
 
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@utility animate-fade-up {
-  animation: fade-up 0.35s ease-out both;
+@utility link {
+  @apply text-brand underline-offset-2 hover:underline;
 }
