@@ -1,40 +1,94 @@
-CÁC FILE SỬ DỤNG:
-1. File Chính (Root)
-- main.py: "Cửa chính" của ứng dụng. File này khởi tạo FastAPI, kết nối Database, cấu hình file tĩnh (CSS/JS) và gom các Router (Auth, Dashboard, Chat) lại để chạy Server.
+# ChatBot HaUI
 
-2. Thư mục routers/ (Xử lý Logic - Controller)
-- auth.py: Xử lý Đăng nhập & Đăng xuất. Kiểm tra tài khoản/mật khẩu và điều hướng người dùng.
-- dashboard.py: Xử lý logic cho Màn hình chính. Chứa các câu truy vấn phức tạp để lấy thông tin sinh viên, điểm số, lịch học, công nợ... và đẩy sang giao diện.
-- chat.py: Xử lý API cho Chatbot. Nhận tin nhắn, lưu vào file JSON và xử lý lệnh xóa lịch sử chat.
+Hệ thống quản lý sinh viên HaUI tích hợp chatbot RAG tra cứu quy chế, quy định, học phí.
 
-3. Thư mục database/ (Cơ sở dữ liệu - Model)
-- database.py: Cấu hình kết nối tới MySQL. Tạo ra Session để code có thể nói chuyện với Database.
-- models.py: Định nghĩa cấu trúc bảng (SQLAlchemy). Biến các bảng SQL thành các Class Python (ví dụ: bảng sinhVien thành class SinhVien).
-- schemas.py: Kiểm tra dữ liệu đầu vào/ra (Pydantic). Đảm bảo dữ liệu gửi đi hoặc nhận về đúng định dạng (ví dụ: email phải là chuỗi, diem phải là số).
-- seeder.py: Nạp dữ liệu mẫu. Đọc các file trong thư mục json/ và tự động điền vào Database khi khởi động nếu bảng còn trống.
+- **Backend:** FastAPI, SQLAlchemy + Alembic (MySQL), JWT, LangGraph RAG (Gemini/Groq, Qdrant Cloud, Cohere rerank)
+- **Frontend:** React, TypeScript, Vite, Tailwind CSS, TanStack Query
 
-4. Thư mục templates/ (Giao diện - View)
-- html/layout.html: Khung sườn chung. Chứa Header (Logo, nút Đăng xuất) và cấu trúc chia cột (Menu trái - Nội dung phải).
-- html/login.html: Trang Đăng nhập.
-- html/sidebar_menu.html: Thanh Menu bên trái. Chứa thông tin tóm tắt sinh viên và các nút chuyển đổi chức năng.
-- html/content.html: Nội dung chính. Chứa toàn bộ code hiển thị Bảng điểm, Lịch học, Tài chính, CTĐT... (được ẩn/hiện bằng JS).
-- html/chat.html: Giao diện Chatbot. Bao gồm cả HTML hiển thị tin nhắn và Javascript xử lý gửi/nhận tin.
-- html/dashboard.html: Trang chủ tổng hợp. Kế thừa từ layout.html và nhúng sidebar, content, chat vào một chỗ.
+## Cấu trúc
 
-5. Thư mục json/ (Dữ liệu nguồn)
-- Các file số (01_..., 02_...): Chứa dữ liệu thô để nạp vào Database lúc đầu.
-- chat_data.json: Nơi lưu trữ lịch sử tin nhắn của Chatbot.
+```
+backend/
+  alembic/                  Migration database
+  assets/
+    documents/              PDF nguồn của RAG
+    seed/                   JSON dữ liệu mẫu
+  docker/                   Dockerfile, entrypoint (migrate → seed → uvicorn)
+  scripts/
+    ingest.py               OCR → chia chunk → Qdrant (chạy tay, xem docs/ingest.md)
+    evaluate.py             Đánh giá RAG (chạy tay, xem docs/evaluate.md)
+    seed.py                 Nạp dữ liệu mẫu
+  src/chatbot_haui/
+    main.py                 Khởi tạo FastAPI
+    ai/                     RAG: llm, graph, nodes, prompts; text_to_sql (thử nghiệm)
+    api/                    deps (DB session, user hiện tại), routes: auth, students, chat
+    core/                   config (đọc .env), security (JWT, hash mật khẩu)
+    db/                     session, models (student, academic, internship, finance, chat), seed
+    schema/                 Pydantic schema request/response
+    services/               Logic nghiệp vụ: auth, student, chat
+  tests/
+frontend/
+  src/
+    api/                    Gọi backend (auth, students, chat stream)
+    components/             layout (Header, Sidebar), ui dùng chung
+    features/               Mỗi màn hình một thư mục: auth, profile, curriculum, schedule,
+                            exams, internship, grades, academic, finance, chat
+    lib/                    api client, format
+    types/                  Kiểu dữ liệu API
+  nginx.conf                Phục vụ SPA, chuyển /api sang backend
+docs/                       Hướng dẫn nạp tài liệu, đánh giá RAG
+docker-compose.yml          mysql + backend + frontend
+```
 
-HƯỚNG DẪN CHẠY:
-1. Cài đặt các thư viện cần thiết:
-`python -m pip install fastapi`
-`python -m pip install sqlalchemy`
-`python -m pip install uvicorn`
+## Cấu hình
 
-2. Tạo mySQL Connection trong mySQL:
-username:`root`
-password:`test1234!`
+Copy `.env.example` thành `.env` ở thư mục gốc rồi điền:
 
-3. chạy `python -m uvicorn main:app --reload` được nhập trong terminal
+- `SECRET_KEY`: ký JWT, tạo bằng `openssl rand -hex 32`
+- LLM: `LLM_PROVIDER=google` (cần `GOOGLE_API_KEY`) hoặc `groq` (cần `GROQ_API_KEY`)
+- Qdrant Cloud: `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION`
+- Rerank: `COHERE_API_KEY`
 
-4. hủy chạy Ctrl+C
+## Chạy bằng Docker
+
+```bash
+docker compose up -d --build
+```
+
+Mở http://localhost:8080. Backend tự chạy migration và nạp dữ liệu mẫu khi khởi động. Lần đầu backend tải model bge-m3 (~2GB) vào volume `hf_cache`.
+
+Tài khoản mẫu: `SV001_tk` / `pass001` (tới `SV010_tk` / `pass010`).
+
+Dữ liệu tài liệu phải có sẵn trên Qdrant, xem [docs/ingest.md](docs/ingest.md).
+
+## Phát triển local
+
+Cần MySQL đang chạy theo `.env`.
+
+```bash
+# Backend: http://localhost:8000, API docs tại /docs
+cd backend
+uv sync --extra cpu
+uv run alembic upgrade head
+uv run python scripts/seed.py
+uv run uvicorn chatbot_haui.main:app --reload
+
+# Frontend: http://localhost:5173 (tự chuyển /api sang backend)
+cd frontend
+npm install
+npm run dev
+```
+
+Test và kiểm tra:
+
+```bash
+cd backend && uv run pytest
+cd frontend && npm run lint && npm run build
+```
+
+Đổi model database: sửa `backend/src/chatbot_haui/db/models/`, rồi `uv run alembic revision --autogenerate -m "mô tả"` và `uv run alembic upgrade head`.
+
+## Script RAG (ngoài Docker)
+
+- Nạp tài liệu lên Qdrant: [docs/ingest.md](docs/ingest.md)
+- Đánh giá chất lượng RAG: [docs/evaluate.md](docs/evaluate.md)

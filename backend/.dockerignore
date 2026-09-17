@@ -1,0 +1,10 @@
+*
+!pyproject.toml
+!uv.lock
+!src
+!alembic
+!alembic.ini
+!assets/seed
+!scripts/seed.py
+!docker/entrypoint.sh
+**/__pycache__

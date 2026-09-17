@@ -1,0 +1,54 @@
+[project]
+name = "chatbot-haui"
+version = "0.1.0"
+description = "Backend hệ thống quản lý sinh viên HaUI tích hợp chatbot RAG"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "sqlalchemy",
+    "alembic",
+    "pymysql",
+    "cryptography",
+    "pydantic",
+    "pydantic-settings",
+    "pyjwt",
+    "pwdlib[argon2]",
+    "langchain-core",
+    "langgraph",
+    "langchain-google-genai",
+    "langchain-groq",
+    "qdrant-client",
+    "cohere",
+    "flagembedding",
+]
+
+[project.optional-dependencies]
+# torch bản CPU: backend/Docker (chỉ embedding bge-m3)
+cpu = ["torch"]
+# torch bản CUDA: chạy scripts/ingest.py (OCR)
+gpu = ["torch"]
+# Thư viện thêm cho scripts/ingest.py
+ingest = ["transformers", "accelerate", "pdf2image", "pillow"]
+
+[dependency-groups]
+dev = ["pytest", "pytest-asyncio", "httpx"]
+
+[build-system]
+requires = ["uv_build>=0.9,<0.12"]
+build-backend = "uv_build"
+
+[tool.uv]
+conflicts = [[{ extra = "cpu" }, { extra = "gpu" }]]
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", extra = "cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
