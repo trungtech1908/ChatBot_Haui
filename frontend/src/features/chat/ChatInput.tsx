@@ -1,54 +1,67 @@
-import { SendHorizontal } from 'lucide-react'
+import { ArrowUp, Square } from 'lucide-react'
 import { useRef, useState, type KeyboardEvent } from 'react'
 
-export function ChatInput({ disabled, onSend }: { disabled: boolean; onSend: (text: string) => void }) {
+interface Props {
+  streaming: boolean
+  onSend: (text: string) => void
+  onStop: () => void
+}
+
+export function ChatInput({ streaming, onSend, onStop }: Props) {
   const [text, setText] = useState('')
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
+  function resize(el: HTMLTextAreaElement) {
+    el.style.height = 'auto'
+    el.style.height = `${Math.min(el.scrollHeight, 200)}px`
+  }
+
   function submit() {
     const value = text.trim()
-    if (!value || disabled) return
+    if (!value || streaming) return
     onSend(value)
     setText('')
     if (textareaRef.current) textareaRef.current.style.height = 'auto'
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
-    if (event.key === 'Enter' && !event.shiftKey) {
+    if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) {
       event.preventDefault()
       submit()
     }
   }
 
   return (
-    <div className="border-t-2 border-gray-200 bg-white p-3 shadow-lg md:p-4">
-      <div className="relative">
+    <div className="rounded-3xl border border-line bg-surface p-2 shadow-lg shadow-slate-900/5 transition focus-within:border-primary focus-within:ring-4 focus-within:ring-primary-soft">
+      <div className="flex items-end gap-2">
         <textarea
           ref={textareaRef}
           value={text}
           rows={1}
-          placeholder="Nhập câu hỏi của bạn..."
+          autoFocus
+          placeholder="Hỏi về quy chế, học phí, học bổng..."
           onChange={(e) => {
             setText(e.target.value)
-            e.target.style.height = 'auto'
-            e.target.style.height = `${Math.min(e.target.scrollHeight, 150)}px`
+            resize(e.target)
           }}
           onKeyDown={handleKeyDown}
-          className="w-full resize-none rounded-2xl border-2 border-transparent bg-gray-100 px-4 py-3 pr-14 text-sm transition focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-300 focus:outline-none md:px-6 md:py-4 md:text-base"
+          className="max-h-[200px] flex-1 resize-none bg-transparent px-3 py-2.5 leading-relaxed outline-none placeholder:text-muted"
         />
-        <button
-          onClick={submit}
-          disabled={disabled || !text.trim()}
-          title="Gửi (Enter)"
-          className="absolute right-3 bottom-3.5 flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition hover:scale-110 hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          <SendHorizontal size={18} />
-        </button>
+        {streaming ? (
+          <button onClick={onStop} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-fg text-bg transition hover:opacity-80" title="Dừng">
+            <Square size={14} fill="currentColor" />
+          </button>
+        ) : (
+          <button
+            onClick={submit}
+            disabled={!text.trim()}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white transition hover:bg-primary-hover disabled:bg-surface-2 disabled:text-muted"
+            title="Gửi (Enter)"
+          >
+            <ArrowUp size={18} />
+          </button>
+        )}
       </div>
-      <p className="mt-2 text-center text-xs text-gray-500">
-        Nhấn <kbd className="rounded bg-gray-200 px-1.5 py-0.5">Enter</kbd> để gửi,{' '}
-        <kbd className="rounded bg-gray-200 px-1.5 py-0.5">Shift + Enter</kbd> để xuống dòng
-      </p>
     </div>
   )
 }

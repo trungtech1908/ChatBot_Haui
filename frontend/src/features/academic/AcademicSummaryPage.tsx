@@ -1,41 +1,82 @@
-import { BarChart3, Check, GraduationCap, X } from 'lucide-react'
+import { BarChart3, CheckCircle2, CircleDashed, GraduationCap } from 'lucide-react'
 
 import { useAcademicSummary } from '@/api/students'
 import { Badge } from '@/components/ui/Badge'
+import { Card } from '@/components/ui/Card'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { QueryState } from '@/components/ui/QueryState'
+import { cn } from '@/lib/cn'
 import { classifyGpa } from '@/lib/format'
-import type { Graduation } from '@/types/student'
+import type { Graduation, SemesterSummary } from '@/types/student'
 
-const gpaText = { green: 'text-green-600', blue: 'text-blue-600', yellow: 'text-yellow-600', orange: 'text-orange-600', red: 'text-red-600', gray: 'text-gray-600' }
-
-function Requirement({ ok, label }: { ok: boolean; label: string }) {
+function GpaRing({ gpa }: { gpa: number | null }) {
+  const radius = 52
+  const circumference = 2 * Math.PI * radius
+  const progress = Math.min((gpa ?? 0) / 4, 1)
   return (
-    <Badge tone={ok ? 'green' : 'gray'}>
-      {ok ? <Check size={14} /> : <X size={14} />} {label}
-    </Badge>
+    <div className="relative h-36 w-36 shrink-0">
+      <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90">
+        <circle cx="60" cy="60" r={radius} fill="none" strokeWidth="10" className="stroke-surface-2" />
+        <circle
+          cx="60" cy="60" r={radius} fill="none" strokeWidth="10" strokeLinecap="round"
+          strokeDasharray={circumference} strokeDashoffset={circumference * (1 - progress)}
+          className="stroke-primary transition-[stroke-dashoffset] duration-700"
+        />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="text-3xl font-bold tabular-nums">{gpa ?? '—'}</span>
+        <span className="text-xs text-muted">/ 4.0</span>
+      </div>
+    </div>
   )
 }
 
-function GraduationCard({ graduation }: { graduation: Graduation }) {
+function GraduationPanel({ graduation }: { graduation: Graduation }) {
+  const requirements = [
+    { label: 'Đủ số tín chỉ', ok: graduation.creditsOk },
+    { label: 'Giáo dục thể chất', ok: graduation.physicalEducationOk },
+    { label: 'Giáo dục quốc phòng', ok: graduation.defenseEducationOk },
+    { label: 'Chuẩn ngoại ngữ', ok: graduation.languageOk },
+  ]
+  const done = requirements.filter((r) => r.ok).length
+  const rank = classifyGpa(graduation.gpa)
+
   return (
-    <div className="mt-4 flex flex-col items-center justify-between gap-4 rounded-xl border border-orange-200 bg-gradient-to-br from-yellow-50 to-orange-50 p-6 shadow-md md:col-span-2 md:flex-row lg:col-span-3">
-      <div className="flex items-center gap-4">
-        <div className="rounded-full bg-orange-100 p-4 text-orange-600">
-          <GraduationCap size={32} />
+    <Card title="Tiến độ tốt nghiệp" description={`Đã đạt ${done}/${requirements.length} điều kiện`} icon={GraduationCap}>
+      <div className="flex flex-col items-center gap-8 md:flex-row">
+        <div className="flex flex-col items-center gap-2">
+          <GpaRing gpa={graduation.gpa} />
+          <Badge tone={rank.tone}>{rank.label}</Badge>
         </div>
-        <div>
-          <h3 className="text-xl font-bold text-gray-800">Tiến độ Tốt nghiệp</h3>
-          <p className="text-sm text-gray-600">
-            GPA tích lũy toàn khóa: <span className="text-lg font-bold text-orange-600">{graduation.gpa}</span>
-          </p>
-        </div>
+        <ul className="grid w-full flex-1 gap-3 sm:grid-cols-2">
+          {requirements.map(({ label, ok }) => (
+            <li key={label} className={cn('flex items-center gap-3 rounded-xl border p-4', ok ? 'border-emerald-500/25 bg-emerald-500/5' : 'border-line bg-surface-2/50')}>
+              {ok ? <CheckCircle2 className="shrink-0 text-emerald-500" size={20} /> : <CircleDashed className="shrink-0 text-muted" size={20} />}
+              <span className={cn('text-sm font-medium', !ok && 'text-muted')}>{label}</span>
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="flex flex-wrap gap-2">
-        <Requirement ok={graduation.creditsOk} label="Tín chỉ" />
-        <Requirement ok={graduation.physicalEducationOk} label="GDTC" />
-        <Requirement ok={graduation.defenseEducationOk} label="GDQP" />
-        <Requirement ok={graduation.languageOk} label="Ngoại ngữ" />
+    </Card>
+  )
+}
+
+function SemesterCard({ semester }: { semester: SemesterSummary }) {
+  const rank = classifyGpa(semester.gpa)
+  return (
+    <div className="rounded-2xl border border-line bg-surface p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+      <div className="flex items-center justify-between">
+        <p className="font-semibold">Học kỳ {semester.semester}</p>
+        <Badge tone={rank.tone}>{rank.label}</Badge>
+      </div>
+      <p className="mt-4 text-4xl font-bold tracking-tight tabular-nums">{semester.gpa ?? '—'}</p>
+      <p className="text-xs text-muted">Điểm TBC học kỳ</p>
+      <div className="mt-4 h-2 overflow-hidden rounded-full bg-surface-2">
+        <div className="h-full rounded-full bg-gradient-to-r from-blue-500 to-indigo-500" style={{ width: `${((semester.gpa ?? 0) / 4) * 100}%` }} />
+      </div>
+      <div className="mt-4 flex justify-between text-sm text-muted">
+        <span>{semester.credits ?? 0} tín chỉ</span>
+        <span>{semester.courseCount} môn</span>
       </div>
     </div>
   )
@@ -44,7 +85,7 @@ function GraduationCard({ graduation }: { graduation: Graduation }) {
 export function AcademicSummaryPage() {
   return (
     <>
-      <PageHeader title="Tổng kết Học kỳ & Tốt nghiệp" />
+      <PageHeader title="Tổng kết & tốt nghiệp" description="Kết quả từng học kỳ và điều kiện xét tốt nghiệp" />
       <QueryState
         query={useAcademicSummary()}
         empty="Chưa có dữ liệu tổng kết học kỳ."
@@ -52,38 +93,13 @@ export function AcademicSummaryPage() {
         isEmpty={(data) => !data.semesters.length && !data.graduation}
       >
         {({ semesters, graduation }) => (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {semesters.map((hk) => {
-              const rank = classifyGpa(hk.gpa)
-              return (
-                <div key={hk.semester} className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md transition-shadow hover:shadow-xl">
-                  <div className="flex items-center justify-between bg-gradient-to-r from-blue-600 to-blue-800 p-4 text-white">
-                    <div>
-                      <h3 className="text-lg font-bold uppercase">Học kỳ {hk.semester}</h3>
-                      <span className="text-xs text-blue-200">{hk.courseCount} môn đã học</span>
-                    </div>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg font-bold text-blue-800 shadow">
-                      {hk.semester}
-                    </div>
-                  </div>
-                  <div className="space-y-4 p-5 text-sm">
-                    <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-                      <span className="font-medium text-gray-600">Điểm TBC học kỳ</span>
-                      <span className={`text-2xl font-bold ${gpaText[rank.tone]}`}>{hk.gpa}</span>
-                    </div>
-                    <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-                      <span className="font-medium text-gray-600">Tổng tín chỉ HK</span>
-                      <span className="font-bold text-gray-800">{hk.credits}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium text-gray-600">Xếp loại</span>
-                      <Badge tone={rank.tone}>{rank.label}</Badge>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-            {graduation && <GraduationCard graduation={graduation} />}
+          <div className="space-y-6">
+            {graduation && <GraduationPanel graduation={graduation} />}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {semesters.map((semester) => (
+                <SemesterCard key={semester.semester} semester={semester} />
+              ))}
+            </div>
           </div>
         )}
       </QueryState>

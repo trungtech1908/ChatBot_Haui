@@ -1,33 +1,52 @@
-import { CalendarX, Clock, MapPin, PenLine } from 'lucide-react'
+import { CalendarX, Clock, MapPin, PenLine, Ticket } from 'lucide-react'
 
 import { useExams } from '@/api/students'
+import { Badge } from '@/components/ui/Badge'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { QueryState } from '@/components/ui/QueryState'
-import { formatDateTime } from '@/lib/format'
+import { cn } from '@/lib/cn'
+import type { ExamItem } from '@/types/student'
+
+function ExamCard({ exam }: { exam: ExamItem }) {
+  const start = exam.startTime ? new Date(exam.startTime) : null
+  const done = start ? start < new Date() : false
+
+  return (
+    <div className={cn('flex gap-4 rounded-2xl border border-line bg-surface p-4 shadow-sm transition hover:shadow-md', done && 'opacity-70')}>
+      <div className="flex w-16 shrink-0 flex-col items-center justify-center rounded-xl bg-primary-soft py-2 text-primary">
+        <span className="text-[11px] font-semibold uppercase">{start ? `Th ${start.getMonth() + 1}` : '--'}</span>
+        <span className="text-2xl leading-none font-bold">{start?.getDate() ?? '--'}</span>
+        <span className="text-[11px]">{start?.getFullYear()}</span>
+      </div>
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-center gap-2">
+          <p className="font-semibold">Ca thi {exam.examCode}</p>
+          {done ? <Badge>Đã thi</Badge> : <Badge tone="blue">Sắp thi</Badge>}
+          {!exam.eligible && <Badge tone="red">Không đủ điều kiện</Badge>}
+        </div>
+        <div className="mt-2 grid gap-x-4 gap-y-1 text-sm text-muted sm:grid-cols-2">
+          <p className="flex items-center gap-1.5"><Clock size={14} /> {start ? start.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) : '---'}</p>
+          <p className="flex items-center gap-1.5"><MapPin size={14} /> Phòng {exam.room} · Ghế {exam.seat}</p>
+          <p className="flex items-center gap-1.5"><PenLine size={14} /> {exam.format}</p>
+          <p className="flex items-center gap-1.5"><Ticket size={14} /> SBD {exam.candidateNumber}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export function ExamsPage() {
   return (
     <>
-      <PageHeader title="Lịch Thi" />
+      <PageHeader title="Lịch thi" description="Các ca thi của bạn, sắp xếp theo thời gian" />
       <QueryState query={useExams()} empty="Chưa có lịch thi." emptyIcon={CalendarX}>
         {(exams) => (
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {exams.map((exam) => (
-              <div key={exam.candidateNumber} className="rounded border-l-4 border-purple-500 bg-white p-4 shadow">
-                <h3 className="mb-1 text-lg font-bold text-gray-800">Số báo danh: {exam.candidateNumber}</h3>
-                <p className="mb-2 text-sm text-gray-500">
-                  Mã ca thi: <span className="font-mono">{exam.examCode}</span>
-                </p>
-                <div className="space-y-1 text-sm">
-                  <p className="flex items-center gap-2"><Clock size={16} className="text-gray-400" /> {formatDateTime(exam.startTime)}</p>
-                  <p className="flex items-center gap-2"><MapPin size={16} className="text-gray-400" /> Phòng: {exam.room} ({exam.seat})</p>
-                  <p className="flex items-center gap-2"><PenLine size={16} className="text-gray-400" /> {exam.format}</p>
-                </div>
-                {!exam.eligible && (
-                  <div className="mt-2 rounded bg-red-100 p-1 text-center text-xs font-bold text-red-600">Không đủ điều kiện thi</div>
-                )}
-              </div>
-            ))}
+          <div className="grid gap-4 lg:grid-cols-2">
+            {[...exams]
+              .sort((a, b) => (a.startTime ?? '').localeCompare(b.startTime ?? ''))
+              .map((exam) => (
+                <ExamCard key={exam.candidateNumber} exam={exam} />
+              ))}
           </div>
         )}
       </QueryState>

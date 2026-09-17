@@ -1,20 +1,21 @@
 import type { ReactNode } from 'react'
 
-export type Tone = 'gray' | 'green' | 'blue' | 'yellow' | 'orange' | 'red' | 'purple'
+import { cn } from '@/lib/cn'
+import type { Tone } from '@/types/ui'
 
-const tones: Record<Tone, string> = {
-  gray: 'bg-gray-100 text-gray-700 border-gray-200',
-  green: 'bg-green-100 text-green-700 border-green-200',
-  blue: 'bg-blue-100 text-blue-700 border-blue-200',
-  yellow: 'bg-yellow-100 text-yellow-800 border-yellow-200',
-  orange: 'bg-orange-100 text-orange-700 border-orange-200',
-  red: 'bg-red-100 text-red-700 border-red-200',
-  purple: 'bg-purple-100 text-purple-700 border-purple-200',
+const toneClasses: Record<Tone, string> = {
+  gray: 'bg-slate-500/10 text-slate-600 ring-slate-500/20 dark:text-slate-300',
+  green: 'bg-emerald-500/10 text-emerald-700 ring-emerald-500/25 dark:text-emerald-400',
+  blue: 'bg-blue-500/10 text-blue-700 ring-blue-500/25 dark:text-blue-400',
+  yellow: 'bg-amber-500/10 text-amber-700 ring-amber-500/25 dark:text-amber-400',
+  orange: 'bg-orange-500/10 text-orange-700 ring-orange-500/25 dark:text-orange-400',
+  red: 'bg-rose-500/10 text-rose-700 ring-rose-500/25 dark:text-rose-400',
+  purple: 'bg-violet-500/10 text-violet-700 ring-violet-500/25 dark:text-violet-400',
 }
 
-export function Badge({ tone = 'gray', children }: { tone?: Tone; children: ReactNode }) {
+export function Badge({ tone = 'gray', className, children }: { tone?: Tone; className?: string; children: ReactNode }) {
   return (
-    <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-bold ${tones[tone]}`}>
+    <span className={cn('inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap ring-1 ring-inset', toneClasses[tone], className)}>
       {children}
     </span>
   )

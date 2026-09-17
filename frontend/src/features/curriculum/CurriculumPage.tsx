@@ -1,79 +1,105 @@
-import { GraduationCap, Layers } from 'lucide-react'
+import { BookOpen, ChevronDown, Layers, Library, SearchX } from 'lucide-react'
+import { useMemo, useState } from 'react'
 
 import { useCurriculum } from '@/api/students'
 import { Badge } from '@/components/ui/Badge'
+import { EmptyState } from '@/components/ui/EmptyState'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { QueryState } from '@/components/ui/QueryState'
+import { SearchInput } from '@/components/ui/SearchInput'
+import { StatCard } from '@/components/ui/StatCard'
+import { Table, TBody, TD, TH, THead, TR } from '@/components/ui/Table'
+import { cn } from '@/lib/cn'
+import type { Curriculum, CurriculumGroup } from '@/types/student'
 
-export function CurriculumPage() {
+function GroupSection({ group, defaultOpen }: { group: CurriculumGroup; defaultOpen: boolean }) {
+  const [open, setOpen] = useState(defaultOpen)
+  const credits = group.courses.reduce((sum, c) => sum + c.credits, 0)
+  const required = group.type === 'Bắt buộc'
+
+  return (
+    <section className="overflow-hidden rounded-2xl border border-line bg-surface shadow-sm">
+      <button onClick={() => setOpen((v) => !v)} className="flex w-full items-center gap-4 px-5 py-4 text-left transition hover:bg-surface-2/60">
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-primary">
+          <Layers size={18} />
+        </span>
+        <div className="min-w-0 flex-1">
+          <p className="truncate font-semibold">{group.name}</p>
+          <p className="text-sm text-muted">
+            {group.courses.length} môn · {credits} tín chỉ{group.requiredCredits ? ` · yêu cầu ${group.requiredCredits} TC` : ''}
+          </p>
+        </div>
+        <Badge tone={required ? 'red' : 'green'} className="hidden sm:inline-flex">{required ? 'Bắt buộc' : 'Tự chọn'}</Badge>
+        <ChevronDown size={18} className={cn('shrink-0 text-muted transition-transform', open && 'rotate-180')} />
+      </button>
+
+      {open && (
+        <div className="border-t border-line">
+          <Table>
+            <THead>
+              <tr>
+                <TH className="w-32">Mã môn</TH>
+                <TH>Tên môn học</TH>
+                <TH className="w-24 text-center">Tín chỉ</TH>
+                <TH className="w-24 text-center">Kỳ</TH>
+              </tr>
+            </THead>
+            <TBody>
+              {group.courses.map((course) => (
+                <TR key={course.code}>
+                  <TD className="font-mono text-xs font-semibold text-primary">{course.code}</TD>
+                  <TD className="font-medium">{course.name}</TD>
+                  <TD className="text-center tabular-nums">{course.credits}</TD>
+                  <TD className="text-center">
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-surface-2 text-xs font-semibold">{course.semester}</span>
+                  </TD>
+                </TR>
+              ))}
+            </TBody>
+          </Table>
+        </div>
+      )}
+    </section>
+  )
+}
+
+function CurriculumView({ curriculum }: { curriculum: Curriculum }) {
+  const [search, setSearch] = useState('')
+  const courseCount = curriculum.groups.reduce((sum, g) => sum + g.courses.length, 0)
+
+  const groups = useMemo(() => {
+    const keyword = search.trim().toLowerCase()
+    if (!keyword) return curriculum.groups
+    return curriculum.groups
+      .map((g) => ({ ...g, courses: g.courses.filter((c) => `${c.code} ${c.name}`.toLowerCase().includes(keyword)) }))
+      .filter((g) => g.courses.length)
+  }, [curriculum.groups, search])
+
   return (
     <>
-      <PageHeader title="Khung Chương trình Đào tạo" />
-      <QueryState query={useCurriculum()}>
-        {(ct) => (
-          <>
-            <div className="mb-6 flex items-center justify-between rounded-lg border border-blue-200 bg-blue-50 p-4 shadow-sm">
-              <div>
-                <p className="flex items-center gap-2 text-lg font-bold text-blue-900">
-                  <GraduationCap size={20} /> Ngành: {ct.major}
-                </p>
-                <p className="mt-1 ml-7 text-sm text-gray-600">
-                  Khóa: <span className="font-semibold">{ct.cohort}</span>
-                </p>
-              </div>
-              <span className="rounded-full bg-blue-600 px-3 py-1 text-sm font-bold text-white shadow">
-                {ct.requiredCredits} tín chỉ
-              </span>
-            </div>
-
-            <div className="space-y-6">
-              {ct.groups.map((group) => (
-                <div key={group.code} className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md">
-                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-200 bg-gray-100 p-3">
-                    <h3 className="flex items-center gap-2 text-lg font-bold text-gray-800">
-                      <Layers className="text-blue-500" size={18} /> {group.name}
-                    </h3>
-                    <div className="flex gap-2">
-                      {group.requiredCredits && <Badge tone="blue">Yêu cầu: {group.requiredCredits} tín chỉ</Badge>}
-                      <Badge>{group.courses.length} môn</Badge>
-                    </div>
-                  </div>
-                  <div className="overflow-x-auto">
-                    <table className="min-w-full text-sm">
-                      <thead className="bg-gray-50 text-xs font-semibold text-gray-500 uppercase">
-                        <tr>
-                          <th className="px-4 py-2 text-left whitespace-nowrap">Mã môn học</th>
-                          <th className="px-4 py-2 text-left">Tên môn học</th>
-                          <th className="px-4 py-2 text-center whitespace-nowrap">Số TC</th>
-                          <th className="px-4 py-2 text-center">Kỳ</th>
-                          <th className="px-4 py-2 text-center">Loại</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-100">
-                        {group.courses.map((course) => (
-                          <tr key={course.code} className="hover:bg-blue-50">
-                            <td className="px-4 py-3 font-mono font-bold whitespace-nowrap text-blue-600">{course.code}</td>
-                            <td className="px-4 py-3 font-medium text-gray-800">{course.name}</td>
-                            <td className="px-4 py-3 text-center font-semibold">{course.credits}</td>
-                            <td className="px-4 py-3 text-center">
-                              <span className="inline-block h-6 w-6 rounded-full bg-gray-200 text-xs leading-6 font-bold">
-                                {course.semester}
-                              </span>
-                            </td>
-                            <td className="px-4 py-3 text-center">
-                              {group.type === 'Bắt buộc' ? <Badge tone="red">Bắt buộc</Badge> : <Badge tone="green">Tự chọn</Badge>}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
-      </QueryState>
+      <PageHeader
+        title="Chương trình đào tạo"
+        description={`${curriculum.major} · Khóa ${curriculum.cohort}`}
+        actions={<SearchInput value={search} onChange={setSearch} placeholder="Tìm mã hoặc tên môn..." />}
+      />
+      <div className="mb-6 grid gap-4 sm:grid-cols-3">
+        <StatCard label="Tín chỉ yêu cầu" value={curriculum.requiredCredits ?? '---'} icon={BookOpen} tone="blue" />
+        <StatCard label="Nhóm môn học" value={curriculum.groups.length} icon={Layers} tone="purple" />
+        <StatCard label="Tổng số môn" value={courseCount} icon={Library} tone="green" />
+      </div>
+      {groups.length ? (
+        <div className="space-y-3">
+          {groups.map((group, i) => (
+            <GroupSection key={`${group.code}-${search}`} group={group} defaultOpen={i === 0 || !!search} />
+          ))}
+        </div>
+      ) : (
+        <EmptyState message="Không tìm thấy môn học phù hợp." icon={SearchX} />
+      )}
     </>
   )
+}
+
+export function CurriculumPage() {
+  return <QueryState query={useCurriculum()}>{(curriculum) => <CurriculumView curriculum={curriculum} />}</QueryState>
 }

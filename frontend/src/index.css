@@ -1,28 +1,85 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
+@plugin "@tailwindcss/typography";
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Token màu theo ngữ nghĩa, đổi theo theme sáng/tối */
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-2: #f1f4f9;
+  --fg: #0f172a;
+  --muted: #64748b;
+  --line: #e4e8f0;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-soft: #eaf1ff;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0a0e17;
+  --surface: #111725;
+  --surface-2: #182033;
+  --fg: #e6eaf2;
+  --muted: #8b95a8;
+  --line: #222b3d;
+  --primary: #5b8cff;
+  --primary-hover: #7aa2ff;
+  --primary-soft: rgb(91 140 255 / 0.14);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
 }
 
 @layer base {
-  /* Tailwind v4 mặc định viền màu currentColor, giữ viền xám như v3 */
-  *, ::after, ::before, ::backdrop { border-color: var(--color-gray-200, currentColor); }
+  *, ::after, ::before, ::backdrop { border-color: var(--line); }
 
-  ::-webkit-scrollbar { width: 8px; height: 8px; }
-  ::-webkit-scrollbar-track { background: #f1f1f1; }
-  ::-webkit-scrollbar-thumb { background: #9ca3af; border-radius: 4px; }
-  ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
-}
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+  }
 
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  ::selection { background: var(--primary-soft); }
 
-@utility animate-fade-in {
-  animation: fade-in 0.3s ease-out;
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; border: 2px solid var(--bg); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 }
 
 @utility input {
-  @apply w-full rounded-lg border border-gray-300 px-3 py-2 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200;
+  @apply w-full rounded-xl border border-line bg-surface px-3.5 py-2.5 text-sm text-fg outline-none transition placeholder:text-muted focus:border-primary focus:ring-4 focus:ring-primary-soft;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50;
+}
+
+@utility btn-primary {
+  @apply btn bg-primary text-white shadow-sm shadow-primary/30 hover:bg-primary-hover;
+}
+
+@utility btn-ghost {
+  @apply btn text-muted hover:bg-surface-2 hover:text-fg;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.35s ease-out both;
 }

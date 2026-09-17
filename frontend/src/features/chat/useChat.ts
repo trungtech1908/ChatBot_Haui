@@ -39,7 +39,10 @@ export function useChat() {
       })
       updateMessage(botId, () => ({ status: undefined }))
     } catch (error) {
-      if (controller.signal.aborted) return
+      if (controller.signal.aborted) {
+        updateMessage(botId, () => ({ status: undefined }))
+        return
+      }
       const message = error instanceof Error ? error.message : 'Lỗi kết nối, vui lòng thử lại sau'
       updateMessage(botId, () => ({ content: message, status: 'error' }))
     } finally {
@@ -48,6 +51,9 @@ export function useChat() {
       queryClient.invalidateQueries({ queryKey: HISTORY_KEY, refetchType: 'none' })
     }
   }, [queryClient])
+
+  // Dừng hiển thị; server vẫn lưu câu trả lời đầy đủ vào lịch sử
+  const stop = useCallback(() => abortRef.current?.abort(), [])
 
   const reset = useCallback(async () => {
     abortRef.current?.abort()
@@ -61,6 +67,7 @@ export function useChat() {
     isLoading: history.isPending,
     isStreaming,
     send,
+    stop,
     reset,
   }
 }
