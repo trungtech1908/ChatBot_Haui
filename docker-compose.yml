@@ -6,6 +6,9 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:?Cần DB_PASSWORD trong .env}
       MYSQL_DATABASE: ${DB_NAME:-CSDLDoAnCN}
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      # Mở ra máy host (chỉ localhost) để chạy backend/scripts/init_db.py
+      - "127.0.0.1:${DB_PORT:-3306}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:

@@ -1,3 +1,4 @@
+import logging
 from logging.config import fileConfig
 
 from alembic import context
@@ -7,7 +8,8 @@ from chatbot_haui.core.config import settings
 from chatbot_haui.db import models  # noqa: F401  đăng ký toàn bộ bảng vào metadata
 from chatbot_haui.db.session import Base
 
-if context.config.config_file_name:
+# Script gọi alembic (init_db.py) đã tự cấu hình logging thì giữ nguyên
+if context.config.config_file_name and not logging.getLogger().handlers:
     fileConfig(context.config.config_file_name)
 
 

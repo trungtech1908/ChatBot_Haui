@@ -13,12 +13,12 @@ backend/
   assets/
     documents/              PDF nguồn của RAG
     seed/                   JSON dữ liệu mẫu
-  docker/                   Dockerfile, entrypoint (migrate → seed → uvicorn)
+  docker/                   Dockerfile backend (chỉ chạy API)
   scripts/
     ingest.py               OCR → chia chunk → Qdrant (chạy tay, xem docs/ingest.md)
     ingest_colab.py         Bản độc lập của ingest.py để copy chạy trên Google Colab
     evaluate.py             Đánh giá RAG (chạy tay, xem docs/evaluate.md)
-    seed.py                 Nạp dữ liệu mẫu
+    init_db.py              Tạo database, migrate, nạp dữ liệu mẫu (chạy tay, xem docs/database.md)
   src/chatbot_haui/
     main.py                 Khởi tạo FastAPI
     ai/                     RAG: llm, graph, nodes, prompts; text_to_sql (thử nghiệm)
@@ -37,7 +37,7 @@ frontend/
     lib/                    api client, format
     types/                  Kiểu dữ liệu API
   nginx.conf                Phục vụ SPA, chuyển /api sang backend
-docs/                       Hướng dẫn nạp tài liệu, đánh giá RAG
+docs/                       Hướng dẫn khởi tạo database, nạp tài liệu, đánh giá RAG
 docker-compose.yml          mysql + backend + frontend
 ```
 
@@ -52,15 +52,20 @@ Copy `.env.example` thành `.env` ở thư mục gốc rồi điền:
 
 ## Chạy bằng Docker
 
+Database và dữ liệu RAG được khởi tạo bằng script chạy trên máy, không nằm trong Docker.
+
 ```bash
+# 1. Bật MySQL và khởi tạo database (xem docs/database.md)
+docker compose up -d --wait mysql
+cd backend && uv sync --extra cpu && uv run python scripts/init_db.py && cd ..
+
+# 2. Bật app
 docker compose up -d --build
 ```
 
-Mở http://localhost:8080. Backend tự chạy migration và nạp dữ liệu mẫu khi khởi động. Lần đầu backend tải model bge-m3 (~2GB) vào volume `hf_cache`.
+Mở http://localhost:8080. Tài khoản mẫu: `SV001_tk` / `pass001` (tới `SV010_tk` / `pass010`). Lần đầu backend tải model bge-m3 (~2GB) vào volume `hf_cache`.
 
-Tài khoản mẫu: `SV001_tk` / `pass001` (tới `SV010_tk` / `pass010`).
-
-Dữ liệu tài liệu phải có sẵn trên Qdrant, xem [docs/ingest.md](docs/ingest.md).
+Chatbot cần tài liệu đã có trên Qdrant, xem [docs/ingest.md](docs/ingest.md).
 
 ## Phát triển local
 
@@ -70,8 +75,7 @@ Cần MySQL đang chạy theo `.env`.
 # Backend: http://localhost:8000, API docs tại /docs
 cd backend
 uv sync --extra cpu
-uv run alembic upgrade head
-uv run python scripts/seed.py
+uv run python scripts/init_db.py
 uv run uvicorn chatbot_haui.main:app --reload
 
 # Frontend: http://localhost:5173 (tự chuyển /api sang backend)
@@ -87,9 +91,10 @@ cd backend && uv run pytest
 cd frontend && npm run lint && npm run build
 ```
 
-Đổi model database: sửa `backend/src/chatbot_haui/db/models/`, rồi `uv run alembic revision --autogenerate -m "mô tả"` và `uv run alembic upgrade head`.
+Đổi cấu trúc bảng: xem [docs/database.md](docs/database.md#khi-đổi-cấu-trúc-bảng).
 
-## Script RAG (ngoài Docker)
+## Script chạy ngoài Docker
 
+- Khởi tạo database: [docs/database.md](docs/database.md)
 - Nạp tài liệu lên Qdrant (trên máy hoặc Google Colab): [docs/ingest.md](docs/ingest.md)
 - Đánh giá chất lượng RAG: [docs/evaluate.md](docs/evaluate.md)

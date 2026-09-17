@@ -29,15 +29,12 @@ RUN useradd --create-home app && mkdir -p /cache/huggingface && chown app:app /c
 
 WORKDIR /app
 COPY --from=builder /app/.venv /app/.venv
-COPY alembic.ini ./
-COPY alembic ./alembic
-COPY assets/seed ./assets/seed
-COPY scripts/seed.py ./scripts/seed.py
-COPY docker/entrypoint.sh /entrypoint.sh
 
 USER app
 EXPOSE 8000
 HEALTHCHECK --interval=10s --timeout=3s --start-period=30s --retries=5 \
     CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health')"
 
-ENTRYPOINT ["/entrypoint.sh"]
+# Database (migration, dữ liệu mẫu) khởi tạo ngoài Docker bằng scripts/init_db.py
+# 1 worker mặc định: model embedding nạp riêng cho từng worker, tốn RAM
+CMD ["sh", "-c", "exec uvicorn chatbot_haui.main:app --host 0.0.0.0 --port 8000 --proxy-headers --workers ${WEB_CONCURRENCY:-1}"]

@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Literal
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from sqlalchemy import URL
 
 
 class Settings(BaseSettings):
@@ -39,9 +40,16 @@ class Settings(BaseSettings):
     seed_dir: Path = Path("assets/seed")
     documents_dir: Path = Path("assets/documents")
 
+    def db_server_url(self, database: str | None = None) -> str:
+        # URL.create tự escape ký tự đặc biệt trong mật khẩu
+        return URL.create(
+            "mysql+pymysql", self.db_user, self.db_password, self.db_host, self.db_port, database,
+            query={"charset": "utf8mb4"},
+        ).render_as_string(hide_password=False)
+
     @property
     def db_url(self) -> str:
-        return f"mysql+pymysql://{self.db_user}:{self.db_password}@{self.db_host}:{self.db_port}/{self.db_name}"
+        return self.db_server_url(self.db_name)
 
 
 settings = Settings()
