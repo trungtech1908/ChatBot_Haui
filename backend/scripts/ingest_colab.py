@@ -1,7 +1,49 @@
-"""Nạp tài liệu vào Qdrant: PDF -> OCR (Nanonets, chạy GPU) -> chia chunk -> embedding (bge-m3) -> Qdrant.
+# =====================================================================
+# Nạp tài liệu lên Qdrant trên Google Colab (bản chạy độc lập)
+# PDF -> OCR (Nanonets) -> chia chunk -> embedding (bge-m3) -> Qdrant
+#
+# Cách dùng:
+#   1. Runtime > Change runtime type > chọn GPU (T4 trở lên)
+#   2. Upload PDF vào PDF_DIR (hoặc để PDF trên Google Drive, bật MOUNT_DRIVE)
+#   3. Điền cấu hình bên dưới, copy toàn bộ file vào 1 cell và chạy
+#
+# Luật chia chunk giống hệt backend/scripts/ingest.py (bản chạy trên máy).
+# Sửa luật chia thì sửa ở cả hai file.
+# =====================================================================
 
-Chạy từ backend/: uv run python scripts/ingest.py
-"""
+# ============================ CẤU HÌNH ===============================
+PDF_DIR = "/content/documents"          # thư mục chứa PDF
+MOUNT_DRIVE = False                     # True nếu PDF_DIR nằm trên Google Drive (/content/drive/MyDrive/...)
+
+QDRANT_URL = ""                         # để trống thì lấy từ Colab Secrets: QDRANT_URL
+QDRANT_API_KEY = ""                     # để trống thì lấy từ Colab Secrets: QDRANT_API_KEY
+QDRANT_COLLECTION = "RAG_ChatBot_HAUI"  # phải trùng QDRANT_COLLECTION của backend
+RECREATE_COLLECTION = True              # True: xóa collection cũ rồi nạp lại toàn bộ
+
+OCR_MODEL = "nanonets/Nanonets-OCR2-3B"
+OCR_DPI = 200
+OCR_MAX_NEW_TOKENS = 2048
+EMBEDDING_MODEL = "BAAI/bge-m3"
+EMBED_BATCH_SIZE = 12
+MAX_ITEMS_PER_CHUNK = 6
+VECTOR_SIZE = 1024                      # bge-m3 dense
+UPSERT_BATCH = 256
+
+SAVE_CHUNKS_JSON = "/content/chunks.json"  # lưu chunk ra file để kiểm tra, để "" nếu không cần
+# =====================================================================
+
+
+# ---------------------- Cài thư viện (chỉ chạy lần đầu) ----------------------
+import subprocess
+import sys
+
+subprocess.run(["apt-get", "install", "-y", "-qq", "poppler-utils"], check=True, stdout=subprocess.DEVNULL)
+subprocess.run(
+    [sys.executable, "-m", "pip", "install", "-q", "FlagEmbedding", "qdrant-client", "pdf2image", "accelerate"],
+    check=True,
+)
+
+import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -15,12 +57,18 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, PointStruct, VectorParams
 from transformers import AutoModelForImageTextToText, AutoProcessor
 
-from chatbot_haui.core.config import settings
+if MOUNT_DRIVE:
+    from google.colab import drive
+    drive.mount("/content/drive")
 
-OCR_MODEL = "nanonets/Nanonets-OCR2-3B"
-MAX_ITEMS_PER_CHUNK = 6
-VECTOR_SIZE = 1024  # bge-m3 dense
-UPSERT_BATCH = 256
+
+def secret(value: str, name: str) -> str:
+    """Ưu tiên giá trị điền trong cấu hình, không có thì đọc Colab Secrets."""
+    if value:
+        return value
+    from google.colab import userdata
+    return userdata.get(name)
+
 
 OCR_PROMPT = (
     "Extract the text from the above document as if you were reading it naturally. "
@@ -46,7 +94,7 @@ class OCR:
         ).eval()
         self.processor = AutoProcessor.from_pretrained(OCR_MODEL)
 
-    def image_to_markdown(self, image: Image.Image, max_new_tokens: int = 2048) -> str:
+    def image_to_markdown(self, image: Image.Image, max_new_tokens: int = OCR_MAX_NEW_TOKENS) -> str:
         messages = [
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": [{"type": "image"}, {"type": "text", "text": OCR_PROMPT}]},
@@ -65,7 +113,7 @@ class OCR:
     def pdf_to_markdown(self, pdf_path: Path) -> str:
         # Mỗi trang: OCR, bỏ tag số trang/watermark, nối cách 1 dòng trống
         pages = []
-        for i, page in enumerate(convert_from_path(pdf_path, dpi=200), start=1):
+        for i, page in enumerate(convert_from_path(pdf_path, dpi=OCR_DPI), start=1):
             print(f"  OCR trang {i}")
             pages.append(REMOVE_TAGS.sub("", self.image_to_markdown(page)).strip())
             torch.cuda.empty_cache()
@@ -456,44 +504,56 @@ class MarkdownChunker:
 
 # ================== Qdrant ==================
 def upsert(texts: List[str], sources: List[str]):
-    embedder = BGEM3FlagModel(settings.embedding_model, use_fp16=True)
-    vectors = embedder.encode(texts, batch_size=12, max_length=8192)["dense_vecs"]
+    embedder = BGEM3FlagModel(EMBEDDING_MODEL, use_fp16=True)
+    vectors = embedder.encode(texts, batch_size=EMBED_BATCH_SIZE, max_length=8192)["dense_vecs"]
 
-    qdrant = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key)
-    collection = settings.qdrant_collection
+    qdrant = QdrantClient(url=secret(QDRANT_URL, "QDRANT_URL"), api_key=secret(QDRANT_API_KEY, "QDRANT_API_KEY"))
+    exists = qdrant.collection_exists(QDRANT_COLLECTION)
+    if exists and RECREATE_COLLECTION:
+        qdrant.delete_collection(QDRANT_COLLECTION)
+        exists = False
+    if not exists:
+        qdrant.create_collection(QDRANT_COLLECTION, vectors_config=VectorParams(size=VECTOR_SIZE, distance=Distance.COSINE))
+        qdrant.create_payload_index(QDRANT_COLLECTION, field_name="source", field_schema="keyword")
 
-    # Nạp lại toàn bộ để không còn chunk cũ
-    if qdrant.collection_exists(collection):
-        qdrant.delete_collection(collection)
-    qdrant.create_collection(collection, vectors_config=VectorParams(size=VECTOR_SIZE, distance=Distance.COSINE))
-    qdrant.create_payload_index(collection, field_name="source", field_schema="keyword")
-
+    # Không xóa collection thì id nối tiếp sau số điểm hiện có
+    offset = 0 if RECREATE_COLLECTION else qdrant.count(QDRANT_COLLECTION).count
     points = [
-        PointStruct(id=i, vector=vec.tolist(), payload={"source": src, "raw_text": text})
+        PointStruct(id=offset + i, vector=vec.tolist(), payload={"source": src, "raw_text": text})
         for i, (vec, text, src) in enumerate(zip(vectors, texts, sources))
     ]
     for start in range(0, len(points), UPSERT_BATCH):
-        qdrant.upsert(collection, points=points[start:start + UPSERT_BATCH])
-    print(f"Đã đẩy {len(points)} chunk lên '{collection}'")
+        qdrant.upsert(QDRANT_COLLECTION, points=points[start:start + UPSERT_BATCH])
+    print(f"Đã đẩy {len(points)} chunk lên '{QDRANT_COLLECTION}'")
 
 
 def main():
-    pdfs = sorted(settings.documents_dir.glob("*.pdf"))
+    pdfs = sorted(Path(PDF_DIR).glob("*.pdf"))
     if not pdfs:
-        raise SystemExit(f"Không có PDF trong {settings.documents_dir}")
+        raise SystemExit(f"Không có PDF trong {PDF_DIR}")
+    if not torch.cuda.is_available():
+        print("⚠️ Không thấy GPU, OCR sẽ rất chậm. Vào Runtime > Change runtime type để chọn GPU.")
 
     ocr = OCR()
-    texts, sources = [], []
+    texts, sources, dump = [], [], {}
     for pdf in pdfs:
         print(f"Xử lý {pdf.name}")
         chunks = MarkdownChunker(max_items_per_chunk=MAX_ITEMS_PER_CHUNK).chunk(ocr.pdf_to_markdown(pdf))
         texts += chunks
-        # source = "<tên PDF>.json" để khớp với kết quả phân loại của chatbot_haui/ai/nodes/classify.py
+        # source = "<tên PDF>.json" để khớp với kết quả phân loại của backend
         sources += [f"{pdf.stem}.json"] * len(chunks)
+        dump[pdf.stem] = chunks
         print(f"  {len(chunks)} chunk")
+
+    if SAVE_CHUNKS_JSON:
+        Path(SAVE_CHUNKS_JSON).write_text(json.dumps(dump, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"Đã lưu chunk ra {SAVE_CHUNKS_JSON}")
+
+    # Giải phóng GPU của model OCR trước khi embedding
+    del ocr
+    torch.cuda.empty_cache()
 
     upsert(texts, sources)
 
 
-if __name__ == "__main__":
-    main()
+main()

@@ -16,6 +16,7 @@ backend/
   docker/                   Dockerfile, entrypoint (migrate → seed → uvicorn)
   scripts/
     ingest.py               OCR → chia chunk → Qdrant (chạy tay, xem docs/ingest.md)
+    ingest_colab.py         Bản độc lập của ingest.py để copy chạy trên Google Colab
     evaluate.py             Đánh giá RAG (chạy tay, xem docs/evaluate.md)
     seed.py                 Nạp dữ liệu mẫu
   src/chatbot_haui/
@@ -90,5 +91,5 @@ cd frontend && npm run lint && npm run build
 
 ## Script RAG (ngoài Docker)
 
-- Nạp tài liệu lên Qdrant: [docs/ingest.md](docs/ingest.md)
+- Nạp tài liệu lên Qdrant (trên máy hoặc Google Colab): [docs/ingest.md](docs/ingest.md)
 - Đánh giá chất lượng RAG: [docs/evaluate.md](docs/evaluate.md)

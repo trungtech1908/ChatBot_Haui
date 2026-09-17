@@ -2,7 +2,7 @@
 
 Script `backend/scripts/ingest.py` đọc PDF trong `backend/assets/documents/`, OCR từng trang, chia chunk rồi embedding và đẩy lên Qdrant Cloud.
 
-Script này chạy riêng trên máy, **không nằm trong Docker**. Chỉ cần chạy khi lần đầu dựng dữ liệu, hoặc khi thêm/sửa PDF.
+Script này chạy riêng trên máy hoặc Google Colab, **không nằm trong Docker**. Chỉ cần chạy khi lần đầu dựng dữ liệu, hoặc khi thêm/sửa PDF.
 
 ## Luồng xử lý
 
@@ -70,6 +70,33 @@ Xử lý ChinhSachSV.pdf
 ...
 Đã đẩy 172 chunk lên 'RAG_ChatBot_HAUI'
 ```
+
+## Chạy trên Google Colab
+
+Không có GPU trên máy thì dùng `backend/scripts/ingest_colab.py`: file chạy độc lập, không cần clone repo hay cài uv, mọi cấu hình nằm ở đầu file.
+
+1. Tạo notebook mới, vào **Runtime > Change runtime type** chọn **GPU** (T4 là đủ).
+2. Đưa PDF lên Colab, chọn một trong hai cách:
+   - Upload thẳng vào `/content/documents` (bảng Files bên trái), hoặc
+   - Để PDF trên Google Drive, đặt `PDF_DIR = "/content/drive/MyDrive/<thư mục>"` và `MOUNT_DRIVE = True`.
+3. Điền Qdrant: thêm `QDRANT_URL`, `QDRANT_API_KEY` vào **Colab Secrets** (biểu tượng chìa khóa bên trái, bật quyền cho notebook), hoặc điền thẳng vào đầu file (đừng chia sẻ notebook khi đã điền key).
+4. Copy toàn bộ nội dung `ingest_colab.py` vào một cell và chạy.
+
+Cấu hình ở đầu file:
+
+| Biến                  | Mặc định                      | Mô tả                                              |
+|-----------------------|-------------------------------|----------------------------------------------------|
+| `PDF_DIR`             | `/content/documents`          | Thư mục PDF                                        |
+| `MOUNT_DRIVE`         | `False`                       | Mount Google Drive trước khi đọc PDF               |
+| `QDRANT_COLLECTION`   | `RAG_ChatBot_HAUI`            | Phải trùng collection backend đang dùng            |
+| `RECREATE_COLLECTION` | `True`                        | Xóa collection cũ rồi nạp lại; `False` để nạp thêm |
+| `OCR_DPI`, `OCR_MAX_NEW_TOKENS` | `200`, `2048`       | Chất lượng ảnh và độ dài tối đa mỗi trang OCR      |
+| `MAX_ITEMS_PER_CHUNK` | `6`                           | Luật chia chunk, giữ giống bản chạy trên máy       |
+| `SAVE_CHUNKS_JSON`    | `/content/chunks.json`        | Lưu chunk ra file để kiểm tra, `""` để tắt         |
+
+Lần chạy đầu tải model Nanonets (~7GB) và bge-m3 (~2GB), mất vài phút. Nếu Colab báo lỗi thư viện ngay sau bước cài đặt, chọn **Runtime > Restart session** rồi chạy lại cell.
+
+Luật chia chunk ở hai file `ingest.py` và `ingest_colab.py` đang giống hệt nhau; sửa luật thì sửa cả hai.
 
 ## Thêm hoặc sửa tài liệu
 
