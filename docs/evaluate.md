@@ -56,5 +56,5 @@ Mỗi mục trong file kết quả có: câu trả lời, route, các bước đ
 ## Lưu ý khi đọc kết quả
 
 - `haui_qa_dataset.json` chủ yếu là câu hỏi quy chế chung. Câu có yếu tố cá nhân ("học phí kỳ này của em") sẽ được trả lời bằng dữ liệu của `--student`; giám khảo được dặn không trừ điểm phần số liệu cá nhân, nhưng vẫn có thể lệch với đáp án mẫu viết chung chung.
-- Đây mới là lớp "câu trả lời" và "RAG" của ARCHITECTURE mục 7. Text2SQL (execution accuracy), Router, Planner và các câu tấn công cần bộ câu hỏi riêng; phần bảo mật đã có test tự động trong `backend/tests/` (`test_sql_guard.py`, `test_db_security.py`).
+- Script mới đo chất lượng câu trả lời và RAG. Text2SQL (execution accuracy), Router, Planner và các câu tấn công cần bộ câu hỏi riêng; phần bảo mật đã có test tự động trong `backend/tests/` (`test_sql_guard.py`, `test_db_security.py`).
 - Giám khảo dùng model chính (`LLM_PROVIDER`), có fallback như luồng chính.

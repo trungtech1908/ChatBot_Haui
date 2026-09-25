@@ -93,7 +93,7 @@ Cấu trúc collection (định nghĩa ở `backend/src/chatbot_haui/ai/indexing
 | `dense` | bge-m3, 1024 chiều, cosine |
 | `bm25` | sparse: token = âm tiết + cặp âm tiết liền nhau (bigram), trọng số phần TF của BM25; IDF do Qdrant tính (`Modifier.IDF`) |
 
-Chunk hiện chưa cắt theo Chương/Điều/Khoản, nên chatbot chỉ trích dẫn được ở mức tên văn bản và chưa lọc được theo hiệu lực, bậc, khóa (ARCHITECTURE mục 2.6).
+Chunk hiện chưa cắt theo Chương/Điều/Khoản, nên chatbot chỉ trích dẫn được ở mức tên văn bản và chưa lọc được theo hiệu lực, bậc, khóa.
 
 ## Chạy trên Google Colab
 

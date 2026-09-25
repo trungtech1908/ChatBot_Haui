@@ -7,8 +7,6 @@ Hệ thống quản lý sinh viên HaUI tích hợp chatbot hỏi đáp quy ch�
 
 **Lần đầu chạy dự án?** Làm theo [docs/getting-started.md](docs/getting-started.md).
 
-Thiết kế chi tiết (luồng, CSDL, bảo mật, đánh giá): [haui_db/ARCHITECTURE.md](haui_db/ARCHITECTURE.md).
-
 ## Luồng chatbot
 
 ```
@@ -52,7 +50,6 @@ backend/
   tests/                    pytest trên PostgreSQL thật, không gọi API ngoài
 frontend/
   src/                      api, components, features (mỗi màn hình một thư mục), lib, types
-haui_db/                    Tài liệu thiết kế: ARCHITECTURE.md, 01_schema.sql, 03_views_chatbot.sql, 05_text2sql_context.md
 docs/                       Hướng dẫn chạy, database, nạp tài liệu, đánh giá
 docker-compose.yml          postgres + backend + frontend
 ```
@@ -84,7 +81,7 @@ cd backend && uv sync --extra cpu && uv run --no-sync python scripts/init_db.py 
 docker compose up -d --build
 ```
 
-Mở http://localhost:8080. Tài khoản mẫu: **tên đăng nhập = mật khẩu = mã sinh viên**, ví dụ `2024619567`. Danh sách sinh viên theo tình huống kiểm thử: [ARCHITECTURE.md mục 7](haui_db/ARCHITECTURE.md#7-đánh-giá).
+Mở http://localhost:8080. Tài khoản mẫu: **tên đăng nhập = mật khẩu = mã sinh viên**, ví dụ `2024619567`. Danh sách sinh viên theo tình huống kiểm thử: [docs/database.md](docs/database.md#dữ-liệu-giả-lập).
 
 Chatbot cần tài liệu đã có trên Qdrant, xem [docs/ingest.md](docs/ingest.md).
 

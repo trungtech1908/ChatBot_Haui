@@ -6,7 +6,7 @@ Script chạy trên máy, **không nằm trong Docker**: container backend chỉ
 
 ## Cấu trúc
 
-Thiết kế đầy đủ ở [haui_db/ARCHITECTURE.md](../haui_db/ARCHITECTURE.md) mục 4 và 6. Tóm tắt:
+Tóm tắt:
 
 | Schema | Nội dung | Ai truy cập |
 |---|---|---|
@@ -25,8 +25,6 @@ Nguồn sự thật khi chạy:
 | View, function `chatbot.ma_sv()`, phân quyền | `backend/src/chatbot_haui/db/sql/views.sql` (Alembic thực thi) |
 | Tham số lấy từ văn bản | `backend/assets/seed/02_seed_tham_so.sql` |
 | Dữ liệu giả lập | `backend/assets/seed/04_sample_data.sql`, sinh bởi `backend/scripts/gen_sample_data.py` |
-
-`haui_db/01_schema.sql`, `03_views_chatbot.sql` là bản tài liệu (nạp độc lập được theo thứ tự 01 → 02 → 03 → 04), phải giữ khớp với nguồn ở trên.
 
 ## Yêu cầu
 
@@ -79,7 +77,26 @@ Xong: CSDLDoAnCN @ localhost:5432
 
 62 sinh viên (5 ngành × khóa K17–K20), chốt ngày 31/08/2026. Điểm, kết quả học kỳ, rèn luyện, học bổng, học phí được **tính theo quy chế** chứ không random độc lập (xem docstring `gen_sample_data.py`). Mức học bổng KKHT, NTB, tài trợ là số minh họa.
 
-**Đăng nhập: tên đăng nhập = mật khẩu = mã sinh viên** (hash argon2). Sinh viên theo từng tình huống kiểm thử (học bổng, miễn giảm, kỷ luật, nợ học phí, thực tập...): [ARCHITECTURE.md mục 7](../haui_db/ARCHITECTURE.md#7-đánh-giá).
+**Đăng nhập: tên đăng nhập = mật khẩu = mã sinh viên** (hash argon2). Sinh viên theo từng tình huống kiểm thử:
+
+| Tình huống | Mã SV |
+|---|---|
+| HB HaUI toàn khóa / năm nhất / 5 triệu | 2025619166 / 2025637924 / 2025628155 |
+| Khuyết tật: miễn học phí, nhận HB NTB | 2024619567 |
+| DTTS hộ nghèo: miễn học phí, hỗ trợ chi phí học tập | 2025646999 |
+| Hộ cận nghèo, học lực xuất sắc, đủ điều kiện tham gia xét KKHT | 2023655593 |
+| Học lực giỏi nhưng trượt điều kiện HB kỳ gần nhất vì rèn luyện 68 điểm | 2024628144 |
+| Mồ côi cha: nhận HB NTB | 2024633657 |
+| Cha bị TNLĐ: giảm 50% học phí | 2023629820 |
+| Kỷ luật cảnh cáo / khiển trách | 2023619595 / 2024642770 |
+| Bảo lưu rồi quay lại | 2023634292 |
+| Buộc thôi học | 2024643553 |
+| Có điểm I | 2024658893 |
+| Olympic quốc gia, HB tài trợ | 2023617043 |
+| Còn nợ học phí | 2023654041, 2022632465, 2023625316, 2024619980, 2024639830, 2025651790, 2023655593 |
+| K17 chưa tốt nghiệp vì thiếu ngoại ngữ | 2022632465, 2022659727 |
+| Có kỳ thực tập doanh nghiệp (K17) | 2022612814, 2022623840 |
+| Có ca thi không đủ điều kiện dự thi | 2025629882, 2023654041 |
 
 Sinh lại dữ liệu (tất định: cùng code → cùng file, không phụ thuộc máy):
 
@@ -100,7 +117,7 @@ uv run --no-sync alembic revision --autogenerate -m "mô tả thay đổi"   # �
 uv run --no-sync python scripts/init_db.py --no-seed                     # áp dụng
 ```
 
-View: tạo migration mới `op.execute(...)` với `CREATE OR REPLACE VIEW` (hoặc `DROP VIEW` + `CREATE VIEW` khi đổi cột), cập nhật `db/sql/views.sql` và `haui_db/03_views_chatbot.sql` cho khớp, rồi thêm mô tả view vào `VIEW_DOCS` trong `ai/prompts/text2sql.py` (test `test_all_views_described_in_prompt` báo nếu thiếu). Sau khi tạo view mới phải `GRANT SELECT ... TO chatbot_reader`.
+View: tạo migration mới `op.execute(...)` với `CREATE OR REPLACE VIEW` (hoặc `DROP VIEW` + `CREATE VIEW` khi đổi cột), cập nhật `db/sql/views.sql` cho khớp, rồi thêm mô tả view vào `VIEW_DOCS` trong `ai/prompts/text2sql.py` (test `test_all_views_described_in_prompt` báo nếu thiếu). Sau khi tạo view mới phải `GRANT SELECT ... TO chatbot_reader`.
 
 ## Lỗi thường gặp
 

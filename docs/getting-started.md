@@ -174,7 +174,7 @@ Thấy dòng `Đã nạp xong model embedding và schema` là chatbot sẵn sàn
 ## 6. Kiểm tra
 
 1. Mở http://localhost:8080 (hoặc cổng `APP_PORT` đã đặt).
-2. Đăng nhập bằng tài khoản mẫu: **tên đăng nhập = mật khẩu = mã sinh viên**, ví dụ `2024619567` (sinh viên theo từng tình huống: [ARCHITECTURE.md mục 7](../haui_db/ARCHITECTURE.md#7-đánh-giá)).
+2. Đăng nhập bằng tài khoản mẫu: **tên đăng nhập = mật khẩu = mã sinh viên**, ví dụ `2024619567` (sinh viên theo từng tình huống: [database.md](database.md#dữ-liệu-giả-lập)).
 3. Xem các trang Trang chủ, Hồ sơ, Lịch học, Lịch thi, Kết quả học tập, Học phí… phải có dữ liệu.
 4. Vào **Trợ lý AI**, hỏi thử một câu cần cả quy chế lẫn dữ liệu cá nhân: *"Kỳ gần nhất em có đủ điều kiện xét học bổng khuyến khích không?"* Khung chat hiện lần lượt các bước (lập kế hoạch, tra cứu, soạn, kiểm tra) rồi mới hiện câu trả lời đã qua kiểm định. Mỗi câu mất khoảng 10–60 giây tùy quota LLM.
 
