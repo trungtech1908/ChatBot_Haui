@@ -8,19 +8,24 @@ dependencies = [
     "uvicorn[standard]",
     "sqlalchemy",
     "alembic",
-    "pymysql",
-    "cryptography",
+    "psycopg[binary]",
     "pydantic",
     "pydantic-settings",
     "pyjwt",
     "pwdlib[argon2]",
     "langchain-core",
     "langgraph",
+    "langgraph-checkpoint-postgres",
     "langchain-google-genai",
     "langchain-groq",
     "qdrant-client",
     "cohere",
     "flagembedding",
+    "sqlglot",
+    "langfuse",
+    "mem0ai",
+    # mem0 nhận embedder/LLM có sẵn qua provider "langchain" (dùng lại bge-m3 đã nạp)
+    "langchain",
 ]
 
 [project.optional-dependencies]

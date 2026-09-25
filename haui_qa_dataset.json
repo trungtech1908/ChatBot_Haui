@@ -1,0 +1,1883 @@
+[
+  {
+    "id": "haui-0001",
+    "question": "học phí kỳ này của em bao nhiêu ạ",
+    "answer": "Không có con số cố định cho mỗi kỳ, vì học phí tính theo từng học phần bạn đăng ký chứ không theo kỳ. Công thức: HP = số tín chỉ học phí × hệ số lớp × đơn giá 1 tín chỉ. Đơn giá năm 2025-2026 tùy khóa: K20/Kỹ sư K3 đại trà 700.000đ, K19/Kỹ sư K2 550.000đ, K18 trở về trước 495.000đ, chương trình tiếng Anh 1.000.000đ. Bạn cho biết khóa nào và đăng ký bao nhiêu tín thì tính được cụ thể.",
+    "source": [
+      "TinhHocPhi.pdf",
+      "MucThuHP.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0002",
+    "question": "sao học phí kỳ này em cao hơn kỳ trước v ạ, số tín vẫn thế",
+    "answer": "Thường do hai lý do. Một là hệ số tín chỉ khác nhau: môn thực hành/thí nghiệm hệ số 2,5, ngoại ngữ và đồ án/thực tập hệ số 1,5, còn lý thuyết chỉ 1,0 — kỳ nào nhiều môn thực hành thì tiền vọt lên dù số tín giống nhau. Hai là hệ số lớp: nếu bạn học lớp mở theo yêu cầu mà lớp ít người thì hệ số nhân lên 1,5–3 lần.",
+    "source": [
+      "TinhHocPhi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0003",
+    "question": "môn thực hành đắt hơn môn lý thuyết à ad",
+    "answer": "Đúng. Cùng 1 tín chỉ nhưng thực hành/thí nghiệm có hệ số tín chỉ 2,5, còn lý thuyết chỉ 1,0 — tức là gấp 2,5 lần. Ngoại ngữ, thực tập, đồ án, khóa luận hệ số 1,5. Giáo dục thể chất và Quốc phòng - An ninh hệ số 1,0.",
+    "source": [
+      "TinhHocPhi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0004",
+    "question": "lớp em ít người quá, học phí có bị tính đắt hơn ko",
+    "answer": "Có, nhưng chỉ khi đó là lớp mở theo yêu cầu của sinh viên. Lớp mở bình thường theo kế hoạch đào tạo thì hệ số luôn = 1 dù ít người. Với lớp mở theo yêu cầu, lớp lý thuyết dưới 10 người hệ số 2–3, từ 20-39 người hệ số 1,5, từ 40 người trở lên mới về 1.",
+    "source": [
+      "TinhHocPhi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0005",
+    "question": "1 tín chỉ bao nhiêu tiền ạ",
+    "answer": "Tùy khóa và chương trình, năm học 2025-2026: K20 và Kỹ sư K3 đại trà 700.000đ/tín chỉ, chương trình bằng tiếng Anh 1.000.000đ, K19 và Kỹ sư K2 550.000đ, K18 trở về trước và Kỹ sư K1 495.000đ, cao đẳng chính quy 370.000đ, thạc sĩ 900.000đ. Lưu ý đây là đơn giá cho 1 'tín chỉ học phí', còn số tín chỉ học phí của môn = số tín chỉ × hệ số môn.",
+    "source": [
+      "MucThuHP.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0006",
+    "question": "em học k19 mà bạn em k20 sao học phí khác nhau",
+    "answer": "Vì trường áp mức thu theo khóa tuyển sinh. Năm 2025-2026: K19 là 550.000đ/tín chỉ, K20 đại trà là 700.000đ/tín chỉ. Khóa nhập học sau chịu mức cao hơn, khóa cũ giữ mức cũ.",
+    "source": [
+      "MucThuHP.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0007",
+    "question": "học chương trình tiếng anh đắt hơn nhiều ko ạ",
+    "answer": "1.000.000đ/tín chỉ so với 700.000đ của đại trà cùng khóa K20, tức cao hơn khoảng 43%. Riêng các học phần Giáo dục thể chất và Quốc phòng - An ninh vẫn tính theo mức đại trà 700.000đ.",
+    "source": [
+      "MucThuHP.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0008",
+    "question": "cao đẳng học phí thế nào ạ",
+    "answer": "370.000đ/tín chỉ học phí cho cao đẳng chính quy năm học 2025-2026.",
+    "source": [
+      "MucThuHP.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0009",
+    "question": "em muốn học lên thạc sĩ thì học phí ntn",
+    "answer": "900.000đ/tín chỉ học phí. Nếu bạn đang là sinh viên đại học năm 4 và đăng ký học trước một số học phần thạc sĩ thì được hỗ trợ 30% học phí các học phần đó, tối đa 15 tín chỉ, với điều kiện GPA tích lũy đến hết kỳ 6 từ 2,5 trở lên.",
+    "source": [
+      "MucThuHP.pdf",
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0010",
+    "question": "vừa làm vừa học tính tiền kiểu gì",
+    "answer": "Không tính theo tín chỉ mà theo tháng: 2.400.000đ/tháng, áp dụng cho cả đại học vừa làm vừa học và liên thông lên đại học vừa làm vừa học.",
+    "source": [
+      "MucThuHP.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0011",
+    "question": "học phí năm sau có tăng ko ạ",
+    "answer": "Quyết định 778 chỉ quy định mức cho năm học 2025-2026 nên không nói trước được năm sau. Nhưng nhìn cách trường áp mức theo khóa thì khóa bạn nhiều khả năng giữ nguyên đơn giá, còn khóa mới sẽ có mức riêng. Đầu mỗi năm học Hiệu trưởng ra quyết định đơn giá mới, bạn theo dõi thông báo là chắc nhất.",
+    "source": [
+      "MucThuHP.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0012",
+    "question": "tiền học phí đóng ở đâu, hạn khi nào",
+    "answer": "Các văn bản về mức thu và cách tính học phí không quy định địa điểm và hạn nộp, phần đó nằm trong thông báo thu từng kỳ của Phòng Tài chính Kế toán. Nhưng có mốc bạn cần nhớ: nếu đến hết tuần 7 của kỳ chính chưa hoàn thành thì bị nhắc nhở và trừ 5 điểm rèn luyện, đến tuần 9 thì bị hạ 1 bậc xếp loại rèn luyện.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0013",
+    "question": "em nộp học phí muộn có sao ko",
+    "answer": "Có, và mức độ tăng dần. Hết tuần 7 kỳ chính (tuần 5 kỳ phụ): nhắc nhở lần 1, trừ 5 điểm rèn luyện của tháng. Hết tuần 9 (tuần 6 kỳ phụ): nhắc nhở lần 2, hạ 1 bậc xếp loại rèn luyện của kỳ. Đến tuần đăng ký học phần kỳ sau vẫn chưa xong: kỷ luật lần 1, tái diễn thì cảnh cáo rồi đình chỉ. Nếu đã bị cảnh cáo mà sau 6 tháng vẫn chưa hoàn thành, hoặc đã bị đình chỉ 1 kỳ mà sau 3 tháng vẫn chưa xong thì buộc thôi học.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0014",
+    "question": "nhà em đang khó khăn chưa đóng học phí kịp thì làm sao ạ",
+    "answer": "Bạn làm đơn gửi cố vấn học tập để trình Hiệu trưởng xem xét giải quyết — quy định có nêu rõ trường hợp sinh viên không có khả năng hoàn thành kinh phí đào tạo theo kế hoạch thì làm đơn qua CVHT. Song song, bạn nên kiểm tra xem mình có thuộc diện miễn giảm học phí hoặc chính sách hỗ trợ HaUI không, vì chính sách hỗ trợ HaUI dành cho sinh viên hoàn cảnh đặc biệt khó khăn, mức hỗ trợ tối đa bằng đúng học phí phải đóng của kỳ đó.",
+    "source": [
+      "KhenThuongKyLuat.pdf",
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0015",
+    "question": "nhà em hộ nghèo có được giảm học phí ko ạ",
+    "answer": "Còn tùy bạn có phải người dân tộc thiểu số không. Nếu là dân tộc thiểu số mà cha/mẹ/ông bà thuộc hộ nghèo hoặc cận nghèo thì được miễn 100%. Nếu là người Kinh thuộc hộ nghèo thì diện miễn giảm học phí theo Nghị định không có, nhưng bạn có thể xin chính sách hỗ trợ HaUI dành cho sinh viên hoàn cảnh đặc biệt khó khăn, hoặc học bổng Nguyễn Thanh Bình (đối tượng 2.1.5 là sinh viên dân tộc Kinh thuộc hộ nghèo/cận nghèo).",
+    "source": [
+      "ChinhSachSV.pdf",
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0016",
+    "question": "những ai được miễn học phí ạ",
+    "answer": "Năm nhóm được miễn 100%: người có công với cách mạng và thân nhân (con liệt sĩ, con thương binh...); sinh viên khuyết tật; sinh viên dưới 22 tuổi mồ côi hoặc bị bỏ rơi thuộc các trường hợp cụ thể; sinh viên dân tộc thiểu số có cha/mẹ/ông bà thuộc hộ nghèo hoặc cận nghèo; sinh viên dân tộc thiểu số rất ít người ở vùng khó khăn. Lưu ý là miễn theo mức trần Nhà nước cấp, phần chênh lệch với học phí thực tế của trường bạn vẫn phải đóng.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0017",
+    "question": "miễn học phí là được miễn hết hay chỉ 1 phần v",
+    "answer": "Chỉ miễn theo mức trần Nhà nước quy định, không phải toàn bộ học phí thực tế. Phần chênh lệch giữa tiền Nhà nước cấp và học phí thực tế của trường thì bạn vẫn phải đóng bổ sung. Ví dụ mức trần khối ngành kỹ thuật/CNTT năm 2025-2026 là 1.850.000đ/tháng, cấp 10 tháng/năm.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0018",
+    "question": "bố em là thương binh thì em được gì ko ạ",
+    "answer": "Bạn thuộc diện miễn 100% học phí (theo mức trần Nhà nước) vì là con của người có công với cách mạng. Hồ sơ cần: đơn đề nghị miễn giảm học phí theo mẫu và giấy xác nhận của cơ quan quản lý đối tượng người có công, nộp về Phòng Công tác Sinh viên trong vòng 45 ngày kể từ ngày nhập học. Ngoài ra bạn cũng được miễn phí bảo hiểm y tế.",
+    "source": [
+      "ChinhSachSV.pdf",
+      "KhoanThu.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0019",
+    "question": "em bị khuyết tật có được ưu tiên gì ko",
+    "answer": "Có khá nhiều: miễn 100% học phí theo mức trần; được xét học bổng Nguyễn Thanh Bình với mức 120% (và đây là nhóm duy nhất vẫn được xét NTB dù đã được miễn giảm học phí); khi chấm điểm rèn luyện nếu không tham gia được các hoạt động thì được ưu tiên cộng điểm dựa trên nỗ lực cá nhân; và được ưu tiên xét ký túc xá.",
+    "source": [
+      "ChinhSachSV.pdf",
+      "HocBongNTB.pdf",
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0020",
+    "question": "hồ sơ xin miễn giảm học phí gồm những gì ạ",
+    "answer": "Đơn đề nghị theo mẫu (Phụ lục 2) kèm bản sao chứng thực giấy tờ chứng minh thuộc diện, nộp về Phòng Công tác Sinh viên. Giấy tờ tùy đối tượng: người có công thì cần giấy xác nhận của cơ quan quản lý; khuyết tật cần giấy xác nhận khuyết tật của UBND xã/phường; hộ nghèo cần giấy khai sinh và giấy xác nhận hộ nghèo của UBND xã; vùng khó khăn cần thêm giấy xác nhận cư trú mẫu CT07.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0021",
+    "question": "bao lâu phải nộp hồ sơ miễn giảm ạ, em mới nhập học",
+    "answer": "Trong vòng 45 ngày kể từ ngày nhập học. Nộp 1 bộ cho cả khóa học, trừ diện hộ nghèo/cận nghèo và diện vùng khó khăn thì hằng năm từ 01/01 đến 28/02 phải nộp bổ sung giấy chứng nhận của năm đó.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0022",
+    "question": "khi nào thì được nhận tiền miễn giảm ạ",
+    "answer": "Trường chi trả 2 lần trong năm, vào tháng 5 và tháng 12, và chỉ chi khi đã nhận được ngân sách Nhà nước cấp. Nếu kỳ nào bạn chưa nhận kịp thì sẽ được truy lĩnh vào lần chi trả tiếp theo.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0023",
+    "question": "em học lại nhiều môn thì có còn được miễn giảm ko",
+    "answer": "Thời gian học lại, lưu ban, học bổ sung sẽ không được cấp tiền miễn giảm. Nhưng nếu phải kéo dài thời gian học vì lý do bất khả kháng (không phải do kỷ luật hay tự thôi học) thì vẫn tiếp tục được hưởng tối đa 1 lần trong khóa, sao cho tổng thời gian hưởng bằng thời gian thiết kế khóa học.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0024",
+    "question": "em đang học 2 trường thì có được miễn giảm cả 2 ko ạ",
+    "answer": "Không. Nếu thuộc diện miễn giảm mà học ở nhiều cơ sở hoặc học cùng lúc 2 chương trình trong trường thì chỉ được hưởng một chế độ ưu đãi.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0025",
+    "question": "hỗ trợ chi phí học tập là gì v ạ, khác miễn học phí à",
+    "answer": "Khác. Miễn giảm học phí là giảm tiền phải đóng, còn hỗ trợ chi phí học tập là được cấp tiền mặt bằng 60% mức lương cơ sở mỗi tháng, cấp 10 tháng/năm. Đối tượng hẹp hơn: chỉ sinh viên đại học chính quy là người dân tộc thiểu số có cha/mẹ/ông bà thuộc hộ nghèo hoặc cận nghèo.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0026",
+    "question": "em là dân tộc thiểu số thì được những chính sách gì",
+    "answer": "Tùy trường hợp cụ thể. Nếu cha/mẹ/ông bà thuộc hộ nghèo hoặc cận nghèo: miễn 100% học phí và được hỗ trợ chi phí học tập 60% lương cơ sở/tháng (10 tháng/năm). Nếu ở thôn/bản đặc biệt khó khăn, xã khu vực III: giảm 70% học phí. Nếu thuộc 16 dân tộc rất ít người (Cống, Mảng, Pu Péo, Si La, Cờ Lao, Bố Y, La Ha, Ngái, Chứt, Ơ Đu, Brâu, Rơ Măm, Lô Lô, Lự, Pà Thẻn, La Hủ): miễn 100% học phí và hỗ trợ học tập bằng 100% lương cơ sở/tháng, 12 tháng/năm.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0027",
+    "question": "chính sách hỗ trợ haui là gì ạ",
+    "answer": "Là khoản hỗ trợ riêng của trường (không phải ngân sách Nhà nước) dành cho sinh viên có hoàn cảnh đặc biệt khó khăn. Mức hỗ trợ tối đa bằng đúng số học phí bạn phải đóng ở kỳ có đơn đề nghị. Bạn làm đơn nêu hoàn cảnh gửi Phòng Công tác Sinh viên, thường trực sẽ hướng dẫn cung cấp hồ sơ minh chứng và đề xuất phương án.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0028",
+    "question": "bị đình chỉ học thì có còn được nhận tiền chính sách ko",
+    "answer": "Không, trong thời gian bị đình chỉ bạn không được nhận hỗ trợ chi phí học tập và chính sách nội trú. Trừ trường hợp dừng học do ốm đau, tai nạn, học lại hoặc lý do khách quan được nhà trường xác nhận thì vẫn được nhận. Nếu bị buộc thôi học thì dừng hẳn từ thời điểm quyết định có hiệu lực.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0029",
+    "question": "đầu năm em phải đóng thêm những khoản gì ngoài học phí",
+    "answer": "Bảo hiểm y tế (631.800đ/12 tháng hoặc 789.750đ/15 tháng), bảo hiểm thân thể (325.000đ cho 4 năm với đại học, 255.000đ cho 3 năm với cao đẳng), khám sức khỏe 120.000đ, quỹ khuyến học 20.000đ/khóa. Riêng sinh viên ngành kỹ thuật, công nghệ đóng thêm 400.000đ cho 2 bộ bảo hộ lao động cả khóa.",
+    "source": [
+      "KhoanThu.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0030",
+    "question": "bảo hiểm y tế bao nhiêu tiền ạ",
+    "answer": "631.800đ nếu đóng 12 tháng, hoặc 789.750đ nếu đóng 15 tháng. Mức 15 tháng thường áp cho sinh viên năm nhất để thẻ có hiệu lực từ 01/10 năm nhập học đến 31/12 năm sau.",
+    "source": [
+      "KhoanThu.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0031",
+    "question": "em có thẻ bhyt hộ nghèo ở quê rồi có phải mua ở trường nữa ko",
+    "answer": "Quy định khoản thu chỉ nêu trường hợp được miễn phí BHYT là con liệt sĩ, thương binh, bệnh binh, và giảm 50% phí bảo hiểm thân thể với đối tượng thực hiện chính sách theo Quyết định 09/2011/QĐ-TTg. Trường hợp đã có thẻ BHYT do diện khác cấp, bạn nên mang thẻ lên Phòng Công tác Sinh viên để đối chiếu, tránh đóng trùng.",
+    "source": [
+      "KhoanThu.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0032",
+    "question": "bảo hộ lao động là gì, sao em phải đóng",
+    "answer": "Là quần áo bảo hộ và mũ bảo hộ dùng khi học thực hành. Trường may 2 bộ quần áo và 1 mũ cho mỗi sinh viên, thu 400.000đ cho cả khóa học, chỉ áp dụng với sinh viên ngành kỹ thuật, công nghệ.",
+    "source": [
+      "KhoanThu.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0033",
+    "question": "khám sức khỏe đầu năm mất tiền ko",
+    "answer": "Có, 120.000đ/khóa. Đây là tiền trường thuê cơ sở y tế đến kiểm tra sức khỏe cho sinh viên. Khám sức khỏe cũng là nghĩa vụ bắt buộc theo quy chế công tác sinh viên.",
+    "source": [
+      "KhoanThu.pdf",
+      "QuyCheCTSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0034",
+    "question": "quỹ khuyến học đóng để làm gì",
+    "answer": "20.000đ/khóa. Đây là quỹ khuyến học của trường, nguồn này dùng để trao học bổng cho sinh viên — trong đó có Quỹ khuyến học Nguyễn Thanh Bình, gửi ngân hàng lấy lãi để cấp học bổng hằng năm cho sinh viên khó khăn và học giỏi.",
+    "source": [
+      "KhoanThu.pdf",
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0035",
+    "question": "sao tk của em tự nhiên bị trừ 50k v ạ",
+    "answer": "Nhiều khả năng do bạn đăng ký xem lại bài thi kết thúc học phần trên hệ thống đại học điện tử nhưng không đến. Từ 01/01/2025 trường thu 50.000đ/lượt cho trường hợp này, hệ thống tự trừ trong tài khoản cá nhân sau khi Trung tâm Khảo thí xác nhận danh sách vắng.",
+    "source": [
+      "ThuPhiKhongXemLai.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0036",
+    "question": "đăng ký xem bài thi rồi mà bận ko đi được thì sao",
+    "answer": "Bạn sẽ bị trừ 50.000đ. Trường chỉ thu với sinh viên đăng ký mà không đến, ai đến đúng lịch thì không mất phí. Lý do là việc rút bài, scan, đẩy lên hệ thống và trực tổ chức đã tốn công dù bạn có đến hay không. Nếu biết trước là bận, nên liên hệ Trung tâm Khảo thí sớm.",
+    "source": [
+      "ThuPhiKhongXemLai.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0037",
+    "question": "xem lại bài thi có mất phí ko ạ",
+    "answer": "Đến xem đúng lịch đã đăng ký thì không mất phí. Chỉ bị thu 50.000đ nếu đăng ký mà không đến. Còn phúc khảo thì có lệ phí riêng, và lệ phí phúc khảo sẽ được trả lại nếu điểm sau phúc khảo thay đổi so với điểm công bố ban đầu.",
+    "source": [
+      "ThuPhiKhongXemLai.pdf",
+      "DanhGiaKQHT.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0038",
+    "question": "em bị trừ tiền do ko đi xem bài, đòi lại được ko",
+    "answer": "Không. Thông báo 298 không có cơ chế hoàn lại khoản này.",
+    "source": [
+      "ThuPhiKhongXemLai.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0039",
+    "question": "1 kỳ em được đăng ký tối đa bao nhiêu tín ạ",
+    "answer": "Tối đa 27 tín chỉ mỗi học kỳ chính, tối thiểu 10 tín chỉ. Con số này không tính các học phần ngoài khung chương trình, Giáo dục thể chất và Giáo dục quốc phòng - an ninh. Trong lúc đang đăng ký bạn có thể nhấn tới 33 tín, nhưng trước khi đóng đợt đăng ký chính phải tự điều chỉnh về dưới 27, nếu không hệ thống sẽ tự rút ngẫu nhiên các học phần cho đủ.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0040",
+    "question": "em đăng ký có 8 tín thôi được ko",
+    "answer": "Dưới mức tối thiểu 10 tín chỉ thì Trưởng khoa sẽ xem xét và đề xuất Hiệu trưởng quyết định cho bạn học tiếp hay tạm dừng học kỳ đó, và phải thông báo cho bạn trong tuần đầu tiên của học kỳ. Trừ trường hợp bạn còn nợ dưới 10 tín hoặc kỳ đó không có lớp để đăng ký đủ thì không bị ràng buộc mức tối thiểu.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0041",
+    "question": "khi nào thì mở đăng ký học phần ạ",
+    "answer": "Mỗi kỳ có 2 đợt. Đợt chính mở trước khi bắt đầu học kỳ 3–4 tuần, dành cho tất cả sinh viên đăng ký hoặc hủy. Đợt bổ sung mở trước khi bắt đầu học kỳ 1–2 tuần, chỉ để đăng ký thêm vào các lớp đã được thông báo mở.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0042",
+    "question": "em lỡ đăng ký nhầm môn giờ hủy được ko",
+    "answer": "Trong đợt đăng ký chính thì hủy thoải mái, không mất gì. Sau đó, từ tuần 3 đến hết tuần 8 của kỳ chính (tuần 2 đến hết tuần 4 của kỳ phụ) bạn vẫn được rút khỏi lớp trên hệ thống, nhưng vẫn phải đóng học phí môn đó. Quá tuần 8 thì không rút được nữa.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0043",
+    "question": "em đăng ký rồi mà ko đi học thì sao ạ",
+    "answer": "Bị coi là tự ý bỏ học: nhận điểm F cho học phần đó và vẫn phải đóng học phí đầy đủ.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0044",
+    "question": "năm nhất em có được tự đăng ký môn ko",
+    "answer": "Không, hai học kỳ đầu của năm nhất trường sắp xếp sẵn theo tiến độ đào tạo chuẩn. Từ học kỳ thứ 3 trở đi bạn mới được tư vấn để tự chọn và tự đăng ký khối lượng học tập.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0045",
+    "question": "em muốn học vượt cho ra trường sớm được ko ạ",
+    "answer": "Được, trường đào tạo theo tín chỉ nên bạn tự xây kế hoạch học tập cá nhân, miễn là mỗi kỳ không vượt 27 tín chỉ và đảm bảo điều kiện tiên quyết của từng học phần. Ngoài ra tốt nghiệp trước hạn 12 tháng còn là một tiêu chí được xét khen thưởng khóa học.",
+    "source": [
+      "QuyCheDaoTao.pdf",
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0046",
+    "question": "1 môn em đăng ký được mấy lớp",
+    "answer": "Chỉ 1 lớp cho mỗi học phần trong thời gian đăng ký.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0047",
+    "question": "điểm tổng kết môn tính kiểu gì ạ",
+    "answer": "Nếu đề cương chi tiết học phần không quy định riêng thì: điểm trung bình các điểm trong kỳ = trung bình có trọng số của điểm kiểm tra thường xuyên (hệ số 1) và điểm thi giữa học phần (hệ số 2). Sau đó điểm học phần = trung bình có trọng số của điểm trung bình trong kỳ (hệ số 1) và điểm thi kết thúc học phần (hệ số 2). Tức là thi cuối kỳ chiếm 2/3.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0048",
+    "question": "thi cuối kỳ chiếm bao nhiêu phần trăm v",
+    "answer": "Với học phần lý thuyết hoặc lý thuyết kết hợp thực hành/đồ án: điểm thi kết thúc học phần có trọng số không dưới 50%. Với học phần dự án, đồ án, thực tập, kiến tập: không dưới 70%. Trong công thức mặc định (khi đề cương không quy định riêng) thì thi cuối kỳ hệ số 2 trên tổng hệ số 3, tức khoảng 67%.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0049",
+    "question": "1 môn có mấy cột điểm ạ",
+    "answer": "Tối thiểu 2 điểm thành phần. Riêng học phần dưới 2 tín chỉ có thể chỉ có 1 điểm. Về điểm kiểm tra thường xuyên: học phần từ 3 tín chỉ trở xuống phải có ít nhất 2 điểm; từ 4 tín chỉ trở lên phải có tối thiểu 2 điểm thường xuyên và 1 điểm thi giữa học phần.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0050",
+    "question": "bao lâu thì có điểm giữa kỳ ạ",
+    "answer": "Điểm kiểm tra thường xuyên và điểm thi giữa học phần phải được giảng viên thông báo cho sinh viên trong vòng 7 ngày làm việc kể từ ngày thi/kiểm tra. Riêng điểm bài thực hành/thí nghiệm là 2 ngày làm việc kể từ ngày kết thúc bài.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0051",
+    "question": "em được 8.0 là điểm chữ gì ạ",
+    "answer": "B+ (khoảng 7,7–8,4), quy sang thang 4 là 3,5. Thang chữ đầy đủ: A 8,5–10 (4,0); B+ 7,7–8,4 (3,5); B 7,0–7,6 (3,0); C+ 6,2–6,9 (2,5); C 5,5–6,1 (2,0); D+ 4,7–5,4 (1,5); D 4,0–4,6 (1,0); F dưới 4,0 (0).",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0052",
+    "question": "bao nhiêu điểm thì qua môn ạ",
+    "answer": "Từ 4,0 trở lên (điểm D) là đạt, dưới 4,0 là F và phải học lại. Nhưng D chỉ được 1,0 điểm thang 4, kéo GPA xuống nhiều, mà GPA tích lũy phải từ 2,00 mới đủ điều kiện tốt nghiệp — nên qua môn chưa chắc đã an toàn.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0053",
+    "question": "trong bảng điểm em thấy chữ I với X là gì v",
+    "answer": "I là điểm chưa hoàn thiện do được phép hoãn thi, kiểm tra — bạn có 2 học kỳ chính tiếp theo để trả nợ, không xong thì nhận điểm 0 cho phần còn thiếu. X là chưa đủ dữ liệu, tức Phòng Đào tạo chưa nhận được báo cáo kết quả từ khoa hoặc Trung tâm Khảo thí; Trung tâm Khảo thí phải hoàn thiện trong 1 học kỳ chính tiếp theo. Cả I và X đều không tính vào điểm trung bình.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0054",
+    "question": "điểm R nghĩa là gì ạ",
+    "answer": "Là học phần được miễn học và công nhận tín chỉ. Áp dụng khi bạn chuyển từ cơ sở đào tạo khác đến, học liên thông lên đại học hoặc liên thông sang ngành khác. Điểm R không tính vào điểm trung bình nhưng vẫn tính vào số tín chỉ tích lũy.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0055",
+    "question": "gpa tính thế nào ạ",
+    "answer": "Trung bình cộng có trọng số của điểm các học phần (đã quy về thang 4), trọng số là số tín chỉ của học phần, làm tròn 2 chữ số thập phân. Nếu một môn học nhiều lần thì lấy điểm cao nhất. Kết quả học kỳ phụ được tính gộp vào học kỳ chính ngay trước nó.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0056",
+    "question": "gpa bao nhiêu thì được bằng giỏi ạ",
+    "answer": "Từ 3,20 đến 3,59 là Giỏi, từ 3,60 đến 4,00 là Xuất sắc, 2,50–3,19 là Khá, 2,00–2,49 là Trung bình. Nhưng nếu bạn học lại quá 5% tổng số tín chỉ của chương trình, hoặc từng bị kỷ luật từ cảnh cáo trở lên, thì hạng Xuất sắc và Giỏi bị hạ một mức.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0057",
+    "question": "em học lại môn thì lấy điểm nào ạ",
+    "answer": "Điểm cao nhất trong các lần học được dùng để tính GPA học kỳ và tích lũy. Trường không giới hạn số lần đăng ký học lại hoặc học đổi trong thời gian bạn còn được phép hoàn thành chương trình.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0058",
+    "question": "em qua môn rồi nhưng điểm thấp, học lại để cải thiện được ko",
+    "answer": "Được. Bạn có quyền đăng ký học lại hoặc học đổi (với học phần tự chọn) các học phần đã đạt để cải thiện điểm, và lấy điểm cao nhất trong các lần. Lưu ý điểm học cải thiện không được tính vào GPA xét học bổng, và tổng số tín học lại vượt quá 5% chương trình sẽ làm hạ một bậc hạng tốt nghiệp nếu bạn đang ở mức Giỏi/Xuất sắc.",
+    "source": [
+      "QuyCheDaoTao.pdf",
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0059",
+    "question": "em ốm ko đi thi được thì sao ạ",
+    "answer": "Nếu có lý do chính đáng và làm thủ tục đúng hạn thì được thi bổ sung và vẫn tính là điểm lần đầu. Cụ thể: trong 10 ngày làm việc kể từ ngày thi, bạn làm đơn kèm hồ sơ minh chứng, xin xác nhận của Trưởng khoa quản lý sinh viên để được dự kỳ thi bổ sung do Trung tâm Khảo thí tổ chức. Vắng không có lý do chính đáng thì nhận điểm 0.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0060",
+    "question": "em trùng ca thi thì làm sao ạ",
+    "answer": "Đăng ký đổi lịch thi tại Trung tâm Khảo thí, chậm nhất 24 giờ trước thời điểm ca thi đó được tổ chức.",
+    "source": [
+      "DanhGiaKQHT.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0061",
+    "question": "em thấy điểm chấm sai, khiếu nại kiểu gì",
+    "answer": "Hai bước khác nhau. Xem lại bài: nộp đơn trong 3 ngày kể từ ngày công bố điểm, chỉ áp dụng cho bài tự luận hoặc phần tự luận trong bài kết hợp. Nếu xem xong vẫn thấy chấm chưa chính xác thì nộp đơn phúc khảo trong 5 ngày kể từ khi công bố điểm, có nộp lệ phí và được trả lại lệ phí nếu điểm thay đổi. Kết quả phúc khảo báo về trong tối đa 15 ngày kể từ ngày công bố điểm lần đầu, và là điểm cuối cùng.",
+    "source": [
+      "DanhGiaKQHT.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0062",
+    "question": "thi vấn đáp bị điểm thấp có phúc khảo được ko",
+    "answer": "Không. Các môn thi chấm điểm trực tiếp như vấn đáp, thực hành, đồ án đều không phúc khảo. Nếu thắc mắc thì bạn trao đổi trực tiếp với cán bộ chấm thi ngay tại thời điểm công bố điểm.",
+    "source": [
+      "DanhGiaKQHT.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0063",
+    "question": "được mang gì vào phòng thi ạ",
+    "answer": "Bút viết, bút chì, thước kẻ, tẩy, compa, êke, máy tính cầm tay không có chức năng soạn thảo văn bản và thẻ nhớ. Phải mang thẻ sinh viên hoặc giấy tờ tùy thân có ảnh. Không được mang tài liệu, giấy than, đồ uống có cồn, phương tiện thu phát hay lưu trữ thông tin. Bài thi chỉ viết một màu mực và không được dùng mực đỏ.",
+    "source": [
+      "DanhGiaKQHT.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0064",
+    "question": "nhìn bài bạn bị phạt thế nào ạ",
+    "answer": "Lần đầu nhìn bài hoặc trao đổi bài bị khiển trách, trừ 25% tổng điểm bài thi môn đó. Nếu đã khiển trách mà vẫn tiếp tục, hoặc trao đổi bài làm/giấy nháp, hoặc chép bài bạn thì bị cảnh cáo, trừ 50% điểm. Nếu đã cảnh cáo mà vẫn vi phạm, hoặc mang vật dụng trái phép vào phòng thi thì bị đình chỉ thi, trừ 100% điểm bài thi.",
+    "source": [
+      "DanhGiaKQHT.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0065",
+    "question": "bài thi bị 0 điểm trong trường hợp nào ạ",
+    "answer": "Bài bị xác định có đánh dấu bài, hai bài tự luận giống hệt nhau; bài có từ hai màu mực trở lên; bài có chữ viết của hai người trở lên.",
+    "source": [
+      "DanhGiaKQHT.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0066",
+    "question": "thi hộ bị đuổi học luôn à",
+    "answer": "Lần đầu là đình chỉ học tập 1 năm, lần thứ hai mới buộc thôi học. Áp dụng cho cả người thi hộ lẫn người nhờ thi hộ. Nếu dùng hồ sơ, văn bằng, chứng chỉ giả để trúng tuyển hoặc tốt nghiệp thì buộc thôi học ngay và thu hồi, hủy bằng nếu đã cấp.",
+    "source": [
+      "QuyCheDaoTao.pdf",
+      "DanhGiaKQHT.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0067",
+    "question": "khi nào thì bị cảnh báo học tập ạ",
+    "answer": "Hai trường hợp. Một là GPA học kỳ dưới 0,80 ở kỳ đầu khóa hoặc dưới 1,00 ở các kỳ sau. Hai là GPA tích lũy dưới 1,20 với sinh viên năm nhất, dưới 1,40 năm hai, dưới 1,60 năm ba, dưới 1,80 các năm tiếp theo. Khoa phải thông báo cho bạn trong vòng 10 ngày làm việc kể từ ngày Hiệu trưởng ký quyết định.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0068",
+    "question": "em bị cảnh báo học tập 1 lần rồi, giờ có sao ko ạ",
+    "answer": "Một lần thì chưa bị gì, nhưng lần thứ 2 liên tiếp rơi vào diện cảnh báo là bị buộc thôi học. Nên kỳ tới bạn cần kéo GPA học kỳ lên trên 1,00 và GPA tích lũy vượt ngưỡng của trình độ năm mình. Lưu ý trình độ năm được xếp theo số tín chỉ tích lũy chứ không theo thời gian học.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0069",
+    "question": "những trường hợp nào bị buộc thôi học v ạ",
+    "answer": "Ba trường hợp theo quy chế đào tạo: bị cảnh báo kết quả học tập lần thứ 2 liên tiếp; vượt quá thời gian tối đa được phép học; không đăng ký khối lượng học tập trong 2 học kỳ chính liên tiếp. Ngoài ra còn các trường hợp kỷ luật: thi hộ lần 2, dùng bằng giả, nghỉ học từ 76% số giờ trong kỳ, hay rèn luyện kém kéo dài.",
+    "source": [
+      "QuyCheDaoTao.pdf",
+      "KhenThuongKyLuat.pdf",
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0070",
+    "question": "em được học tối đa bao nhiêu năm ạ",
+    "answer": "Tùy khóa. Nếu bạn nhập học từ 03/5/2021 trở đi thì tối đa 6 năm kể từ ngày nhập học. Nếu trước mốc đó thì bằng 2 lần thời gian kế hoạch học tập chuẩn. Thời gian bị ốm, thai sản, tai nạn phải điều trị có xác nhận y tế, đi nghĩa vụ quân sự, hoặc được cử đại diện quốc gia dự thi/giải quốc tế thì không tính vào thời gian này.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0071",
+    "question": "em bị đuổi học rồi thì có cách nào quay lại ko",
+    "answer": "Nếu bị buộc thôi học vì chưa hoàn thành Giáo dục quốc phòng, Giáo dục thể chất, Kỹ năng CNTT hoặc Ngoại ngữ thì bạn có 3 năm (với sinh viên nhập học từ 03/5/2021 trở đi) kể từ khi bị buộc thôi học để hoàn thiện nốt và đề nghị xét công nhận tốt nghiệp. Còn nếu đã có quyết định cho thôi học thì muốn quay lại phải dự tuyển sinh đầu vào như thí sinh mới.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0072",
+    "question": "em muốn bảo lưu 1 năm có được ko ạ",
+    "answer": "Được nếu thuộc một trong các trường hợp: đi nghĩa vụ quân sự; được cử đại diện quốc gia dự thi/giải quốc tế; ốm, thai sản hoặc tai nạn phải điều trị dài ngày có chứng nhận y tế; hoặc lý do cá nhân khác nhưng phải đã học tối thiểu 1 học kỳ và không thuộc diện bị xem xét buộc thôi học hay kỷ luật. Lưu ý nghỉ vì lý do cá nhân vẫn bị tính vào thời gian học chính thức.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0073",
+    "question": "bảo lưu xong muốn đi học lại thì làm gì ạ",
+    "answer": "Làm đơn gửi về Khoa trước thời điểm bắt đầu đăng ký khối lượng học tập của học kỳ ít nhất 2 tuần. Khoa kiểm tra và gửi hồ sơ về Phòng Đào tạo trong 1 tuần, Phòng Đào tạo ra quyết định tiếp nhận trình Hiệu trưởng ký trước khi bắt đầu học kỳ 2 tuần.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0074",
+    "question": "em muốn chuyển ngành khác trong trường",
+    "answer": "Được nếu đủ 4 điều kiện: đã học xong 2 học kỳ chính đầu tiên; thỏa mãn điều kiện trúng tuyển của ngành muốn chuyển đến trong năm tuyển sinh; chỉ được chuyển 1 lần duy nhất trong khóa; và ngành đó còn chỉ tiêu. Nếu nhiều người cùng xin chuyển mà chỉ tiêu ít thì ưu tiên người có GPA tích lũy cao hơn.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0075",
+    "question": "em học trường khác muốn chuyển sang haui",
+    "answer": "Điều kiện: không đang là sinh viên năm nhất hoặc năm cuối, không thuộc diện bị xem xét buộc thôi học, còn đủ thời gian học; đạt điều kiện trúng tuyển cùng khóa của ngành muốn chuyển đến; trường còn năng lực đào tạo; và được Hiệu trưởng trường đang học chấp nhận. Hồ sơ gồm đơn xin chuyển trường, minh chứng đạt điều kiện trúng tuyển, bảng điểm có xác nhận của trường cũ, sơ yếu lý lịch, nộp về Phòng Đào tạo.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0076",
+    "question": "em muốn học thêm bằng 2 thì cần gì ạ",
+    "answer": "Sớm nhất là khi đã được xếp trình độ năm thứ hai của chương trình thứ nhất. Tại thời điểm đăng ký cần một trong hai: GPA tích lũy loại khá trở lên và đáp ứng ngưỡng đảm bảo chất lượng của chương trình thứ hai, hoặc GPA loại trung bình và đáp ứng điều kiện trúng tuyển của chương trình thứ hai. Nếu trong quá trình học mà GPA chương trình một tụt dưới trung bình hoặc bị cảnh báo thì phải dừng chương trình hai.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0077",
+    "question": "học 2 bằng thì có được kéo dài thời gian ko",
+    "answer": "Không. Thời gian tối đa vẫn là thời gian tối đa của chương trình thứ nhất. Và bạn chỉ được xét tốt nghiệp chương trình hai nếu đã đủ điều kiện tốt nghiệp chương trình một, đồng thời đã đăng ký chương trình hai muộn nhất 2 năm trước thời điểm xét tốt nghiệp chương trình đó.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0078",
+    "question": "điều kiện tốt nghiệp là gì ạ",
+    "answer": "Năm điều kiện: tích lũy đủ học phần và số tín chỉ, đạt chuẩn đầu ra chương trình; hoàn thành Giáo dục quốc phòng - an ninh và Giáo dục thể chất; hoàn thành Kỹ năng sử dụng CNTT, Ngoại ngữ và các môn khác theo yêu cầu; GPA tích lũy từ 2,00 trở lên; tại thời điểm xét không bị truy cứu trách nhiệm hình sự và không đang bị kỷ luật ở mức đình chỉ học tập.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0079",
+    "question": "bao lâu 1 lần trường xét tốt nghiệp",
+    "answer": "Sau mỗi học kỳ. Trước mỗi đợt xét 1 tháng trường thông báo trên cổng sv.dhcnhn.vn để bạn kiểm tra kết quả học tập, thông tin cá nhân in trên bằng và các điều kiện GDTC, GDQP, Ngoại ngữ, CNTT — có sai sót thì gửi đề nghị sửa.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0080",
+    "question": "bao lâu thì em nhận được bằng ạ",
+    "answer": "Trong thời hạn 3 tháng kể từ thời điểm bạn đáp ứng đầy đủ điều kiện tốt nghiệp và hoàn thành mọi nghĩa vụ với nhà trường. Trong lúc chờ, Phòng Đào tạo cấp Giấy chứng nhận tốt nghiệp tạm thời.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0081",
+    "question": "em muốn học cải thiện để lên bằng giỏi thì làm sao",
+    "answer": "Phải làm đơn đề nghị hoãn tốt nghiệp trước khi Khoa gửi danh sách sinh viên đủ điều kiện tốt nghiệp lên Phòng Đào tạo. Nếu để danh sách đã gửi rồi thì không quay lại được nữa.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0082",
+    "question": "em ko tốt nghiệp được thì có giấy tờ gì ko",
+    "answer": "Có, trường cấp chứng nhận hoàn thành các học phần bạn đã tích lũy trong thời gian học tập.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0083",
+    "question": "làm sao để được học bổng ạ",
+    "answer": "Trường có 3 loại. Học bổng HaUI xét từ đầu vào (thủ khoa tổ hợp, thủ khoa phương thức xét tuyển, giải quốc gia/quốc tế, hoặc điểm xét tuyển cao). Học bổng khuyến khích học tập xét theo từng học kỳ chính dựa trên GPA và điểm rèn luyện. Học bổng tài trợ do doanh nghiệp, tổ chức cấp theo tiêu chí riêng của nhà tài trợ. Ngoài ra còn học bổng Nguyễn Thanh Bình cho sinh viên khó khăn hoặc học giỏi.",
+    "source": [
+      "HocBong.pdf",
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0084",
+    "question": "học bổng cần gpa bao nhiêu ạ",
+    "answer": "Với học bổng khuyến khích học tập: GPA học kỳ từ 2,5 trở lên (thang 4) và điểm rèn luyện loại Tốt trở lên, không có học phần nào dưới 2,0, và tổng tín chỉ xét học bổng từ 15 tín trở lên. Với học bổng HaUI đang duy trì thì cũng cần GPA từ 2,5 và rèn luyện Tốt trở lên.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0085",
+    "question": "gpa 2.5 là được học bổng loại gì ạ",
+    "answer": "Loại Khá (khoảng GPA 2,50–3,19), với điều kiện rèn luyện đạt Tốt hoặc Xuất sắc. GPA 3,20–3,59 là loại Giỏi. GPA từ 3,60 trở lên thì được Xuất sắc nếu rèn luyện Xuất sắc, còn rèn luyện chỉ Tốt thì xuống loại Giỏi.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0086",
+    "question": "học bổng được bao nhiêu tiền ạ",
+    "answer": "Quy định xét học bổng không ghi số tiền cụ thể, mức thưởng căn cứ theo Quy chế chi tiêu nội bộ được Hiệu trưởng phê duyệt hằng năm. Riêng học bổng HaUI toàn khóa và năm thứ nhất thì là cấp 100% học phí các học phần học lần đầu trong kỳ chính (không tính học lại, học cải thiện, Kỹ năng CNTT, Ngoại ngữ). Còn học bổng HaUI 5 triệu thì đúng như tên, 5.000.000đ/suất.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0087",
+    "question": "kỳ này em có 1 môn điểm C thì còn được xét học bổng ko",
+    "answer": "Vẫn được. Điều kiện là không có học phần nào dưới 2,0 thang 4 — mà C đúng bằng 2,0 nên vẫn đạt. Từ D+ (1,5) trở xuống mới bị loại.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0088",
+    "question": "kỳ này em học có 12 tín, có được xét học bổng ko",
+    "answer": "Không, trừ khi đó là kỳ cuối. Điều kiện chung là tổng số tín chỉ xét học bổng trong kỳ phải từ 15 tín trở lên; riêng học kỳ cuối theo thời gian thiết kế khóa học thì chỉ cần từ 7 tín. Có một ngoại lệ nữa: nếu do kế hoạch của trường bố trí không đủ 15 tín thì không bị tính.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0089",
+    "question": "em học lại mấy môn kỳ này thì điểm đó có tính vào học bổng ko",
+    "answer": "Không. Điểm TBC học kỳ để xét học bổng chỉ tính các học phần học lần thứ nhất trong kỳ chính và học phần học ở kỳ phụ song song hoặc ngay liền sau. Không tính học phần học lại, học cải thiện điểm, Giáo dục thể chất, Giáo dục quốc phòng, Kỹ năng CNTT, Ngoại ngữ và các môn ngoài khung chương trình.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0090",
+    "question": "em đang bị kỷ luật thì có được học bổng ko",
+    "answer": "Không. Quy định ghi rõ không xét học bổng đối với sinh viên đang trong thời gian bị kỷ luật.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0091",
+    "question": "em thủ khoa đầu vào thì được học bổng gì",
+    "answer": "Học bổng HaUI toàn khóa học, tức được cấp 100% học phí các học phần học lần đầu trong suốt khóa. Áp dụng cho thủ khoa của 4 nhóm tổ hợp xét tuyển (A00; A01; D01; B00/C00/D04/D06/D07/D14/DD2) hoặc thủ khoa của các phương thức xét tuyển khác như học bạ, đánh giá năng lực ĐHQGHN, đánh giá tư duy ĐHBKHN, chứng chỉ quốc tế, học sinh giỏi tỉnh/thành.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0092",
+    "question": "em có giải nhì hsg quốc gia thì sao ạ",
+    "answer": "Bạn thuộc diện được học bổng HaUI toàn khóa học. Điều kiện là giải nhất, nhì, ba trong kỳ thi học sinh giỏi quốc gia/quốc tế hoặc thi khoa học kỹ thuật cấp quốc gia/quốc tế do Bộ GDĐT tổ chức hay cử tham gia, và thời gian đạt giải không quá 3 năm tính đến thời gian đăng ký xét tuyển.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0093",
+    "question": "em được học bổng haui năm nhất rồi, năm sau có tự động có tiếp ko",
+    "answer": "Không tự động. Cuối mỗi học kỳ chính bạn phải đạt đồng thời GPA học kỳ từ 2,5 trở lên, rèn luyện loại Tốt trở lên, và tổng tín chỉ xét học bổng trong kỳ từ 15 tín. Căn cứ xét là kết quả của kỳ chính liền trước.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0094",
+    "question": "em bảo lưu thì có mất học bổng haui ko ạ",
+    "answer": "Không mất. Khi quay lại học tập bạn vẫn được xét tiếp nếu đáp ứng điều kiện duy trì, và thời gian xét còn được kéo dài thêm đúng bằng thời gian bảo lưu. Căn cứ để xét lúc quay lại là kết quả học tập và rèn luyện của học kỳ chính trước khi có quyết định bảo lưu.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0095",
+    "question": "em vừa được học bổng haui vừa được kkht luôn ko",
+    "answer": "Không. Nếu đã nhận học bổng HaUI của kỳ nào thì không xét khuyến khích học tập cùng kỳ đó. Tương tự, nếu đã nhận học bổng tài trợ có giá trị lớn hơn hoặc bằng mức KKHT trong cùng kỳ thì cũng không xét KKHT.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0096",
+    "question": "em được miễn học phí rồi thì có được nhận học bổng nữa ko",
+    "answer": "Có. Quy định ghi rõ sinh viên được nhận học bổng mà đồng thời thuộc đối tượng hưởng chế độ chính sách theo quy định Nhà nước thì được hưởng đồng thời cả học bổng lẫn chế độ chính sách. Nhưng riêng học bổng Nguyễn Thanh Bình thì ngược lại — sinh viên được miễn giảm học phí theo quy định Nhà nước không được xét, trừ sinh viên khuyết tật.",
+    "source": [
+      "HocBong.pdf",
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0097",
+    "question": "nhiều bạn bằng điểm nhau thì xét ai trước ạ",
+    "answer": "Ưu tiên lần lượt: điểm trung bình chung xét học bổng của kỳ cao nhất theo thang 10 (điểm trước khi quy đổi sang thang 4, làm tròn 2 chữ số thập phân); rồi đến sinh viên có hoàn cảnh gia đình khó khăn; rồi sinh viên là cán bộ lớp, cán bộ Đoàn - Hội hoặc tích cực tham gia phong trào.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0098",
+    "question": "học bổng tài trợ xin ở đâu ạ",
+    "answer": "Đầu mối là Phòng Hợp tác đối ngoại — nơi tiếp nhận thông tin tài trợ từ doanh nghiệp rồi chuyển sang Phòng Công tác Sinh viên. Phòng CTSV phối hợp với các đơn vị đào tạo xét chọn. Tiêu chí do nhà tài trợ đặt ra; nếu nhà tài trợ không kèm tiêu chí thì trường xét theo kết quả học tập, rèn luyện và hoàn cảnh. Mỗi sinh viên chỉ nhận 1 loại học bổng tài trợ trong một năm học.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0099",
+    "question": "học bổng nguyễn thanh bình là gì ạ",
+    "answer": "Là học bổng từ quỹ khuyến học của trường, mang tên ông Nguyễn Thanh Bình — nguyên Ủy viên Bộ Chính trị, nguyên Thường trực Ban Bí thư, nguyên Bí thư Thành ủy Hà Nội, cựu học sinh niên khóa 1936-1938 của trường. Quỹ gửi ngân hàng, lấy tiền lãi hằng năm để trao học bổng cho sinh viên khó khăn vượt khó và sinh viên học giỏi. Xét theo năm học, không xét kết quả năm cuối.",
+    "source": [
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0100",
+    "question": "em nhà khó khăn thì xin học bổng nào được ạ",
+    "answer": "Học bổng Nguyễn Thanh Bình là phù hợp nhất. Các nhóm được xét gồm: mắc bệnh hiểm nghèo; khuyết tật; mồ côi cha hoặc mẹ; có cha hoặc mẹ mắc bệnh hiểm nghèo hoặc mất khả năng lao động; dân tộc Kinh thuộc hộ nghèo/cận nghèo. Ngoài ra bạn có thể xin chính sách hỗ trợ HaUI dành cho sinh viên hoàn cảnh đặc biệt khó khăn, mức tối đa bằng học phí phải đóng của kỳ đó.",
+    "source": [
+      "HocBongNTB.pdf",
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0101",
+    "question": "học bổng ntb được bao nhiêu ạ",
+    "answer": "Mức cơ bản do Hiệu trưởng quyết định hằng năm dựa trên tiền lãi của quỹ, nên không cố định. Nhưng tỷ lệ thì cố định theo đối tượng: sinh viên mắc bệnh hiểm nghèo nhận 150%; khuyết tật, mồ côi cha/mẹ, hoặc có cha/mẹ bệnh hiểm nghèo nhận 120%; các nhóm còn lại (hộ nghèo, NCKH giải nhất cấp trường, học giỏi) nhận 100%.",
+    "source": [
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0102",
+    "question": "em học giỏi có xin được ntb ko hay chỉ dành cho bạn khó khăn",
+    "answer": "Có, đó là đối tượng 2.1.7: GPA năm học từ 3,6 trở lên (thang 4) và rèn luyện loại Tốt trở lên. Nhưng nhóm này được xét sau cùng, sau khi đã xét xong các nhóm ưu tiên khó khăn từ 2.1.1 đến 2.1.6. Phần lãi còn dư mới chia cho hai khối Kỹ thuật và Xã hội theo tỷ lệ số sinh viên để xét cho nhóm này.",
+    "source": [
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0103",
+    "question": "em đang nhận học bổng khác thì còn xin ntb được ko",
+    "answer": "Không, nếu học bổng kia có mức bằng hoặc cao hơn mức NTB trong năm đó. Cụ thể bị loại: đã nhận học bổng HaUI toàn khóa (loại cả khóa), đã nhận học bổng HaUI năm nhất (loại năm nhất), đã nhận KKHT hoặc học bổng tài trợ hay chính sách Nhà nước có mức ≥ mức NTB.",
+    "source": [
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0104",
+    "question": "em được giảm học phí rồi có xin ntb được ko",
+    "answer": "Không, sinh viên được miễn giảm học phí theo quy định Nhà nước không thuộc diện xét học bổng Nguyễn Thanh Bình. Ngoại lệ duy nhất là sinh viên khuyết tật — vẫn được xét bình thường.",
+    "source": [
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0105",
+    "question": "xin ntb cần bao nhiêu tín chỉ 1 năm ạ",
+    "answer": "Tùy nhóm. Sinh viên mắc bệnh hiểm nghèo hoặc khuyết tật cần từ 25 tín chỉ/năm. Các nhóm còn lại cần từ 30 tín chỉ/năm. Trừ trường hợp do kế hoạch của trường bố trí không đủ thì không tính.",
+    "source": [
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0106",
+    "question": "gpa bao nhiêu thì xin được ntb ạ",
+    "answer": "Khác nhau theo hoàn cảnh. Bệnh hiểm nghèo, khuyết tật, mồ côi cha/mẹ: GPA từ 2,0 và rèn luyện từ Khá. Có cha/mẹ bệnh hiểm nghèo hoặc mất khả năng lao động: GPA từ 2,5 và rèn luyện từ Tốt. Hộ nghèo/cận nghèo và diện có NCKH giải nhất cấp trường: GPA từ 3,2 và rèn luyện từ Tốt. Diện học giỏi thuần túy: GPA từ 3,6 và rèn luyện từ Tốt.",
+    "source": [
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0107",
+    "question": "em thuộc nhiều diện thì được cộng dồn ko",
+    "answer": "Không, trường sẽ chọn đối tượng có mức học bổng cao nhất để xét cấp cho bạn.",
+    "source": [
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0108",
+    "question": "xin ntb cần giấy tờ gì ạ",
+    "answer": "Tùy diện: khuyết tật cần giấy chứng nhận khuyết tật của UBND xã/phường hoặc quyết định trợ cấp xã hội của Chủ tịch UBND cấp huyện; bệnh hiểm nghèo cần báo cáo y tế của bác sĩ điều trị theo mẫu của cơ sở y tế; mồ côi cần giấy xác nhận của UBND cấp xã/phường; hộ nghèo/cận nghèo cần giấy chứng nhận hộ nghèo hoặc cận nghèo do UBND cấp xã/phường cấp.",
+    "source": [
+      "HocBongNTB.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0109",
+    "question": "điểm rèn luyện tính sao ạ",
+    "answer": "Thang 100 điểm, chia 5 mục. Với hệ đại học: thái độ và kết quả học tập 20đ, chấp hành nội quy quy chế 25đ, tham gia hoạt động chính trị - xã hội - văn hóa - thể thao 20đ, công tác cán bộ lớp/đoàn thể hoặc thành tích đặc biệt 10đ, phẩm chất công dân và quan hệ cộng đồng 25đ. Hệ cao đẳng chia khác: 30/25/25/20/0.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0110",
+    "question": "làm sao để điểm rèn luyện cao ạ",
+    "answer": "Mấy khoản dễ ăn điểm nhất: kết quả học tập (GPA từ 3,6 được 10đ, 3,2-3,59 được 8đ, 2,5-3,19 được 6đ); tham gia CLB học thuật do Đoàn/Hội quản lý 2đ; tham gia đề tài NCKH cấp khoa/trường 5đ; tham gia cuộc thi học thuật cấp trường trở lên 8đ; các lớp kỹ năng mềm do CTSV/ĐTN/HSV cấp giấy chứng nhận 6đ; hội thảo khoa học từ cấp khoa 3đ; làm cán bộ lớp hoàn thành tốt nhiệm vụ 10đ. Chấp hành nội quy đầy đủ đã chiếm sẵn 25đ.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0111",
+    "question": "gpa của em ảnh hưởng đến điểm rèn luyện ko",
+    "answer": "Có. Trong mục học tập, điểm trung bình chung học kỳ quy ra: Xuất sắc (từ 3,6) được 10đ, Giỏi (3,2-3,59) được 8đ, Khá (2,5-3,19) được 6đ, Trung bình (2,0-2,49) được 4đ. Hệ cao đẳng mức cao hơn: 20/18/16/14/10.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0112",
+    "question": "đi tình nguyện có được cộng điểm rèn luyện ko",
+    "answer": "Có, nằm trong mục hoạt động chính trị - xã hội. Tham gia hoạt động rèn luyện về chính trị, xã hội, văn hóa văn nghệ, thể thao được 5đ, đạt giải được 10đ, làm ban tổ chức hoặc cộng tác viên được 10đ, đi cổ vũ được 2đ. Ngoài ra tham gia hoạt động phục vụ cộng đồng cấp Trường/Khoa được 10đ ở mục phẩm chất công dân.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0113",
+    "question": "em có bài báo khoa học thì được mấy điểm",
+    "answer": "10 điểm trong mục học tập. Ngoài ra nếu đạt giải cấp quốc gia/quốc tế được 20đ, giải cấp Trường/Thành phố được 10đ — nhưng nhớ là tổng mục học tập của hệ đại học chỉ tối đa 20 điểm.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0114",
+    "question": "làm lớp trưởng được cộng mấy điểm ạ",
+    "answer": "Hoàn thành tốt nhiệm vụ được 10đ (hệ đại học), hoàn thành nhiệm vụ được 5đ. Ngược lại không hoàn thành nhiệm vụ thì bị trừ 10đ. Áp dụng cho cả BCH Đoàn trường, BCH Hội sinh viên, BCH Khoa, BCH chi đoàn/chi hội, cán bộ lớp, chủ nhiệm và phó chủ nhiệm CLB, theo kết quả đánh giá của BCH Đoàn Thanh niên và Hội SV.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0115",
+    "question": "80 điểm rèn luyện là loại gì ạ",
+    "answer": "Loại Tốt. Thang xếp loại hệ đại học: 90-100 Xuất sắc, 80 đến dưới 90 Tốt, 65 đến dưới 80 Khá, 50 đến dưới 65 Trung bình, 35 đến dưới 50 Yếu, dưới 35 Kém. Hệ cao đẳng thì mốc Khá là 70 và không có loại Yếu.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0116",
+    "question": "điểm rèn luyện thấp thì có sao ko ạ",
+    "answer": "Có mấy ảnh hưởng. Trước mắt là mất cơ hội học bổng, vì học bổng KKHT và HaUI đều đòi rèn luyện từ loại Tốt. Nặng hơn: nếu xếp loại yếu hoặc kém 2 học kỳ liên tiếp thì phải tạm ngừng học ít nhất 1 học kỳ; nếu tiếp tục bị yếu/kém 2 kỳ liên tiếp lần thứ hai thì bị buộc thôi học.",
+    "source": [
+      "DRL.pdf",
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0117",
+    "question": "em bị kỷ luật thì điểm rèn luyện có bị ảnh hưởng ko",
+    "answer": "Có, bị chặn trần. Bị khiển trách thì rèn luyện kỳ đó không vượt quá loại Khá. Bị cảnh cáo thì không vượt quá loại Trung bình. Còn đang trong thời gian bị đình chỉ thì không đánh giá rèn luyện.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0118",
+    "question": "bao giờ thì chấm điểm rèn luyện ạ",
+    "answer": "Theo từng học kỳ. Phòng CTSV lập phiếu và ra thông báo trên hệ thống đại học điện tử, sau đó bạn có 7 ngày để tự đánh giá. Tiếp 7 ngày nữa cố vấn học tập tổ chức họp lớp bình xét, thông qua khi trên 50% tập thể lớp đồng ý và có minh chứng. Hội đồng khoa gửi kết quả về Phòng CTSV trong vòng 30 ngày sau khi kết thúc học kỳ.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0119",
+    "question": "em ko đồng ý với điểm rèn luyện thì làm sao",
+    "answer": "Bạn có quyền khiếu nại lên các phòng ban chức năng, khoa đào tạo hoặc Hiệu trưởng thông qua Phòng Công tác Sinh viên. Đơn vị nhận đơn phải giải quyết và trả lời trong vòng 7 ngày kể từ ngày nhận. Trong quy trình đánh giá cũng có bước riêng để sinh viên khiếu nại sau khi cố vấn học tập nhập dữ liệu lên hệ thống.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0120",
+    "question": "em đi thực tập ngoài thì điểm rèn luyện tính sao",
+    "answer": "Trong kỳ thực tập, trường yêu cầu có đánh giá thái độ, tác phong tại nơi thực tập để làm cơ sở đánh giá rèn luyện.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0121",
+    "question": "em học song bằng thì chấm rèn luyện ở đâu",
+    "answer": "Ở đơn vị quản lý chương trình thứ nhất, có lấy ý kiến nhận xét của đơn vị quản lý chương trình thứ hai làm căn cứ để đánh giá thêm. Nếu chương trình thứ nhất đã hoàn thành thì đơn vị quản lý chương trình thứ hai sẽ tiếp tục đánh giá.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0122",
+    "question": "em chuyển trường sang thì điểm rèn luyện cũ có được giữ ko",
+    "answer": "Có, được bảo lưu kết quả rèn luyện của cơ sở giáo dục đại học cũ và tiếp tục đánh giá ở các học kỳ tiếp theo.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0123",
+    "question": "điểm rèn luyện dùng để làm gì ạ",
+    "answer": "Lưu trong hồ sơ quản lý sinh viên, dùng xét học bổng khuyến khích học tập, học bổng tài trợ, khen thưởng và các chế độ liên quan quyền lợi khác. Kết quả rèn luyện cũng được ghi vào bảng điểm kết quả học tập và rèn luyện khi bạn ra trường, và là căn cứ xét học tiếp, xét tốt nghiệp.",
+    "source": [
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0124",
+    "question": "em nghỉ học nhiều quá có bị gì ko ạ",
+    "answer": "Có, tính theo % tổng số giờ nghỉ trên tổng giờ phải học trong kỳ, chốt vào cuối tuần học cuối cùng. Nghỉ 31-45%: lần đầu khiển trách, lần 2 cảnh cáo, lần 3 đình chỉ, lần 4 buộc thôi học. Nghỉ 46-60%: lần đầu đã cảnh cáo. Nghỉ 61-75%: lần đầu đình chỉ. Nghỉ từ 76% trở lên: buộc thôi học ngay. Thời gian đình chỉ là 1 học kỳ và hình thức kỷ luật được bảo lưu trong toàn khóa.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0125",
+    "question": "bị khiển trách thì bao lâu mới xóa ạ",
+    "answer": "3 tháng kể từ ngày có quyết định, nếu không tái phạm hoặc không có vi phạm đến mức phải xử lý kỷ luật thì đương nhiên chấm dứt hiệu lực và bạn được hưởng lại quyền lợi bình thường. Với cảnh cáo thì là 6 tháng.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0126",
+    "question": "kỷ luật có gửi về nhà cho bố mẹ ko ạ",
+    "answer": "Có. Hình thức kỷ luật từ cảnh cáo trở lên phải lưu vào hồ sơ quản lý sinh viên, và cố vấn học tập có trách nhiệm thông báo, gửi quyết định kỷ luật về gia đình. Nếu bị đình chỉ học tập có thời hạn hoặc buộc thôi học thì trường còn gửi quyết định về địa phương nơi bạn cư trú.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0127",
+    "question": "em bị lập biên bản rồi, giờ quy trình thế nào ạ",
+    "answer": "Bạn phải làm bản tự kiểm điểm và tự nhận hình thức kỷ luật. Trong 3 ngày làm việc từ khi phát hiện, cố vấn học tập chủ trì họp lớp phân tích, đề nghị hình thức, lập biên bản gửi Hội đồng cấp đơn vị đào tạo và thông báo về gia đình. 3 ngày tiếp Hội đồng khoa họp đề xuất lên Phòng CTSV. 3 ngày tiếp nữa Phòng CTSV rà soát gửi Hội đồng cấp trường. Hội đồng trường họp và kiến nghị Hiệu trưởng ban hành quyết định.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0128",
+    "question": "em ko viết bản kiểm điểm thì hội đồng có xử được ko",
+    "answer": "Có. Nếu bạn không chấp hành làm bản tự kiểm điểm thì Hội đồng vẫn họp xử lý trên cơ sở các chứng cứ thu thập được, và bạn còn bị xét thêm khuyết điểm thiếu ý thức tổ chức kỷ luật.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0129",
+    "question": "hút thuốc trong trường có bị phạt ko",
+    "answer": "Hút thuốc lá trong giờ học, phòng họp, phòng thí nghiệm và nơi cấm hút thuốc: từ lần thứ 3 trở lên mới xử lý kỷ luật, ở mức từ khiển trách đến cảnh cáo.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0130",
+    "question": "đánh nhau trong trường thì sao ạ",
+    "answer": "Quy định không xếp riêng hành vi đánh nhau mà nằm ở nhóm gây mất an ninh trật tự nhà trường: tùy mức độ xử lý từ khiển trách đến buộc thôi học, nếu nghiêm trọng thì giao cơ quan chức năng xử lý theo pháp luật. Nếu có hành động gây gổ, đe dọa cán bộ hoặc sinh viên khác trong giờ thi thì bị đình chỉ thi luôn, trừ 100% điểm bài thi môn đó.",
+    "source": [
+      "KhenThuongKyLuat.pdf",
+      "DanhGiaKQHT.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0131",
+    "question": "em làm hỏng thiết bị của trường thì sao",
+    "answer": "Tùy mức độ xử lý kỷ luật từ khiển trách đến buộc thôi học, và phải bồi thường thiệt hại.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0132",
+    "question": "vô lễ với thầy cô bị kỷ luật thế nào ạ",
+    "answer": "Tùy mức độ, xử lý từ khiển trách đến buộc thôi học. Quy chế công tác sinh viên cũng ghi tôn trọng nhà giáo, cán bộ quản lý, viên chức và nhân viên của trường là nghĩa vụ của sinh viên.",
+    "source": [
+      "KhenThuongKyLuat.pdf",
+      "QuyCheCTSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0133",
+    "question": "nhờ bạn làm tiểu luận hộ có bị gì ko",
+    "answer": "Có. Tổ chức học, thi, kiểm tra thay hoặc tổ chức làm thay tiểu luận, đồ án, khóa luận tốt nghiệp thì tùy theo mức độ có thể bị giao cho cơ quan chức năng xử lý theo quy định của pháp luật. Còn gian lận trong học tập, kiểm tra nói chung thì xử lý từ khiển trách đến buộc thôi học.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0134",
+    "question": "em đăng bài nói xấu trường lên fb có bị gì ko",
+    "answer": "Có thể bị xử lý. Hành vi liên quan đến nội dung xuyên tạc, vu khống, xúc phạm uy tín danh dự, xâm phạm đời tư nhân phẩm cá nhân nằm trong khung xử lý kỷ luật, tùy mức độ từ khiển trách đến buộc thôi học. Nếu bạn có góp ý thật thì nên gửi qua kênh chính thức — sinh viên có quyền góp ý trực tiếp hoặc qua đại diện hợp pháp để kiến nghị xây dựng trường.",
+    "source": [
+      "KhenThuongKyLuat.pdf",
+      "QuyCheCTSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0135",
+    "question": "vi phạm giao thông ngoài trường thì trường có xử lý ko",
+    "answer": "Có. Vi phạm các quy định về an toàn giao thông nằm trong khung xử lý kỷ luật của trường, tùy mức độ từ khiển trách đến buộc thôi học.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0136",
+    "question": "em đang bị bệnh phải nghỉ điều trị mà bị xét kỷ luật thì sao",
+    "answer": "Trường dừng tổ chức xem xét kỷ luật trong thời gian bạn nghỉ điều trị bệnh hoặc nghỉ học được sự đồng ý của trường. Khi bạn quay lại học tập, Hội đồng sẽ căn cứ vào nhận xét của địa phương nơi cư trú để đưa ra hình thức kỷ luật.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0137",
+    "question": "hết hạn đình chỉ thì em quay lại học luôn được ko",
+    "answer": "Phải xuất trình chứng nhận của địa phương (cấp xã, phường, thị trấn) nơi cư trú về việc chấp hành tốt nghĩa vụ công dân tại địa phương để nhà trường xem xét, tiếp nhận vào học tiếp nếu đủ điều kiện.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0138",
+    "question": "em vừa bị kỷ luật xong lại vi phạm tiếp thì tính sao",
+    "answer": "Bị nặng hơn một mức. Nếu hành vi mới bị xử ở mức nhẹ hơn hoặc bằng mức đang thi hành thì áp dụng hình thức nặng hơn một mức so với mức đang thi hành. Nếu hành vi mới bị xử ở mức nặng hơn thì áp dụng nặng hơn một mức so với mức của hành vi mới. Quyết định cũ chấm dứt hiệu lực từ khi quyết định mới có hiệu lực.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0139",
+    "question": "muốn được khen thưởng cuối năm cần gì ạ",
+    "answer": "Phải đạt đồng thời: GPA năm học từ 3,6 trở lên, hoặc từ 3,2 kèm thành tích cao đóng góp cho trường/cộng đồng; rèn luyện năm học loại Xuất sắc; tất cả học phần trong năm đạt từ điểm C trở lên; tích lũy tối thiểu 30 tín chỉ trong năm (không tính GDQP-AN, GDTC, Kỹ năng CNTT, Ngoại ngữ và các môn ngoài khung); đang trong thời gian học tập chuẩn. Riêng sinh viên năm cuối phải được công nhận tốt nghiệp.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0140",
+    "question": "sinh viên tiêu biểu khóa học là gì ạ",
+    "answer": "Là danh hiệu khen thưởng khóa học. Điều kiện: hoàn thành chương trình trong thời gian thiết kế, được công nhận tốt nghiệp, rèn luyện toàn khóa loại Tốt trở lên, và đạt một trong các tiêu chí — GPA tốt nghiệp từ 3,6; tốt nghiệp sớm 12 tháng; GPA tốt nghiệp cao nhất ngành (từ 3,2); GPA từ 3,2 kèm nhiều thành tích đóng góp; hoặc tốt nghiệp đồng thời 2 chương trình đào tạo.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0141",
+    "question": "em đạt giải cuộc thi thì trường có thưởng ko",
+    "answer": "Có. Trường thưởng tiền cho tất cả tập thể, cá nhân được khen thưởng, và tặng giấy khen cho: giải thưởng cấp Bộ, Thành phố trở lên; sinh viên tiêu biểu khóa học/năm học; đạt giải ba trở lên trong các cuộc thi văn hóa văn nghệ, thể dục thể thao, NCKH, Olympic môn học do trường tổ chức; và các thành tích đột xuất đặc biệt khác. Mức thưởng theo quy chế chi tiêu nội bộ.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0142",
+    "question": "em đạt giải nhất cấp trường lại được giải nhì cấp bộ cùng 1 nội dung thì thưởng cả 2 ko",
+    "answer": "Không, cùng một nội dung mà đạt ở nhiều cấp thì chỉ khen thưởng ở cấp cao nhất. Nhưng nếu cùng cấp mà nội dung thi khác nhau thì được khen thưởng tương ứng với từng nội dung.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0143",
+    "question": "bao lâu thì có kết quả khen thưởng ạ",
+    "answer": "Với khen thưởng thành tích: Phòng CTSV tổng hợp báo cáo Hội đồng xét và tổ chức khen thưởng trong vòng 15 ngày làm việc kể từ ngày nhận được đề nghị. Với khen thưởng năm học: xét hằng năm sau khi có kết quả xét học tiếp của năm học đó; riêng sinh viên năm cuối xét sau khi có quyết định tốt nghiệp. Với khen thưởng khóa học: phải hoàn thành trước khi bạn nhận bằng tốt nghiệp.",
+    "source": [
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0144",
+    "question": "có ielts thì được miễn tiếng anh ko ạ",
+    "answer": "Được, nhưng miễn được bao nhiêu học phần thì tùy mức điểm. IELTS 4,5-5,0 (bậc 3) miễn Tiếng Anh cơ bản 1,2,3,4 nếu bạn học khối không chuyên ngữ. IELTS 5,5-6,5 (bậc 4), 7,0-7,5 (bậc 5), 8,0-9,0 (bậc 6) thì miễn tăng dần. Điều kiện: chứng chỉ còn hiệu lực và không quá 2 năm tính theo ngày cấp ghi trên chứng chỉ.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0145",
+    "question": "toeic bao nhiêu thì được miễn ạ",
+    "answer": "TOEIC 405-600 tương đương bậc 3/B1, TOEIC 605-700 là bậc 4/B2, TOEIC 705-780 là bậc 5/C1, TOEIC 785-990 là bậc 6/C2. Bậc càng cao miễn càng nhiều học phần. Chứng chỉ phải từ bậc 3 trở lên và còn hạn, không quá 2 năm tính từ ngày cấp.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0146",
+    "question": "chứng chỉ tiếng anh của em hết hạn 2 năm rồi có dùng được ko",
+    "answer": "Không. Quy định yêu cầu chứng chỉ còn thời hạn hiệu lực và không quá 2 năm tính theo ngày cấp ghi trên chứng chỉ.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0147",
+    "question": "em học tiếng nhật, có n3 thì miễn được gì ạ",
+    "answer": "JLPT N3 tương đương bậc 4/B2 (hoặc J.TEST D từ 500 điểm). Nếu học khối chuyên ngữ NN Nhật thì được miễn kỹ năng đọc/nghe/nói/viết Tiếng Nhật 1,2, Ngữ pháp tiếng Nhật 1,2 và Hán tự tiếng Nhật 1. Nếu khối không chuyên ngữ thì miễn Tiếng Nhật cơ bản 1,2.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0148",
+    "question": "em có hsk4 thì sao ạ",
+    "answer": "HSK 4 tương đương bậc 4/B2. Khối chuyên ngữ NN Trung Quốc được miễn kỹ năng đọc/nghe/nói/viết Tiếng Trung Quốc 1,2. Khối không chuyên ngữ được miễn Tiếng Trung cơ bản 1,2.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0149",
+    "question": "topik 4 miễn được môn nào ạ",
+    "answer": "TOPIK 4 (150-189 điểm) tương đương bậc 4/B2. Khối chuyên ngữ NN Hàn Quốc được miễn kỹ năng đọc và nghe Tiếng Hàn Quốc 1,2, kỹ năng nói/viết Tiếng Hàn Quốc 1,2, Ngữ pháp tiếng Hàn Quốc 1,2. Khối không chuyên ngữ được miễn Tiếng Hàn Quốc cơ bản 1,2.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0150",
+    "question": "em có chứng chỉ mos có được miễn tin học ko",
+    "answer": "Có. Các chứng chỉ được xét miễn học phần Kỹ năng sử dụng công nghệ thông tin gồm: bằng tốt nghiệp cao đẳng trở lên nhóm ngành Máy tính và CNTT hoặc Sư phạm Tin học, chứng chỉ Ứng dụng CNTT nâng cao, MOS, IC3, ICDL.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0151",
+    "question": "em học trường khác chuyển sang, môn cũ có được công nhận ko",
+    "answer": "Có thể, nếu đáp ứng cả 3: chuẩn đầu ra hoặc nội dung chương trình tương đương; khối lượng học tập của học phần cũ bằng hoặc lớn hơn học phần tương ứng ở HaUI; kết quả đạt từ điểm C trở lên (hoặc từ 2,0 thang 4, từ 5,5 thang 10). Tổng khối lượng được công nhận không vượt quá 50% khối lượng chương trình đào tạo.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf",
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0152",
+    "question": "khi nào nộp hồ sơ xin miễn môn ạ",
+    "answer": "Trước thời điểm đăng ký học phần của học kỳ chính 4 tuần. Riêng đề nghị miễn các học phần ngoại ngữ thì chỉ nộp vào trước học kỳ chính 4 tuần của đầu các năm học theo kế hoạch học tập chuẩn toàn khóa, không xét giữa chừng.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0153",
+    "question": "hồ sơ xin miễn môn gồm gì ạ",
+    "answer": "Đơn đề nghị theo mẫu (Phụ lục 05), bảng kết quả học tập, chứng chỉ, chứng nhận đoạt giải và các hồ sơ minh chứng liên quan, gửi về đơn vị quản lý chương trình đào tạo.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0154",
+    "question": "miễn môn có mất phí ko ạ",
+    "answer": "Có, trừ 2 trường hợp miễn phí là sinh viên liên thông cao đẳng lên đại học/đào tạo từ xa khi nhập học, và chương trình liên kết đào tạo. Còn lại phí tính bằng 0,2 × số tín chỉ được công nhận × đơn giá 1 tín chỉ của chương trình bạn đang học.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0155",
+    "question": "đồ án tốt nghiệp có được miễn ko ạ",
+    "answer": "Không. Nhóm 'Đồ án/khóa luận tốt nghiệp và các học phần thay thế đồ án/khóa luận tốt nghiệp' không được công nhận kết quả học tập và chuyển đổi tín chỉ.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0156",
+    "question": "em đạt giải nckh thì có được miễn môn nào ko",
+    "answer": "Có. Tham gia NCKH hoặc các cuộc thi do trường tổ chức hay cử tham gia mà đạt từ giải Ba trở lên thì được xét công nhận và chuyển đổi tín chỉ, nhưng không quá 1 học phần cho 1 hoạt động. Điểm được công nhận tối đa: giải quốc tế và quốc gia đều 10 điểm; cấp tỉnh/thành phố giải nhất 10, nhì 9,5, ba 9; cấp trường giải nhất 9, nhì 8, ba 7.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0157",
+    "question": "em tối đa được miễn bao nhiêu tín chỉ ạ",
+    "answer": "Không quá 50% khối lượng học tập của chương trình đào tạo. Riêng tín chỉ tích lũy ở cơ sở đào tạo khác theo chương trình trao đổi sinh viên thì không vượt quá 25% tổng khối lượng chương trình.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf",
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0158",
+    "question": "môn được miễn có tính vào gpa ko ạ",
+    "answer": "Không. Học phần được miễn học và công nhận tín chỉ ghi điểm R, tính vào số tín chỉ tích lũy nhưng không tính vào điểm trung bình. Tuy nhiên nếu bạn đã được miễn mà vẫn đăng ký học và được đánh giá đạt thì điểm đó sẽ được dùng để tính GPA tích lũy.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0159",
+    "question": "sinh viên có quyền gì ạ",
+    "answer": "Được giáo dục đào tạo toàn diện; được tôn trọng, bình đẳng, được phổ biến nội quy quy chế và cung cấp đầy đủ thông tin học tập, rèn luyện; được dùng cơ sở vật chất, thư viện, trang thiết bị, tham gia đoàn thể và CLB; được học kéo dài, học cùng lúc 2 chương trình, nghỉ học tạm thời, chuyển ngành, chuyển trường; được học vượt, rút ngắn thời gian; được hưởng chế độ chính sách; được cử đại diện tham gia hội đồng trường; được góp ý kiến xây dựng trường; được xét vào ký túc xá; được cấp bằng, chứng chỉ, giấy xác nhận, bảng điểm.",
+    "source": [
+      "QuyCheCTSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0160",
+    "question": "em chuyển chỗ trọ có phải báo trường ko",
+    "answer": "Có. Bạn phải điều chỉnh thông tin địa chỉ tạm trú trên hệ thống đại học điện tử chậm nhất 5 ngày làm việc kể từ khi thay đổi nơi tạm trú, đồng thời thực hiện đăng ký tạm trú, tạm vắng tại địa phương.",
+    "source": [
+      "QuyCheCTSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0161",
+    "question": "trường có gặp mặt sinh viên để nghe ý kiến ko ạ",
+    "answer": "Có, trường tổ chức đối thoại định kỳ 4 lần/năm học với sinh viên. Đây cũng là một trong các quyền của bạn: được góp ý kiến trực tiếp hoặc thông qua đại diện hợp pháp để kiến nghị các giải pháp xây dựng và phát triển trường.",
+    "source": [
+      "QuyCheCTSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0162",
+    "question": "cố vấn học tập làm gì v ạ",
+    "answer": "Thực hiện nhiệm vụ chủ nhiệm lớp và tư vấn, trợ giúp bạn trong quá trình học tập, rèn luyện. Cụ thể CVHT sẽ: triển khai và nhập dữ liệu đánh giá rèn luyện, chủ trì họp lớp bình xét; chủ trì họp kiểm điểm khi có sinh viên vi phạm; thông báo và gửi quyết định kỷ luật về gia đình; và là người bạn gửi đơn khi không có khả năng hoàn thành học phí đúng hạn.",
+    "source": [
+      "QuyCheCTSV.pdf",
+      "DRL.pdf",
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0163",
+    "question": "làm cán bộ lớp có được gì ko ạ",
+    "answer": "Được ưu tiên cộng điểm rèn luyện và các chế độ khác theo quy định của trường. Cụ thể ở mục 4 của bảng điểm rèn luyện: hoàn thành tốt nhiệm vụ được 10 điểm (hệ đại học), hoàn thành nhiệm vụ được 5 điểm. Ngoài ra khi xét học bổng mà bằng điểm nhau, cán bộ lớp và cán bộ Đoàn - Hội được ưu tiên.",
+    "source": [
+      "QuyCheCTSV.pdf",
+      "DRL.pdf",
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0164",
+    "question": "ban cán sự lớp do ai chọn ạ",
+    "answer": "Do tập thể sinh viên trong lớp bầu và được Hiệu trưởng công nhận, nhiệm kỳ theo năm học. Riêng ban cán sự lớp học phần thì do giảng viên giảng dạy học phần chỉ định, nhiệm kỳ theo thời gian học của học phần đó.",
+    "source": [
+      "QuyCheCTSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0165",
+    "question": "trường có hỗ trợ tâm lý cho sinh viên ko ạ",
+    "answer": "Có. Trường tư vấn, hỗ trợ sinh viên khi gặp các vấn đề về tâm sinh lý - xã hội, phối hợp tổ chức các dịch vụ tư vấn và chăm sóc sức khỏe để hỗ trợ, can thiệp khi cần thiết nếu bạn gặp vấn đề ảnh hưởng đến thể chất và tinh thần.",
+    "source": [
+      "QuyCheCTSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0166",
+    "question": "em muốn xin việc làm thêm hay thực tập thì trường có hỗ trợ ko",
+    "answer": "Có. Trường tổ chức các nội dung liên quan đến tư vấn hướng nghiệp, hỗ trợ khởi nghiệp và việc làm. Phòng CTSV cũng phối hợp với Trung tâm Hợp tác doanh nghiệp tổ chức các hoạt động về việc làm và học bổng tài trợ cho sinh viên.",
+    "source": [
+      "QuyCheCTSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0167",
+    "question": "khám sức khỏe có bắt buộc ko ạ",
+    "answer": "Có, thực hiện đầy đủ việc khám sức khỏe theo quy định của trường là một trong 13 nghĩa vụ của sinh viên. Trường tổ chức khám sức khỏe đầu vào và định kỳ, phí 120.000đ/khóa.",
+    "source": [
+      "QuyCheCTSV.pdf",
+      "KhoanThu.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0168",
+    "question": "tuần sinh hoạt công dân có phải đi ko ạ",
+    "answer": "Có, tham gia đầy đủ tuần sinh hoạt công dân - sinh viên do trường tổ chức là nghĩa vụ của sinh viên. Trường tổ chức vào đầu khóa, đầu năm và cuối khóa học theo hướng dẫn của Bộ GDĐT.",
+    "source": [
+      "QuyCheCTSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0169",
+    "question": "em muốn lập clb thì làm thế nào ạ",
+    "answer": "Quy chế công tác sinh viên không quy định thủ tục cụ thể, nhưng có nói trường phát huy vai trò của tổ chức, câu lạc bộ trong hoạt động học tập rèn luyện và tổ chức các hoạt động câu lạc bộ. Bạn nên liên hệ Đoàn Thanh niên hoặc Hội Sinh viên trường — đây là các đơn vị quản lý CLB, và việc là thành viên CLB học thuật do Đoàn/Hội quản lý cũng được tính 2 điểm rèn luyện.",
+    "source": [
+      "QuyCheCTSV.pdf",
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0170",
+    "question": "em muốn xin ở ký túc xá",
+    "answer": "Được xét tiếp nhận vào ký túc xá là một trong các quyền của sinh viên, do Phòng Công tác Sinh viên tiếp nhận theo quy định. Nếu bạn là sinh viên cao đẳng thuộc diện dân tộc thiểu số hộ nghèo/cận nghèo, dân tộc thiểu số khuyết tật, tốt nghiệp trường phổ thông dân tộc nội trú, hoặc người Kinh hộ nghèo ở vùng đặc biệt khó khăn thì còn được hưởng chính sách nội trú: học bổng 60-100% lương cơ sở/tháng, hỗ trợ 1 triệu đồng mua đồ dùng cá nhân, tiền tàu xe 200.000-300.000đ/năm.",
+    "source": [
+      "QuyCheCTSV.pdf",
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0171",
+    "question": "chính sách nội trú là gì ạ, em học đại học có được ko",
+    "answer": "Không, chính sách nội trú chỉ dành cho sinh viên hệ cao đẳng. Mức hưởng: 100% lương cơ sở/tháng nếu là dân tộc thiểu số hộ nghèo/cận nghèo hoặc dân tộc thiểu số khuyết tật; 80% nếu tốt nghiệp trường phổ thông dân tộc nội trú hoặc người Kinh khuyết tật ở vùng đặc biệt khó khăn; 60% nếu là người Kinh hộ nghèo/cận nghèo ở vùng đặc biệt khó khăn. Cấp 12 tháng/năm, kèm 1 triệu đồng mua đồ dùng cá nhân và 150.000đ nếu ở lại trường dịp Tết.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0172",
+    "question": "học bổng khuyến khích học tập được bao nhiêu tiền 1 kỳ ạ",
+    "answer": "Quy định xét học bổng không ghi số tiền, chỉ nói mức học bổng căn cứ theo Quy chế chi tiêu nội bộ được Hiệu trưởng phê duyệt hằng năm. Bạn cần hỏi Phòng Công tác Sinh viên hoặc xem quy chế chi tiêu nội bộ của năm đó.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0173",
+    "question": "em đạt sinh viên tiêu biểu thì được thưởng bao nhiêu tiền",
+    "answer": "Quy định khen thưởng chỉ nói mức thưởng căn cứ theo quy chế chi tiêu nội bộ hiện hành của trường, không ghi con số. Bạn liên hệ Phòng Công tác Sinh viên để biết mức năm nay.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0174",
+    "question": "1 suất học bổng nguyễn thanh bình là bao nhiêu tiền ạ",
+    "answer": "Không có con số cố định. Mức học bổng hằng năm dựa trên tiền lãi của quỹ và do Hiệu trưởng quyết định, nên thay đổi theo từng năm. Quy định chỉ nêu tỷ lệ 100%, 120% hay 150% mức đó tùy đối tượng.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0175",
+    "question": "lệ phí phúc khảo bao nhiêu tiền v ạ",
+    "answer": "Quy định về đánh giá kết quả học tập chỉ nói sinh viên phải nộp lệ phí phúc khảo và được trả lại nếu điểm thay đổi, nhưng không ghi mức tiền. Bạn hỏi Trung tâm Khảo thí.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0176",
+    "question": "hạn cuối đóng học phí kỳ này là ngày nào ạ",
+    "answer": "Không có trong các quy định về học phí — hạn nộp nằm trong thông báo thu của từng học kỳ do Phòng Tài chính Kế toán ban hành. Bạn xem thông báo trên cổng sinh viên hoặc hỏi phòng Tài chính Kế toán.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0177",
+    "question": "bao giờ thì mở đăng ký học phần kỳ sau ạ",
+    "answer": "Ngày cụ thể không có trong quy chế, chỉ có mốc tương đối: đợt đăng ký chính mở trước khi bắt đầu học kỳ 3-4 tuần, đợt bổ sung trước 1-2 tuần. Lịch chính xác do Phòng Đào tạo thông báo từng kỳ.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0178",
+    "question": "lịch thi cuối kỳ khi nào có ạ",
+    "answer": "Không có trong bộ quy định này. Kế hoạch và lịch thi do Trung tâm Khảo thí lập và công bố trên cổng thông tin sinh viên sv.dhcnhn.vn theo từng kỳ.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0179",
+    "question": "năm nay được nghỉ tết mấy ngày ạ",
+    "answer": "Không có thông tin này trong các quy chế, quy định về đào tạo và công tác sinh viên. Lịch nghỉ do nhà trường thông báo riêng từng năm.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0180",
+    "question": "khi nào trường mở học kỳ hè ạ",
+    "answer": "Không có lịch cụ thể trong quy chế. Quy chế chỉ nói học kỳ phụ được tổ chức theo kế hoạch tổ chức đào tạo của nhà trường, bạn theo dõi thông báo của Phòng Đào tạo.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0181",
+    "question": "bao giờ có kết quả xét học bổng kỳ này ạ",
+    "answer": "Quy định xét học bổng không nêu mốc thời gian công bố. Bạn theo dõi thông báo của Phòng Công tác Sinh viên.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0182",
+    "question": "điểm chuẩn ngành cntt năm nay bao nhiêu ạ",
+    "answer": "Không có trong bộ quy định này. Điểm chuẩn nằm trong Đề án tuyển sinh và thông báo kết quả tuyển sinh từng năm của trường.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0183",
+    "question": "ngành em học tổng bao nhiêu tín chỉ ạ",
+    "answer": "Quy chế đào tạo không liệt kê số tín chỉ của từng ngành, con số đó nằm trong chương trình đào tạo của ngành do khoa quản lý công bố. Bạn xem trên cổng sinh viên hoặc hỏi khoa.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0184",
+    "question": "trường mình có những ngành nào ạ",
+    "answer": "Danh sách ngành đào tạo không nằm trong các quy chế, quy định này. Bạn xem Đề án tuyển sinh hoặc website trường.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0185",
+    "question": "chuẩn đầu ra tiếng anh của trường là bậc mấy ạ",
+    "answer": "Các văn bản này không quy định mức chuẩn đầu ra ngoại ngữ. Quy chế đào tạo chỉ nói điều kiện tốt nghiệp là phải hoàn thành học phần Ngoại ngữ và đạt chuẩn đầu ra của chương trình đào tạo; mức cụ thể nằm trong chuẩn đầu ra của từng chương trình. Bảng chứng chỉ trong QĐ 336 là để xét miễn học phần, không phải chuẩn đầu ra.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0186",
+    "question": "thi chuẩn đầu ra tin học tổ chức mấy đợt 1 năm ạ",
+    "answer": "Không có thông tin trong bộ văn bản này. Bạn liên hệ Trung tâm Khảo thí hoặc trung tâm phụ trách tổ chức thi chuẩn đầu ra.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0187",
+    "question": "môn này có mấy tín chỉ ạ",
+    "answer": "Số tín chỉ của từng học phần nằm trong chương trình đào tạo và đề cương chi tiết học phần, không có trong các quy chế này. Bạn tra trên hệ thống quản lý đào tạo.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0188",
+    "question": "ở ký túc xá 1 tháng bao nhiêu tiền ạ",
+    "answer": "Quy định về các khoản thu đối với sinh viên năm 2025-2026 không có mục phí ký túc xá. Bạn liên hệ Phòng Công tác Sinh viên hoặc ban quản lý ký túc xá.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0189",
+    "question": "gửi xe máy trong trường bao nhiêu 1 tháng",
+    "answer": "Không có trong danh mục các khoản thu. Quy chế công tác sinh viên chỉ nói trường tổ chức dịch vụ trông giữ xe cho sinh viên, không nêu mức phí.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0190",
+    "question": "thư viện mở cửa mấy giờ ạ",
+    "answer": "Không có thông tin này trong các quy chế, quy định. Bạn hỏi trực tiếp thư viện trường.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0191",
+    "question": "mật khẩu wifi trường là gì ạ",
+    "answer": "Không có trong bộ văn bản này.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0192",
+    "question": "căng tin trường mở đến mấy giờ",
+    "answer": "Không có thông tin. Quy chế công tác sinh viên chỉ nêu nhà trường tổ chức các dịch vụ như nhà ăn, căng tin cho sinh viên, không có giờ giấc cụ thể.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0193",
+    "question": "số điện thoại phòng công tác sinh viên là gì ạ",
+    "answer": "Không có trong các văn bản này. Bạn tra trên website trường hoặc cổng thông tin sinh viên.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0194",
+    "question": "phòng đào tạo ở tòa nhà nào ạ",
+    "answer": "Không có thông tin về vị trí các phòng ban trong bộ quy định này.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0195",
+    "question": "em muốn xin giấy xác nhận sinh viên thì làm ở đâu ạ",
+    "answer": "Quy chế công tác sinh viên chỉ nói Phòng Công tác Sinh viên là đơn vị giải quyết các thủ tục hành chính liên quan đến sinh viên, không có quy trình và thời hạn cụ thể cho loại giấy này. Bạn liên hệ Phòng Công tác Sinh viên.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0196",
+    "question": "tải mẫu đơn xin nghỉ học tạm thời ở đâu ạ",
+    "answer": "Quy chế nói đơn làm theo mẫu nhưng không kèm đường dẫn tải. Bạn hỏi khoa quản lý sinh viên hoặc Phòng Đào tạo.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0197",
+    "question": "em mất thẻ sinh viên thì làm lại thế nào ạ",
+    "answer": "Không có quy trình và mức phí cấp lại thẻ trong bộ văn bản này. Quy chế công tác sinh viên chỉ nêu Phòng CTSV chủ trì tổ chức thực hiện cấp thẻ sinh viên. Bạn liên hệ phòng này.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0198",
+    "question": "trường có quy định về đồng phục ko ạ",
+    "answer": "Không có quy định về đồng phục trong quy chế công tác sinh viên hay các văn bản này.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0199",
+    "question": "hệ trung cấp thì học phí bao nhiêu ạ",
+    "answer": "Quyết định mức thu học phí 2025-2026 chỉ có các mức cho tiến sĩ, thạc sĩ, đại học chính quy, đại học từ xa, vừa làm vừa học, cao đẳng chính quy và các chương trình liên kết. Không có mức cho hệ trung cấp.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0200",
+    "question": "nghiên cứu sinh đóng học phí theo tín chỉ à ạ",
+    "answer": "Không. Tiến sĩ thu theo năm học, 35.000.000đ/năm, không tính theo tín chỉ như thạc sĩ (900.000đ/tín chỉ).",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0201",
+    "question": "em nghỉ ốm có giấy bệnh viện thì có tính là nghỉ có phép ko ạ",
+    "answer": "Các văn bản này không định nghĩa thế nào là nghỉ có phép hay không phép, cũng không có thủ tục xin phép nghỉ học. Khung kỷ luật chỉ tính theo tổng % số giờ nghỉ trong kỳ. Bạn hỏi cố vấn học tập về thủ tục báo nghỉ của khoa.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0202",
+    "question": "em bị đình chỉ thi 1 môn thì có phải học lại môn đó ko ạ",
+    "answer": "Quy định chỉ nói sinh viên bị đình chỉ thi bị trừ 100% tổng số điểm bài thi môn đó, không nói rõ có phải đăng ký học lại hay không. Trên thực tế mất toàn bộ điểm thi cuối kỳ thì gần như chắc chắn điểm học phần dưới 4,0 và phải học lại, nhưng bạn nên xác nhận với Trung tâm Khảo thí.",
+    "source": [],
+    "answerable": false
+  },
+  {
+    "id": "haui-0203",
+    "question": "em học ngành cntt nên học phí đắt hơn ngành kinh tế đúng ko ạ",
+    "answer": "Không đúng. HaUI không phân mức học phí theo ngành mà theo khóa tuyển sinh và loại chương trình: K20/Kỹ sư K3 đại trà 700.000đ/tín chỉ, chương trình tiếng Anh 1.000.000đ, K19/Kỹ sư K2 550.000đ, K18 trở về trước 495.000đ. Tiền chênh giữa các ngành chủ yếu đến từ tỷ lệ môn thực hành (hệ số tín chỉ 2,5) chứ không phải từ đơn giá.",
+    "source": [
+      "MucThuHP.pdf",
+      "TinhHocPhi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0204",
+    "question": "nghe nói gpa dưới 2.0 là bị đuổi học luôn đúng ko ạ",
+    "answer": "Không đúng. Ngưỡng cảnh báo học tập thấp hơn nhiều: GPA học kỳ dưới 0,80 (kỳ đầu) hoặc dưới 1,00 (các kỳ sau), hoặc GPA tích lũy dưới 1,20/1,40/1,60/1,80 tùy trình độ năm. Và phải bị cảnh báo lần thứ 2 liên tiếp mới buộc thôi học. GPA 2,00 là ngưỡng khác — ngưỡng tối thiểu để được công nhận tốt nghiệp.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0205",
+    "question": "em bị F 1 môn là mất học bổng cả năm phải ko ạ",
+    "answer": "Không, học bổng khuyến khích học tập xét theo từng học kỳ chính chứ không theo năm. Bị F ở kỳ này thì mất học bổng kỳ này (vì điều kiện là không có học phần nào dưới 2,0), kỳ sau vẫn xét bình thường nếu bạn đủ điều kiện.",
+    "source": [
+      "HocBong.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0206",
+    "question": "học lại thì phải đóng gấp đôi học phí đúng ko ạ",
+    "answer": "Không. Học lại tính học phí theo đúng công thức như học lần đầu: số tín chỉ học phí × hệ số lớp × đơn giá. Không có quy định nhân đôi. Nhưng nếu bạn học lại ở lớp mở theo yêu cầu mà ít sinh viên thì hệ số lớp có thể lên 1,5-3 lần, đó mới là lý do khiến tiền học lại đắt.",
+    "source": [
+      "TinhHocPhi.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0207",
+    "question": "em tưởng cứ được miễn học phí là ko phải đóng đồng nào chứ ạ",
+    "answer": "Không phải. Miễn học phí chỉ miễn theo mức trần Nhà nước quy định, phần chênh lệch giữa mức trần đó và học phí thực tế của trường bạn vẫn phải đóng bổ sung.",
+    "source": [
+      "ChinhSachSV.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0208",
+    "question": "rút môn trong tuần 5 thì được hoàn tiền đúng ko ạ",
+    "answer": "Không. Từ tuần 3 đến hết tuần 8 của kỳ chính bạn được rút khỏi lớp học phần trên hệ thống, nhưng vẫn phải đóng học phí môn đó. Rút không đồng nghĩa với hoàn tiền.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0209",
+    "question": "thi lại là được thi lần 2 luôn đúng ko ạ",
+    "answer": "Cần phân biệt. Nếu bạn vắng thi có lý do chính đáng và làm đơn trong 10 ngày làm việc có xác nhận của Trưởng khoa thì được dự kỳ thi bổ sung, tính là điểm lần đầu. Còn nếu đã thi mà trượt (dưới 4,0) thì phải đăng ký học lại học phần, không có cơ chế thi lại riêng.",
+    "source": [
+      "QuyCheDaoTao.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0210",
+    "question": "bị cảnh cáo thì vẫn được học bổng bình thường phải ko ạ",
+    "answer": "Không. Không xét học bổng với sinh viên đang trong thời gian bị kỷ luật. Ngoài ra bị cảnh cáo còn khiến điểm rèn luyện kỳ đó không vượt quá loại Trung bình, trong khi học bổng đòi rèn luyện từ loại Tốt — nên trượt ở cả hai điều kiện.",
+    "source": [
+      "HocBong.pdf",
+      "DRL.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0211",
+    "question": "điểm rèn luyện chỉ để cho vui thôi đúng ko ạ",
+    "answer": "Không. Nó ảnh hưởng thật: là điều kiện xét học bổng khuyến khích học tập và học bổng HaUI (phải từ loại Tốt), điều kiện khen thưởng năm học (phải Xuất sắc), được ghi vào bảng điểm kết quả học tập và rèn luyện khi ra trường. Nặng nhất là xếp loại yếu/kém 2 kỳ liên tiếp phải tạm ngừng học 1 kỳ, tái diễn lần thứ hai thì buộc thôi học.",
+    "source": [
+      "DRL.pdf",
+      "HocBong.pdf",
+      "KhenThuongKyLuat.pdf"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "haui-0212",
+    "question": "em có ielts 7.0 là được miễn hết tiếng anh luôn đúng ko",
+    "answer": "Gần đúng nhưng không hẳn. IELTS 7,0-7,5 tương đương bậc 5/C1. Nếu bạn học khối không chuyên ngữ thì được miễn Tiếng Anh cơ bản 1,2,3 — còn khối chuyên ngữ NN Anh thì chỉ miễn một số học phần kỹ năng nhất định chứ không phải toàn bộ. Miễn được đến đâu còn tùy chương trình đào tạo của bạn.",
+    "source": [
+      "CongNhanMonHocTamThoi.pdf"
+    ],
+    "answerable": true
+  }
+]

@@ -7,11 +7,15 @@ export const clearMessages = () => apiJson<void>('/chat/messages', { method: 'DE
 
 interface StreamHandlers {
   onDelta: (text: string) => void
+  onStatus?: (stage: string) => void
   signal?: AbortSignal
 }
 
-/** Gửi câu hỏi và đọc SSE: `data: {"delta"}` từng token, `event: done` hoặc `event: error`. */
-export async function streamChat(message: string, { onDelta, signal }: StreamHandlers) {
+/**
+ * Gửi câu hỏi và đọc SSE: `event: status` + `{"stage"}` cho từng bước xử lý, `data: {"delta"}` là nội dung
+ * câu trả lời (đã qua kiểm định), kết thúc bằng `event: done` hoặc `event: error`.
+ */
+export async function streamChat(message: string, { onDelta, onStatus, signal }: StreamHandlers) {
   const response = await apiFetch('/chat', { method: 'POST', body: JSON.stringify({ message }), signal })
   const reader = response.body!.pipeThrough(new TextDecoderStream()).getReader()
   let buffer = ''
@@ -36,7 +40,8 @@ export async function streamChat(message: string, { onDelta, signal }: StreamHan
 
       if (event === 'done') return
       if (event === 'error') throw new Error(payload.message)
-      if (payload.delta) onDelta(payload.delta)
+      if (event === 'status') onStatus?.(payload.stage)
+      else if (payload.delta) onDelta(payload.delta)
     }
   }
 }

@@ -14,17 +14,18 @@ export function ExamsPage() {
       <PageHeader title="Lịch thi" description="Lịch thi kết thúc học phần của bạn" />
       <QueryState query={useExams()} empty="Chưa có lịch thi.">
         {(exams) => (
-          <Section flush>
+          <Section title={exams[0].semester} flush>
             <Table>
               <THead>
                 <tr>
+                  <TH>Học phần</TH>
                   <TH>Ngày thi</TH>
                   <TH>Giờ</TH>
                   <TH>Phòng</TH>
                   <TH>Vị trí</TH>
                   <TH>SBD</TH>
                   <TH>Hình thức</TH>
-                  <TH>Mã ca</TH>
+                  <TH>Lớp học phần</TH>
                   <TH className="text-right">Điều kiện</TH>
                 </tr>
               </THead>
@@ -32,15 +33,18 @@ export function ExamsPage() {
                 {[...exams]
                   .sort((a, b) => (a.startTime ?? '').localeCompare(b.startTime ?? ''))
                   .map((exam) => (
-                    <TR key={exam.candidateNumber}>
-                      <TD className="font-medium whitespace-nowrap">{formatDate(exam.startTime)}</TD>
+                    <TR key={`${exam.examCode}-${exam.startTime}`}>
+                      <TD className="min-w-48 font-medium">{exam.courseName}</TD>
+                      <TD className="whitespace-nowrap">{formatDate(exam.startTime)}</TD>
                       <TD className="tabular-nums">{time(exam.startTime)}</TD>
-                      <TD className="tabular-nums">{exam.room}</TD>
+                      <TD className="whitespace-nowrap">{exam.room}</TD>
                       <TD>{exam.seat}</TD>
                       <TD className="tabular-nums">{exam.candidateNumber}</TD>
                       <TD>{exam.format}</TD>
                       <TD className="font-mono text-xs text-muted">{exam.examCode}</TD>
-                      <TD className="text-right">{exam.eligible ? <Badge tone="green">Đủ điều kiện</Badge> : <Badge tone="red">Không đủ</Badge>}</TD>
+                      <TD className="text-right">
+                        {exam.eligible ? <Badge tone="green">Đủ điều kiện</Badge> : <span title={exam.ineligibleReason ?? undefined}><Badge tone="red">Không đủ</Badge></span>}
+                      </TD>
                     </TR>
                   ))}
               </TBody>

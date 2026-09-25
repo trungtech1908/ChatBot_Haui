@@ -19,7 +19,8 @@ export function AcademicSummaryPage() {
       <PageHeader title="Tốt nghiệp" description="Kết quả theo học kỳ và điều kiện xét tốt nghiệp" />
       <QueryState query={useAcademicSummary()} empty="Chưa có dữ liệu tổng kết học kỳ." isEmpty={(data) => !data.semesters.length && !data.graduation}>
         {({ semesters, graduation }) => {
-          const earned = semesters.reduce((sum, s) => sum + (s.credits ?? 0), 0)
+          // Tín chỉ tích lũy do hệ thống đào tạo tính (môn học lại chỉ tính 1 lần)
+          const earned = graduation?.credits ?? 0
           const requirements = graduation
             ? ([
                 ['Tích lũy đủ tín chỉ', graduation.creditsOk],
@@ -74,6 +75,7 @@ export function AcademicSummaryPage() {
                         <TH className="text-right">Học phần</TH>
                         <TH className="text-right">Tín chỉ</TH>
                         <TH className="text-right">Điểm TBC</TH>
+                        <TH className="text-right">Rèn luyện</TH>
                         <TH className="text-right">Xếp loại</TH>
                       </tr>
                     </THead>
@@ -81,11 +83,15 @@ export function AcademicSummaryPage() {
                       {semesters.map((hk) => {
                         const rank = classifyGpa(hk.gpa)
                         return (
-                          <TR key={hk.semester}>
-                            <TD className="font-medium">Học kỳ {hk.semester}</TD>
+                          <TR key={hk.code}>
+                            <TD className="font-medium">
+                              {hk.semester}
+                              {hk.warning && <Badge tone="red" className="ml-2">Cảnh báo</Badge>}
+                            </TD>
                             <TD className="text-right tabular-nums">{hk.courseCount}</TD>
                             <TD className="text-right tabular-nums">{hk.credits}</TD>
                             <TD className="text-right font-semibold tabular-nums">{hk.gpa ?? '—'}</TD>
+                            <TD className="text-right tabular-nums">{hk.conductScore ?? '—'}</TD>
                             <TD className="text-right"><Badge tone={rank.tone}>{rank.label}</Badge></TD>
                           </TR>
                         )

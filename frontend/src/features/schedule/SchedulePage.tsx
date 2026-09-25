@@ -70,7 +70,7 @@ export function SchedulePage() {
     <QueryState query={useSchedule()} empty="Chưa có lịch học hoặc chưa đăng ký lớp nào.">
       {(items) => (
         <>
-          <PageHeader title="Thời khóa biểu" description={`${new Set(items.map((i) => i.classCode)).size} lớp học phần trong tuần`} />
+          <PageHeader title="Thời khóa biểu" description={`${items[0].semester} · ${new Set(items.map((i) => i.classCode)).size} lớp học phần trong tuần`} />
           <div className="space-y-4">
             <WeekGrid items={items} />
             <Section title="Danh sách lớp" flush>
@@ -80,6 +80,7 @@ export function SchedulePage() {
                     <TH>Học phần</TH>
                     <TH>Lớp</TH>
                     <TH>Lịch học</TH>
+                    <TH>Tuần</TH>
                     <TH>Phòng</TH>
                     <TH>Giảng viên</TH>
                   </tr>
@@ -90,7 +91,8 @@ export function SchedulePage() {
                       <TD className="font-medium">{item.courseName}</TD>
                       <TD className="font-mono text-xs text-muted">{item.classCode}</TD>
                       <TD className="whitespace-nowrap">{weekdayLabel(item.weekday)}, {formatPeriods(item.periods).toLowerCase()}</TD>
-                      <TD className="tabular-nums">{item.room}</TD>
+                      <TD className="whitespace-nowrap text-muted">{item.weeks ?? '—'}</TD>
+                      <TD className="whitespace-nowrap">{item.room}</TD>
                       <TD className="whitespace-nowrap">{item.lecturer}</TD>
                     </TR>
                   ))}

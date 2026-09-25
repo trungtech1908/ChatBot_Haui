@@ -30,7 +30,7 @@ function Message({ message }: { message: ChatMessage }) {
       ) : message.content ? (
         <Markdown>{message.content}</Markdown>
       ) : (
-        <p className="animate-pulse text-muted">Đang tìm trong quy chế…</p>
+        <p className="animate-pulse text-muted">{message.stage ?? 'Đang tìm trong quy chế…'}</p>
       )}
       {message.status !== 'streaming' && message.content && <p className="mt-1 text-xs text-muted">{formatTime(message.createdAt)}</p>}
     </div>

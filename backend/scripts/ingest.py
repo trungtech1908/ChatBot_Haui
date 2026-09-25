@@ -1,25 +1,27 @@
-"""Nạp tài liệu vào Qdrant: PDF -> OCR (Nanonets, chạy GPU) -> chia chunk -> embedding (bge-m3) -> Qdrant.
+"""Nạp tài liệu vào Qdrant: PDF -> OCR (Nanonets, chạy GPU) -> chia chunk -> embedding (bge-m3) + BM25 -> Qdrant.
 
-Chạy từ backend/: uv run python scripts/ingest.py
+Ghi thẳng vào collection hybrid QDRANT_COLLECTION (xóa rồi tạo lại). Chunk được lưu ra assets/chunks.json
+để lần sau chỉ cần dựng lại index mà không phải OCR lại (không cần GPU):
+
+    cd backend
+    uv sync --extra gpu --extra ingest && uv run --no-sync python scripts/ingest.py      # OCR + index
+    uv sync --extra cpu && uv run --no-sync python scripts/ingest.py --from-chunks       # chỉ index lại từ file
 """
+import argparse
+import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Tuple
 
-import torch
-from FlagEmbedding import BGEM3FlagModel
-from pdf2image import convert_from_path
-from PIL import Image
 from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, PointStruct, VectorParams
-from transformers import AutoModelForImageTextToText, AutoProcessor
 
+from chatbot_haui.ai.indexing import make_points, recreate_collection
 from chatbot_haui.core.config import settings
 
+CHUNKS_FILE = Path(__file__).resolve().parents[1] / "assets" / "chunks.json"
 OCR_MODEL = "nanonets/Nanonets-OCR2-3B"
 MAX_ITEMS_PER_CHUNK = 6
-VECTOR_SIZE = 1024  # bge-m3 dense
 UPSERT_BATCH = 256
 
 OCR_PROMPT = (
@@ -41,12 +43,17 @@ REMOVE_TAGS = re.compile(r"<page_number>.*?</page_number>|<watermark>.*?</waterm
 # ================== OCR ==================
 class OCR:
     def __init__(self):
+        import torch
+        from transformers import AutoModelForImageTextToText, AutoProcessor
+
         self.model = AutoModelForImageTextToText.from_pretrained(
             OCR_MODEL, torch_dtype=torch.float16, device_map="auto"
         ).eval()
         self.processor = AutoProcessor.from_pretrained(OCR_MODEL)
 
-    def image_to_markdown(self, image: Image.Image, max_new_tokens: int = 2048) -> str:
+    def image_to_markdown(self, image, max_new_tokens: int = 2048) -> str:
+        import torch
+
         messages = [
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": [{"type": "image"}, {"type": "text", "text": OCR_PROMPT}]},
@@ -63,6 +70,9 @@ class OCR:
         return self.processor.batch_decode(gen_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)[0]
 
     def pdf_to_markdown(self, pdf_path: Path) -> str:
+        import torch
+        from pdf2image import convert_from_path
+
         # Mỗi trang: OCR, bỏ tag số trang/watermark, nối cách 1 dòng trống
         pages = []
         for i, page in enumerate(convert_from_path(pdf_path, dpi=200), start=1):
@@ -455,44 +465,51 @@ class MarkdownChunker:
 
 
 # ================== Qdrant ==================
-def upsert(texts: List[str], sources: List[str]):
-    embedder = BGEM3FlagModel(settings.embedding_model, use_fp16=True)
-    vectors = embedder.encode(texts, batch_size=12, max_length=8192)["dense_vecs"]
+def index(texts: List[str], sources: List[str]):
+    from FlagEmbedding import BGEM3FlagModel
 
-    qdrant = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key)
+    embedder = BGEM3FlagModel(settings.embedding_model, use_fp16=False)
+    dense = embedder.encode(texts, batch_size=12, max_length=8192)["dense_vecs"]
+
+    qdrant = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key, timeout=60)
     collection = settings.qdrant_collection
-
     # Nạp lại toàn bộ để không còn chunk cũ
-    if qdrant.collection_exists(collection):
-        qdrant.delete_collection(collection)
-    qdrant.create_collection(collection, vectors_config=VectorParams(size=VECTOR_SIZE, distance=Distance.COSINE))
-    qdrant.create_payload_index(collection, field_name="source", field_schema="keyword")
-
-    points = [
-        PointStruct(id=i, vector=vec.tolist(), payload={"source": src, "raw_text": text})
-        for i, (vec, text, src) in enumerate(zip(vectors, texts, sources))
-    ]
+    recreate_collection(qdrant, collection)
+    points = make_points(texts, sources, dense)
     for start in range(0, len(points), UPSERT_BATCH):
         qdrant.upsert(collection, points=points[start:start + UPSERT_BATCH])
-    print(f"Đã đẩy {len(points)} chunk lên '{collection}'")
+    print(f"Đã đẩy {len(points)} chunk (dense + BM25) lên '{collection}'")
 
 
-def main():
+def ocr_all() -> dict[str, list[str]]:
     pdfs = sorted(settings.documents_dir.glob("*.pdf"))
     if not pdfs:
         raise SystemExit(f"Không có PDF trong {settings.documents_dir}")
-
     ocr = OCR()
-    texts, sources = [], []
+    chunks_by_doc = {}
     for pdf in pdfs:
         print(f"Xử lý {pdf.name}")
-        chunks = MarkdownChunker(max_items_per_chunk=MAX_ITEMS_PER_CHUNK).chunk(ocr.pdf_to_markdown(pdf))
-        texts += chunks
-        # source = tên PDF (không đuôi), khớp tên tài liệu trả về từ bước phân loại
-        sources += [pdf.stem] * len(chunks)
-        print(f"  {len(chunks)} chunk")
+        # source = tên PDF (không đuôi), khớp mã văn bản trong prompts/document_descriptions.json
+        chunks_by_doc[pdf.stem] = MarkdownChunker(max_items_per_chunk=MAX_ITEMS_PER_CHUNK).chunk(ocr.pdf_to_markdown(pdf))
+        print(f"  {len(chunks_by_doc[pdf.stem])} chunk")
+    CHUNKS_FILE.write_text(json.dumps(chunks_by_doc, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"Đã lưu chunk ra {CHUNKS_FILE}")
+    return chunks_by_doc
 
-    upsert(texts, sources)
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--from-chunks", nargs="?", const=CHUNKS_FILE, type=Path, metavar="FILE",
+                    help=f"bỏ qua OCR, dựng lại index từ file chunk (mặc định {CHUNKS_FILE.name})")
+    args = ap.parse_args()
+
+    if args.from_chunks:
+        chunks_by_doc = json.loads(Path(args.from_chunks).read_text(encoding="utf-8"))
+    else:
+        chunks_by_doc = ocr_all()
+    texts = [c for doc in chunks_by_doc.values() for c in doc]
+    sources = [name for name, doc in chunks_by_doc.items() for _ in doc]
+    index(texts, sources)
 
 
 if __name__ == "__main__":

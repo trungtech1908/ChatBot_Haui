@@ -1,239 +1,147 @@
-from sqlalchemy import Boolean, Column, Integer, Numeric, Date, Text, Float, CHAR, VARCHAR, ForeignKey, DateTime
-from sqlalchemy.orm import relationship
+"""Học tập: thang điểm, lớp học phần, đăng ký, điểm học phần, kết quả học kỳ, rèn luyện, điều kiện TN."""
+from datetime import date
+from decimal import Decimal
 
-from chatbot_haui.db.session import Base
+from sqlalchemy import (
+    CHAR, BigInteger, Boolean, CheckConstraint, ForeignKey, Index, Numeric, SmallInteger, String, UniqueConstraint,
+)
+from sqlalchemy.orm import Mapped, mapped_column
 
-
-# 6.bảng khoa (KHOA)
-class Khoa(Base):
-    __tablename__= 'khoa'
-    maKhoa=Column(CHAR(10), primary_key=True, unique=True)
-    tenKhoa=Column(VARCHAR(50))
-    chuongTrinhDaoTao = relationship("CT_DT", back_populates="khoa_rel")
-    giangVien = relationship("GiangVien", back_populates="khoa_rel")
-    monHoc=relationship('MonHoc', back_populates='khoa_rel')
+from chatbot_haui.db.session import CORE, Base
 
 
-# 7.bảng chương trình đào tạo (CHƯƠNG_TRÌNH_ĐÀO_TẠO)
-class CT_DT(Base):
-    __tablename__='ctdt'
-    maCT=Column(CHAR(10), primary_key=True, unique=True)
-    nganhHoc=Column(VARCHAR(50))
-    khoaHoc=Column(VARCHAR(10))
-    soTC_YeuCau=Column(Integer)
-    soMon=Column(Integer)
-    maKhoa=Column(CHAR(10), ForeignKey('khoa.maKhoa'))
-    
-    khoa_rel = relationship("Khoa", back_populates="chuongTrinhDaoTao")
-    ct_ctdt = relationship("CT_CTDT", back_populates="ct_dt")
-    sinhVien = relationship("SinhVien", back_populates="ct_dt")
+class ThangDiem(Base):
+    """Quy đổi điểm chữ ↔ hệ 10 ↔ hệ 4. tu/den/diem_4/dat NULL với I, X, R."""
+    __tablename__ = "thang_diem"
+    __table_args__ = CORE
+
+    diem_chu: Mapped[str] = mapped_column(String(2), primary_key=True)
+    tu: Mapped[Decimal | None] = mapped_column(Numeric(3, 1))
+    den: Mapped[Decimal | None] = mapped_column(Numeric(3, 1))
+    diem_4: Mapped[Decimal | None] = mapped_column(Numeric(2, 1))
+    dat: Mapped[bool | None] = mapped_column(Boolean)
+    tinh_tb: Mapped[bool] = mapped_column(Boolean)
+    mo_ta: Mapped[str] = mapped_column(String(150))
 
 
-# 8.bảng môn học (MÔN_HỌC)
-class MonHoc(Base):
-    __tablename__ = 'monHoc'
-    maMH=Column(CHAR(10), primary_key=True) 
-    tenMonHoc=Column(VARCHAR(50), nullable=False)
-    soTC=Column(Integer, nullable=False)
-    heSoTC=Column(Integer, nullable=False)
-    moTa=Column(Text)
-    trongSo_tx1=Column(Float, nullable=False)
-    trongSo_tx2=Column(Float, nullable=False)
-    trongSo_giuaKy=Column(Float, nullable=False)
-    trongSo_BaiThi=Column(Float, nullable=False)
-    giaTC=Column(Numeric(10,0), nullable=False)
-    gia=Column(Numeric(10,0), nullable=False)
-    ngayPhatHanh=Column(Date, nullable=False)
-
-    maKhoa=Column(CHAR(10), ForeignKey('khoa.maKhoa'))
-
-    # Relationships One-to-Many
-    lopHoc = relationship("LopHoc", back_populates="monHoc_rel")
-    ketQuaMonHoc = relationship("KetQuaMonHoc", back_populates="monHoc_rel")
-    giaoDich = relationship("GiaoDich", back_populates="monHoc_rel")
-    khoa_rel = relationship("Khoa", back_populates="monHoc")
-
-    # Relationships to Junction Tables (One-to-Many to the junction table)
-    ctdtRecords = relationship("CT_NMH", back_populates="monHoc_rel")
-    phuTrachRecords = relationship("PhuTrach", back_populates="monHoc_rel")
-    
-    # Quan hệ tự tham chiếu (Tiên quyết)
-    # 1. monTienQuyet: Môn học này cần Môn nào làm tiên quyết? (maMH là môn BỊ TQ)
-    monTienQuyet = relationship(
-        "MonHoc",
-        secondary="tienQuyetMonHoc",
-        primaryjoin=lambda: MonHoc.maMH == TQMH.maMH,   
-        secondaryjoin=lambda: MonHoc.maMH == TQMH.maTQ,
-        backref="monYeuCauTienQuyet" # Các môn mà môn hiện tại LÀ tiên quyết
+class LopHp(Base):
+    """Lớp học phần. he_so là hệ số lớp khi tính học phí (lớp theo kế hoạch = 1,0)."""
+    __tablename__ = "lop_hp"
+    __table_args__ = (
+        Index("ix_lop_hp_hk", "ma_hk"),
+        CORE,
     )
 
-
-# 9.bảng nhóm môn học (NHÓM_MÔN_HỌC)
-class NhomMH(Base):
-    __tablename__='nhomMH'
-    maNhom=Column(CHAR(20), primary_key=True)
-    TenNhom=Column(VARCHAR(50))
-    loaiNhom=Column(VARCHAR(20))
-    soTC_YC=Column(Integer)
-    
-    ct_nmh = relationship("CT_NMH", back_populates="nhomMH")
-    ct_ctdt=relationship("CT_CTDT", back_populates="nhomMH")
+    ma_lop: Mapped[str] = mapped_column(String(20), primary_key=True)
+    ma_mon: Mapped[str] = mapped_column(String(10), ForeignKey("core.mon.ma_mon"))
+    ma_hk: Mapped[str] = mapped_column(CHAR(5), ForeignKey("core.hoc_ky.ma_hk"))
+    theo_yeu_cau: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
+    si_so: Mapped[int | None] = mapped_column(SmallInteger)
+    he_so: Mapped[Decimal] = mapped_column(Numeric(2, 1), default=1.0, server_default="1.0")
+    # Giảng viên phụ trách và phòng học mặc định (phục vụ lịch học)
+    ma_gv: Mapped[str | None] = mapped_column(String(10), ForeignKey("core.giang_vien.ma_gv"))
+    phong: Mapped[str | None] = mapped_column(String(20))
 
 
-# 10.bảng chi tiết chương trình đào tạo (CT_CTDT - Junction Table)
-class CT_CTDT(Base):
-    __tablename__= 'ct_ctdt'
-    maCT=Column(CHAR(10), ForeignKey('ctdt.maCT'), primary_key=True)
-    maNhom=Column(CHAR(20), ForeignKey('nhomMH.maNhom'), primary_key=True)
+class DangKy(Base):
+    __tablename__ = "dang_ky"
+    __table_args__ = (
+        CheckConstraint("loai IN ('lan_dau', 'hoc_lai', 'cai_thien', 'hoc_doi')", name="ck_dang_ky_loai"),
+        CheckConstraint("trang_thai IN ('dang_ky', 'da_huy')", name="ck_dang_ky_trang_thai"),
+        Index("ix_dang_ky_lop", "ma_lop"),
+        CORE,
+    )
 
-    ct_dt = relationship("CT_DT", back_populates="ct_ctdt")
-    nhomMH=relationship("NhomMH", back_populates="ct_ctdt")
-
-
-# 11.bảng chi tiết nhóm môn học (CT_CTDT - Junction Table)
-class CT_NMH(Base):
-    __tablename__= 'ct_nmh'
-    maNhom=Column(CHAR(20), ForeignKey('nhomMH.maNhom'), primary_key=True)
-    maMH=Column(CHAR(10), ForeignKey('monHoc.maMH'), primary_key=True)
-    ky=Column(Integer)
-
-    monHoc_rel = relationship("MonHoc", back_populates="ctdtRecords")
-    nhomMH=relationship("NhomMH", back_populates="ct_nmh")
+    ma_sv: Mapped[str] = mapped_column(String(12), ForeignKey("core.sinh_vien.ma_sv"), primary_key=True)
+    ma_lop: Mapped[str] = mapped_column(String(20), ForeignKey("core.lop_hp.ma_lop"), primary_key=True)
+    ngay: Mapped[date]
+    loai: Mapped[str] = mapped_column(String(10))
+    trang_thai: Mapped[str] = mapped_column(String(10), default="dang_ky", server_default="dang_ky")
 
 
-# 12.bảng tiên quyết môn học (TQMH - Junction Table)
-class TQMH(Base):
-    __tablename__='tienQuyetMonHoc'
-    maMH=Column(CHAR(10), ForeignKey('monHoc.maMH'), primary_key=True)
-    maTQ=Column(CHAR(10), ForeignKey('monHoc.maMH'), primary_key=True)
+class DiemHp(Base):
+    """Mỗi dòng = một lần học. Môn học lại có nhiều dòng.
+
+    chinh_thuc = lần học được dùng tính TB tích lũy (điểm cao nhất); điểm xét HB chỉ lấy lan_hoc = 1.
+    """
+    __tablename__ = "diem_hp"
+    __table_args__ = (
+        CheckConstraint("lan_hoc >= 1", name="ck_diem_hp_lan_hoc"),
+        CheckConstraint("diem_qt BETWEEN 0 AND 10", name="ck_diem_hp_qt"),
+        CheckConstraint("diem_thi BETWEEN 0 AND 10", name="ck_diem_hp_thi"),
+        CheckConstraint("diem_10 BETWEEN 0 AND 10", name="ck_diem_hp_10"),
+        UniqueConstraint("ma_sv", "ma_mon", "lan_hoc", name="uq_diem_hp_lan"),
+        Index("ix_diem_hp_sv_hk", "ma_sv", "ma_hk"),
+        # Mỗi môn chỉ một lần học được đánh dấu chính thức
+        Index("uq_diem_chinh_thuc", "ma_sv", "ma_mon", unique=True, postgresql_where="chinh_thuc"),
+        CORE,
+    )
+
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    ma_sv: Mapped[str] = mapped_column(String(12), ForeignKey("core.sinh_vien.ma_sv"))
+    ma_mon: Mapped[str] = mapped_column(String(10), ForeignKey("core.mon.ma_mon"))
+    # HK thực học (có thể là HK phụ)
+    ma_hk: Mapped[str] = mapped_column(CHAR(5), ForeignKey("core.hoc_ky.ma_hk"))
+    ma_lop: Mapped[str | None] = mapped_column(String(20), ForeignKey("core.lop_hp.ma_lop"))  # NULL với điểm R
+    lan_hoc: Mapped[int] = mapped_column(SmallInteger)
+    diem_qt: Mapped[Decimal | None] = mapped_column(Numeric(3, 1))  # điểm quá trình
+    diem_thi: Mapped[Decimal | None] = mapped_column(Numeric(3, 1))
+    diem_10: Mapped[Decimal | None] = mapped_column(Numeric(3, 1))  # điểm học phần hệ 10
+    diem_chu: Mapped[str | None] = mapped_column(String(2), ForeignKey("core.thang_diem.diem_chu"))
+    chinh_thuc: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
 
 
-# 13.bảng giảng viên (GIẢNG_VIÊN)
-class GiangVien(Base):
-    __tablename__ = 'giangVien'
-    maGV=Column(CHAR(10), primary_key=True)
-    hoTen = Column(VARCHAR(50))
-    email=Column(CHAR(50)) 
-    NgaySinh=Column(Date)
-    soDT=Column(CHAR(10))
-    diaChi=Column(VARCHAR(50))
-    maKhoa=Column(CHAR(10),ForeignKey('khoa.maKhoa'))
-    
-    khoa_rel = relationship("Khoa", back_populates="giangVien")
-    lopHocPhuTrach = relationship("LopHoc", back_populates="giangVien_rel")
-    
-    # Relationships to Junction Tables (One-to-Many to the junction table)
-    phuTrachRecords = relationship("PhuTrach", back_populates="giangVien_rel")
-    thucTapRecords = relationship("ThucTap", back_populates="giangVien_rel")
+class KetQuaHk(Base):
+    """Kết quả chính thức theo HK chính (đã gộp HK phụ) — QCĐT Điều 10-11."""
+    __tablename__ = "ket_qua_hk"
+    __table_args__ = (
+        CheckConstraint(
+            "xep_loai IN ('xuat_sac', 'gioi', 'kha', 'trung_binh', 'yeu', 'kem')", name="ck_ket_qua_hk_xep_loai"
+        ),
+        CheckConstraint("nam_thu BETWEEN 1 AND 4", name="ck_ket_qua_hk_nam_thu"),
+        CORE,
+    )
+
+    ma_sv: Mapped[str] = mapped_column(String(12), ForeignKey("core.sinh_vien.ma_sv"), primary_key=True)
+    ma_hk: Mapped[str] = mapped_column(CHAR(5), ForeignKey("core.hoc_ky.ma_hk"), primary_key=True)
+    tc_dk: Mapped[int] = mapped_column(SmallInteger)
+    tc_dat: Mapped[int] = mapped_column(SmallInteger)
+    tc_truot: Mapped[int] = mapped_column(SmallInteger)
+    tb_hk: Mapped[Decimal | None] = mapped_column(Numeric(3, 2))  # hệ 4
+    tc_tich_luy: Mapped[int] = mapped_column(SmallInteger)
+    tb_tich_luy: Mapped[Decimal | None] = mapped_column(Numeric(3, 2))  # hệ 4
+    xep_loai: Mapped[str | None] = mapped_column(String(12))
+    nam_thu: Mapped[int | None] = mapped_column(SmallInteger)  # 4 = năm cuối
+    canh_bao: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
 
 
-# 14.bảng lớp học (LỚP_HỌC)
-class LopHoc(Base):
-    __tablename__= 'lopHoc'
-    maLH=Column(CHAR(10), primary_key=True)
-    ngayBD=Column(Date)
-    ngayKT=Column(Date)
-    soPhong=Column(Integer)
-    hanHuy=Column(Date)
-    soTuanHoc=Column(Integer)
-    SisoThucTe=Column(Integer)
-    SisoToiDa=Column(Integer)
-    maMH=Column(CHAR(10),ForeignKey('monHoc.maMH'))
-    maGV=Column(CHAR(10),ForeignKey('giangVien.maGV'))
-    
-    monHoc_rel = relationship("MonHoc", back_populates="lopHoc")
-    giangVien_rel = relationship("GiangVien", back_populates="lopHocPhuTrach")
-    lichHoc = relationship("LichHoc", back_populates="lopHoc_rel")
-    
-    # Relationships to Junction Tables (One-to-Many to the junction table)
-    sinhVienDangKy = relationship("SinhVienLopHoc", back_populates="lopHoc_rel")
+class RenLuyen(Base):
+    """Điểm rèn luyện theo HK chính (đã áp trần do kỷ luật)."""
+    __tablename__ = "ren_luyen"
+    __table_args__ = (
+        CheckConstraint("diem BETWEEN 0 AND 100", name="ck_ren_luyen_diem"),
+        CheckConstraint(
+            "xep_loai IN ('xuat_sac', 'tot', 'kha', 'trung_binh', 'yeu', 'kem')", name="ck_ren_luyen_xep_loai"
+        ),
+        CORE,
+    )
+
+    ma_sv: Mapped[str] = mapped_column(String(12), ForeignKey("core.sinh_vien.ma_sv"), primary_key=True)
+    ma_hk: Mapped[str] = mapped_column(CHAR(5), ForeignKey("core.hoc_ky.ma_hk"), primary_key=True)
+    diem: Mapped[int] = mapped_column(SmallInteger)
+    xep_loai: Mapped[str] = mapped_column(String(12))
 
 
-# 15.bảng kết quả môn học (KẾT_QUẢ_MÔN_HỌC)
-class KetQuaMonHoc(Base):
-    __tablename__= 'ketQuaMonHoc'
-    maKQ=Column(CHAR(10), primary_key=True)
-    tx1=Column(Numeric(2,1), default=0)
-    tx2=Column(Numeric(2,1), default=0)
-    giuaKy=Column(Numeric(2,1), default=0)
-    BaiThi=Column(Numeric(2,1), default=0)
-    diemGPA=Column(Numeric(2,1), default=0)
-    diemChu=Column(CHAR(2))
-    hocLai=Column(Boolean, default=False)
-    maKQHY=Column(CHAR(10), ForeignKey('ketQuaHocKy.maKQHY'))
-    maMH=Column(CHAR(10), ForeignKey('monHoc.maMH'))
-    maSV=Column(CHAR(10), ForeignKey('sinhVien.maSV'))
+class DkTotNghiep(Base):
+    """Điều kiện tốt nghiệp ngoài tín chỉ."""
+    __tablename__ = "dk_tot_nghiep"
+    __table_args__ = (
+        CheckConstraint("loai IN ('ngoai_ngu', 'cntt', 'gdtc', 'gdqp')", name="ck_dk_tot_nghiep_loai"),
+        CORE,
+    )
 
-    ketQuaHocKy_rel = relationship("KetQuaHocKy", back_populates="ketQuaMonHoc")
-    monHoc_rel = relationship("MonHoc", back_populates="ketQuaMonHoc")
-    sinhVien_rel = relationship("SinhVien", back_populates="ketQuaMonHoc")
-
-
-# 16.bảng kết quả học kỳ (KẾT_QUẢ_HỌC_KỲ)
-class KetQuaHocKy(Base):
-    __tablename__='ketQuaHocKy'
-    maKQHY=Column(CHAR(10),primary_key=True)
-    hocKy=Column(Integer)
-    TongTC=Column(Integer)
-    diemTBC=Column(Numeric(2,1))
-    
-    ketQuaMonHoc = relationship("KetQuaMonHoc", back_populates="ketQuaHocKy_rel")
-
-
-# 17.bảng lịch học (LỊCH_HỌC)
-class LichHoc(Base):
-    __tablename__='lichHoc'
-    maDOW=Column(CHAR(10), primary_key=True)
-    tietHoc=Column(VARCHAR(20))
-    thu=Column(Integer)
-    tuanHoc=Column(Integer)
-    maLH=Column(CHAR(10), ForeignKey('lopHoc.maLH'))
-    
-    lopHoc_rel = relationship("LopHoc", back_populates="lichHoc")
-
-
-# 18.bảng lịch thi (LỊCH_THI)
-class LichThi(Base):
-    __tablename__='lichThi'
-    maLT=Column(CHAR(10), primary_key=True)
-    soPhong=Column(Integer)
-    gioBD=Column(DateTime)
-    gioKT=Column(DateTime)
-    hinhThucThi=Column(VARCHAR(20))
-    
-    chiTietThi = relationship("LichThiSV", back_populates="lichThi_rel")
-
-
-# 19.bảng sinh viên lớp học (SINH_VIÊN_LỚP_HỌC - Junction Table)
-class SinhVienLopHoc(Base):
-    __tablename__='sinhVienLopHoc'
-    maSV=Column(CHAR(10), ForeignKey('sinhVien.maSV'), primary_key=True)
-    maLH=Column(CHAR(10),ForeignKey('lopHoc.maLH'), primary_key=True)
-    NgayDK=Column(Date)
-    TrangThai_DK=Column(Boolean)
-
-    sinhVien_rel = relationship("SinhVien", back_populates="lopHocDangKy")
-    lopHoc_rel = relationship("LopHoc", back_populates="sinhVienDangKy")
-
-
-# 20.bảng chi tiết lịch thi (LỊCH_THI_SV)
-class LichThiSV(Base):
-    __tablename__='lichThiSV'
-    soBD=Column(Integer, primary_key=True)
-    maSV=Column(CHAR(10), ForeignKey('sinhVien.maSV'))
-    maLT=Column(CHAR(10), ForeignKey('lichThi.maLT'))
-    viTri=Column(CHAR(5))
-    dieuKienThi=Column(Boolean)
-
-    sinhVien_rel = relationship("SinhVien", back_populates="lichThiSV")
-    lichThi_rel = relationship("LichThi", back_populates="chiTietThi")
-
-
-# 21.bảng phụ trách (PHỤ_TRÁCH - Junction Table)
-class PhuTrach(Base):
-    __tablename__='phuTrach'
-    maMH=Column(CHAR(10),ForeignKey('monHoc.maMH'), primary_key=True)
-    maGV=Column(CHAR(10),ForeignKey('giangVien.maGV'), primary_key=True)
-
-    monHoc_rel = relationship("MonHoc", back_populates="phuTrachRecords")
-    giangVien_rel = relationship("GiangVien", back_populates="phuTrachRecords")
+    ma_sv: Mapped[str] = mapped_column(String(12), ForeignKey("core.sinh_vien.ma_sv"), primary_key=True)
+    loai: Mapped[str] = mapped_column(String(10), primary_key=True)
+    dat: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
+    ngay_dat: Mapped[date | None]
+    ghi_chu: Mapped[str | None] = mapped_column(String(200))  # VD 'IELTS 5.5'

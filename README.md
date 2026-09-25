@@ -1,85 +1,103 @@
 # ChatBot HaUI
 
-Hệ thống quản lý sinh viên HaUI tích hợp chatbot RAG tra cứu quy chế, quy định, học phí.
+Hệ thống quản lý sinh viên HaUI tích hợp chatbot hỏi đáp quy chế, kết hợp văn bản quy định (RAG) với dữ liệu cá nhân của chính sinh viên đang đăng nhập (Text2SQL).
 
-- **Backend:** FastAPI, SQLAlchemy + Alembic (MySQL), JWT, LangGraph RAG (Gemini/Groq, Qdrant Cloud, Cohere rerank)
+- **Backend:** FastAPI, SQLAlchemy + Alembic (PostgreSQL), JWT, LangGraph Planner–Executor (Gemini + Groq), Qdrant Cloud (hybrid dense + BM25), Cohere rerank, Mem0 (bộ nhớ dài hạn), Langfuse (trace)
 - **Frontend:** React, TypeScript, Vite, Tailwind CSS, TanStack Query
 
-**Lần đầu chạy dự án?** Làm theo [docs/getting-started.md](docs/getting-started.md) (từ cài công cụ, lấy API key tới đăng nhập và hỏi chatbot).
+**Lần đầu chạy dự án?** Làm theo [docs/getting-started.md](docs/getting-started.md).
+
+Thiết kế chi tiết (luồng, CSDL, bảo mật, đánh giá): [haui_db/ARCHITECTURE.md](haui_db/ARCHITECTURE.md).
+
+## Luồng chatbot
+
+```
+câu hỏi → Rewriter → Router ─┬─ chào hỏi / ngoài phạm vi / hỏi lại → trả lời trực tiếp
+                              └─ tra cứu → Memory Read → Planner → Executor ─┬─ RAG (quy chế)
+                                                                              ├─ Text2SQL (dữ liệu của chính SV)
+                                                                              └─ Compute (phép tính)
+                                          → Aggregator → Generator → Validator → trả lời | lập lại | viết lại | fallback
+sau khi trả lời (chạy nền) → Memory Write
+```
+
+Text2SQL chỉ nhìn thấy schema `chatbot` (27 view tự lọc theo sinh viên đang đăng nhập), chạy bằng role chỉ-đọc riêng trong transaction `READ ONLY`; mã sinh viên lấy từ phiên đăng nhập, không bao giờ đi qua prompt.
 
 ## Cấu trúc
 
 ```
 backend/
-  alembic/                  Migration database
+  alembic/                  Migration (schema core/private/chatbot, view, role)
   assets/
     documents/              PDF nguồn của RAG
-    seed/                   JSON dữ liệu mẫu
+    seed/                   02_seed_tham_so.sql (tham số từ văn bản), 04_sample_data.sql (62 SV giả lập)
+    chunks.json             Chunk văn bản đã OCR, để index lại không cần GPU
   docker/                   Dockerfile backend (chỉ chạy API)
   scripts/
-    ingest.py               OCR → chia chunk → Qdrant (chạy tay, xem docs/ingest.md)
-    ingest_colab.py         Bản độc lập của ingest.py để copy chạy trên Google Colab
-    migrate_qdrant_source.py  Đổi source cũ trên Qdrant (HocBong.json → HocBong)
-    evaluate.py             Đánh giá RAG (chạy tay, xem docs/evaluate.md)
-    init_db.py              Tạo database, migrate, nạp dữ liệu mẫu (chạy tay, xem docs/database.md)
+    init_db.py              Tạo database, migrate, nạp dữ liệu mẫu (docs/database.md)
+    gen_sample_data.py      Sinh 04_sample_data.sql (tất định)
+    ingest.py               OCR → chunk (assets/chunks.json) → Qdrant hybrid dense + BM25 (docs/ingest.md)
+    ingest_colab.py         Bản của ingest.py chạy trên Google Colab
+    evaluate.py             Đánh giá chatbot trên bộ câu hỏi (docs/evaluate.md)
   src/chatbot_haui/
-    main.py                 Khởi tạo FastAPI
-    ai/                     RAG: llm, graph, nodes, prompts; text_to_sql (thử nghiệm)
-    api/                    deps (DB session, user hiện tại), routes: auth, students, chat
-    core/                   config (đọc .env), security (JWT, hash mật khẩu)
-    db/                     session, models (student, academic, internship, finance, chat), seed
+    main.py                 FastAPI + checkpointer LangGraph (Postgres)
+    ai/                     graph, state, llm, memory (Mem0), observability (Langfuse), documents
+      nodes/                conversation (rewriter, router, direct, finalize), planning, executor, answering
+      tools/                rag, sparse (BM25), text2sql, sql_guard, compute
+      prompts/              prompt từng bước
+    api/                    deps, routes: auth, students, chat
+    core/                   config (đọc .env), security (JWT, argon2)
+    db/                     session (2 engine: owner / chatbot_reader), models, sql/views.sql
     schema/                 Pydantic schema request/response
-    services/               Logic nghiệp vụ: auth, student, chat
-  tests/
+    services/               auth, student, chat
+  tests/                    pytest trên PostgreSQL thật, không gọi API ngoài
 frontend/
-  src/
-    api/                    Gọi backend (auth, students, chat stream)
-    components/             layout (Header, Sidebar), ui dùng chung
-    features/               Mỗi màn hình một thư mục: auth, profile, curriculum, schedule,
-                            exams, internship, grades, academic, finance, chat
-    lib/                    api client, format
-    types/                  Kiểu dữ liệu API
-  nginx.conf                Phục vụ SPA, chuyển /api sang backend
-docs/                       Hướng dẫn chạy từ đầu, khởi tạo database, nạp tài liệu, đánh giá RAG
-docker-compose.yml          mysql + backend + frontend
+  src/                      api, components, features (mỗi màn hình một thư mục), lib, types
+haui_db/                    Tài liệu thiết kế: ARCHITECTURE.md, 01_schema.sql, 03_views_chatbot.sql, 05_text2sql_context.md
+docs/                       Hướng dẫn chạy, database, nạp tài liệu, đánh giá
+docker-compose.yml          postgres + backend + frontend
 ```
 
 ## Cấu hình
 
-Copy `.env.example` thành `.env` ở thư mục gốc rồi điền:
+Copy `.env.example` thành `.env` ở thư mục gốc rồi điền. Nhóm biến chính:
 
-- `SECRET_KEY`: ký JWT, tạo bằng `openssl rand -hex 32`
-- LLM: `LLM_PROVIDER=google` (cần `GOOGLE_API_KEY`) hoặc `groq` (cần `GROQ_API_KEY`)
-- Qdrant Cloud: `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION`
-- Rerank: `COHERE_API_KEY`
+| Nhóm | Biến |
+|---|---|
+| Bảo mật | `SECRET_KEY` (`openssl rand -hex 32`) |
+| PostgreSQL | `DB_*`; `DB_CHATBOT_USER`, `DB_CHATBOT_PASSWORD` cho role Text2SQL |
+| LLM | `LLM_PROVIDER` + model chính; `LLM_PROVIDER_SMALL`, `LLM_MODEL_SMALL` cho bước nhỏ; `GOOGLE_API_KEY`, `GROQ_API_KEY` |
+| RAG | `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION` (văn bản, hybrid), `COHERE_API_KEY` |
+| Bộ nhớ | `MEMORY_SALT` (`openssl rand -hex 32`), `QDRANT_MEMORY_COLLECTION`, `MEMORY_ENABLED` |
+| Trace | `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, `LANGFUSE_BASE_URL`, `LANGFUSE_ENABLED` |
+| Khác | `DATA_AS_OF` (ngày chốt dữ liệu nêu trong câu trả lời) |
+
+Khi cả hai key LLM đều có, mỗi cỡ model tự chuyển sang provider còn lại nếu provider chính quá tải hoặc hết quota.
 
 ## Chạy bằng Docker
 
-Database và dữ liệu RAG được khởi tạo bằng script chạy trên máy, không nằm trong Docker.
-
 ```bash
-# 1. Bật MySQL và khởi tạo database (xem docs/database.md)
-docker compose up -d --wait mysql
-cd backend && uv sync --extra cpu && uv run python scripts/init_db.py && cd ..
+# 1. Bật PostgreSQL và khởi tạo database (docs/database.md)
+docker compose up -d --wait postgres
+cd backend && uv sync --extra cpu && uv run --no-sync python scripts/init_db.py && cd ..
 
 # 2. Bật app
 docker compose up -d --build
 ```
 
-Mở http://localhost:8080. Tài khoản mẫu: `SV001_tk` / `pass001` (tới `SV010_tk` / `pass010`). Lần đầu backend tải model bge-m3 (~2GB) vào volume `hf_cache`.
+Mở http://localhost:8080. Tài khoản mẫu: **tên đăng nhập = mật khẩu = mã sinh viên**, ví dụ `2024619567`. Danh sách sinh viên theo tình huống kiểm thử: [ARCHITECTURE.md mục 7](haui_db/ARCHITECTURE.md#7-đánh-giá).
 
 Chatbot cần tài liệu đã có trên Qdrant, xem [docs/ingest.md](docs/ingest.md).
 
 ## Phát triển local
 
-Cần MySQL đang chạy theo `.env`.
+Luôn dùng `uv run --no-sync` sau khi đã `uv sync --extra cpu`: `uv run` không kèm extra sẽ tự sync lại và kéo torch bản CUDA (~3GB).
 
 ```bash
 # Backend: http://localhost:8000, API docs tại /docs
 cd backend
 uv sync --extra cpu
-uv run python scripts/init_db.py
-uv run uvicorn chatbot_haui.main:app --reload
+uv run --no-sync python scripts/init_db.py
+uv run --no-sync uvicorn chatbot_haui.main:app --reload
 
 # Frontend: http://localhost:5173 (tự chuyển /api sang backend)
 cd frontend
@@ -87,18 +105,16 @@ npm install
 npm run dev
 ```
 
-Test và kiểm tra:
+Test và kiểm tra (test backend cần PostgreSQL đang chạy; tự tạo database `<DB_NAME>_test`):
 
 ```bash
-cd backend && uv run pytest
+cd backend && uv run --no-sync pytest
 cd frontend && npm run lint && npm run build
 ```
-
-Đổi cấu trúc bảng: xem [docs/database.md](docs/database.md#khi-đổi-cấu-trúc-bảng).
 
 ## Tài liệu hướng dẫn
 
 - Chạy dự án từ đầu: [docs/getting-started.md](docs/getting-started.md)
-- Khởi tạo database: [docs/database.md](docs/database.md)
-- Nạp tài liệu lên Qdrant (trên máy hoặc Google Colab): [docs/ingest.md](docs/ingest.md)
-- Đánh giá chất lượng RAG: [docs/evaluate.md](docs/evaluate.md)
+- Khởi tạo database, dữ liệu giả lập: [docs/database.md](docs/database.md)
+- Nạp tài liệu lên Qdrant: [docs/ingest.md](docs/ingest.md)
+- Đánh giá chatbot: [docs/evaluate.md](docs/evaluate.md)

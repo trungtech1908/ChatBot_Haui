@@ -44,52 +44,78 @@ export interface Curriculum {
 }
 
 export interface ScheduleItem {
+  semester: string
   courseName: string | null
   classCode: string
   weekday: number | null
   periods: string | null
-  room: number | null
+  weeks: string | null
+  room: string | null
   lecturer: string | null
 }
 
 export interface ExamItem {
+  semester: string
+  courseName: string | null
   candidateNumber: number
   examCode: string | null
   startTime: string | null
-  room: number | null
+  durationMinutes: number | null
+  room: string | null
   seat: string | null
   format: string | null
   eligible: boolean
+  ineligibleReason: string | null
 }
 
 export interface Internship {
+  semester: string
   company: string | null
   position: string | null
   address: string | null
+  field: string | null
   supervisor: string | null
   companyEmail: string | null
+  startDate: string | null
+  endDate: string | null
+  status: string
+  score: number | null
 }
 
 export interface Grade {
+  semester: string
+  semesterCode: string
   courseCode: string | null
   courseName: string | null
-  tx1: number | null
-  tx2: number | null
-  midterm: number | null
-  final: number | null
+  credits: number
+  /** Lần học: 1 = lần đầu */
+  attempt: number
+  /** Điểm quá trình */
+  process: number | null
+  /** Điểm thi */
+  exam: number | null
+  /** Điểm học phần hệ 10 */
   total: number | null
   letter: string | null
+  /** Lần học dùng tính điểm tích lũy */
+  official: boolean
 }
 
 export interface SemesterSummary {
-  semester: number | null
+  code: string
+  semester: string
   gpa: number | null
+  cumulativeGpa: number | null
   credits: number | null
   courseCount: number
+  conductScore: number | null
+  warning: boolean
 }
 
 export interface Graduation {
   gpa: number | null
+  /** Tín chỉ tích lũy */
+  credits: number
   creditsOk: boolean
   physicalEducationOk: boolean
   languageOk: boolean
@@ -103,10 +129,12 @@ export interface AcademicSummary {
 
 export interface Transaction {
   code: string
+  time: string
   name: string | null
   note: string | null
   amount: number | null
   isIncome: boolean
+  status: string
 }
 
 export interface Finance {

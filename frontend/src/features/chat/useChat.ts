@@ -36,6 +36,7 @@ export function useChat() {
       await streamChat(text, {
         signal: controller.signal,
         onDelta: (delta) => updateMessage(botId, (m) => ({ content: m.content + delta })),
+        onStatus: (stage) => updateMessage(botId, () => ({ stage })),
       })
       updateMessage(botId, () => ({ status: undefined }))
     } catch (error) {

@@ -13,4 +13,4 @@ def login(body: LoginRequest, db: DbSession) -> Token:
     account = auth_service.authenticate(db, body.username, body.password)
     if not account:
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Sai tài khoản hoặc mật khẩu")
-    return Token(access_token=create_access_token(account.tenTaiKhoan))
+    return Token(access_token=create_access_token(account.ten_dn))

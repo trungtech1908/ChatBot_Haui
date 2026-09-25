@@ -19,17 +19,19 @@ function GradesView({ grades }: { grades: Grade[] }) {
   const keyword = search.trim().toLowerCase()
   const rows = keyword ? grades.filter((g) => `${g.courseCode} ${g.courseName}`.toLowerCase().includes(keyword)) : grades
 
-  const totals = grades.map((g) => g.total).filter((v): v is number => v != null)
+  // Mỗi học phần chỉ tính lần học chính thức (điểm cao nhất), học lại không bị đếm trùng
+  const official = grades.filter((g) => g.official)
+  const totals = official.map((g) => g.total).filter((v): v is number => v != null)
   const average = totals.length ? totals.reduce((a, b) => a + b, 0) / totals.length : null
-  const failedCount = grades.filter((g) => g.letter?.startsWith('F')).length
+  const failedCount = official.filter((g) => g.letter?.startsWith('F')).length
 
   return (
     <>
-      <PageHeader title="Kết quả học tập" description="Điểm thành phần và điểm tổng kết học phần" actions={<SearchInput value={search} onChange={setSearch} placeholder="Tìm học phần…" />} />
+      <PageHeader title="Kết quả học tập" description="Điểm quá trình, điểm thi và điểm học phần theo từng lần học" actions={<SearchInput value={search} onChange={setSearch} placeholder="Tìm học phần…" />} />
       <Figures
         className="mb-4 lg:grid-cols-3"
         items={[
-          { label: 'Học phần có điểm', value: grades.length },
+          { label: 'Học phần có điểm', value: official.length },
           { label: 'Điểm tổng kết trung bình', value: score(average), note: 'Thang điểm 10' },
           { label: 'Học phần chưa đạt', value: failedCount, alert: failedCount > 0 },
         ]}
@@ -40,26 +42,29 @@ function GradesView({ grades }: { grades: Grade[] }) {
           <Table>
             <THead>
               <tr>
+                <TH>Học kỳ</TH>
                 <TH>Học phần</TH>
-                <TH className="text-right">TX1</TH>
-                <TH className="text-right">TX2</TH>
-                <TH className="text-right">Giữa kỳ</TH>
-                <TH className="text-right">Cuối kỳ</TH>
+                <TH className="text-right">Tín chỉ</TH>
+                <TH className="text-right">Quá trình</TH>
+                <TH className="text-right">Thi</TH>
                 <TH className="text-right">Tổng kết</TH>
                 <TH className="text-right">Điểm chữ</TH>
               </tr>
             </THead>
             <TBody>
               {rows.map((g, i) => (
-                <TR key={`${g.courseCode}-${i}`}>
+                <TR key={`${g.courseCode}-${g.attempt}-${i}`}>
+                  <TD className="whitespace-nowrap text-[13px] text-muted">{g.semester}</TD>
                   <TD className="min-w-56 py-2.5">
                     <p className="font-medium">{g.courseName}</p>
-                    <p className="font-mono text-xs text-muted">{g.courseCode}</p>
+                    <p className="font-mono text-xs text-muted">
+                      {g.courseCode}
+                      {g.attempt > 1 && <span className="ml-2 font-sans">· học lần {g.attempt}</span>}
+                    </p>
                   </TD>
-                  <TD className="text-right text-muted tabular-nums">{score(g.tx1)}</TD>
-                  <TD className="text-right text-muted tabular-nums">{score(g.tx2)}</TD>
-                  <TD className="text-right text-muted tabular-nums">{score(g.midterm)}</TD>
-                  <TD className="text-right tabular-nums">{score(g.final)}</TD>
+                  <TD className="text-right tabular-nums">{g.credits}</TD>
+                  <TD className="text-right text-muted tabular-nums">{score(g.process)}</TD>
+                  <TD className="text-right tabular-nums">{score(g.exam)}</TD>
                   <TD className="text-right font-semibold tabular-nums">{score(g.total)}</TD>
                   <TD className="text-right">
                     <Badge tone={letterTone(g.letter)}>{g.letter ?? '—'}</Badge>

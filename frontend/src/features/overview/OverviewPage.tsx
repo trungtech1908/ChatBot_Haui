@@ -30,7 +30,7 @@ export function OverviewPage() {
     ? [graduation.creditsOk, graduation.physicalEducationOk, graduation.defenseEducationOk, graduation.languageOk]
     : []
   const doneConditions = conditions.filter(Boolean).length
-  const earnedCredits = summary?.semesters.reduce((sum, s) => sum + (s.credits ?? 0), 0) ?? 0
+  const earnedCredits = graduation?.credits ?? 0
 
   return (
     <>
@@ -60,7 +60,7 @@ export function OverviewPage() {
                       <p className="truncate font-medium">{item.courseName}</p>
                       <p className="truncate text-[13px] text-muted">{item.lecturer}</p>
                     </div>
-                    <span className="shrink-0 rounded-md bg-hover px-2 py-1 text-xs font-medium tabular-nums">P.{item.room}</span>
+                    <span className="shrink-0 rounded-md bg-hover px-2 py-1 text-xs font-medium tabular-nums">{item.room}</span>
                   </li>
                 ))}
               </ul>
@@ -107,17 +107,15 @@ export function OverviewPage() {
                 {[...exams].sort((a, b) => (a.startTime ?? '').localeCompare(b.startTime ?? '')).slice(0, 4).map((exam) => {
                   const start = exam.startTime ? new Date(exam.startTime) : null
                   return (
-                    <li key={exam.candidateNumber} className="flex items-center gap-4 px-5 py-3">
+                    <li key={`${exam.examCode}-${exam.startTime}`} className="flex items-center gap-4 px-5 py-3">
                       <div className="flex h-11 w-11 shrink-0 flex-col items-center justify-center rounded-lg border border-line bg-surface-2 leading-none">
                         <span className="text-[10px] text-muted uppercase">Th{start ? start.getMonth() + 1 : '—'}</span>
                         <span className="mt-0.5 font-semibold tabular-nums">{start?.getDate() ?? '—'}</span>
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="font-medium">
-                          {start?.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })} · Phòng {exam.room}
-                        </p>
+                        <p className="truncate font-medium">{exam.courseName}</p>
                         <p className="text-[13px] text-muted">
-                          {exam.format} · SBD {exam.candidateNumber}
+                          {start?.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })} · Phòng {exam.room} · {exam.format} · SBD {exam.candidateNumber}
                         </p>
                       </div>
                       {!exam.eligible && <Badge tone="red">Không đủ ĐK</Badge>}

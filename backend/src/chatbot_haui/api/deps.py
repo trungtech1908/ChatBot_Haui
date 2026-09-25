@@ -21,4 +21,12 @@ def get_current_account(db: DbSession, credentials: HTTPAuthorizationCredentials
     return account
 
 
+def get_current_student(account: Annotated[TaiKhoan, Depends(get_current_account)]) -> TaiKhoan:
+    # Tài khoản không gắn mã sinh viên (cán bộ, quản trị) không có dữ liệu /students/me hay chatbot cá nhân
+    if not account.ma_sv:
+        raise HTTPException(status.HTTP_403_FORBIDDEN, "Tài khoản không phải sinh viên")
+    return account
+
+
 CurrentAccount = Annotated[TaiKhoan, Depends(get_current_account)]
+CurrentStudent = Annotated[TaiKhoan, Depends(get_current_student)]

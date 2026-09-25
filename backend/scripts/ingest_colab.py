@@ -1,14 +1,16 @@
 # =====================================================================
 # Nạp tài liệu lên Qdrant trên Google Colab (bản chạy độc lập)
-# PDF -> OCR (Nanonets) -> chia chunk -> embedding (bge-m3) -> Qdrant
+# PDF -> OCR (Nanonets) -> chia chunk -> embedding (bge-m3) + BM25 -> Qdrant (collection hybrid)
 #
 # Cách dùng:
 #   1. Runtime > Change runtime type > chọn GPU (T4 trở lên)
 #   2. Upload PDF vào PDF_DIR (hoặc để PDF trên Google Drive, bật MOUNT_DRIVE)
 #   3. Điền cấu hình bên dưới, copy toàn bộ file vào 1 cell và chạy
 #
-# Luật chia chunk giống hệt backend/scripts/ingest.py (bản chạy trên máy).
-# Sửa luật chia thì sửa ở cả hai file.
+# Luật chia chunk giống hệt backend/scripts/ingest.py (bản chạy trên máy); bộ mã hóa BM25 giống hệt
+# backend/src/chatbot_haui/ai/tools/sparse.py (test tests/test_sparse.py kiểm tra). Sửa thì sửa cả hai nơi.
+# Tải file chunks.json về, chép vào backend/assets/ để lần sau index lại không cần OCR:
+#   uv run --no-sync python scripts/ingest.py --from-chunks
 # =====================================================================
 
 # ============================ CẤU HÌNH ===============================
@@ -17,8 +19,7 @@ MOUNT_DRIVE = False                     # True nếu PDF_DIR nằm trên Google 
 
 QDRANT_URL = ""                         # để trống thì lấy từ Colab Secrets: QDRANT_URL
 QDRANT_API_KEY = ""                     # để trống thì lấy từ Colab Secrets: QDRANT_API_KEY
-QDRANT_COLLECTION = "RAG_ChatBot_HAUI"  # phải trùng QDRANT_COLLECTION của backend
-RECREATE_COLLECTION = True              # True: xóa collection cũ rồi nạp lại toàn bộ
+QDRANT_COLLECTION = "haui_quy_che_hybrid"  # phải trùng QDRANT_COLLECTION của backend; luôn xóa rồi nạp lại toàn bộ
 
 OCR_MODEL = "nanonets/Nanonets-OCR2-3B"
 OCR_DPI = 200
@@ -29,7 +30,7 @@ MAX_ITEMS_PER_CHUNK = 6
 VECTOR_SIZE = 1024                      # bge-m3 dense
 UPSERT_BATCH = 256
 
-SAVE_CHUNKS_JSON = "/content/chunks.json"  # lưu chunk ra file để kiểm tra, để "" nếu không cần
+SAVE_CHUNKS_JSON = "/content/chunks.json"  # lưu chunk ra file (tải về chép vào backend/assets/); "" để tắt
 # =====================================================================
 
 
@@ -53,8 +54,11 @@ import torch
 from FlagEmbedding import BGEM3FlagModel
 from pdf2image import convert_from_path
 from PIL import Image
-from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, PointStruct, VectorParams
+import unicodedata
+import zlib
+from collections import Counter
+
+from qdrant_client import QdrantClient, models
 from transformers import AutoModelForImageTextToText, AutoProcessor
 
 if MOUNT_DRIVE:
@@ -502,29 +506,66 @@ class MarkdownChunker:
         return [sub for root in self.root_sections for sub in self.chunk_section(root)]
 
 
-# ================== Qdrant ==================
+# ================== BM25 (chép từ chatbot_haui/ai/tools/sparse.py) ==================
+# BEGIN SPARSE
+K1, B = 1.2, 0.75
+_TAG = re.compile(r"<[^>]+>")
+_WORD = re.compile(r"\w+", re.UNICODE)
+
+
+def tokenize(text: str) -> list[str]:
+    text = unicodedata.normalize("NFC", _TAG.sub(" ", text).lower())
+    words = _WORD.findall(text)
+    return words + [f"{a}_{b}" for a, b in zip(words, words[1:])]
+
+
+def _index(token: str) -> int:
+    return zlib.crc32(token.encode())
+
+
+def encode_document(text: str, avg_len: float) -> tuple[list[int], list[float]]:
+    tokens = tokenize(text)
+    norm = K1 * (1 - B + B * len(tokens) / avg_len)
+    weights: dict[int, float] = {}
+    for tok, tf in Counter(tokens).items():
+        idx = _index(tok)
+        weights[idx] = weights.get(idx, 0.0) + tf * (K1 + 1) / (tf + norm)
+    items = sorted(weights.items())
+    return [i for i, _ in items], [w for _, w in items]
+
+
+def average_length(texts: list[str]) -> float:
+    return sum(len(tokenize(t)) for t in texts) / max(len(texts), 1)
+# END SPARSE
+
+
+# ================== Qdrant (cấu trúc giống chatbot_haui/ai/indexing.py) ==================
 def upsert(texts: List[str], sources: List[str]):
     embedder = BGEM3FlagModel(EMBEDDING_MODEL, use_fp16=True)
     vectors = embedder.encode(texts, batch_size=EMBED_BATCH_SIZE, max_length=8192)["dense_vecs"]
 
-    qdrant = QdrantClient(url=secret(QDRANT_URL, "QDRANT_URL"), api_key=secret(QDRANT_API_KEY, "QDRANT_API_KEY"))
-    exists = qdrant.collection_exists(QDRANT_COLLECTION)
-    if exists and RECREATE_COLLECTION:
+    qdrant = QdrantClient(url=secret(QDRANT_URL, "QDRANT_URL"), api_key=secret(QDRANT_API_KEY, "QDRANT_API_KEY"), timeout=60)
+    if qdrant.collection_exists(QDRANT_COLLECTION):
         qdrant.delete_collection(QDRANT_COLLECTION)
-        exists = False
-    if not exists:
-        qdrant.create_collection(QDRANT_COLLECTION, vectors_config=VectorParams(size=VECTOR_SIZE, distance=Distance.COSINE))
-        qdrant.create_payload_index(QDRANT_COLLECTION, field_name="source", field_schema="keyword")
+    qdrant.create_collection(
+        QDRANT_COLLECTION,
+        vectors_config={"dense": models.VectorParams(size=VECTOR_SIZE, distance=models.Distance.COSINE)},
+        sparse_vectors_config={"bm25": models.SparseVectorParams(modifier=models.Modifier.IDF)},
+    )
+    qdrant.create_payload_index(QDRANT_COLLECTION, field_name="source", field_schema="keyword")
 
-    # Không xóa collection thì id nối tiếp sau số điểm hiện có
-    offset = 0 if RECREATE_COLLECTION else qdrant.count(QDRANT_COLLECTION).count
-    points = [
-        PointStruct(id=offset + i, vector=vec.tolist(), payload={"source": src, "raw_text": text})
-        for i, (vec, text, src) in enumerate(zip(vectors, texts, sources))
-    ]
+    avg_len = average_length(texts)
+    points = []
+    for i, (vec, text, src) in enumerate(zip(vectors, texts, sources)):
+        indices, values = encode_document(text, avg_len)
+        points.append(models.PointStruct(
+            id=i,
+            vector={"dense": vec.tolist(), "bm25": models.SparseVector(indices=indices, values=values)},
+            payload={"source": src, "raw_text": text},
+        ))
     for start in range(0, len(points), UPSERT_BATCH):
         qdrant.upsert(QDRANT_COLLECTION, points=points[start:start + UPSERT_BATCH])
-    print(f"Đã đẩy {len(points)} chunk lên '{QDRANT_COLLECTION}'")
+    print(f"Đã đẩy {len(points)} chunk (dense + BM25) lên '{QDRANT_COLLECTION}'")
 
 
 def main():
