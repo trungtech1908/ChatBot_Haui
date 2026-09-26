@@ -14,8 +14,8 @@
 # =====================================================================
 
 # ============================ CẤU HÌNH ===============================
-PDF_DIR = "/content/documents"          # thư mục chứa PDF
-MOUNT_DRIVE = False                     # True nếu PDF_DIR nằm trên Google Drive (/content/drive/MyDrive/...)
+PDF_DIR = "/content/drive/MyDrive/Colab Notebooks/documents"  # thư mục chứa PDF
+MOUNT_DRIVE = True                      # True nếu PDF_DIR nằm trên Google Drive (/content/drive/MyDrive/...)
 
 QDRANT_URL = ""                         # để trống thì lấy từ Colab Secrets: QDRANT_URL
 QDRANT_API_KEY = ""                     # để trống thì lấy từ Colab Secrets: QDRANT_API_KEY
@@ -32,7 +32,7 @@ UPSERT_BATCH = 256
 
 # File lưu chunk, ghi lại sau TỪNG PDF. Nên để trên Google Drive (MOUNT_DRIVE = True): Colab ngắt kết nối
 # không mất kết quả OCR. Tải file về chép vào backend/assets/chunks.json.
-SAVE_CHUNKS_JSON = "/content/chunks.json"
+SAVE_CHUNKS_JSON = "/content/drive/MyDrive/Colab Notebooks/documents/chunks.json"
 REUSE_CHUNKS = True                     # True: PDF đã có trong SAVE_CHUNKS_JSON thì bỏ qua OCR
 # =====================================================================
 

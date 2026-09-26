@@ -114,12 +114,12 @@ Cấu hình ở đầu file:
 
 | Biến                  | Mặc định                      | Mô tả                                              |
 |-----------------------|-------------------------------|----------------------------------------------------|
-| `PDF_DIR`             | `/content/documents`          | Thư mục PDF                                        |
-| `MOUNT_DRIVE`         | `False`                       | Mount Google Drive trước khi đọc PDF               |
+| `PDF_DIR`             | `/content/drive/MyDrive/Colab Notebooks/documents`| Thư mục PDF                                        |
+| `MOUNT_DRIVE`         | `True`                        | Mount Google Drive trước khi đọc PDF               |
 | `QDRANT_COLLECTION`   | `RAG_ChatBot_HAUI`         | Phải trùng `QDRANT_COLLECTION` của backend; luôn xóa rồi nạp lại toàn bộ |
 | `OCR_DPI`, `OCR_MAX_NEW_TOKENS` | `200`, `2048`       | Chất lượng ảnh và độ dài tối đa mỗi trang OCR      |
 | `MAX_ITEMS_PER_CHUNK` | `6`                           | Luật chia chunk, giữ giống bản chạy trên máy       |
-| `SAVE_CHUNKS_JSON`    | `/content/chunks.json`        | File lưu chunk, ghi sau **từng PDF**. Nên đặt trên Drive (`/content/drive/MyDrive/...`) để Colab ngắt kết nối không mất. Tải về chép vào `backend/assets/chunks.json` |
+| `SAVE_CHUNKS_JSON`    | `/content/drive/MyDrive/Colab Notebooks/documents/chunks.json`| File lưu chunk, ghi sau **từng PDF**. Tải về chép vào `backend/assets/chunks.json` |
 | `REUSE_CHUNKS`        | `True`                        | PDF đã có trong `SAVE_CHUNKS_JSON` thì bỏ qua OCR khi chạy lại |
 
 Trước khi OCR, script kiểm tra hết rồi mới chạy; sai chỗ nào dừng ngay ở đó kèm lý do: thư mục PDF, file lưu chunk ghi được không, Qdrant URL kết nối được không, API key đúng và có quyền ghi không (thử tạo rồi xóa một collection tạm), có GPU không, tải được model OCR và embedding không. Lỗi ở bước đẩy lên Qdrant không làm mất kết quả OCR: sửa lỗi rồi chạy lại cell, các PDF đã OCR được bỏ qua.
