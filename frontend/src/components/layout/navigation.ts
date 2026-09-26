@@ -28,7 +28,7 @@ export const navigation: NavSection[] = [
       { to: '/exams', label: 'Lịch thi', icon: ClipboardCheck },
       { to: '/grades', label: 'Kết quả học tập', icon: LineChart },
       { to: '/curriculum', label: 'Chương trình đào tạo', icon: BookOpen },
-      { to: '/academic-summary', label: 'Tốt nghiệp', icon: GraduationCap },
+      { to: '/academic-summary', label: 'Tiến độ & tốt nghiệp', icon: GraduationCap },
       { to: '/internship', label: 'Thực tập', icon: Briefcase },
     ],
   },

@@ -14,7 +14,7 @@ from sqlalchemy.orm import Session
 from chatbot_haui.db.models import SinhVien, TaiKhoan
 from chatbot_haui.schema.student import (
     AcademicSummary, Curriculum, CurriculumCourse, CurriculumGroup, ExamItem, Finance, Grade, Graduation, Internship,
-    Policy, Profile, ScheduleItem, SemesterSummary, Transaction,
+    Payable, Policy, Profile, ScheduleItem, SemesterDebt, SemesterSummary, Transaction,
 )
 
 EXAM_FORMAT = {
@@ -94,13 +94,20 @@ def get_curriculum(db: Session, account: TaiKhoan) -> Curriculum | None:
         LEFT JOIN core.nhom_tu_chon nt ON nt.ma_nhom = cm.ma_nhom
         WHERE cm.ma_ctdt = :ma_ctdt
         ORDER BY cm.hk_thu, cm.ma_mon""", ma_ctdt=p["ma_ctdt"])
+    progress = {r["ma_mon"]: r for r in _rows(db, "SELECT ma_mon, trang_thai, diem_chu, hk_hoc FROM chatbot.v_tien_do")}
+
+    def course(c) -> CurriculumCourse:
+        pr = progress.get(c["ma_mon"], {})
+        return CurriculumCourse(
+            code=c["ma_mon"], name=c["ten"], credits=c["so_tc"], semester=c["hk_thu"],
+            status=pr.get("trang_thai", "chua_hoc"), letter=pr.get("diem_chu"), taken_semester=pr.get("hk_hoc"),
+        )
 
     required = [c for c in courses if c["bat_buoc"]]
     groups = [CurriculumGroup(
         code="BAT_BUOC", name="Học phần bắt buộc", type="Bắt buộc",
         required_credits=sum(c["so_tc"] for c in required),
-        courses=[CurriculumCourse(code=c["ma_mon"], name=c["ten"], credits=c["so_tc"], semester=c["hk_thu"])
-                 for c in required],
+        courses=[course(c) for c in required],
     )]
     electives = defaultdict(list)
     for c in courses:
@@ -109,22 +116,19 @@ def get_curriculum(db: Session, account: TaiKhoan) -> Curriculum | None:
     for (code, name, credits), items in electives.items():
         groups.append(CurriculumGroup(
             code=code, name=name, type="Tự chọn", required_credits=credits,
-            courses=[CurriculumCourse(code=c["ma_mon"], name=c["ten"], credits=c["so_tc"], semester=c["hk_thu"])
-                     for c in items],
+            courses=[course(c) for c in items],
         ))
     return Curriculum(major=p["nganh"], cohort=p["ten_khoa"], required_credits=p["tc_yeu_cau"], groups=groups)
 
 
 def get_schedule(db: Session, account: TaiKhoan) -> list[ScheduleItem]:
-    """Thời khóa biểu của học kỳ gần nhất mà sinh viên có lớp."""
+    """Thời khóa biểu mọi học kỳ sinh viên có lớp (mới nhất trước); frontend chọn kỳ."""
     _scope(db, account)
-    rows = _rows(db, """
-        SELECT * FROM chatbot.v_lich_hoc
-        WHERE ma_hk = (SELECT max(ma_hk) FROM chatbot.v_lich_hoc)
-        ORDER BY thu, tiet_bd""")
+    rows = _rows(db, "SELECT * FROM chatbot.v_lich_hoc ORDER BY ma_hk DESC, thu, tiet_bd")
     return [
         ScheduleItem(
-            semester=r["hoc_ky"], course_name=r["mon"], class_code=r["ma_lop"], weekday=r["thu"],
+            semester=r["hoc_ky"], semester_code=r["ma_hk"], start_period=r["tiet_bd"], end_period=r["tiet_kt"],
+            course_name=r["mon"], class_code=r["ma_lop"], weekday=r["thu"],
             periods=f"Tiết {r['tiet_bd']}–{r['tiet_kt']}",
             weeks=f"Tuần {r['tuan_bd']}–{r['tuan_kt']}" if r["tuan_bd"] else None,
             room=r["phong"], lecturer=r["giang_vien"],
@@ -134,15 +138,12 @@ def get_schedule(db: Session, account: TaiKhoan) -> list[ScheduleItem]:
 
 
 def get_exams(db: Session, account: TaiKhoan) -> list[ExamItem]:
-    """Lịch thi của học kỳ gần nhất có lịch thi."""
+    """Lịch thi mọi học kỳ (mới nhất trước); frontend chọn kỳ."""
     _scope(db, account)
-    rows = _rows(db, """
-        SELECT * FROM chatbot.v_lich_thi
-        WHERE ma_hk = (SELECT max(ma_hk) FROM chatbot.v_lich_thi)
-        ORDER BY thoi_gian""")
+    rows = _rows(db, "SELECT * FROM chatbot.v_lich_thi ORDER BY ma_hk DESC, thoi_gian")
     return [
         ExamItem(
-            semester=r["hoc_ky"], course_name=r["mon"], candidate_number=r["so_bd"], exam_code=r["ma_lop"],
+            semester=r["hoc_ky"], semester_code=r["ma_hk"], course_name=r["mon"], candidate_number=r["so_bd"], exam_code=r["ma_lop"],
             start_time=r["thoi_gian"], duration_minutes=r["so_phut"], room=r["phong"], seat=r["vi_tri"],
             format=EXAM_FORMAT.get(r["hinh_thuc"], r["hinh_thuc"]), eligible=r["du_dieu_kien"],
             ineligible_reason=r["ly_do"],
@@ -174,7 +175,9 @@ def get_grades(db: Session, account: TaiKhoan) -> list[Grade]:
         Grade(
             semester=r["hoc_ky"], semester_code=r["ma_hk"], course_code=r["ma_mon"], course_name=r["mon"],
             credits=r["so_tc"], attempt=r["lan_hoc"], process=_num(r["diem_qt"]), exam=_num(r["diem_thi"]),
-            total=_num(r["diem_10"]), letter=r["diem_chu"], official=r["chinh_thuc"],
+            total=_num(r["diem_10"]), letter=r["diem_chu"], grade4=_num(r["diem_4"]), passed=r["dat"],
+            counts_gpa=bool(r["tinh_tb"]), registration=r["loai_dk"], course_type=r["loai_mon"],
+            official=r["chinh_thuc"],
         )
         for r in _rows(db, "SELECT * FROM chatbot.v_diem ORDER BY ma_hk DESC, ma_mon")
     ]
@@ -189,8 +192,10 @@ def get_academic_summary(db: Session, account: TaiKhoan) -> AcademicSummary:
     semesters = [
         SemesterSummary(
             code=r["ma_hk"], semester=r["hoc_ky"], gpa=_num(r["tb_hk"]), cumulative_gpa=_num(r["tb_tich_luy"]),
-            credits=r["tc_dat"], course_count=course_count.get(r["ma_hk"], 0), conduct_score=r["diem_rl"],
-            warning=r["canh_bao"],
+            credits=r["tc_dat"], credits_registered=r["tc_dk"], credits_failed=r["tc_truot"],
+            cumulative_credits=r["tc_tich_luy"], classification=r["xep_loai"],
+            course_count=course_count.get(r["ma_hk"], 0), conduct_score=r["diem_rl"],
+            conduct_classification=r["xep_loai_rl"], warning=r["canh_bao"],
         )
         for r in results
     ]
@@ -236,13 +241,26 @@ def get_finance(db: Session, account: TaiKhoan) -> Finance:
             return f"{base} {PAYMENT_KIND.get(r['loai_pt'], '').lower()}: {r['noi_dung']}".replace("  ", " ")
         return base
 
+    debts = [
+        SemesterDebt(semester_code=r["ma_hk"], semester=r["hoc_ky"], total=int(r["phai_thu"]), paid=int(r["da_tra"]),
+                     remaining=int(r["con_no"]), due_date=r["han_nop"])
+        for r in _rows(db, "SELECT * FROM chatbot.v_cong_no ORDER BY ma_hk DESC")
+    ]
+    payables = [
+        Payable(id=r["id"], semester_code=r["ma_hk"], semester=r["hoc_ky"], kind=r["loai"], content=r["noi_dung"],
+                amount=int(r["so_tien"]), paid=int(r["da_tra"]), remaining=int(r["con_no"]), due_date=r["han_nop"])
+        for r in _rows(db, "SELECT * FROM chatbot.v_phai_thu ORDER BY ma_hk DESC, han_nop, id")
+    ]
+
     return Finance(
         balance=int(balance),
         debt=int(debt),
         scholarship=int(scholarship),
+        debts=debts,
+        payables=payables,
         transactions=[
             Transaction(
-                code=f"GD{r['id']:06d}", time=r["thoi_gian"], name=name(r),
+                code=f"GD{r['id']:06d}", kind=r["loai"], time=r["thoi_gian"], name=name(r),
                 note=r["ghi_chu"] or r["hoc_ky"],
                 amount=int(r["so_tien"]), is_income=r["chieu"] == "vao",
                 status=TRANSACTION_STATUS.get(r["trang_thai"], r["trang_thai"]),

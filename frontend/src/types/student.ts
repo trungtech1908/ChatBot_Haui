@@ -21,11 +21,19 @@ export interface Profile {
   policy: Policy | null
 }
 
+export type CourseStatus = 'da_dat' | 'chua_dat' | 'chua_co_diem' | 'chua_hoc'
+
 export interface CurriculumCourse {
   code: string
   name: string
   credits: number
+  /** Học kỳ thứ mấy theo kế hoạch chuẩn */
   semester: number | null
+  status: CourseStatus
+  /** Điểm chữ của lần học chính thức */
+  letter: string | null
+  /** Mã học kỳ đã học */
+  takenSemester: string | null
 }
 
 export interface CurriculumGroup {
@@ -45,6 +53,9 @@ export interface Curriculum {
 
 export interface ScheduleItem {
   semester: string
+  semesterCode: string
+  startPeriod: number
+  endPeriod: number
   courseName: string | null
   classCode: string
   weekday: number | null
@@ -56,6 +67,7 @@ export interface ScheduleItem {
 
 export interface ExamItem {
   semester: string
+  semesterCode: string
   courseName: string | null
   candidateNumber: number
   examCode: string | null
@@ -97,6 +109,14 @@ export interface Grade {
   /** Điểm học phần hệ 10 */
   total: number | null
   letter: string | null
+  /** Điểm hệ 4 */
+  grade4: number | null
+  /** null: chưa có kết quả (I, X) */
+  passed: boolean | null
+  /** Có tính vào điểm trung bình không (GDTC, GDQP thì không) */
+  countsGpa: boolean
+  registration: 'lan_dau' | 'hoc_lai' | 'cai_thien' | 'hoc_doi' | null
+  courseType: string
   /** Lần học dùng tính điểm tích lũy */
   official: boolean
 }
@@ -107,8 +127,13 @@ export interface SemesterSummary {
   gpa: number | null
   cumulativeGpa: number | null
   credits: number | null
+  creditsRegistered: number | null
+  creditsFailed: number | null
+  cumulativeCredits: number | null
+  classification: string | null
   courseCount: number
   conductScore: number | null
+  conductClassification: string | null
   warning: boolean
 }
 
@@ -129,6 +154,7 @@ export interface AcademicSummary {
 
 export interface Transaction {
   code: string
+  kind: string
   time: string
   name: string | null
   note: string | null
@@ -137,9 +163,32 @@ export interface Transaction {
   status: string
 }
 
+export interface SemesterDebt {
+  semesterCode: string
+  semester: string
+  total: number
+  paid: number
+  remaining: number
+  dueDate: string | null
+}
+
+export interface Payable {
+  id: number
+  semesterCode: string
+  semester: string
+  kind: 'hoc_phi' | 'khoan_thu' | 'phi_phat' | 'khac'
+  content: string | null
+  amount: number
+  paid: number
+  remaining: number
+  dueDate: string | null
+}
+
 export interface Finance {
   balance: number
   debt: number
   scholarship: number
+  debts: SemesterDebt[]
+  payables: Payable[]
   transactions: Transaction[]
 }

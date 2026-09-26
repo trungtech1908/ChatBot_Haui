@@ -5,36 +5,61 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg: #f4f4f5;
+  --bg: #f5f6f8;
   --surface: #ffffff;
-  --surface-2: #fafafa;
-  --hover: #f4f4f5;
-  --fg: #09090b;
-  --muted: #71717a;
-  --line: #e4e4e7;
+  --surface-2: #f9fafb;
+  --hover: #f2f4f7;
+  --fg: #101828;
+  --fg-2: #344054;
+  --muted: #667085;
+  --line: #e4e7ec;
+  --line-strong: #d0d5dd;
   --brand: #2563eb;
   --brand-hover: #1d4ed8;
-  --brand-soft: #eff6ff;
-  --danger: #dc2626;
-  --success: #16a34a;
-  --warning: #d97706;
+  --brand-soft: #eef4ff;
+  --brand-ink: #1e40af;
+  --danger: #d92d20;
+  --danger-soft: #fef3f2;
+  --success: #079455;
+  --success-soft: #ecfdf3;
+  --warning: #dc6803;
+  --warning-soft: #fffaeb;
+  --shadow: 0 1px 2px rgb(16 24 40 / 0.05);
+  --shadow-md: 0 4px 12px -2px rgb(16 24 40 / 0.08), 0 2px 4px -2px rgb(16 24 40 / 0.04);
+  /* Biểu đồ: 2 slot đầu của bảng màu categorical đã kiểm tra (validate_palette: pass sáng/tối) */
+  --chart-1: #2a78d6;
+  --chart-2: #eb6834;
+  --chart-grid: #eaecf0;
+  --chart-axis: #d0d5dd;
   color-scheme: light;
 }
 
 .dark {
-  --bg: #09090b;
+  --bg: #0b0c0f;
   --surface: #131316;
-  --surface-2: #0d0d10;
-  --hover: #1c1c21;
-  --fg: #fafafa;
+  --surface-2: #0f1013;
+  --hover: #1c1d22;
+  --fg: #f4f4f5;
+  --fg-2: #d4d4d8;
   --muted: #a1a1aa;
-  --line: #27272a;
+  --line: #26272b;
+  --line-strong: #3f3f46;
   --brand: #3b82f6;
   --brand-hover: #60a5fa;
-  --brand-soft: rgb(59 130 246 / 0.12);
-  --danger: #f87171;
-  --success: #4ade80;
-  --warning: #fbbf24;
+  --brand-soft: rgb(59 130 246 / 0.14);
+  --brand-ink: #93c5fd;
+  --danger: #f97066;
+  --danger-soft: rgb(240 68 56 / 0.14);
+  --success: #47cd89;
+  --success-soft: rgb(23 178 106 / 0.14);
+  --warning: #fdb022;
+  --warning-soft: rgb(247 144 9 / 0.14);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.5);
+  --chart-1: #3987e5;
+  --chart-2: #d95926;
+  --chart-grid: #232428;
+  --chart-axis: #3f3f46;
   color-scheme: dark;
 }
 
@@ -45,14 +70,22 @@
   --color-surface-2: var(--surface-2);
   --color-hover: var(--hover);
   --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
   --color-muted: var(--muted);
   --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
   --color-brand: var(--brand);
   --color-brand-hover: var(--brand-hover);
   --color-brand-soft: var(--brand-soft);
+  --color-brand-ink: var(--brand-ink);
   --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
   --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
   --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
 }
 
 @layer base {
@@ -71,11 +104,13 @@
 }
 
 @utility card {
-  @apply rounded-xl border border-line bg-surface shadow-[0_1px_2px_rgb(0_0_0/0.04)];
+  @apply rounded-xl border border-line bg-surface;
+  box-shadow: var(--shadow);
 }
 
 @utility input {
-  @apply h-9 w-full rounded-lg border border-line bg-surface px-3 text-sm text-fg shadow-[0_1px_2px_rgb(0_0_0/0.03)] transition outline-none placeholder:text-muted focus:border-brand focus:ring-3 focus:ring-brand/15;
+  @apply h-9 w-full rounded-lg border border-line bg-surface px-3 text-sm text-fg transition outline-none placeholder:text-muted hover:border-line-strong focus:border-brand focus:ring-3 focus:ring-brand/15;
+  box-shadow: var(--shadow);
 }
 
 @utility btn {
@@ -83,13 +118,20 @@
 }
 
 @utility btn-primary {
-  @apply btn bg-fg text-bg hover:opacity-90;
+  @apply btn bg-brand text-white hover:bg-brand-hover;
+  box-shadow: var(--shadow);
 }
 
 @utility btn-secondary {
-  @apply btn border border-line bg-surface text-fg shadow-[0_1px_2px_rgb(0_0_0/0.04)] hover:bg-hover;
+  @apply btn border border-line bg-surface text-fg-2 hover:bg-hover hover:text-fg;
+  box-shadow: var(--shadow);
 }
 
 @utility btn-ghost {
   @apply btn text-muted hover:bg-hover hover:text-fg;
+}
+
+/* Cột số trong bảng thẳng hàng */
+@utility num {
+  font-variant-numeric: tabular-nums;
 }
