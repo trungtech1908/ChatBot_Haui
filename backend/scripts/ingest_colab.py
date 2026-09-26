@@ -19,7 +19,7 @@ MOUNT_DRIVE = False                     # True nếu PDF_DIR nằm trên Google 
 
 QDRANT_URL = ""                         # để trống thì lấy từ Colab Secrets: QDRANT_URL
 QDRANT_API_KEY = ""                     # để trống thì lấy từ Colab Secrets: QDRANT_API_KEY
-QDRANT_COLLECTION = "haui_quy_che_hybrid"  # phải trùng QDRANT_COLLECTION của backend; luôn xóa rồi nạp lại toàn bộ
+QDRANT_COLLECTION = "RAG_ChatBot_HAUI"  # phải trùng QDRANT_COLLECTION của backend; luôn xóa rồi nạp lại toàn bộ
 
 OCR_MODEL = "nanonets/Nanonets-OCR2-3B"
 OCR_DPI = 200

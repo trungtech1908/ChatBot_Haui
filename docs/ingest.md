@@ -38,7 +38,7 @@ Trong `.env` ở thư mục gốc repo:
 |---------------------|----------|-------------------------------------------------|
 | `QDRANT_URL`        | ✔        | URL cluster Qdrant Cloud                        |
 | `QDRANT_API_KEY`    | ✔        | API key Qdrant                                  |
-| `QDRANT_COLLECTION` |          | Collection văn bản chatbot dùng, mặc định `haui_quy_che_hybrid`; script **xóa rồi tạo lại** |
+| `QDRANT_COLLECTION` |          | Collection văn bản chatbot dùng, mặc định `RAG_ChatBot_HAUI`; script **xóa rồi tạo lại** |
 | `DOCUMENTS_DIR`     |          | Thư mục PDF, mặc định `assets/documents` (tính từ `backend/`) |
 | `EMBEDDING_MODEL`   |          | Mặc định `BAAI/bge-m3`                          |
 
@@ -77,7 +77,7 @@ Xử lý ChinhSachSV.pdf
   23 chunk
 ...
 Đã lưu chunk ra .../backend/assets/chunks.json
-Đã đẩy 166 chunk (dense + BM25) lên 'haui_quy_che_hybrid'
+Đã đẩy 166 chunk (dense + BM25) lên 'RAG_ChatBot_HAUI'
 ```
 
 ## Collection hybrid
@@ -112,7 +112,7 @@ Cấu hình ở đầu file:
 |-----------------------|-------------------------------|----------------------------------------------------|
 | `PDF_DIR`             | `/content/documents`          | Thư mục PDF                                        |
 | `MOUNT_DRIVE`         | `False`                       | Mount Google Drive trước khi đọc PDF               |
-| `QDRANT_COLLECTION`   | `haui_quy_che_hybrid`         | Phải trùng `QDRANT_COLLECTION` của backend; luôn xóa rồi nạp lại toàn bộ |
+| `QDRANT_COLLECTION`   | `RAG_ChatBot_HAUI`         | Phải trùng `QDRANT_COLLECTION` của backend; luôn xóa rồi nạp lại toàn bộ |
 | `OCR_DPI`, `OCR_MAX_NEW_TOKENS` | `200`, `2048`       | Chất lượng ảnh và độ dài tối đa mỗi trang OCR      |
 | `MAX_ITEMS_PER_CHUNK` | `6`                           | Luật chia chunk, giữ giống bản chạy trên máy       |
 | `SAVE_CHUNKS_JSON`    | `/content/chunks.json`        | Lưu chunk ra file; tải về chép vào `backend/assets/chunks.json` để lần sau index lại không cần OCR |

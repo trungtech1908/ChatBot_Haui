@@ -40,7 +40,7 @@ class Settings(BaseSettings):
     # --- Retrieval ---
     qdrant_url: str | None = None
     qdrant_api_key: str | None = None
-    qdrant_collection: str = "haui_quy_che_hybrid"
+    qdrant_collection: str = "RAG_ChatBot_HAUI"
     qdrant_memory_collection: str = "haui_chatbot_memory"
     cohere_api_key: str | None = None
     embedding_model: str = "BAAI/bge-m3"
