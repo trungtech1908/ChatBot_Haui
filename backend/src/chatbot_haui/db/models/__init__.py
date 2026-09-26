@@ -7,7 +7,7 @@ Ba schema, theo haui_db/ARCHITECTURE.md mục 4.2:
 """
 from chatbot_haui.db.models.academic import DangKy, DiemHp, DkTotNghiep, KetQuaHk, LopHp, RenLuyen, ThangDiem
 from chatbot_haui.db.models.catalog import Ctdt, CtdtMon, HocKy, Khoa, KhoiNganh, Mon, Nganh, NhomTuChon, NienKhoa
-from chatbot_haui.db.models.chat import ChatMessage
+from chatbot_haui.db.models.chat import ChatConversation, ChatMessage
 from chatbot_haui.db.models.finance import DonGia, GiaoDich, HeSoTc, KhoanThu, PhaiThu
 from chatbot_haui.db.models.policy import ChinhSach, DoiTuong, MucTran, SvChinhSach, SvDoiTuong, ThamSo
 from chatbot_haui.db.models.scholarship import HocBong, LoaiHb, MucHb
@@ -30,5 +30,6 @@ __all__ = [
     # teaching
     "GiangVien", "LichHoc", "LichThi", "LichThiSv", "DoanhNghiep", "ThucTap",
     # app
+    "ChatConversation",
     "ChatMessage",
 ]

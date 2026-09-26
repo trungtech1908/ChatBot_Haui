@@ -1,22 +1,40 @@
 import { apiFetch, apiJson } from '@/lib/api'
-import type { ChatMessage } from '@/types/chat'
+import type { ChatMessage, ChatStep, Conversation } from '@/types/chat'
 
-export const fetchMessages = () => apiJson<ChatMessage[]>('/chat/messages')
+export const fetchConversations = () => apiJson<Conversation[]>('/chat/conversations')
 
-export const clearMessages = () => apiJson<void>('/chat/messages', { method: 'DELETE' })
+export const fetchMessages = (conversationId: string) => apiJson<ChatMessage[]>(`/chat/conversations/${conversationId}/messages`)
+
+export const renameConversation = (conversationId: string, title: string) =>
+  apiJson<Conversation>(`/chat/conversations/${conversationId}`, { method: 'PATCH', body: JSON.stringify({ title }) })
+
+export const deleteConversation = (conversationId: string) =>
+  apiJson<void>(`/chat/conversations/${conversationId}`, { method: 'DELETE' })
+
+export const deleteAllConversations = () => apiJson<void>('/chat/conversations', { method: 'DELETE' })
 
 interface StreamHandlers {
+  /** Server vừa tạo cuộc trò chuyện mới cho câu hỏi này (luôn đến trước mọi sự kiện khác) */
+  onConversation: (conversation: Pick<Conversation, 'id' | 'title'>) => void
+  onStep: (step: ChatStep) => void
   onDelta: (text: string) => void
-  onStatus?: (stage: string) => void
+  /** Bản nháp bị bác hoặc model chạy lại: xóa phần câu trả lời đã hiện */
+  onReset: () => void
+  /** Câu trả lời cuối cùng: thay toàn bộ phần đã hiện */
+  onAnswer: (text: string) => void
   signal?: AbortSignal
 }
 
 /**
- * Gửi câu hỏi và đọc SSE: `event: status` + `{"stage"}` cho từng bước xử lý, `data: {"delta"}` là nội dung
- * câu trả lời (đã qua kiểm định), kết thúc bằng `event: done` hoặc `event: error`.
+ * Gửi câu hỏi vào cuộc trò chuyện `conversationId` (null = tạo mới) và đọc SSE: `conversation` (id cuộc vừa tạo), `step` (bước đang/đã làm), `delta` (token câu trả lời), `reset` (xóa bản nháp),
+ * `answer` (câu trả lời cuối), kết thúc bằng `done` hoặc `error`.
  */
-export async function streamChat(message: string, { onDelta, onStatus, signal }: StreamHandlers) {
-  const response = await apiFetch('/chat', { method: 'POST', body: JSON.stringify({ message }), signal })
+export async function streamChat(
+  message: string,
+  conversationId: string | null,
+  { onConversation, onStep, onDelta, onReset, onAnswer, signal }: StreamHandlers,
+) {
+  const response = await apiFetch('/chat', { method: 'POST', body: JSON.stringify({ message, conversationId }), signal })
   const reader = response.body!.pipeThrough(new TextDecoderStream()).getReader()
   let buffer = ''
 
@@ -40,8 +58,11 @@ export async function streamChat(message: string, { onDelta, onStatus, signal }:
 
       if (event === 'done') return
       if (event === 'error') throw new Error(payload.message)
-      if (event === 'status') onStatus?.(payload.stage)
-      else if (payload.delta) onDelta(payload.delta)
+      if (event === 'conversation') onConversation(payload)
+      else if (event === 'step') onStep(payload as ChatStep)
+      else if (event === 'delta') onDelta(payload.text)
+      else if (event === 'reset') onReset()
+      else if (event === 'answer') onAnswer(payload.text)
     }
   }
 }

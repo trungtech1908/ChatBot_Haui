@@ -28,14 +28,6 @@ from chatbot_haui.db.session import chatbot_scope
 MAX_REPLAN = 1
 MAX_REGEN = 1
 
-# Trạng thái hiển thị cho người dùng khi node bắt đầu chạy
-STAGES = {
-    "rewriter": "Đang đọc câu hỏi…",
-    "planner": "Đang lập kế hoạch tra cứu…",
-    "executor": "Đang tra cứu quy chế và dữ liệu…",
-    "generator": "Đang soạn câu trả lời…",
-    "validator": "Đang kiểm tra câu trả lời…",
-}
 # Trường "từng lượt": checkpointer giữ state giữa các lượt nên phải đặt lại mỗi lần hỏi
 _TURN_RESET: dict[str, Any] = {
     "query_rewritten": "", "route": "can_tra_cuu", "reuse_turn": None, "memories": [], "plan": {}, "results": {},

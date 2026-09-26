@@ -33,8 +33,9 @@ export const router = createBrowserRouter([
       { path: 'academic-summary', element: <AcademicSummaryPage /> },
       { path: 'finance', element: <FinancePage /> },
       { path: 'transactions', element: <Navigate to="/finance" replace /> },
-      // Tách bundle: trang chat kéo theo thư viện markdown
-      { path: 'chat', lazy: () => import('@/features/chat/ChatPage').then((m) => ({ Component: m.ChatPage })) },
+      // Tách bundle: trang chat kéo theo thư viện markdown. Một route cho cả cuộc mới và cuộc có sẵn:
+      // tạo cuộc mới khi đang stream chỉ đổi URL, không remount trang (không cắt stream)
+      { path: 'chat/:conversationId?', lazy: () => import('@/features/chat/ChatPage').then((m) => ({ Component: m.ChatPage })) },
     ],
   },
   { path: '*', element: <Navigate to="/" replace /> },

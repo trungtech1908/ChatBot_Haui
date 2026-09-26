@@ -28,6 +28,7 @@ def test_views_empty_without_scope(database):
     "SELECT count(*) FROM core.sinh_vien",
     "SELECT count(*) FROM private.tai_khoan",
     "SELECT count(*) FROM public.chat_message",
+    "SELECT count(*) FROM public.chat_conversation",
 ])
 def test_chatbot_role_cannot_read_outside_views(database, sql):
     with pytest.raises(Exception, match="permission denied"):

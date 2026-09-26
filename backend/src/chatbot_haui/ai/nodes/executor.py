@@ -11,6 +11,10 @@ import asyncio
 import logging
 import re
 
+from langchain_core.callbacks import adispatch_custom_event
+from langchain_core.runnables import RunnableConfig
+
+from chatbot_haui.ai.progress import STEP_END, STEP_START
 from chatbot_haui.ai.state import AgentState, StepResult
 from chatbot_haui.ai.tools.compute import ComputeError, evaluate
 from chatbot_haui.ai.tools.rag import run_rag
@@ -104,7 +108,16 @@ async def _run(step: dict, results: dict[str, StepResult], ma_sv: str) -> StepRe
         return {**base, "status": "error", "error": str(e)[:300]}
 
 
-async def executor(state: AgentState) -> dict:
+async def _run_reported(step: dict, results: dict[str, StepResult], ma_sv: str, config: RunnableConfig) -> StepResult:
+    """Chạy một bước và báo bắt đầu / kết thúc để client hiện đúng bước đang làm."""
+    await adispatch_custom_event(STEP_START, {"id": step["id"], "tool": step["tool"], "purpose": step.get("purpose", "")},
+                                 config=config)
+    result = await _run(step, results, ma_sv)
+    await adispatch_custom_event(STEP_END, {"id": step["id"], "result": result}, config=config)
+    return result
+
+
+async def executor(state: AgentState, config: RunnableConfig) -> dict:
     results: dict[str, StepResult] = dict(state.get("results") or {})
     pending = [s for s in state["plan"]["steps"] if s["id"] not in results]
     while pending:
@@ -114,7 +127,7 @@ async def executor(state: AgentState) -> dict:
                 results[s["id"]] = StepResult(tool=s["tool"], purpose=s.get("purpose", ""), status="skipped",
                                               error="phụ thuộc không giải được")
             break
-        outputs = await asyncio.gather(*(_run(s, results, state["ma_sv"]) for s in ready))
+        outputs = await asyncio.gather(*(_run_reported(s, results, state["ma_sv"], config) for s in ready))
         for s, r in zip(ready, outputs):
             results[s["id"]] = r
         pending = [s for s in pending if s["id"] not in results]

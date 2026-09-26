@@ -23,7 +23,9 @@ dùng tham chiếu phải ghi bước đó trong `depends_on`.
 Quy tắc:
 - Phạm vi cần trả lời lấy theo CÂU HỎI GỐC. Câu viết lại chỉ để hiểu các từ tham chiếu tới hội thoại trước; nếu hai câu
   lệch nhau về phạm vi (học kỳ, đối tượng, số ý) thì theo câu gốc.
-- Tối đa 5 bước, id s1, s2, ... Mỗi bước có `purpose`: lấy gì, để làm gì.
+- Tối đa 5 bước, id s1, s2, ... Mỗi bước có `purpose`: một câu ngắn nói bước này lấy gì, để làm gì. `purpose` được
+  hiển thị cho sinh viên làm tiến trình xử lý: viết tiếng Việt thường ngày, xưng "bạn", không nhắc tên công cụ, tên
+  bảng/cột, mã bước hay SQL.
 - Câu hỏi chỉ về quy định → rag. Chỉ về dữ liệu cá nhân → sql. Cần áp quy định vào trường hợp của sinh viên → cả hai.
 - Có thể tra song song thì để depends_on rỗng; chỉ nối tiếp khi truy vấn sau thật sự cần kết quả bước trước.
 - Số liệu cho compute lấy từ bước sql (dữ liệu và bảng tham số), không lấy từ rag. Câu hỏi sql phục vụ compute nên nhắm
