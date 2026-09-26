@@ -6,20 +6,28 @@ Ghi thẳng vào collection hybrid QDRANT_COLLECTION (xóa rồi tạo lại). C
     cd backend
     uv sync --extra gpu --extra ingest && uv run --no-sync python scripts/ingest.py      # OCR + index
     uv sync --extra cpu && uv run --no-sync python scripts/ingest.py --from-chunks       # chỉ index lại từ file
+
+Trước khi OCR, script kiểm tra hết (PDF, ghi file, Qdrant URL/key/quyền ghi, GPU, poppler, tải model); sai là dừng
+ngay. Tiến độ OCR được lưu sau từng PDF vào assets/chunks.partial.json: lỗi giữa chừng thì chạy lại lệnh cũ, các
+PDF đã OCR được bỏ qua (--fresh để OCR lại từ đầu). Xong hết mới thay vào assets/chunks.json.
 """
 import argparse
 import json
 import re
+import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Tuple
 
 from qdrant_client import QdrantClient
+from tqdm.auto import tqdm
 
-from chatbot_haui.ai.indexing import make_points, recreate_collection
+from chatbot_haui.ai.indexing import QdrantCheckError, check_qdrant, make_points, recreate_collection
 from chatbot_haui.core.config import settings
 
 CHUNKS_FILE = Path(__file__).resolve().parents[1] / "assets" / "chunks.json"
+# Tiến độ OCR dở dang: tách khỏi chunks.json (file đã commit) để lần chạy lỗi không ghi đè bản đầy đủ
+PARTIAL_FILE = CHUNKS_FILE.with_name("chunks.partial.json")
 OCR_MODEL = "nanonets/Nanonets-OCR2-3B"
 MAX_ITEMS_PER_CHUNK = 6
 UPSERT_BATCH = 256
@@ -69,16 +77,17 @@ class OCR:
         gen_ids = output_ids[:, inputs.input_ids.shape[1]:]
         return self.processor.batch_decode(gen_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)[0]
 
-    def pdf_to_markdown(self, pdf_path: Path) -> str:
+    def pdf_to_markdown(self, pdf_path: Path, bar=None) -> str:
         import torch
         from pdf2image import convert_from_path
 
-        # Mỗi trang: OCR, bỏ tag số trang/watermark, nối cách 1 dòng trống
+        # Mỗi trang: OCR, bỏ tag số trang/watermark, nối cách 1 dòng trống; bar: thanh tiến trình chung (theo trang)
         pages = []
-        for i, page in enumerate(convert_from_path(pdf_path, dpi=200), start=1):
-            print(f"  OCR trang {i}")
+        for page in convert_from_path(pdf_path, dpi=200):
             pages.append(REMOVE_TAGS.sub("", self.image_to_markdown(page)).strip())
             torch.cuda.empty_cache()
+            if bar is not None:
+                bar.update(1)
         return "\n\n".join(pages) + "\n\n"
 
 
@@ -464,52 +473,151 @@ class MarkdownChunker:
         return [sub for root in self.root_sections for sub in self.chunk_section(root)]
 
 
+# ================== Kiểm tra trước khi chạy ==================
+def fail(message: str):
+    raise SystemExit("❌ " + message)
+
+
+def load_json(path: Path) -> dict:
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        fail(f"{path} không phải JSON hợp lệ")
+    if not isinstance(data, dict):
+        fail(f"{path} phải là object {{tên_văn_bản: [chunk, ...]}}")
+    return data
+
+
+def preflight(from_chunks: Path | None, fresh: bool) -> tuple[list[Path], dict, QdrantClient]:
+    """Kiểm tra mọi thứ TRƯỚC khi OCR / embedding. Trả về (PDF cần xử lý, chunk đã có, client Qdrant)."""
+    print("=== Kiểm tra trước khi chạy ===")
+    pdfs: list[Path] = []
+    done: dict = {}
+    if from_chunks:
+        if not from_chunks.is_file():
+            fail(f"Không thấy file chunk {from_chunks}")
+        done = load_json(from_chunks)
+        if not any(done.values()):
+            fail(f"{from_chunks} không có chunk nào")
+        print(f"✅ File chunk: {from_chunks} ({sum(map(len, done.values()))} chunk, {len(done)} văn bản)")
+    else:
+        pdfs = sorted(settings.documents_dir.glob("*.pdf"))
+        if not pdfs:
+            fail(f"Không có PDF trong {settings.documents_dir} (chạy lệnh từ backend/?)")
+        print(f"✅ PDF: {len(pdfs)} file trong {settings.documents_dir}")
+        try:
+            probe = CHUNKS_FILE.parent / ".kiem_tra_ghi"
+            probe.write_text("ok")
+            probe.unlink()
+        except OSError as e:
+            fail(f"Không ghi được vào {CHUNKS_FILE.parent}: {e}")
+        if fresh and PARTIAL_FILE.exists():
+            PARTIAL_FILE.unlink()
+        if PARTIAL_FILE.exists():
+            stems = {p.stem for p in pdfs}
+            done = {k: v for k, v in load_json(PARTIAL_FILE).items() if k in stems}
+        print(f"✅ Lưu tiến độ: {PARTIAL_FILE.name} ({len(done)}/{len(pdfs)} PDF đã OCR ở lần chạy trước, sẽ bỏ qua)")
+
+    if not settings.qdrant_url or not settings.qdrant_api_key:
+        fail("Thiếu QDRANT_URL hoặc QDRANT_API_KEY trong cấu hình")
+    qdrant = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key, timeout=60)
+    try:
+        exists = check_qdrant(qdrant, settings.qdrant_collection)
+    except QdrantCheckError as e:
+        fail(str(e))
+    state = "đã có, sẽ bị xóa và nạp lại" if exists else "chưa có, sẽ tạo mới"
+    print(f"✅ Qdrant: kết nối được, key có quyền ghi; collection '{settings.qdrant_collection}' {state}")
+
+    todo = [p for p in pdfs if p.stem not in done]
+    if todo:
+        import torch
+        if not torch.cuda.is_available():
+            fail("Không thấy GPU CUDA (cần cho OCR). Cài môi trường GPU: uv sync --extra gpu --extra ingest")
+        props = torch.cuda.get_device_properties(0)
+        vram = props.total_memory / 1024 ** 3
+        warn = "  ⚠️ dưới 8 GB, OCR có thể hết bộ nhớ" if vram < 8 else ""
+        print(f"✅ GPU: {props.name}, {vram:.0f} GB VRAM{warn}")
+        if not shutil.which("pdftoppm"):
+            fail("Chưa cài poppler (pdf2image cần): sudo apt install poppler-utils")
+        print("✅ poppler: có")
+
+    # Tải trước model: lỗi mạng / Hugging Face lộ ra ngay thay vì sau khi OCR xong
+    from huggingface_hub import snapshot_download
+    skip = ["onnx/*", "*.onnx", "*.onnx_data", "imgs/*", "flax_model.msgpack", "rust_model.ot", "tf_model.h5"]
+    for repo in ([OCR_MODEL] if todo else []) + [settings.embedding_model]:
+        try:
+            snapshot_download(repo, ignore_patterns=skip)
+        except Exception as e:
+            fail(f"Không tải được model {repo} ({type(e).__name__}): {str(e)[:150]}")
+        print(f"✅ Model {repo}: đã tải")
+
+    print(f"=== Kiểm tra xong: cần OCR {len(todo)}/{len(pdfs)} PDF ===\n" if pdfs else "=== Kiểm tra xong ===\n")
+    return todo, done, qdrant
+
+
+# ================== OCR ==================
+def save_json(path: Path, data: dict):
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp.replace(path)  # ghi file tạm rồi đổi tên: bị ngắt giữa chừng không hỏng file đã lưu
+
+
+def ocr_pdfs(todo: list[Path], done: dict) -> dict[str, list[str]]:
+    import torch
+    from pdf2image import pdfinfo_from_path
+
+    ocr = OCR()
+    # Một thanh tiến trình duy nhất, chạy theo tổng số trang của mọi PDF cần OCR
+    total_pages = sum(pdfinfo_from_path(str(pdf))["Pages"] for pdf in todo)
+    with tqdm(total=total_pages, desc="OCR", unit="trang") as bar:
+        for pdf in todo:
+            bar.set_postfix_str(pdf.name)
+            # source = tên PDF (không đuôi), khớp mã văn bản trong prompts/document_descriptions.json
+            done[pdf.stem] = MarkdownChunker(max_items_per_chunk=MAX_ITEMS_PER_CHUNK).chunk(ocr.pdf_to_markdown(pdf, bar))
+            save_json(PARTIAL_FILE, done)  # lưu sau TỪNG PDF
+    del ocr
+    torch.cuda.empty_cache()
+    return done
+
+
 # ================== Qdrant ==================
-def index(texts: List[str], sources: List[str]):
+def index(qdrant: QdrantClient, texts: List[str], sources: List[str]):
     from FlagEmbedding import BGEM3FlagModel
 
+    # Embedding xong hết rồi mới đụng tới collection: lỗi ở bước này không làm mất collection đang có
     embedder = BGEM3FlagModel(settings.embedding_model, use_fp16=False)
     dense = embedder.encode(texts, batch_size=12, max_length=8192)["dense_vecs"]
 
-    qdrant = QdrantClient(url=settings.qdrant_url, api_key=settings.qdrant_api_key, timeout=60)
     collection = settings.qdrant_collection
-    # Nạp lại toàn bộ để không còn chunk cũ
-    recreate_collection(qdrant, collection)
+    recreate_collection(qdrant, collection)  # nạp lại toàn bộ để không còn chunk cũ
     points = make_points(texts, sources, dense)
     for start in range(0, len(points), UPSERT_BATCH):
         qdrant.upsert(collection, points=points[start:start + UPSERT_BATCH])
     print(f"Đã đẩy {len(points)} chunk (dense + BM25) lên '{collection}'")
 
 
-def ocr_all() -> dict[str, list[str]]:
-    pdfs = sorted(settings.documents_dir.glob("*.pdf"))
-    if not pdfs:
-        raise SystemExit(f"Không có PDF trong {settings.documents_dir}")
-    ocr = OCR()
-    chunks_by_doc = {}
-    for pdf in pdfs:
-        print(f"Xử lý {pdf.name}")
-        # source = tên PDF (không đuôi), khớp mã văn bản trong prompts/document_descriptions.json
-        chunks_by_doc[pdf.stem] = MarkdownChunker(max_items_per_chunk=MAX_ITEMS_PER_CHUNK).chunk(ocr.pdf_to_markdown(pdf))
-        print(f"  {len(chunks_by_doc[pdf.stem])} chunk")
-    CHUNKS_FILE.write_text(json.dumps(chunks_by_doc, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Đã lưu chunk ra {CHUNKS_FILE}")
-    return chunks_by_doc
-
-
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--from-chunks", nargs="?", const=CHUNKS_FILE, type=Path, metavar="FILE",
                     help=f"bỏ qua OCR, dựng lại index từ file chunk (mặc định {CHUNKS_FILE.name})")
+    ap.add_argument("--fresh", action="store_true", help=f"bỏ tiến độ cũ trong {PARTIAL_FILE.name}, OCR lại mọi PDF")
     args = ap.parse_args()
 
-    if args.from_chunks:
-        chunks_by_doc = json.loads(Path(args.from_chunks).read_text(encoding="utf-8"))
-    else:
-        chunks_by_doc = ocr_all()
+    todo, chunks_by_doc, qdrant = preflight(args.from_chunks, args.fresh)
+    if not args.from_chunks:
+        if todo:
+            chunks_by_doc = ocr_pdfs(todo, chunks_by_doc)
+        save_json(CHUNKS_FILE, chunks_by_doc)  # đủ mọi PDF rồi mới thay bản chính
+        PARTIAL_FILE.unlink(missing_ok=True)
+        print(f"Đã lưu {sum(map(len, chunks_by_doc.values()))} chunk ra {CHUNKS_FILE}")
+
     texts = [c for doc in chunks_by_doc.values() for c in doc]
     sources = [name for name, doc in chunks_by_doc.items() for _ in doc]
-    index(texts, sources)
+    try:
+        index(qdrant, texts, sources)
+    except Exception as e:
+        fail(f"Lỗi khi embedding / đẩy lên Qdrant ({type(e).__name__}): {str(e)[:200]}\n"
+             f"Chunk đã lưu ở {CHUNKS_FILE}: sửa lỗi rồi chạy scripts/ingest.py --from-chunks, không cần OCR lại.")
 
 
 if __name__ == "__main__":

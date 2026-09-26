@@ -30,7 +30,10 @@ MAX_ITEMS_PER_CHUNK = 6
 VECTOR_SIZE = 1024                      # bge-m3 dense
 UPSERT_BATCH = 256
 
-SAVE_CHUNKS_JSON = "/content/chunks.json"  # lưu chunk ra file (tải về chép vào backend/assets/); "" để tắt
+# File lưu chunk, ghi lại sau TỪNG PDF. Nên để trên Google Drive (MOUNT_DRIVE = True): Colab ngắt kết nối
+# không mất kết quả OCR. Tải file về chép vào backend/assets/chunks.json.
+SAVE_CHUNKS_JSON = "/content/chunks.json"
+REUSE_CHUNKS = True                     # True: PDF đã có trong SAVE_CHUNKS_JSON thì bỏ qua OCR
 # =====================================================================
 
 
@@ -52,13 +55,14 @@ from typing import List, Tuple
 
 import torch
 from FlagEmbedding import BGEM3FlagModel
-from pdf2image import convert_from_path
+from pdf2image import convert_from_path, pdfinfo_from_path
 from PIL import Image
 import unicodedata
 import zlib
 from collections import Counter
 
 from qdrant_client import QdrantClient, models
+from tqdm.auto import tqdm
 from transformers import AutoModelForImageTextToText, AutoProcessor
 
 if MOUNT_DRIVE:
@@ -66,12 +70,110 @@ if MOUNT_DRIVE:
     drive.mount("/content/drive")
 
 
+def fail(message: str):
+    raise SystemExit("❌ " + message)
+
+
 def secret(value: str, name: str) -> str:
-    """Ưu tiên giá trị điền trong cấu hình, không có thì đọc Colab Secrets."""
-    if value:
-        return value
-    from google.colab import userdata
-    return userdata.get(name)
+    """Ưu tiên giá trị điền trong cấu hình, không có thì đọc Colab Secrets. Thiếu cả hai thì dừng ngay."""
+    if value and value.strip():
+        return value.strip()
+    try:
+        from google.colab import userdata
+        found = userdata.get(name)
+    except Exception as e:  # chưa có secret, chưa bật quyền cho notebook, hoặc không chạy trên Colab
+        fail(f"Thiếu {name}: điền vào cấu hình đầu file, hoặc thêm vào Colab Secrets và bật quyền cho notebook "
+             f"({type(e).__name__})")
+    if not found or not found.strip():
+        fail(f"{name} trong Colab Secrets đang rỗng")
+    return found.strip()
+
+
+def preflight() -> tuple[list[Path], QdrantClient, dict]:
+    """Kiểm tra mọi thứ TRƯỚC khi OCR. OCR chạy hàng chục phút: lỗi cấu hình phải lộ ra ngay từ đầu."""
+    print("=== Kiểm tra trước khi chạy ===")
+
+    # 1. PDF
+    pdf_dir = Path(PDF_DIR)
+    if not pdf_dir.is_dir():
+        hint = " (đường dẫn nằm trên Drive nhưng MOUNT_DRIVE = False?)" if "/drive/" in PDF_DIR and not MOUNT_DRIVE else ""
+        fail(f"Không thấy thư mục PDF_DIR = {PDF_DIR}{hint}")
+    pdfs = sorted(pdf_dir.glob("*.pdf"))
+    if not pdfs:
+        fail(f"Không có file .pdf nào trong {PDF_DIR}")
+    print(f"✅ PDF: {len(pdfs)} file trong {PDF_DIR}")
+
+    # 2. File lưu chunk: ghi được không, có kết quả OCR cũ dùng lại được không
+    done = {}
+    if not SAVE_CHUNKS_JSON:
+        print("⚠️ SAVE_CHUNKS_JSON trống: lỗi ở bất kỳ bước nào sau OCR sẽ phải OCR lại từ đầu")
+    else:
+        out = Path(SAVE_CHUNKS_JSON)
+        if out.suffix != ".json":
+            fail(f"SAVE_CHUNKS_JSON phải là đường dẫn tới một file .json, đang là {SAVE_CHUNKS_JSON}")
+        try:
+            out.parent.mkdir(parents=True, exist_ok=True)
+            probe_file = out.parent / ".kiem_tra_ghi"
+            probe_file.write_text("ok")
+            probe_file.unlink()
+        except OSError as e:
+            fail(f"Không ghi được vào thư mục {out.parent}: {e}")
+        if out.exists():
+            try:
+                saved = json.loads(out.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                fail(f"{out} đã có nhưng không phải JSON hợp lệ: xóa file đó hoặc đổi SAVE_CHUNKS_JSON")
+            stems = {pdf.stem for pdf in pdfs}
+            done = {k: v for k, v in saved.items() if k in stems} if REUSE_CHUNKS else {}
+        if not str(out).startswith("/content/drive/"):
+            print("⚠️ SAVE_CHUNKS_JSON không nằm trên Google Drive: Colab ngắt kết nối là mất file")
+        print(f"✅ Lưu chunk: {out} ({len(done)}/{len(pdfs)} PDF đã OCR sẵn, sẽ bỏ qua)")
+
+    # 3. Qdrant: URL đúng, key đúng, key có quyền ghi
+    url, key = secret(QDRANT_URL, "QDRANT_URL"), secret(QDRANT_API_KEY, "QDRANT_API_KEY")
+    if not url.startswith(("http://", "https://")):
+        fail("QDRANT_URL phải bắt đầu bằng https://")
+    qdrant = QdrantClient(url=url, api_key=key, timeout=60)
+    try:
+        existing = [c.name for c in qdrant.get_collections().collections]
+    except Exception as e:
+        text = str(e)
+        if any(code in text for code in ("401", "403", "Unauthorized", "Forbidden")):
+            fail("QDRANT_API_KEY sai hoặc đã bị thu hồi (Qdrant từ chối)")
+        fail(f"Không kết nối được QDRANT_URL ({type(e).__name__}): kiểm tra URL và cluster còn chạy không")
+    probe = "_ingest_kiem_tra_quyen_ghi"
+    try:
+        if qdrant.collection_exists(probe):
+            qdrant.delete_collection(probe)
+        qdrant.create_collection(probe, vectors_config=models.VectorParams(size=4, distance=models.Distance.COSINE))
+        qdrant.delete_collection(probe)
+    except Exception as e:
+        fail(f"QDRANT_API_KEY đọc được nhưng không có quyền tạo/xóa collection ({type(e).__name__}): cần key có quyền ghi")
+    state = "đã có, sẽ bị xóa và nạp lại" if QDRANT_COLLECTION in existing else "chưa có, sẽ tạo mới"
+    print(f"✅ Qdrant: kết nối được, key có quyền ghi; collection '{QDRANT_COLLECTION}' {state}")
+
+    # 4. GPU: chỉ cần khi còn PDF phải OCR
+    need_ocr = len(pdfs) - len(done)
+    if need_ocr:
+        if not torch.cuda.is_available():
+            fail("Không thấy GPU: Runtime > Change runtime type > chọn GPU (T4 trở lên)")
+        props = torch.cuda.get_device_properties(0)
+        vram = props.total_memory / 1024 ** 3
+        warn = "  ⚠️ dưới 8 GB, OCR có thể hết bộ nhớ" if vram < 8 else ""
+        print(f"✅ GPU: {props.name}, {vram:.0f} GB VRAM{warn}")
+
+    # 5. Tải trước model: lỗi mạng / Hugging Face lộ ra ngay thay vì sau khi OCR xong
+    from huggingface_hub import snapshot_download
+    skip = ["onnx/*", "*.onnx", "*.onnx_data", "imgs/*", "flax_model.msgpack", "rust_model.ot", "tf_model.h5"]
+    for repo in ([OCR_MODEL] if need_ocr else []) + [EMBEDDING_MODEL]:
+        try:
+            snapshot_download(repo, ignore_patterns=skip)
+        except Exception as e:
+            fail(f"Không tải được model {repo} ({type(e).__name__}): {str(e)[:150]}")
+        print(f"✅ Model {repo}: đã tải")
+
+    print(f"=== Kiểm tra xong: cần OCR {need_ocr}/{len(pdfs)} PDF ===\n")
+    return pdfs, qdrant, done
 
 
 OCR_PROMPT = (
@@ -114,13 +216,14 @@ class OCR:
         gen_ids = output_ids[:, inputs.input_ids.shape[1]:]
         return self.processor.batch_decode(gen_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)[0]
 
-    def pdf_to_markdown(self, pdf_path: Path) -> str:
-        # Mỗi trang: OCR, bỏ tag số trang/watermark, nối cách 1 dòng trống
+    def pdf_to_markdown(self, pdf_path: Path, bar=None) -> str:
+        # Mỗi trang: OCR, bỏ tag số trang/watermark, nối cách 1 dòng trống; bar: thanh tiến trình chung (theo trang)
         pages = []
-        for i, page in enumerate(convert_from_path(pdf_path, dpi=OCR_DPI), start=1):
-            print(f"  OCR trang {i}")
+        for page in convert_from_path(pdf_path, dpi=OCR_DPI):
             pages.append(REMOVE_TAGS.sub("", self.image_to_markdown(page)).strip())
             torch.cuda.empty_cache()
+            if bar is not None:
+                bar.update(1)
         return "\n\n".join(pages) + "\n\n"
 
 
@@ -540,11 +643,11 @@ def average_length(texts: list[str]) -> float:
 
 
 # ================== Qdrant (cấu trúc giống chatbot_haui/ai/indexing.py) ==================
-def upsert(texts: List[str], sources: List[str]):
+def upsert(qdrant: QdrantClient, texts: List[str], sources: List[str]):
+    # Embedding xong hết rồi mới đụng tới collection: lỗi ở bước embedding không làm mất collection đang có
     embedder = BGEM3FlagModel(EMBEDDING_MODEL, use_fp16=True)
     vectors = embedder.encode(texts, batch_size=EMBED_BATCH_SIZE, max_length=8192)["dense_vecs"]
 
-    qdrant = QdrantClient(url=secret(QDRANT_URL, "QDRANT_URL"), api_key=secret(QDRANT_API_KEY, "QDRANT_API_KEY"), timeout=60)
     if qdrant.collection_exists(QDRANT_COLLECTION):
         qdrant.delete_collection(QDRANT_COLLECTION)
     qdrant.create_collection(
@@ -568,33 +671,44 @@ def upsert(texts: List[str], sources: List[str]):
     print(f"Đã đẩy {len(points)} chunk (dense + BM25) lên '{QDRANT_COLLECTION}'")
 
 
+def save_chunks(chunks_by_pdf: dict):
+    if not SAVE_CHUNKS_JSON:
+        return
+    out = Path(SAVE_CHUNKS_JSON)
+    tmp = out.with_name(out.name + ".tmp")
+    tmp.write_text(json.dumps(chunks_by_pdf, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp.replace(out)  # ghi file tạm rồi đổi tên: bị ngắt giữa chừng cũng không hỏng file đã lưu
+
+
 def main():
-    pdfs = sorted(Path(PDF_DIR).glob("*.pdf"))
-    if not pdfs:
-        raise SystemExit(f"Không có PDF trong {PDF_DIR}")
-    if not torch.cuda.is_available():
-        print("⚠️ Không thấy GPU, OCR sẽ rất chậm. Vào Runtime > Change runtime type để chọn GPU.")
+    pdfs, qdrant, chunks_by_pdf = preflight()
 
-    ocr = OCR()
-    texts, sources, dump = [], [], {}
-    for pdf in pdfs:
-        print(f"Xử lý {pdf.name}")
-        chunks = MarkdownChunker(max_items_per_chunk=MAX_ITEMS_PER_CHUNK).chunk(ocr.pdf_to_markdown(pdf))
-        texts += chunks
-        # source = tên PDF (không đuôi), khớp tên tài liệu trả về từ bước phân loại
-        sources += [pdf.stem] * len(chunks)
-        dump[pdf.stem] = chunks
-        print(f"  {len(chunks)} chunk")
+    todo = [pdf for pdf in pdfs if pdf.stem not in chunks_by_pdf]
+    if todo:
+        ocr = OCR()
+        # Một thanh tiến trình duy nhất, chạy theo tổng số trang của mọi PDF cần OCR
+        total_pages = sum(pdfinfo_from_path(str(pdf))["Pages"] for pdf in todo)
+        with tqdm(total=total_pages, desc="OCR", unit="trang") as bar:
+            for pdf in todo:
+                bar.set_postfix_str(pdf.name)
+                # source = tên PDF (không đuôi), khớp mã văn bản trong document_descriptions.json của backend
+                chunks_by_pdf[pdf.stem] = MarkdownChunker(max_items_per_chunk=MAX_ITEMS_PER_CHUNK).chunk(
+                    ocr.pdf_to_markdown(pdf, bar))
+                save_chunks(chunks_by_pdf)  # lưu sau TỪNG PDF: lỗi / ngắt kết nối thì chạy lại cell sẽ bỏ qua phần đã xong
+        # Giải phóng GPU của model OCR trước khi embedding
+        del ocr
+        torch.cuda.empty_cache()
 
-    if SAVE_CHUNKS_JSON:
-        Path(SAVE_CHUNKS_JSON).write_text(json.dumps(dump, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"Đã lưu chunk ra {SAVE_CHUNKS_JSON}")
-
-    # Giải phóng GPU của model OCR trước khi embedding
-    del ocr
-    torch.cuda.empty_cache()
-
-    upsert(texts, sources)
-
+    texts = [c for pdf in pdfs for c in chunks_by_pdf[pdf.stem]]
+    sources = [pdf.stem for pdf in pdfs for _ in chunks_by_pdf[pdf.stem]]
+    if not texts:
+        fail("OCR xong nhưng không ra chunk nào: kiểm tra nội dung PDF")
+    print(f"Tổng: {len(texts)} chunk từ {len(pdfs)} PDF")
+    try:
+        upsert(qdrant, texts, sources)
+    except Exception as e:
+        kept = (f"\nChunk đã lưu ở {SAVE_CHUNKS_JSON}: sửa lỗi rồi chạy lại cell, phần OCR sẽ được bỏ qua."
+                if SAVE_CHUNKS_JSON else "")
+        fail(f"Lỗi khi embedding / đẩy lên Qdrant ({type(e).__name__}): {str(e)[:200]}{kept}")
 
 main()

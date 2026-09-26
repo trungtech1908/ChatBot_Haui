@@ -36,3 +36,32 @@ def make_points(texts: list[str], sources: list[str], dense_vectors) -> list[mod
             payload={"source": source, "raw_text": text},
         ))
     return points
+
+
+class QdrantCheckError(RuntimeError):
+    """Cấu hình Qdrant sai; thông điệp nói rõ sai ở đâu (URL, key hay quyền)."""
+
+
+def check_qdrant(client: QdrantClient, collection: str) -> bool:
+    """Kiểm tra kết nối, API key và quyền ghi TRƯỚC khi làm việc tốn thời gian (OCR, embedding).
+
+    Quyền ghi được thử bằng cách tạo rồi xóa một collection tạm. Trả về collection đích đã tồn tại chưa.
+    """
+    try:
+        existing = {c.name for c in client.get_collections().collections}
+    except Exception as e:
+        text = str(e)
+        if any(code in text for code in ("401", "403", "Unauthorized", "Forbidden")):
+            raise QdrantCheckError("QDRANT_API_KEY sai hoặc đã bị thu hồi (Qdrant từ chối)") from None
+        raise QdrantCheckError(
+            f"Không kết nối được QDRANT_URL ({type(e).__name__}): kiểm tra URL và cluster còn chạy không") from None
+    probe = "_ingest_kiem_tra_quyen_ghi"
+    try:
+        if client.collection_exists(probe):
+            client.delete_collection(probe)
+        client.create_collection(probe, vectors_config=models.VectorParams(size=4, distance=models.Distance.COSINE))
+        client.delete_collection(probe)
+    except Exception as e:
+        raise QdrantCheckError(
+            f"QDRANT_API_KEY đọc được nhưng không có quyền tạo/xóa collection ({type(e).__name__})") from None
+    return collection in existing

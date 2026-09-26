@@ -58,6 +58,10 @@ uv sync --extra gpu --extra ingest
 uv run --no-sync python scripts/ingest.py
 ```
 
+Trước khi OCR, script kiểm tra hết; sai chỗ nào dừng ngay ở đó kèm lý do: có PDF không, ghi được vào `assets/` không, Qdrant URL/key đúng và có quyền ghi không, có GPU và poppler không, tải được model không.
+
+Tiến độ OCR được lưu sau **từng PDF** vào `assets/chunks.partial.json`, chỉ thay vào `assets/chunks.json` khi đã OCR đủ mọi PDF (nên lần chạy lỗi không ghi đè bản đầy đủ). Lỗi giữa chừng thì chạy lại đúng lệnh cũ: các PDF đã OCR được bỏ qua. Muốn OCR lại từ đầu thì thêm `--fresh`. Lỗi ở bước đẩy lên Qdrant thì chạy `--from-chunks`, không phải OCR lại.
+
 Chỉ dựng lại index (đổi cách mã hóa, mất collection trên Qdrant...), không OCR, không cần GPU:
 
 ```bash
@@ -115,7 +119,10 @@ Cấu hình ở đầu file:
 | `QDRANT_COLLECTION`   | `RAG_ChatBot_HAUI`         | Phải trùng `QDRANT_COLLECTION` của backend; luôn xóa rồi nạp lại toàn bộ |
 | `OCR_DPI`, `OCR_MAX_NEW_TOKENS` | `200`, `2048`       | Chất lượng ảnh và độ dài tối đa mỗi trang OCR      |
 | `MAX_ITEMS_PER_CHUNK` | `6`                           | Luật chia chunk, giữ giống bản chạy trên máy       |
-| `SAVE_CHUNKS_JSON`    | `/content/chunks.json`        | Lưu chunk ra file; tải về chép vào `backend/assets/chunks.json` để lần sau index lại không cần OCR |
+| `SAVE_CHUNKS_JSON`    | `/content/chunks.json`        | File lưu chunk, ghi sau **từng PDF**. Nên đặt trên Drive (`/content/drive/MyDrive/...`) để Colab ngắt kết nối không mất. Tải về chép vào `backend/assets/chunks.json` |
+| `REUSE_CHUNKS`        | `True`                        | PDF đã có trong `SAVE_CHUNKS_JSON` thì bỏ qua OCR khi chạy lại |
+
+Trước khi OCR, script kiểm tra hết rồi mới chạy; sai chỗ nào dừng ngay ở đó kèm lý do: thư mục PDF, file lưu chunk ghi được không, Qdrant URL kết nối được không, API key đúng và có quyền ghi không (thử tạo rồi xóa một collection tạm), có GPU không, tải được model OCR và embedding không. Lỗi ở bước đẩy lên Qdrant không làm mất kết quả OCR: sửa lỗi rồi chạy lại cell, các PDF đã OCR được bỏ qua.
 
 Lần chạy đầu tải model Nanonets (~7GB) và bge-m3 (~2GB), mất vài phút. Nếu Colab báo lỗi thư viện ngay sau bước cài đặt, chọn **Runtime > Restart session** rồi chạy lại cell.
 
